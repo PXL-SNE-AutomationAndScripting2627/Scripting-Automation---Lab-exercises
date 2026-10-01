@@ -42,11 +42,12 @@ scripts/
 
 ---
 
-# Deel 1 — Introductie en installatie
+<h1>Deel 1 — Introductie en installatie</h1>
 
 ## 1. Waarom scripting?
 
 Leg in je eigen woorden uit waarom scripting nuttig is voor systeem- en netwerkbeheer. Geef minstens vier concrete voordelen of toepassingsgebieden.
+
 
 ## 2. Package managers
 
