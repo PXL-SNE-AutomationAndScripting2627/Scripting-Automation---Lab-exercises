@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PowerShell Lab Answers</title>
+    <title>PowerShell Lab Answers - Angelo Switon</title>
     <link rel="stylesheet" href="styles.css" />
     <style>
       body {
@@ -41,9 +41,15 @@
         margin-bottom: 1.5rem;
       }
 
+      .answer-card h1,
+      .answer-card h2,
+      .answer-card h3,
+      .answer-card h4 {
+        color: var(--primary);
+      }
+
       .answer-card h2 {
         font-size: 1.7rem;
-        color: var(--primary);
         margin-top: 0;
       }
 
@@ -77,12 +83,20 @@
         overflow-x: auto;
       }
 
-      .warning-box {
-        border-left: 5px solid #f28c28;
+      .answer-card blockquote {
+        border-left: 4px solid #f28c28;
         background: #fffaf0;
-        padding: 0.8rem 1rem;
+        padding: 0.75rem 1rem;
         border-radius: 8px;
         margin: 1rem 0;
+      }
+
+      .answer-card img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        margin: 0.75rem 0;
       }
     </style>
   </head>
@@ -99,7 +113,7 @@
     <header class="page-header">
       <div class="container">
         <h1>PowerShell Lab Answers</h1>
-        <p>Structured overview of the assignment questions and tasks.</p>
+        <h2>Angelo Switon</h2>
       </div>
     </header>
 
@@ -108,79 +122,267 @@
         <h2>Deel 1 — Introductie en installatie</h2>
 
         <h3>1. Waarom scripting?</h3>
-        <p>Scripting is nuttig voor systeem- en netwerkbeheer omdat je taken kan automatiseren, herhalen en sneller uitvoeren. Voorbeelden zijn patching, configuratiebeheer, monitoring, backups en het opzetten van servers.</p>
-
-        <h3>2. Package managers</h3>
-        <p>Een package manager is een tool die softwarepakketten automatisch zoekt, downloadt, installeert, bijwerkt en verwijdert. Het maakt het eenvoudiger om software consistent te beheren.</p>
-
-        <div class="warning-box">
-          <strong>Tip:</strong> Gebruik package managers zoals winget, choco, npm of apt om software snel en veilig te installeren.
+        <p><i>Leg in je eigen woorden uit waarom scripting nuttig is voor systeem- en netwerkbeheer. Geef minstens vier concrete voordelen of toepassingsgebieden.</i></p>
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Ik vind scripting nuttig voor systeem- en netwerkbeheer omdat wij repititieve taken moeten kunnen automatiseren.<br>
+            Het automatiseren van taken kan ons in de praktijk zeer veel tijd besparen.<br>
+            Het verkleint de kans op menselijke fouten aanzienlijk omdat het script - <i>na het uitvoeren van grondige testen</i> - altijd hetzelfde restultaat zal opleveren.<br>
+            Het uitvoeren van wekelijkse of maandelijkse updates op een groot aantal computers kan met een script in een enkele minuten doorgevoerd worden, wanneer je dit handmatig zou doen, kan dit uren in beslag nemen.<br>
+            Maar ook het wekelijks of soms dagelijks maken van back-ups kan met een script geautomatiseerd worden.
         </div>
 
+        <h3>2. Package managers</h3>
+
+        <h4>2.1 Wat is een package manager?</h4>
+        <p>Omschrijf wat een package manager is en welke taken deze voor de gebruiker automatiseert.</p>
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+
+        <h4>2.2 Waarom gebruik je een package manager?</h4>
+        <p>Geef minstens drie voordelen ten opzichte van handmatig software downloaden en installeren.</p>
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+        
+        <h4>2.3 Installeer software met een package manager</h4>
+        <p>Zoek en installeer de volgende software. Noteer voor elk pakket welke package manager en welke commando's je gebruikte.</p>
+
+        <h5>2.3.1 PowerShell 7.x</h5>
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+        <h5>2.3.2 Windows Terminal</h5>
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+        <h5>2.3.3 Visual Studio Code</h5>
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+        <h5>2.3.4 Een Windows-versie van het Linux-commando <code>grep</code></h5>
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+        <h5>2.3.5 BusyBox</h5>
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+        <h5>2.3.6 Hoe werk je BusyBox bij?</h5>
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
         <h3>3. PowerShell-versie</h3>
-        <p>Je kunt de huidige versie opvragen met:</p>
-        <pre>$PSVersionTable</pre>
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
 
-        <h3>4. Execution policies</h3>
-        <p>Controleer de active policy met:</p>
-        <pre>Get-ExecutionPolicy
-Get-ExecutionPolicy -List</pre>
+        <h4>3.1 Toon de PowerShell-versie in je huidige sessie</h4>
+        <p>Voer een commando uit dat de volledige PowerShell-versietabel toont.</p>
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
 
-        <h3>5. PowerShell in VS Code</h3>
-        <p>Installeer de PowerShell-extensie in Visual Studio Code en controleer of scripts kunnen worden geopend en uitgevoerd via de integrated terminal.</p>
+        <h4>3.2 Zoek andere manieren om de versie op te vragen</h4>
+        <p>Geef minstens twee alternatieven. Vergelijk kort welke informatie ze tonen.</p>
 
-        <h3>6. Eerste script</h3>
-        <p>Maak een script in de map scripts en voer het uit via Windows Terminal of de VS Code terminal.</p>
-        <pre>PS&gt; .\scripts\Naam.ps1</pre>
+        <h3>4. PowerShell execution policies</h3>
+
+        <blockquote>
+          <p><b>Opgelet:</b> Voor wijzigingen op <code>LocalMachine</code> zijn administratorrechten nodig. Verlaag de beveiliging niet zonder toestemming van de docent. Gebruik bij voorkeur <code>RemoteSigned</code> en herstel de oorspronkelijke instelling na de oefening.</p>
+        </blockquote>
+
+        <h4>4.1 Controleer de actieve execution policy</h4>
+
+        <h4>4.2 Toon de execution policies voor alle scopes</h4>
+        <p>Neem minstens <code>MachinePolicy</code>, <code>UserPolicy</code>, <code>Process</code>, <code>CurrentUser</code> en <code>LocalMachine</code> op in je antwoord.</p>
+
+        <h4>4.3 Stel de policy voor <code>LocalMachine</code> in</h4>
+        <p>Met welk commando stel je de execution policy voor de scope <code>LocalMachine</code> in op <code>RemoteSigned</code>? Hoe zou het commando voor <code>Unrestricted</code> eruitzien?</p>
+
+        <h4>4.4 Zoek help over execution policies</h4>
+        <p>Gebruik het PowerShell-helpsysteem om algemene informatie en gedetailleerde cmdlet-informatie te vinden.</p>
+
+        <h4>4.5 Zoek help over één parameter</h4>
+        <p>Welke parameter van <code>Get-Help</code> gebruik je om alleen informatie over de parameter <code>ExecutionPolicy</code> van <code>Set-ExecutionPolicy</code> te tonen?</p>
+
+        <h3>5. PowerShell gebruiken in Visual Studio Code</h3>
+        <p>Zorg ervoor dat je PowerShell-scripts kunt schrijven en uitvoeren in Visual Studio Code.</p>
+
+        <blockquote>
+          <p><b>Tip:</b> Zoek naar een geschikte extensie in de Extensions-weergave van Visual Studio Code.</p>
+        </blockquote>
+
+        <p>Noteer welke extensie je installeerde en hoe je controleerde dat ze werkt.</p>
+
+        <h3>6. Eerste script: <code>Naam.ps1</code></h3>
+        <p>Maak <code>scripts/Naam.ps1</code>. Het script vraagt geen invoer en toont je naam en woonplaats.</p>
+
+        <p>Voorbeeld:</p>
+        <pre><code>PS&gt; .\scripts\Naam.ps1
+Naam: Dominique Houbrechts
+Woonplaats: Kortessem</code></pre>
+
+        <h4>6.1 Voer het script op twee manieren uit</h4>
+        <p>Voer het script uit:</p>
+        <ol>
+          <li>in een command shell, bijvoorbeeld Windows Terminal;</li>
+          <li>vanuit Visual Studio Code.</li>
+        </ol>
+
+        <h4>6.2 Hernoem het script</h4>
+        <p>Hernoem <code>Naam.ps1</code> naar <code>Mijn Naam.ps1</code> en voer het opnieuw uit vanuit Windows Terminal en Visual Studio Code. Noteer waarom je het pad anders moet invoeren wanneer de bestandsnaam een spatie bevat.</p>
+
+        <h3>7. Visual Studio Code starten als administrator</h3>
+        <p>Maak twee snelkoppelingen waarmee je Visual Studio Code als administrator kunt starten zonder bij elke start de volgende UAC-melding te krijgen.</p>
+
+        <img src="assets/uac-vscode.png" alt="UAC-melding bij het starten van Visual Studio Code" />
+        <p>Wijzig de aanbevolen instelling van User Account Control niet.</p>
+
+        <img src="assets/uac-settings.png" alt="Instellingen voor User Account Control" />
+        <p>Beschrijf de gekozen werkwijze en test beide snelkoppelingen.</p>
       </article>
 
       <article class="answer-card">
         <h2>Deel 2 — Help, cmdlets en objecten</h2>
 
         <h3>8. Help over processen</h3>
-        <p>Gebruik het ingebouwde helpsysteem van PowerShell:</p>
-        <pre>Get-Help *process*
-Get-Help Get-Process -Full
-Get-Help Get-Process -Online</pre>
 
-        <h3>9. Cmdlets ontdekken</h3>
-        <ul>
-          <li>Get-Command -Name *process* zoekt naar cmdlets met "process" in de naam.</li>
-          <li>Get-Command -Noun Process toont alle cmdlets met het objecttype Process.</li>
-          <li>Get-Command -Verb Get -Noun Process filtert op de verb Get en noun Process.</li>
-          <li>Get-Command -Verb Out toont cmdlets die output genereren.</li>
-        </ul>
+        <h4>8.1 Zoek help met de algemene zoekterm <code>process</code></h4>
+        <p>Gebruik alleen het PowerShell-helpsysteem.</p>
 
-        <h3>10. Processen en objecten</h3>
-        <p>Belangrijkste opdrachten:</p>
-        <pre>Get-Process
-Get-Member
-Get-Help Get-Process -Parameter Id</pre>
+        <h4>8.2 Vraag meer gedetailleerde informatie op</h4>
+        <p>Toon hoe je gedetailleerde, volledige en online help voor een specifieke process-cmdlet kunt openen.</p>
 
-        <h3>11. Verschil tussen Get-Help en Get-Command</h3>
-        <p>Get-Help toont documentatie en uitleg over cmdlets, parameters en voorbeelden. Get-Command toont de beschikbare cmdlets en metadata zoals naam, parameterlijst en module.</p>
-      </article>
+        <h3>9. Cmdlets ontdekken met <code>Get-Command</code></h3>
 
-      <article class="answer-card">
-        <h2>Deel 3 — Scripts, output en omgevingsvariabelen</h2>
+        <h4>9.1 Geef een overzicht van alle cmdlets</h4>
 
-        <h3>16. Comment-based help</h3>
-        <p>Comment-based help maakt een script beter te begrijpen en laat gebruik en parameters netjes in PowerShell-help verschijnen.</p>
+        <h4>9.2 Leg de volgende opdrachten uit</h4>
 
-        <h3>17. Tekst naar het scherm</h3>
-        <pre>Write-Output "Welkom bij PXL!!!"
-Write-Output "Welkom bij PXL!!!".ToUpper()</pre>
+        <h5>9.2.1 <code>Get-Command -Name *process*</code></h5>
+
+        <h5>9.2.2 <code>Get-Command -Noun Process</code></h5>
+
+        <h5>9.2.3 <code>Get-Command -Verb Get -Noun Process</code></h5>
+
+        <h5>9.2.4 <code>Get-Command -Verb Out</code></h5>
+
+        <h3>10. Processen en PowerShell-objecten</h3>
+
+        <h4>10.1 Welke twee cmdlets gebruik je om informatie over processen te zoeken?</h4>
+
+        <h4>10.2 Welke cmdlet vraagt alle systeemprocessen op?</h4>
+
+        <h4>10.3 Hoe open je de online help van deze cmdlet?</h4>
+
+        <h4>10.4 Hoe toon je alleen de syntaxis van deze cmdlet?</h4>
+
+        <h4>10.5 Hoe toon je help over de parameter <code>Id</code>?</h4>
+
+        <h4>10.6 Hoe toon je alle properties van de uitgevoerde processen?</h4>
+
+        <h4>10.7 Hoe toon je alle methods van de uitgevoerde processen?</h4>
+
+        <h3>11. Verschil tussen <code>Get-Help</code> en <code>Get-Command</code></h3>
+
+        <h4>11.1 <code>Get-Help</code></h4>
+        <p>Leg uit welke informatie deze cmdlet gebruikt en toont.</p>
+
+        <h4>11.2 <code>Get-Command</code></h4>
+        <p>Leg uit welke informatie deze cmdlet gebruikt en toont.</p>
+
+        <h3>12. Service-informatie als PowerShell-output</h3>
+        <p>Gebruik PowerShell om de aangeduide informatie over de service <strong>BITS</strong> te tonen: servicenaam, weergavenaam, pad naar het uitvoerbare bestand en status.</p>
+
+        <img src="assets/bits-service-properties.png" alt="Eigenschappen van de BITS-service" />
+
+        <h3>13. Zoek de PowerShell-opdracht achter <code>dir</code></h3>
+        <p>Zoek op minstens twee manieren welke PowerShell-opdracht overeenkomt met <code>dir</code> in Windows.</p>
+
+        <h3>14. Maak de terminal leeg</h3>
+        <p>Gebruik de lokale PowerShell-help, niet het internet, om te vinden hoe je het scherm leegmaakt.</p>
+
+        <h4>14.1 Welke aliassen kun je hiervoor gebruiken?</h4>
+
+        <h3>15. Geef een overzicht van alle aliassen</h3>
+        <p>Toon alle aliassen die in je huidige PowerShell-sessie beschikbaar zijn.</p>
+
+        <h3>16. Maak een script met comment-based help</h3>
+        <p>Maak <code>scripts/Script_Template_JouwNaam.ps1</code> op basis van de volgende structuur. Vervang <code>JouwNaam</code> eventueel door je eigen naam, zonder tekens die niet in een Windows-bestandsnaam zijn toegestaan.</p>
+
+        <img src="assets/script-template.png" alt="Voorbeeld van comment-based help in een PowerShell-script" />
+
+        <p>Voer daarna uit:</p>
+        <pre><code>Get-Help .\scripts\Script_Template_JouwNaam.ps1
+Get-Help .\scripts\Script_Template_JouwNaam.ps1 -Full</code></pre>
+
+        <img src="assets/script-help-output.png" alt="Voorbeeldoutput van Get-Help voor een script" />
+
+        <h4>16.1 Wat is het doel van comment-based help?</h4>
+
+        <h3>17. Tekst naar het scherm sturen</h3>
+        <p>Toon de volgende tekst met een PowerShell-cmdlet:</p>
+        <pre><code>Welkom bij PXL!!!</code></pre>
+
+        <img src="assets/welcome-output.png" alt="Verwachte uitvoer: Welkom bij PXL" />
+
+        <h4>17.1 Wat is het verschil tussen <code>Write-Output</code> en <code>Write-Host</code>?</h4>
+
+        <h4>17.2 Zet de tekst om naar hoofdletters</h4>
+        <p>Stuur dezelfde tekst in hoofdletters naar het scherm zonder de tekst zelf in hoofdletters in je opdrachtregel te schrijven.</p>
+
+        <img src="assets/uppercase-output.png" alt="Verwachte uitvoer in hoofdletters" />
+
+        <blockquote>
+          <p><b>Tip:</b> Zoek naar strings, types, methods en <code>ToUpper</code>.</p>
+        </blockquote>
 
         <h3>18. Omgevingsvariabelen</h3>
-        <pre>$env:COMPUTERNAME
-$env:USERNAME
-$env:SYSTEMDRIVE
-$env:USERPROFILE</pre>
+        <p>Zoek met PowerShell hoe je omgevingsvariabelen gebruikt. Toon vervolgens:</p>
+
+        <h4>18.1 De computernaam (<code>COMPUTERNAME</code>)</h4>
+
+        <h4>18.2 De gebruikersnaam (<code>USERNAME</code>)</h4>
+
+        <h4>18.3 De systeemschijf (<code>SYSTEMDRIVE</code>)</h4>
+
+        <h4>18.4 Het gebruikersprofiel (<code>USERPROFILE</code>)</h4>
+        <p>Voorbeeld: <code>C:\Users\Dominique</code>.</p>
+
+        <h4>18.5 Maak <code>ToonEnvInfo.ps1</code></h4>
+        <p>Maak <code>scripts/ToonEnvInfo.ps1</code>. Het script maakt eerst het scherm leeg en toont daarna een systeemrapport met de vier waarden.</p>
+
+        <p>Verwachte uitvoer:</p>
+        <img src="assets/environment-report.png" alt="Verwachte uitvoer van ToonEnvInfo.ps1" />
 
         <h3>19. Processen starten en stoppen</h3>
-        <p>Gebruik PowerShell om Notepad te openen en daarna processen te laten zien:</p>
-        <pre>Start-Process notepad
-Get-Process notepad | Select-Object Id, Name, Path</pre>
+
+        <blockquote>
+          <p><b>Opgelet:</b>Sluit je bestaande Notepad-sessies voordat je deze oefening uitvoert. Het stopscript sluit alle processen met de naam <code>notepad</code>.</p>
+        </blockquote>
+
+        <p>Maak <code>scripts/Notepad-Joke.ps1</code> dat vier Notepad-vensters opent.</p>
+
+        <h4>19.1 Hoe start je Notepad met een cmdlet?</h4>
+
+        <h4>19.2 Hoe toon je alle actieve Notepad-processen?</h4>
+
+        <h4>19.3 Toon <code>Id</code>, <code>Name</code> en <code>CommandLine</code></h4>
+        <p>Zorg voor vergelijkbare uitvoer:</p>
+
+        <img src="assets/notepad-processes.png" alt="Overzicht van Notepad-processen" />
       </article>
     </main>
   </body>
