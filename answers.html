@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PowerShell Lab Answers</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        background: linear-gradient(180deg, #edf4ff 0%, #f7f9fc 100%);
+      }
+
+      .page-header {
+        background: linear-gradient(135deg, #0b3b6f, #144f9a);
+        color: #fff;
+        padding: 2.5rem 0 2rem;
+      }
+
+      .page-header h1 {
+        margin: 0 0 0.5rem;
+        font-size: clamp(2rem, 3vw, 2.8rem);
+      }
+
+      .page-header p {
+        margin: 0;
+        opacity: 0.9;
+      }
+
+      .content-wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 2rem 1rem 4rem;
+      }
+
+      .answer-card {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        box-shadow: 0 8px 22px rgba(11, 59, 111, 0.08);
+        padding: 2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .answer-card h2 {
+        font-size: 1.7rem;
+        color: var(--primary);
+        margin-top: 0;
+      }
+
+      .answer-card h3 {
+        font-size: 1.1rem;
+        margin-top: 1.5rem;
+        color: #1a2d4d;
+      }
+
+      .answer-card p,
+      .answer-card li {
+        font-size: 1rem;
+        color: var(--text);
+      }
+
+      .answer-card ul,
+      .answer-card ol {
+        padding-left: 1.4rem;
+      }
+
+      .answer-card code,
+      .answer-card pre {
+        font-family: Consolas, "Courier New", monospace;
+      }
+
+      .answer-card pre {
+        background: #f3f7fd;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 1rem;
+        overflow-x: auto;
+      }
+
+      .warning-box {
+        border-left: 5px solid #f28c28;
+        background: #fffaf0;
+        padding: 0.8rem 1rem;
+        border-radius: 8px;
+        margin: 1rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="top-menu">
+      <div class="container nav-inner">
+        <a href="index.html">Home</a>
+        <a href="answers.html">Answers</a>
+        <a href="screenshots.html">Screenshots</a>
+        <a href="scripts.html">Scripts</a>
+      </div>
+    </nav>
+
+    <header class="page-header">
+      <div class="container">
+        <h1>PowerShell Lab Answers</h1>
+        <p>Structured overview of the assignment questions and tasks.</p>
+      </div>
+    </header>
+
+    <main class="content-wrap">
+      <article class="answer-card">
+        <h2>Deel 1 — Introductie en installatie</h2>
+
+        <h3>1. Waarom scripting?</h3>
+        <p>Scripting is nuttig voor systeem- en netwerkbeheer omdat je taken kan automatiseren, herhalen en sneller uitvoeren. Voorbeelden zijn patching, configuratiebeheer, monitoring, backups en het opzetten van servers.</p>
+
+        <h3>2. Package managers</h3>
+        <p>Een package manager is een tool die softwarepakketten automatisch zoekt, downloadt, installeert, bijwerkt en verwijdert. Het maakt het eenvoudiger om software consistent te beheren.</p>
+
+        <div class="warning-box">
+          <strong>Tip:</strong> Gebruik package managers zoals winget, choco, npm of apt om software snel en veilig te installeren.
+        </div>
+
+        <h3>3. PowerShell-versie</h3>
+        <p>Je kunt de huidige versie opvragen met:</p>
+        <pre>$PSVersionTable</pre>
+
+        <h3>4. Execution policies</h3>
+        <p>Controleer de active policy met:</p>
+        <pre>Get-ExecutionPolicy
+Get-ExecutionPolicy -List</pre>
+
+        <h3>5. PowerShell in VS Code</h3>
+        <p>Installeer de PowerShell-extensie in Visual Studio Code en controleer of scripts kunnen worden geopend en uitgevoerd via de integrated terminal.</p>
+
+        <h3>6. Eerste script</h3>
+        <p>Maak een script in de map scripts en voer het uit via Windows Terminal of de VS Code terminal.</p>
+        <pre>PS&gt; .\scripts\Naam.ps1</pre>
+      </article>
+
+      <article class="answer-card">
+        <h2>Deel 2 — Help, cmdlets en objecten</h2>
+
+        <h3>8. Help over processen</h3>
+        <p>Gebruik het ingebouwde helpsysteem van PowerShell:</p>
+        <pre>Get-Help *process*
+Get-Help Get-Process -Full
+Get-Help Get-Process -Online</pre>
+
+        <h3>9. Cmdlets ontdekken</h3>
+        <ul>
+          <li>Get-Command -Name *process* zoekt naar cmdlets met "process" in de naam.</li>
+          <li>Get-Command -Noun Process toont alle cmdlets met het objecttype Process.</li>
+          <li>Get-Command -Verb Get -Noun Process filtert op de verb Get en noun Process.</li>
+          <li>Get-Command -Verb Out toont cmdlets die output genereren.</li>
+        </ul>
+
+        <h3>10. Processen en objecten</h3>
+        <p>Belangrijkste opdrachten:</p>
+        <pre>Get-Process
+Get-Member
+Get-Help Get-Process -Parameter Id</pre>
+
+        <h3>11. Verschil tussen Get-Help en Get-Command</h3>
+        <p>Get-Help toont documentatie en uitleg over cmdlets, parameters en voorbeelden. Get-Command toont de beschikbare cmdlets en metadata zoals naam, parameterlijst en module.</p>
+      </article>
+
+      <article class="answer-card">
+        <h2>Deel 3 — Scripts, output en omgevingsvariabelen</h2>
+
+        <h3>16. Comment-based help</h3>
+        <p>Comment-based help maakt een script beter te begrijpen en laat gebruik en parameters netjes in PowerShell-help verschijnen.</p>
+
+        <h3>17. Tekst naar het scherm</h3>
+        <pre>Write-Output "Welkom bij PXL!!!"
+Write-Output "Welkom bij PXL!!!".ToUpper()</pre>
+
+        <h3>18. Omgevingsvariabelen</h3>
+        <pre>$env:COMPUTERNAME
+$env:USERNAME
+$env:SYSTEMDRIVE
+$env:USERPROFILE</pre>
+
+        <h3>19. Processen starten en stoppen</h3>
+        <p>Gebruik PowerShell om Notepad te openen en daarna processen te laten zien:</p>
+        <pre>Start-Process notepad
+Get-Process notepad | Select-Object Id, Name, Path</pre>
+      </article>
+    </main>
+  </body>
+</html>

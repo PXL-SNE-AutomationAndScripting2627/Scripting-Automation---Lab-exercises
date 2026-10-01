@@ -1,0 +1,95 @@
+:root {
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --primary: #0b3b6f;
+  --accent: #f28c28;
+  --text: #1a1d23;
+  --muted: #546071;
+  --border: #dfe7f2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.top-menu {
+  background: #0d2446;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.nav-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 0.85rem 0;
+}
+
+.top-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 0.85rem;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.top-menu a:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.container {
+  width: min(960px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--primary), #114c91);
+  color: #fff;
+  padding: 2.5rem 0;
+  text-align: center;
+}
+
+.logo {
+  display: block;
+  width: min(620px, 100%);
+  margin: 0 auto 1rem;
+  height: auto;
+}
+
+h1, h2 {
+  margin-top: 0;
+}
+
+main {
+  padding: 2rem 0 3rem;
+}
+
+section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 6px 18px rgba(11, 59, 111, 0.06);
+}
+
+ul, ol {
+  margin: 0.5rem 0 0 1.2rem;
+}
+
+pre {
+  background: #f2f5f9;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-x: auto;
+}
