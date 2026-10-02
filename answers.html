@@ -135,67 +135,77 @@
         <h3>2. Package managers</h3>
 
         <h4>2.1 Wat is een package manager?</h4>
-        <p>Omschrijf wat een package manager is en welke taken deze voor de gebruiker automatiseert.</p>
+        <p><i>Omschrijf wat een package manager is en welke taken deze voor de gebruiker automatiseert.</i></p>
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            Een package manager is een softwareprogramma waarmee je softwarepakketten kan downloaden en installeren.
+            Het voordeel hieraan is dat je niet op zoek moet gaan op het internet naar de correcte versie van de software en dat je weet dat je altijd een veilige en correcte versie van de software download.
         </div>
 
         <h4>2.2 Waarom gebruik je een package manager?</h4>
-        <p>Geef minstens drie voordelen ten opzichte van handmatig software downloaden en installeren.</p>
+        <p><i>Geef minstens drie voordelen ten opzichte van handmatig software downloaden en installeren.</i></p>
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            1. Alle softwarepakketten vind je op een plaats.<br>
+            2. Alle softwarepakketten zijn veilig en je weet dat je het niet download via een onbetrouwbare bron.<br>
+            3. De package manager zorgt voor automatische updates en beheer van de geïnstalleerde software.<br>
         </div>
         
         <h4>2.3 Installeer software met een package manager</h4>
-        <p>Zoek en installeer de volgende software. Noteer voor elk pakket welke package manager en welke commando's je gebruikte.</p>
+        <p><i>Zoek en installeer de volgende software. Noteer voor elk pakket welke package manager en welke commando's je gebruikte.</i></p>
 
         <h5>2.3.1 PowerShell 7.x</h5>
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            winget install --id Micrososft.Powershell --exact --source winget
         </div>
         <h5>2.3.2 Windows Terminal</h5>
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            winget install --id Microsoft.WindowsTerminal --exact --source winget
         </div>
         <h5>2.3.3 Visual Studio Code</h5>
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            winget install --id Microsoft.VisualStudioCode --exact --source winget
         </div>
         <h5>2.3.4 Een Windows-versie van het Linux-commando <code>grep</code></h5>
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            winget install --id GnuWin32.Grep --exact --source winget
         </div>
         <h5>2.3.5 BusyBox</h5>
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            winget install --id frippery.busybox --exact --source winget
         </div>
+
         <h5>2.3.6 Hoe werk je BusyBox bij?</h5>
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            winget upgrade --id frippery.busybox-w32 --source winget
         </div>
+
         <h3>3. PowerShell-versie</h3>
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            $PSVersionTable.PSVersion
         </div>
 
         <h4>3.1 Toon de PowerShell-versie in je huidige sessie</h4>
         <p>Voer een commando uit dat de volledige PowerShell-versietabel toont.</p>
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            $PSVersionTable
         </div>
 
         <h4>3.2 Zoek andere manieren om de versie op te vragen</h4>
-        <p>Geef minstens twee alternatieven. Vergelijk kort welke informatie ze tonen.</p>
+        <p><i>Geef minstens twee alternatieven. Vergelijk kort welke informatie ze tonen.</i></p>
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-Host<br>
+            pwsh --version
+        </div>
 
         <h3>4. PowerShell execution policies</h3>
 
@@ -205,17 +215,45 @@
 
         <h4>4.1 Controleer de actieve execution policy</h4>
 
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-ExecutionPolicy
+        </div>
+
         <h4>4.2 Toon de execution policies voor alle scopes</h4>
-        <p>Neem minstens <code>MachinePolicy</code>, <code>UserPolicy</code>, <code>Process</code>, <code>CurrentUser</code> en <code>LocalMachine</code> op in je antwoord.</p>
+        <p><i>Neem minstens <code>MachinePolicy</code>, <code>UserPolicy</code>, <code>Process</code>, <code>CurrentUser</code> en <code>LocalMachine</code> op in je antwoord.</i></p>
+
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-ExecutionPolicy -List
+        </div>
 
         <h4>4.3 Stel de policy voor <code>LocalMachine</code> in</h4>
         <p>Met welk commando stel je de execution policy voor de scope <code>LocalMachine</code> in op <code>RemoteSigned</code>? Hoe zou het commando voor <code>Unrestricted</code> eruitzien?</p>
 
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            # RemoteSigned<br>
+            Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine<br>
+            # Unrestricted<br>
+            Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope LocalMachine<br>
+        </div>
+
         <h4>4.4 Zoek help over execution policies</h4>
         <p>Gebruik het PowerShell-helpsysteem om algemene informatie en gedetailleerde cmdlet-informatie te vinden.</p>
 
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-Help Get-Process -Detailed
+        </div>
+
         <h4>4.5 Zoek help over één parameter</h4>
         <p>Welke parameter van <code>Get-Help</code> gebruik je om alleen informatie over de parameter <code>ExecutionPolicy</code> van <code>Set-ExecutionPolicy</code> te tonen?</p>
+
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-Help Set-ExecutionPolicy -Parameter ExecutionPolicy
+        </div>
 
         <h3>5. PowerShell gebruiken in Visual Studio Code</h3>
         <p>Zorg ervoor dat je PowerShell-scripts kunt schrijven en uitvoeren in Visual Studio Code.</p>
@@ -225,6 +263,13 @@
         </blockquote>
 
         <p>Noteer welke extensie je installeerde en hoe je controleerde dat ze werkt.</p>
+
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Extensie: PowerShell<br>
+            In <i>naam.ps1</i> heb ik <i>$PSVersionTable.PSVersion Write-Host "Succesvol"</i> getypt.<br>
+            Daarna heb ik op F5 gedrukt en de output van het script was te zien in de Terminal van VS Code.
+        </div>
 
         <h3>6. Eerste script: <code>Naam.ps1</code></h3>
         <p>Maak <code>scripts/Naam.ps1</code>. Het script vraagt geen invoer en toont je naam en woonplaats.</p>
@@ -240,10 +285,23 @@ Woonplaats: Kortessem</code></pre>
           <li>in een command shell, bijvoorbeeld Windows Terminal;</li>
           <li>vanuit Visual Studio Code.</li>
         </ol>
+                   <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Write-Host<br>
+            "Naam: Angelo Switon<br>
+            Woonplaats: Hasselt"
+        </div>
 
         <h4>6.2 Hernoem het script</h4>
         <p>Hernoem <code>Naam.ps1</code> naar <code>Mijn Naam.ps1</code> en voer het opnieuw uit vanuit Windows Terminal en Visual Studio Code. Noteer waarom je het pad anders moet invoeren wanneer de bestandsnaam een spatie bevat.</p>
 
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+          1. Rename-Item .\Naam.ps1 .\"Angelo Switon.ps1"<br>
+          2. .\"Angelo Switon.ps1"<br>
+          Waarom een andere invoer: Pws ziet dit als een commandlet
+        </div>
+        
         <h3>7. Visual Studio Code starten als administrator</h3>
         <p>Maak twee snelkoppelingen waarmee je Visual Studio Code als administrator kunt starten zonder bij elke start de volgende UAC-melding te krijgen.</p>
 
@@ -252,8 +310,15 @@ Woonplaats: Kortessem</code></pre>
 
         <img src="assets/uac-settings.png" alt="Instellingen voor User Account Control" />
         <p>Beschrijf de gekozen werkwijze en test beide snelkoppelingen.</p>
+
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+          
+        </div>
+
       </article>
 
+      
       <article class="answer-card">
         <h2>Deel 2 — Help, cmdlets en objecten</h2>
 
