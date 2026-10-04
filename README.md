@@ -27,6 +27,8 @@ Na deze lab kun je:
 3. Gebruik betekenisvolle commitberichten en push je werk naar je Classroom-repository.
 4. Voeg waar gevraagd een schermafbeelding of korte beschrijving van je testresultaat toe.
 
+Werk je een scriptnaam of de scripts in de map `scripts/` bij? Voer dan vóór het publiceren van de website `.\tools\Build-Site.ps1` uit. Het script bouwt de links op `scripts.html` automatisch opnieuw op basis van de aanwezige `.ps1`-bestanden.
+
 Minimaal in te leveren:
 
 ```text
