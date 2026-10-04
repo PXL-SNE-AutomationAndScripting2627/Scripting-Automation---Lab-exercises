@@ -3,91 +3,69 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PowerShell Scripts</title>
+    <meta name="theme-color" content="#0d1117" />
+    <title>Scripts — PowerShell Lab</title>
     <link rel="stylesheet" href="styles.css" />
-    <style>
-      body {
-        background: linear-gradient(180deg, #f6f8fb 0%, #eef4ff 100%);
-      }
-
-      .page-header {
-        background: linear-gradient(135deg, #1d3557, #457b9d);
-        color: #fff;
-        padding: 2.5rem 0 2rem;
-      }
-
-      .page-header h1 {
-        margin: 0;
-        font-size: clamp(2rem, 3vw, 2.8rem);
-      }
-
-      .content-wrap {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 2rem 1rem 4rem;
-      }
-
-      .card {
-        background: #fff;
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        box-shadow: 0 8px 22px rgba(29, 53, 87, 0.08);
-        padding: 2rem;
-      }
-
-      .script-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: grid;
-        gap: 0.9rem;
-      }
-
-      .script-list a {
-        display: block;
-        text-decoration: none;
-        background: #f7fafd;
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        padding: 0.9rem 1rem;
-        color: var(--primary);
-        font-weight: 600;
-      }
-
-      .script-list a:hover {
-        background: #edf5ff;
-      }
-    </style>
   </head>
-  <body>
-    <nav class="top-menu">
-      <div class="container nav-inner">
-        <a href="index.html">Home</a>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="docs-header">
+      <a class="docs-brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell Lab</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Main navigation">
+        <a href="index.html">Overview</a>
         <a href="answers.html">Answers</a>
         <a href="screenshots.html">Screenshots</a>
-        <a href="scripts.html">Scripts</a>
-      </div>
-    </nav>
-
-    <header class="page-header">
-      <div class="container">
-        <h1>Scripts</h1>
-      </div>
+        <a href="scripts.html" aria-current="page">Scripts</a>
+      </nav>
     </header>
-
-    <main class="content-wrap">
-      <section class="card">
-        <ul class="script-list">
-          <!-- SCRIPT_LINKS_START -->
-          <li><a href="scripts/Angelo%20Switon.ps1">Angelo Switon.ps1</a></li>
-          <li><a href="scripts/firewall-firefox.ps1">firewall-firefox.ps1</a></li>
-          <li><a href="scripts/Notepad-Joke.ps1">Notepad-Joke.ps1</a></li>
-          <li><a href="scripts/Notepas-Joke-Stop.ps1">Notepas-Joke-Stop.ps1</a></li>
-          <li><a href="scripts/Script_Template_AngeloSwiton.ps1">Script_Template_AngeloSwiton.ps1</a></li>
-          <li><a href="scripts/ToonEnvInfo.ps1">ToonEnvInfo.ps1</a></li>
-          <!-- SCRIPT_LINKS_END -->
-        </ul>
-      </section>
-    </main>
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">Scripts</span>
+      </div>
+    </div>
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Page navigation">
+        <p class="sidebar-heading">PowerShell Lab</p>
+        <a href="index.html">Overview</a>
+        <p class="sidebar-group-label">Project pages</p>
+        <a href="answers.html">Answers</a>
+        <a class="sidebar-current" href="scripts.html" aria-current="page">Scripts</a>
+        <a href="screenshots.html">Screenshots</a>
+      </aside>
+      <main id="main-content" class="docs-main">
+        <section class="docs-hero docs-page-hero" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PowerShell Lab · Repository</p>
+            <h1 id="page-title">Scripts</h1>
+            <p class="hero-description">Browse the PowerShell scripts created for the lab.</p>
+          </div>
+        </section>
+        <section class="docs-section" aria-labelledby="script-list-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Lab files</p>
+              <h2 id="script-list-title">Available scripts</h2>
+            </div>
+            <span class="section-count">6 files</span>
+          </div>
+          <ul class="script-list">
+            <!-- SCRIPT_LINKS_START -->
+            <li><a href="scripts/Angelo%20Switon.ps1">Angelo Switon.ps1</a></li>
+            <li><a href="scripts/firewall-firefox.ps1">firewall-firefox.ps1</a></li>
+            <li><a href="scripts/Notepad-Joke.ps1">Notepad-Joke.ps1</a></li>
+            <li><a href="scripts/Notepas-Joke-Stop.ps1">Notepas-Joke-Stop.ps1</a></li>
+            <li><a href="scripts/Script_Template_AngeloSwiton.ps1">Script_Template_AngeloSwiton.ps1</a></li>
+            <li><a href="scripts/ToonEnvInfo.ps1">ToonEnvInfo.ps1</a></li>
+            <!-- SCRIPT_LINKS_END -->
+          </ul>
+        </section>
+        <footer class="docs-footer">Extended Lab 01 <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
   </body>
 </html>

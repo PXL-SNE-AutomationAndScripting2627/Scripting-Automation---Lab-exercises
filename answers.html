@@ -3,123 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
     <title>PowerShell Lab Answers - Angelo Switon</title>
     <link rel="stylesheet" href="styles.css" />
-    <style>
-      body {
-        background: linear-gradient(180deg, #edf4ff 0%, #f7f9fc 100%);
-      }
-
-      .page-header {
-        background: linear-gradient(135deg, #0b3b6f, #144f9a);
-        color: #fff;
-        padding: 2.5rem 0 2rem;
-      }
-
-      .page-header h1 {
-        margin: 0 0 0.5rem;
-        font-size: clamp(2rem, 3vw, 2.8rem);
-      }
-
-      .page-header p {
-        margin: 0;
-        opacity: 0.9;
-      }
-
-      .content-wrap {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 2rem 1rem 4rem;
-      }
-
-      .answer-card {
-        background: #fff;
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        box-shadow: 0 8px 22px rgba(11, 59, 111, 0.08);
-        padding: 2rem;
-        margin-bottom: 1.5rem;
-      }
-
-      .answer-card h1,
-      .answer-card h2,
-      .answer-card h3,
-      .answer-card h4 {
-        color: var(--primary);
-      }
-
-      .answer-card h2 {
-        font-size: 1.7rem;
-        margin-top: 0;
-      }
-
-      .answer-card h3 {
-        font-size: 1.1rem;
-        margin-top: 1.5rem;
-        color: #1a2d4d;
-      }
-
-      .answer-card p,
-      .answer-card li {
-        font-size: 1rem;
-        color: var(--text);
-      }
-
-      .answer-card ul,
-      .answer-card ol {
-        padding-left: 1.4rem;
-      }
-
-      .answer-card code,
-      .answer-card pre {
-        font-family: Consolas, "Courier New", monospace;
-      }
-
-      .answer-card pre {
-        background: #f3f7fd;
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        padding: 1rem;
-        overflow-x: auto;
-      }
-
-      .answer-card blockquote {
-        border-left: 4px solid #f28c28;
-        background: #fffaf0;
-        padding: 0.75rem 1rem;
-        border-radius: 8px;
-        margin: 1rem 0;
-      }
-
-      .answer-card img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 10px;
-        border: 1px solid var(--border);
-        margin: 0.75rem 0;
-      }
-    </style>
   </head>
-  <body>
-    <nav class="top-menu">
-      <div class="container nav-inner">
-        <a href="index.html">Home</a>
-        <a href="answers.html">Answers</a>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="docs-header">
+      <a class="docs-brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell Lab</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Main navigation">
+        <a href="index.html">Overview</a>
+        <a href="answers.html" aria-current="page">Answers</a>
         <a href="screenshots.html">Screenshots</a>
         <a href="scripts.html">Scripts</a>
-      </div>
-    </nav>
-
-    <header class="page-header">
-      <div class="container">
-        <h1>PowerShell Lab Answers</h1>
-        <h2>Angelo Switon</h2>
-      </div>
+      </nav>
     </header>
-
-    <main class="content-wrap">
-      <article class="answer-card">
-        <h2>Deel 1 — Introductie en installatie</h2>
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">Answers</span>
+      </div>
+    </div>
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Page navigation">
+        <p class="sidebar-heading">PowerShell Lab</p>
+        <a href="index.html">Overview</a>
+        <p class="sidebar-group-label">Project pages</p>
+        <a class="sidebar-current" href="answers.html" aria-current="page">Answers</a>
+        <a href="scripts.html">Scripts</a>
+        <a href="screenshots.html">Screenshots</a>
+        <p class="sidebar-group-label">In this page</p>
+        <nav id="answer-sections" aria-label="Answer sections"></nav>
+      </aside>
+      <main id="main-content" class="docs-main">
+        <section class="docs-hero docs-page-hero" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PowerShell Lab · Submitted work</p>
+            <h1 id="page-title">Answers</h1>
+            <p class="hero-description">Lab answers by Angelo Switon.</p>
+          </div>
+        </section>
+      <article class="answer-card docs-article">
+        <h2 id="part-1">Deel 1 — Introductie en installatie</h2>
 
         <h3>1. Waarom scripting?</h3>
         <p><i>Leg in je eigen woorden uit waarom scripting nuttig is voor systeem- en netwerkbeheer. Geef minstens vier concrete voordelen of toepassingsgebieden.</i></p>
@@ -340,8 +269,8 @@ Woonplaats: Kortessem</code></pre>
       </article>
 
       
-      <article class="answer-card">
-        <h2>Deel 2 — Help, cmdlets en objecten</h2>
+      <article class="answer-card docs-article">
+        <h2 id="part-2">Deel 2 — Help, cmdlets en objecten</h2>
 
         <h3>8. Help over processen</h3>
 
@@ -746,7 +675,7 @@ Gebruikersprofiel: $env:USERPROFILE"</pre></code>
 1..4 | ForEach-Object { Start-Process notepad -Windowstyle Maximized }</pre></code>
         </div>
 
-        <h2>20. Firewalloefening — Firefox</h2>
+        <h4 id="firewall-exercise">20. Firewalloefening — Firefox</h4>
 
         <blockquote style="border-left:4px solid #f28c28; background:#fffaf0; padding:0.75rem 1rem; border-radius:8px; margin:1rem 0; color:#5c3d00;">
             <strong>Let op:</strong> Deze oefening wijzigt de Windows Firewall en vereist administratorrechten. Voer ze alleen uit op het aangewezen labsysteem. Verwijder je testregel aan het einde.
@@ -809,12 +738,46 @@ Write-Host 'Regel verwijderd'
                   </div>
 
       </article>
-<article class="answer-card">
+<article class="answer-card docs-article">
 
   Hier komen de volgende hoofdstukken
 
 </article>
 
-    </main>
+        <footer class="docs-footer">Extended Lab 01 <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script>
+      const answerHeadings = document.querySelectorAll("#main-content .docs-article h2");
+      const answerSections = document.getElementById("answer-sections");
+      const usedIds = new Set(Array.from(document.querySelectorAll("[id]"), (element) => element.id));
+
+      answerHeadings.forEach((heading) => {
+        if (!heading.id) {
+          const baseId = heading.textContent
+            .trim()
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-|-$/g, "") || "section";
+          let id = baseId;
+          let suffix = 2;
+
+          while (usedIds.has(id)) {
+            id = `${baseId}-${suffix}`;
+            suffix += 1;
+          }
+
+          heading.id = id;
+          usedIds.add(id);
+        }
+
+        const link = document.createElement("a");
+        link.href = `#${heading.id}`;
+        link.textContent = heading.textContent.trim();
+        answerSections.append(link);
+      });
+    </script>
   </body>
 </html>

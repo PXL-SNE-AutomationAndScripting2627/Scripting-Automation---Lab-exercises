@@ -3,71 +3,56 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Screenshot Answers</title>
+    <meta name="theme-color" content="#0d1117" />
+    <title>Screenshots — PowerShell Lab</title>
     <link rel="stylesheet" href="styles.css" />
-    <style>
-      body {
-        background: linear-gradient(180deg, #eef6ff 0%, #f5f8fc 100%);
-      }
-
-      .page-header {
-        background: linear-gradient(135deg, #0f4c81, #2b7bc8);
-        color: #fff;
-        padding: 2.5rem 0 2rem;
-      }
-
-      .page-header h1 {
-        margin: 0;
-        font-size: clamp(2rem, 3vw, 2.8rem);
-      }
-
-      .content-wrap {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 2rem 1rem 4rem;
-      }
-
-      .card {
-        background: #fff;
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        box-shadow: 0 8px 22px rgba(15, 76, 129, 0.08);
-        padding: 2rem;
-      }
-
-      .empty-state {
-        text-align: center;
-        padding: 2rem;
-        border: 2px dashed #bfd5ee;
-        border-radius: 12px;
-        background: #f5faff;
-        color: var(--muted);
-      }
-    </style>
   </head>
-  <body>
-    <nav class="top-menu">
-      <div class="container nav-inner">
-        <a href="index.html">Home</a>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="docs-header">
+      <a class="docs-brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell Lab</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Main navigation">
+        <a href="index.html">Overview</a>
         <a href="answers.html">Answers</a>
-        <a href="screenshots.html">Screenshots</a>
+        <a href="screenshots.html" aria-current="page">Screenshots</a>
         <a href="scripts.html">Scripts</a>
-      </div>
-    </nav>
-
-    <header class="page-header">
-      <div class="container">
-        <h1>Screenshots - answers</h1>
-      </div>
+      </nav>
     </header>
-
-    <main class="content-wrap">
-      <section class="card">
-        <div class="empty-state">
-          <h2>No screenshots added yet</h2>
-          <p>This folder is currently empty. Add images here and they can be displayed in this page later.</p>
-        </div>
-      </section>
-    </main>
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">Screenshots</span>
+      </div>
+    </div>
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Page navigation">
+        <p class="sidebar-heading">PowerShell Lab</p>
+        <a href="index.html">Overview</a>
+        <p class="sidebar-group-label">Project pages</p>
+        <a href="answers.html">Answers</a>
+        <a href="scripts.html">Scripts</a>
+        <a class="sidebar-current" href="screenshots.html" aria-current="page">Screenshots</a>
+      </aside>
+      <main id="main-content" class="docs-main">
+        <section class="docs-hero docs-page-hero" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PowerShell Lab · Reference</p>
+            <h1 id="page-title">Screenshots</h1>
+            <p class="hero-description">Visual evidence and reference images for the lab.</p>
+          </div>
+        </section>
+        <section class="docs-section screenshot-empty" aria-labelledby="empty-title">
+          <div class="empty-state">
+            <h2 id="empty-title">No screenshots added yet</h2>
+            <p>This folder is currently empty. Add images here and they can be displayed in this page later.</p>
+          </div>
+        </section>
+        <footer class="docs-footer">Extended Lab 01 <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
   </body>
 </html>
