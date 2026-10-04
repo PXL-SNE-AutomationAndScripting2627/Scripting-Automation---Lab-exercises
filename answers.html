@@ -299,7 +299,7 @@ Woonplaats: Kortessem</code></pre>
             <strong>Mijn antwoord:</strong><br><br>
           1. Rename-Item .\Naam.ps1 .\"Angelo Switon.ps1"<br>
           2. .\"Angelo Switon.ps1"<br>
-          Waarom een andere invoer: Pws ziet dit als een commandlet
+          Waarom een andere invoer: Psh ziet dit als een commandlet
         </div>
         
         <h3>7. Visual Studio Code starten als administrator</h3>
@@ -313,7 +313,28 @@ Woonplaats: Kortessem</code></pre>
 
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-          
+          Stap 1 - Geplande taak maken:<br>
+          <b>General tab</b><br>
+          - Create Task,<br>
+          - Name: VSCode-Admin,<br>
+          - Aanvinken: <i>Run with highest privileges</i>,<br>
+          <b>Actions tab</b><br>
+          - Browse: C:\Users\12501999\AppData\Local\Programs\Microsoft VS Code\Visual Studio Code<br>
+          <b>Conditions tab</b><br>
+          - Uitvinken: <i>Start the task only if the computer is on AC Power</i>,<br>
+          - Klik op <b>ok</b>.
+          <br>
+          <br>
+          Stap 2 - Snelkoppeling 1 (bureaublad):<br>
+          - Rechtermuisklik op bureablad en kies New &rarr; Shortcut,<br>
+          - Location: schtasks /run /tn "VSCode-Admin", klik <i>next</i>,<br>
+          - Name: VS Code (Admin), klik <i>finish</i>.
+          <br>
+          <br>
+          Stap 3 - Snelkoppeling 2 (startmenu):<br>
+          - Druk op <b>Win + R</b>, typ <b>shell:programs</b> en druk op Enter,<br>
+          - Kopieer de snelkoppeling van het bureaublad in deze map.
+
         </div>
 
       </article>
@@ -327,12 +348,29 @@ Woonplaats: Kortessem</code></pre>
         <h4>8.1 Zoek help met de algemene zoekterm <code>process</code></h4>
         <p>Gebruik alleen het PowerShell-helpsysteem.</p>
 
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+           Get-Help process
+        </div>
+        
         <h4>8.2 Vraag meer gedetailleerde informatie op</h4>
         <p>Toon hoe je gedetailleerde, volledige en online help voor een specifieke process-cmdlet kunt openen.</p>
+
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            - Get-Help Get-Process -Detailed<br>
+            - Get-Help Get-Process -Full<br>
+            - Get-Help Get-Process -Online<br>
+        </div>
 
         <h3>9. Cmdlets ontdekken met <code>Get-Command</code></h3>
 
         <h4>9.1 Geef een overzicht van alle cmdlets</h4>
+
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-Command -CommandType Cmdlet
+        </div>
 
         <h4>9.2 Leg de volgende opdrachten uit</h4>
 
@@ -344,45 +382,146 @@ Woonplaats: Kortessem</code></pre>
 
         <h5>9.2.4 <code>Get-Command -Verb Out</code></h5>
 
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            9.2.1:<br>
+            Toont alle command's die het woord "process" bevatten. De asterixen zijn "wildcards", zij geven aan dat er eender welk teken mag staan.<br>
+            9.2.2:<br>
+            Toont alle command's met het zelfstandig naamwoord "process".<br>
+            9.2.3:<br>
+            Hier zoek je op een specifieke waarde voor het "werkwoord" en voor het "zelfstandig naamwoord".<br>
+            9.2.4:<br>
+            Toont de commando's met het werkwoord "Out". Deze Cmdlets bepalen waar de output naartoe gaat.
+        </div>
+
         <h3>10. Processen en PowerShell-objecten</h3>
 
         <h4>10.1 Welke twee cmdlets gebruik je om informatie over processen te zoeken?</h4>
 
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-Command -Noun Process: toont welke commando's er bestaan voor processen.<br>
+            Get-Help process: toont hoe je die commando's gebruikt, via de documentatie
+        </div>
+
         <h4>10.2 Welke cmdlet vraagt alle systeemprocessen op?</h4>
+
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-Process
+        </div>
 
         <h4>10.3 Hoe open je de online help van deze cmdlet?</h4>
 
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-Help Get-Process -Online
+        </div>
+
         <h4>10.4 Hoe toon je alleen de syntaxis van deze cmdlet?</h4>
+
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-Command Get-Process -Syntax
+        </div>
 
         <h4>10.5 Hoe toon je help over de parameter <code>Id</code>?</h4>
 
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-Help Get-Process -Parameter Id
+        </div>
+
         <h4>10.6 Hoe toon je alle properties van de uitgevoerde processen?</h4>
 
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-Process | Get-Member -MemberType Properties
+        </div>
+
         <h4>10.7 Hoe toon je alle methods van de uitgevoerde processen?</h4>
+
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-Process | Get-Member -MemberType Method<br>
+            Bijv: (Get-Process -Name notepad).Refresh()
+        </div>
 
         <h3>11. Verschil tussen <code>Get-Help</code> en <code>Get-Command</code></h3>
 
         <h4>11.1 <code>Get-Help</code></h4>
         <p>Leg uit welke informatie deze cmdlet gebruikt en toont.</p>
 
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-Help haalt zijn informatie uit <b>helpbestanden</b> op je computer.<br>
+            <br>
+            Name: de naam van de cmdlet<br>
+            SYNOPSIS: een korte beschrijving in één zin<br>
+            SYNTAX: hoe je het commando opbouwt<br>
+            DESCRIPTION: een uitgebreide uitleg<br>
+            PARAMETERS: uitleg per parameter (met -Detailed of -Full)<br>
+            EXAMPLES: voorbeelden (met -Examples)<br>
+            RELATED LINKS: verwante cmdlets
+        </div>
+
         <h4>11.2 <code>Get-Command</code></h4>
         <p>Leg uit welke informatie deze cmdlet gebruikt en toont.</p>
+
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-Command kijkt naar de commando's die daadwerkelijk beschikbaar zijn op je computer:<br>
+            - cmdlets en functies uit de geïnstalleerde modules,<br>
+            - aliassen,<br>
+            - programma's in de mappen van je PATH
+        </div>
 
         <h3>12. Service-informatie als PowerShell-output</h3>
         <p>Gebruik PowerShell om de aangeduide informatie over de service <strong>BITS</strong> te tonen: servicenaam, weergavenaam, pad naar het uitvoerbare bestand en status.</p>
 
         <img src="assets/bits-service-properties.png" alt="Eigenschappen van de BITS-service" />
 
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+          Controleer welke properties er zijn: Get-Service -Name BITS | Get-Member -MemberType Properties<br>
+          Get-Service -Name Bits | Select-Object ServiceName,DisplayName,Status,BinaryPathName
+        </div>
+
         <h3>13. Zoek de PowerShell-opdracht achter <code>dir</code></h3>
         <p>Zoek op minstens twee manieren welke PowerShell-opdracht overeenkomt met <code>dir</code> in Windows.</p>
+
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            - Get-Alias dir<br>
+            - Get-Command dir<br>
+            - Get-Help dir
+        </div>
 
         <h3>14. Maak de terminal leeg</h3>
         <p>Gebruik de lokale PowerShell-help, niet het internet, om te vinden hoe je het scherm leegmaakt.</p>
 
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-Help clear
+        </div>
+
         <h4>14.1 Welke aliassen kun je hiervoor gebruiken?</h4>
+
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-Alias -Definition Clear-Host<br>
+            <br>
+            - cls<br>
+            - clear<br>
+        </div>
 
         <h3>15. Geef een overzicht van alle aliassen</h3>
         <p>Toon alle aliassen die in je huidige PowerShell-sessie beschikbaar zijn.</p>
+
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-Alias
+        </div>
 
         <h3>16. Maak een script met comment-based help</h3>
         <p>Maak <code>scripts/Script_Template_JouwNaam.ps1</code> op basis van de volgende structuur. Vervang <code>JouwNaam</code> eventueel door je eigen naam, zonder tekens die niet in een Windows-bestandsnaam zijn toegestaan.</p>
@@ -397,13 +536,47 @@ Get-Help .\scripts\Script_Template_JouwNaam.ps1 -Full</code></pre>
 
         <h4>16.1 Wat is het doel van comment-based help?</h4>
 
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Met comment-based help schrijf je documentatie rechtstreeks in je eigen script, in een commentaarblok <b><# ... #></b>.<br>
+            Je kan met <b>Get-Help</b> dus ook uitleg tonen of opvragen voor je eigenscript, net zoals bij ingebouwde cmdlets.
+            Op deze manier kan je dus info meegeven over wat het script doet, wie het heeft opgemaakt en hoe je het uitvoert, zonder de code te moeten lezen.<br>
+            <br>
+            Uitleg over de inhoud:<br>
+            <br>
+            Sleutelwoorden: .<b>SYNOPSIS</b>, <b>.DESCRIPTION</b>, <b>.INPUTS</b>, <b>.OUTPUTS</B>, <b>.NOTES</b> en <b>.EXAMPLE</b>
+        </div>
+
         <h3>17. Tekst naar het scherm sturen</h3>
         <p>Toon de volgende tekst met een PowerShell-cmdlet:</p>
         <pre><code>Welkom bij PXL!!!</code></pre>
 
         <img src="assets/welcome-output.png" alt="Verwachte uitvoer: Welkom bij PXL" />
 
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Write-Host "Welkom bij PXL!!!"<br>
+            Write-Output "Welkom bij PXL!!!"<br>
+            <br>
+            Het verschil: <code>Write-Output</code> stuurt de tekst door in de pipeline, zodat je hem verder kan verwerken. <code>Write-Host</code> toont hem alleen op het scherm. Voor deze oefening werken beide.
+        </div>
+
         <h4>17.1 Wat is het verschil tussen <code>Write-Output</code> en <code>Write-Host</code>?</h4>
+
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            - <code>Write-Output</code> stuurt de tekst als object in de pipeline. Zo kan een volgend commando de tekst verder verwerken, of kan je hem opslaan in een variabele of bestand.
+              Staat er niets meer achter in de pipeline, dan komt de tekst op het scherm.<br><br>
+            - <code>Write-Host</code> schrijft de tekst alleen naar het scherm. Je kan hem niet verder verwerken. Wel kan je er kleuren aan geven, bv. -ForegroundColor Green.<br>
+            <br>
+            Voorbeeld om het verschil te zien:<br>
+            <pre><code class="language-powershell">$a = Write-Output 'Welkom bij PXL!!!' <br>$b = Write-Host 'Welkom bij PXL!!!'</code></pre>
+            <br>
+            Bij <b>$a</b> verschijnt er niets op het scherm, want de tekst zit in de variabele. <b>$a</b> bevat de tekst.<br>
+            Bij <b>$b</b> verschijnt de tekst wél meteen op het scherm, maar <b>$b</b> blijft leeg.<br>
+            <br>
+            Kort: <code>Write-Output</code> is voor gegevens die verder gebruikt worden, Write-Host is voor meldingen aan de gebruiker.
+        </div>
 
         <h4>17.2 Zet de tekst om naar hoofdletters</h4>
         <p>Stuur dezelfde tekst in hoofdletters naar het scherm zonder de tekst zelf in hoofdletters in je opdrachtregel te schrijven.</p>
@@ -414,17 +587,84 @@ Get-Help .\scripts\Script_Template_JouwNaam.ps1 -Full</code></pre>
           <p><b>Tip:</b> Zoek naar strings, types, methods en <code>ToUpper</code>.</p>
         </blockquote>
 
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Stap 1 - het opzoeken van de <b><i>methods</i></b>:<br>
+            'Welkom bij PXL!!!' | Get-Member -MemberType Method <br>
+            <br>
+            Stap 2 - het ingeven van de command:<br>
+            Write-Host ('Welkom bij PXL!!!'.ToUpper())<br>
+            <br>
+
+            <p><pre>
+Het verschil zit in wat je aan Write-Host geeft.
+
+1. Gewone tekst
+
+powershell
+Write-Host "Welkom bij PXL!!!"
+
+Hier geef je gewoon tekst mee. Write-Host toont die zoals hij is, dus er is niets extra nodig.
+
+Zet wel een spatie tussen Write-Host en de tekst.
+Zonder spatie plakt PowerShell alles aan elkaar tot één commandonaam, en krijg je een fout.
+
+2. Tekst waar eerst iets mee moet gebeuren
+
+powershell
+Write-Host ('Welkom bij PXL!!!'.ToUpper())
+
+Hier moet PowerShell eerst een bewerking uitvoeren (.ToUpper()) en pas daarna het resultaat tonen.
+
+PowerShell leest alles na een commando standaard als gewone tekst (argumentmodus).
+Zonder haakjes ziet hij .ToUpper() mogelijk als letterlijke tekst en niet als een uit te voeren actie.
+De haakjes zeggen: "bereken dit eerst" (expressiemodus).
+Dat is dezelfde regel als in de wiskunde: wat tussen haakjes staat, gaat voor.
+
+En de aanhalingstekens? "..." en '...' mag je hier allebei gebruiken. Het enige verschil:
+
+"dubbel" vult variabelen in: "Hallo $env:USERNAME" toont je gebruikersnaam.
+'enkel' toont alles letterlijk: 'Hallo $env:USERNAME' toont exact die tekst.
+
+In deze tekst staat geen variabele, dus het resultaat is hetzelfde.
+            </pre></p>
+        </div>
+
         <h3>18. Omgevingsvariabelen</h3>
         <p>Zoek met PowerShell hoe je omgevingsvariabelen gebruikt. Toon vervolgens:</p>
 
         <h4>18.1 De computernaam (<code>COMPUTERNAME</code>)</h4>
 
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            $env:COMPUTERNAME<br>
+            <br>
+            <br>
+            Opzoeken van variabelen in het systeem:<br>
+            <code>Get-ChildItem env:</code>
+        </div>
+
         <h4>18.2 De gebruikersnaam (<code>USERNAME</code>)</h4>
+
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            $env:USERNAME
+        </div>
 
         <h4>18.3 De systeemschijf (<code>SYSTEMDRIVE</code>)</h4>
 
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            $env:SystemDrive
+        </div>
+
         <h4>18.4 Het gebruikersprofiel (<code>USERPROFILE</code>)</h4>
         <p>Voorbeeld: <code>C:\Users\Dominique</code>.</p>
+
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            $env:USERPROFILE
+        </div>
 
         <h4>18.5 Maak <code>ToonEnvInfo.ps1</code></h4>
         <p>Maak <code>scripts/ToonEnvInfo.ps1</code>. Het script maakt eerst het scherm leeg en toont daarna een systeemrapport met de vier waarden.</p>
@@ -432,23 +672,149 @@ Get-Help .\scripts\Script_Template_JouwNaam.ps1 -Full</code></pre>
         <p>Verwachte uitvoer:</p>
         <img src="assets/environment-report.png" alt="Verwachte uitvoer van ToonEnvInfo.ps1" />
 
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            <code><pre>Clear-Host
+Write-Host
+"Systeem Rapport
+----------------------------
+Computernaam:      $env:COMPUTERNAME
+Gebruikersnaam:    $env:USERNAME
+Systeemschijf:     $env:SYSTEMDRIVE
+Gebruikersprofiel: $env:USERPROFILE"</pre></code>
+        </div>
+
         <h3>19. Processen starten en stoppen</h3>
 
         <blockquote>
-          <p><b>Opgelet:</b>Sluit je bestaande Notepad-sessies voordat je deze oefening uitvoert. Het stopscript sluit alle processen met de naam <code>notepad</code>.</p>
+          <p><b>Opgelet:</b> Sluit je bestaande Notepad-sessies voordat je deze oefening uitvoert. Het stopscript sluit alle processen met de naam <code>notepad</code>.</p>
         </blockquote>
 
         <p>Maak <code>scripts/Notepad-Joke.ps1</code> dat vier Notepad-vensters opent.</p>
 
         <h4>19.1 Hoe start je Notepad met een cmdlet?</h4>
 
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            <code><pre>Stop-Process -Name notepad -ErrorAction SilentlyContinue
+1..4 | ForEach-Object { Start-Process notepad }</pre></code><br>
+            <b>Uitleg:</b>
+            <br>
+            1..4 maakt de reeks getallen 1, 2, 3, 4.<br>
+            | stuurt elk getal door naar het volgende commando.<br>
+            ForEach-Object { ... } voert wat tussen de accolades staat één keer uit per getal, dus 4 keer.<br>
+        </div>
+
         <h4>19.2 Hoe toon je alle actieve Notepad-processen?</h4>
+
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-Process -Name notepad
+        </div>
 
         <h4>19.3 Toon <code>Id</code>, <code>Name</code> en <code>CommandLine</code></h4>
         <p>Zorg voor vergelijkbare uitvoer:</p>
 
         <img src="assets/notepad-processes.png" alt="Overzicht van Notepad-processen" />
+
+         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-Process -Name notepad | Select-Object Id,Name, CommandLine
+        </div>
+
+        <h4>19.4 Hoe sluit je Notepad-processen met een cmdlet?</h4>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Stop-Process -Name notepad
+        </div>
+
+        <h4>19.5 Maak <code>Notepad-Joke-Stop.ps1</code></h4>
+        <p>Maak <code>scripts/Notepad-Joke-Stop.ps1</code> dat alle geopende Notepad-processen afsluit.</p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Stop-Process -Name notepad
+        </div>
+
+        <h4>19.6 Open de vensters gemaximaliseerd</h4>
+        <p>Wijzig <code>Notepad-Joke.ps1</code> zodat de Notepad-vensters gemaximaliseerd openen.</p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            <code><pre>Stop-Process -Name notepad -ErrorAction SilentlyContinue
+1..4 | ForEach-Object { Start-Process notepad -Windowstyle Maximized }</pre></code>
+        </div>
+
+        <h2>20. Firewalloefening — Firefox</h2>
+
+        <blockquote style="border-left:4px solid #f28c28; background:#fffaf0; padding:0.75rem 1rem; border-radius:8px; margin:1rem 0; color:#5c3d00;">
+            <strong>Let op:</strong> Deze oefening wijzigt de Windows Firewall en vereist administratorrechten. Voer ze alleen uit op het aangewezen labsysteem. Verwijder je testregel aan het einde.
+        </blockquote>
+
+        <p>Maak <code>scripts/firewall-firefox.ps1</code> waarmee je:</p>
+
+        <ol>
+            <li>het pad naar <code>firefox.exe</code> vindt;</li>
+            <li>een uitgaande firewallregel maakt die Firefox blokkeert;</li>
+            <li>de regel opvraagt en controleert;</li>
+            <li>de regel uitschakelt en opnieuw inschakelt;</li>
+            <li>de regel verwijdert.</li>
+        </ol>
+
+        <blockquote style="border-left:4px solid #f28c28; background:#fffaf0; padding:0.75rem 1rem; border-radius:8px; margin:1rem 0; color:#5c3d00;">
+            <strong>Tip:</strong> Zoek via PowerShell-help naar <code>NetFirewallRule</code>. Via <code>wf.msc</code> kun je het resultaat ook grafisch controleren.
+        </blockquote>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            <code><pre>
+$firefox = (Get-ChildItem -Path 'C:\Program Files' -Filter firefox.exe -Recurse -ErrorAction SilentlyContinue).FullName
+Write-Host "Firefox gevonden op: $firefox"
+
+New-NetFirewallRule -DisplayName 'Blokkeer Firefox' -Direction Outbound -Program $firefox -Action Block
+Pause
+
+Get-NetFirewallRule -DisplayName 'Blokkeer Firefox'
+Pause
+
+Disable-NetFirewallRule -DisplayName 'Blokkeer Firefox'
+Write-Host 'Regel uitgeschakeld'
+Pause
+Enable-NetFirewallRule -DisplayName 'Blokkeer Firefox'
+Write-Host 'Regel ingeschakeld'
+Pause
+
+Remove-NetFirewallRule -DisplayName 'Blokkeer Firefox'
+Write-Host 'Regel verwijderd'
+            </pre></code>
+          <b>Uitleg - AI hulp:</b><br>
+          <br><p>
+          1. Get-ChildItem (= dir) zoekt in C:\Program Files naar firefox.exe. -Recurse zoekt ook in alle submappen, en .FullName geeft het volledige pad.
+          Het resultaat bewaar je in $firefox, zodat je het pad niet zelf hoeft te typen.<br>
+          2. New-NetFirewallRule maakt de regel:
+          <p style="margin-left: 2em;">
+            -DisplayName = naam van de regel<br>
+            -Direction Outbound = uitgaand verkeer<br>
+            -Program = welk programma<br>
+            -Action Block = blokkeren<br></p>
+          3. Get-NetFirewallRule toont de regel. Controleer dat Enabled op True staat en Action op Block.<br>
+          4. Disable- / Enable- zet de regel uit en weer aan. Daarna toont Enabled respectievelijk False en True.<br>
+          5. Remove-NetFirewallRule ruimt de testregel op, zoals de opdracht vraagt.<br>
+<br>
+          <b>Waarom Pause?</b><br><br>
+          Zonder Pause loopt het script in een fractie van een seconde door, en is de regel al verwijderd voor je iets kon controleren.<br>
+          Met Pause wacht het script tot je op Enter drukt. Zo kan je tussendoor testen.
+          </p>
+                  </div>
+
       </article>
+<article class="answer-card">
+
+  Hier komen de volgende hoofdstukken
+
+</article>
+
     </main>
   </body>
 </html>
