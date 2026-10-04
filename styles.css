@@ -765,12 +765,81 @@ body.docs-page {
 .script-list a::after {
   float: right;
   color: var(--docs-muted);
-  content: "↓";
+  content: "›";
 }
 
-.script-list a:hover {
+.script-list a:hover,
+.script-list a[aria-current="true"] {
   border-color: #58a6ff;
   background: #1c2128;
+}
+
+.script-download-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid rgba(240, 246, 252, 0.1);
+  border-radius: 6px;
+  background: var(--docs-green);
+  color: #fff !important;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.script-download-button:hover {
+  background: #2ea043;
+}
+
+.script-download-button[hidden] {
+  display: none;
+}
+
+.powershell-window {
+  overflow: hidden;
+  border: 1px solid var(--docs-border);
+  border-radius: 8px;
+  background: #010409;
+}
+
+.powershell-window-bar {
+  min-height: 42px;
+  padding: 0.55rem 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  border-bottom: 1px solid var(--docs-border);
+  background: #161b22;
+  color: #c9d1d9;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.85rem;
+}
+
+.powershell-window-indicator {
+  width: 0.65rem;
+  height: 0.65rem;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #58a6ff;
+}
+
+.script-status {
+  margin: 0;
+  padding: 1rem 1.2rem;
+  color: var(--docs-muted);
+}
+
+.script-content {
+  max-height: 70vh;
+  overflow: auto;
+  border: 0;
+  border-radius: 0;
+  white-space: pre;
+}
+
+.script-content code {
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Courier New", monospace;
 }
 
 .screenshot-empty {
