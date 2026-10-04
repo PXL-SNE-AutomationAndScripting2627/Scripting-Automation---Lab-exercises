@@ -1,8 +1,8 @@
 $ErrorActionPreference = 'Stop'
 
 $repositoryRoot = Split-Path -Parent $PSScriptRoot
-$scriptsDirectory = Join-Path $repositoryRoot 'scripts'
-$scriptsPagePath = Join-Path $repositoryRoot 'scripts.html'
+$scriptsDirectory = Join-Path (Join-Path $repositoryRoot 'ps-01-ext-lab') 'scripts - ps-01-ext-lab'
+$scriptsPagePath = Join-Path (Join-Path $repositoryRoot 'ps-01-ext-lab') 'scripts.html'
 $startMarker = '<!-- SCRIPT_LINKS_START -->'
 $endMarker = '<!-- SCRIPT_LINKS_END -->'
 
@@ -25,7 +25,7 @@ if ($html.IndexOf($startMarker, $startIndex + $startMarker.Length, [System.Strin
 $links = foreach ($file in $scriptFiles) {
     $encodedName = [System.Uri]::EscapeDataString($file.Name)
     $label = [System.Net.WebUtility]::HtmlEncode($file.Name)
-    "          <li><a href=`"scripts/$encodedName`">$label</a></li>"
+    "            <li><a href=`"scripts%20-%20ps-01-ext-lab/$encodedName`">$label</a></li>"
 }
 
 $generatedLinks = $links -join [Environment]::NewLine

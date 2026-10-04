@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0d1117" />
     <title>PowerShell Lab Answers - Angelo Switon</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../styles.css" />
   </head>
   <body class="docs-page">
     <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="docs-header">
-      <a class="docs-brand" href="index.html">
+      <a class="docs-brand" href="../index.html">
         <span class="brand-mark" aria-hidden="true">PXL</span>
         <span>PowerShell Lab</span>
       </a>
       <nav class="docs-global-nav" aria-label="Main navigation">
+        <a href="../index.html">Exercises</a>
         <a href="index.html">Overview</a>
         <a href="answers.html" aria-current="page">Answers</a>
         <a href="screenshots.html">Screenshots</a>
@@ -23,7 +24,9 @@
     </header>
     <div class="docs-breadcrumb">
       <div class="docs-breadcrumb-inner">
-        <a href="index.html">Home</a>
+        <a href="../index.html">Home</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Ps-01-ext-lab</a>
         <span class="breadcrumb-separator" aria-hidden="true">/</span>
         <span aria-current="page">Answers</span>
       </div>
@@ -201,10 +204,10 @@
         </div>
 
         <h3>6. Eerste script: <code>Naam.ps1</code></h3>
-        <p>Maak <code>scripts/Naam.ps1</code>. Het script vraagt geen invoer en toont je naam en woonplaats.</p>
+        <p>Maak <code>Naam.ps1</code> in <code>scripts - ps-01-ext-lab/</code>. Het script vraagt geen invoer en toont je naam en woonplaats.</p>
 
         <p>Voorbeeld:</p>
-        <pre><code>PS&gt; .\scripts\Naam.ps1
+        <pre><code>PS&gt; &amp; &quot;.\scripts - ps-01-ext-lab\Naam.ps1&quot;
 Naam: Dominique Houbrechts
 Woonplaats: Kortessem</code></pre>
 
@@ -234,10 +237,10 @@ Woonplaats: Kortessem</code></pre>
         <h3>7. Visual Studio Code starten als administrator</h3>
         <p>Maak twee snelkoppelingen waarmee je Visual Studio Code als administrator kunt starten zonder bij elke start de volgende UAC-melding te krijgen.</p>
 
-        <img src="assets/uac-vscode.png" alt="UAC-melding bij het starten van Visual Studio Code" />
+        <img src="../assets/uac-vscode.png" alt="UAC-melding bij het starten van Visual Studio Code" />
         <p>Wijzig de aanbevolen instelling van User Account Control niet.</p>
 
-        <img src="assets/uac-settings.png" alt="Instellingen voor User Account Control" />
+        <img src="../assets/uac-settings.png" alt="Instellingen voor User Account Control" />
         <p>Beschrijf de gekozen werkwijze en test beide snelkoppelingen.</p>
 
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
@@ -408,7 +411,7 @@ Woonplaats: Kortessem</code></pre>
         <h3>12. Service-informatie als PowerShell-output</h3>
         <p>Gebruik PowerShell om de aangeduide informatie over de service <strong>BITS</strong> te tonen: servicenaam, weergavenaam, pad naar het uitvoerbare bestand en status.</p>
 
-        <img src="assets/bits-service-properties.png" alt="Eigenschappen van de BITS-service" />
+        <img src="../assets/bits-service-properties.png" alt="Eigenschappen van de BITS-service" />
 
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
@@ -453,15 +456,15 @@ Woonplaats: Kortessem</code></pre>
         </div>
 
         <h3>16. Maak een script met comment-based help</h3>
-        <p>Maak <code>scripts/Script_Template_JouwNaam.ps1</code> op basis van de volgende structuur. Vervang <code>JouwNaam</code> eventueel door je eigen naam, zonder tekens die niet in een Windows-bestandsnaam zijn toegestaan.</p>
+        <p>Maak <code>Script_Template_JouwNaam.ps1</code> in <code>scripts - ps-01-ext-lab/</code>. Vervang <code>JouwNaam</code> eventueel door je eigen naam, zonder tekens die niet in een Windows-bestandsnaam zijn toegestaan.</p>
 
-        <img src="assets/script-template.png" alt="Voorbeeld van comment-based help in een PowerShell-script" />
+        <img src="../assets/script-template.png" alt="Voorbeeld van comment-based help in een PowerShell-script" />
 
         <p>Voer daarna uit:</p>
-        <pre><code>Get-Help .\scripts\Script_Template_JouwNaam.ps1
-Get-Help .\scripts\Script_Template_JouwNaam.ps1 -Full</code></pre>
+        <pre><code>Get-Help &quot;.\scripts - ps-01-ext-lab\Script_Template_JouwNaam.ps1&quot;
+Get-Help &quot;.\scripts - ps-01-ext-lab\Script_Template_JouwNaam.ps1&quot; -Full</code></pre>
 
-        <img src="assets/script-help-output.png" alt="Voorbeeldoutput van Get-Help voor een script" />
+        <img src="../assets/script-help-output.png" alt="Voorbeeldoutput van Get-Help voor een script" />
 
         <h4>16.1 Wat is het doel van comment-based help?</h4>
 
@@ -480,7 +483,7 @@ Get-Help .\scripts\Script_Template_JouwNaam.ps1 -Full</code></pre>
         <p>Toon de volgende tekst met een PowerShell-cmdlet:</p>
         <pre><code>Welkom bij PXL!!!</code></pre>
 
-        <img src="assets/welcome-output.png" alt="Verwachte uitvoer: Welkom bij PXL" />
+        <img src="../assets/welcome-output.png" alt="Verwachte uitvoer: Welkom bij PXL" />
 
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
@@ -510,7 +513,7 @@ Get-Help .\scripts\Script_Template_JouwNaam.ps1 -Full</code></pre>
         <h4>17.2 Zet de tekst om naar hoofdletters</h4>
         <p>Stuur dezelfde tekst in hoofdletters naar het scherm zonder de tekst zelf in hoofdletters in je opdrachtregel te schrijven.</p>
 
-        <img src="assets/uppercase-output.png" alt="Verwachte uitvoer in hoofdletters" />
+        <img src="../assets/uppercase-output.png" alt="Verwachte uitvoer in hoofdletters" />
 
         <blockquote>
           <p><b>Tip:</b> Zoek naar strings, types, methods en <code>ToUpper</code>.</p>
@@ -596,10 +599,10 @@ In deze tekst staat geen variabele, dus het resultaat is hetzelfde.
         </div>
 
         <h4>18.5 Maak <code>ToonEnvInfo.ps1</code></h4>
-        <p>Maak <code>scripts/ToonEnvInfo.ps1</code>. Het script maakt eerst het scherm leeg en toont daarna een systeemrapport met de vier waarden.</p>
+        <p>Maak <code>ToonEnvInfo.ps1</code> in <code>scripts - ps-01-ext-lab/</code>. Het script maakt eerst het scherm leeg en toont daarna een systeemrapport met de vier waarden.</p>
 
         <p>Verwachte uitvoer:</p>
-        <img src="assets/environment-report.png" alt="Verwachte uitvoer van ToonEnvInfo.ps1" />
+        <img src="../assets/environment-report.png" alt="Verwachte uitvoer van ToonEnvInfo.ps1" />
 
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
@@ -619,7 +622,7 @@ Gebruikersprofiel: $env:USERPROFILE"</pre></code>
           <p><b>Opgelet:</b> Sluit je bestaande Notepad-sessies voordat je deze oefening uitvoert. Het stopscript sluit alle processen met de naam <code>notepad</code>.</p>
         </blockquote>
 
-        <p>Maak <code>scripts/Notepad-Joke.ps1</code> dat vier Notepad-vensters opent.</p>
+        <p>Maak <code>Notepad-Joke.ps1</code> in <code>scripts - ps-01-ext-lab/</code> dat vier Notepad-vensters opent.</p>
 
         <h4>19.1 Hoe start je Notepad met een cmdlet?</h4>
 
@@ -644,7 +647,7 @@ Gebruikersprofiel: $env:USERPROFILE"</pre></code>
         <h4>19.3 Toon <code>Id</code>, <code>Name</code> en <code>CommandLine</code></h4>
         <p>Zorg voor vergelijkbare uitvoer:</p>
 
-        <img src="assets/notepad-processes.png" alt="Overzicht van Notepad-processen" />
+        <img src="../assets/notepad-processes.png" alt="Overzicht van Notepad-processen" />
 
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
@@ -659,7 +662,7 @@ Gebruikersprofiel: $env:USERPROFILE"</pre></code>
         </div>
 
         <h4>19.5 Maak <code>Notepad-Joke-Stop.ps1</code></h4>
-        <p>Maak <code>scripts/Notepad-Joke-Stop.ps1</code> dat alle geopende Notepad-processen afsluit.</p>
+        <p>Maak <code>Notepad-Joke-Stop.ps1</code> in <code>scripts - ps-01-ext-lab/</code> dat alle geopende Notepad-processen afsluit.</p>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
@@ -681,7 +684,7 @@ Gebruikersprofiel: $env:USERPROFILE"</pre></code>
             <strong>Let op:</strong> Deze oefening wijzigt de Windows Firewall en vereist administratorrechten. Voer ze alleen uit op het aangewezen labsysteem. Verwijder je testregel aan het einde.
         </blockquote>
 
-        <p>Maak <code>scripts/firewall-firefox.ps1</code> waarmee je:</p>
+        <p>Maak <code>firewall-firefox.ps1</code> in <code>scripts - ps-01-ext-lab/</code> waarmee je:</p>
 
         <ol>
             <li>het pad naar <code>firefox.exe</code> vindt;</li>

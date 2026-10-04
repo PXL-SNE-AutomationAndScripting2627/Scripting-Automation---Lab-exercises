@@ -4,112 +4,48 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0d1117" />
-    <title>Extended Lab 01 — PowerShell</title>
+    <title>Scripting &amp; Automation — Exercises</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="docs-page">
     <a class="skip-link" href="#main-content">Skip to content</a>
-
     <header class="docs-header">
       <a class="docs-brand" href="index.html">
         <span class="brand-mark" aria-hidden="true">PXL</span>
-        <span>PowerShell Lab</span>
+        <span>Scripting &amp; Automation</span>
       </a>
       <nav class="docs-global-nav" aria-label="Main navigation">
-        <a href="index.html" aria-current="page">Overview</a>
-        <a href="answers.html">Answers</a>
-        <a href="screenshots.html">Screenshots</a>
-        <a href="scripts.html">Scripts</a>
+        <a href="index.html" aria-current="page">Exercises</a>
       </nav>
     </header>
-
-    <div class="docs-breadcrumb">
-      <div class="docs-breadcrumb-inner">
-        <span>Home</span>
-        <span class="breadcrumb-separator" aria-hidden="true">/</span>
-        <span aria-current="page">Extended Lab 01</span>
-      </div>
-    </div>
-
-    <div class="docs-layout">
-      <aside class="docs-sidebar" aria-label="Page navigation">
-        <p class="sidebar-heading">PowerShell Lab</p>
-        <a class="sidebar-current" href="#overview" aria-current="page">Overview</a>
-        <p class="sidebar-group-label">In this lab</p>
-        <a href="#learning-goals">Learning goals</a>
-        <a href="#submission">Submission</a>
-        <a href="#project-structure">Project structure</a>
-        <p class="sidebar-group-label">Project pages</p>
-        <a href="answers.html">Answers</a>
-        <a href="scripts.html">Scripts</a>
-        <a href="screenshots.html">Screenshots</a>
-      </aside>
-
-      <main id="main-content" class="docs-main">
-        <section class="docs-hero" id="overview" aria-labelledby="page-title">
-          <div class="hero-copy">
-            <p class="eyebrow">PXL · Extended Lab 01</p>
-            <h1 id="page-title">PowerShell</h1>
-            <p class="hero-description">A hands-on introduction to help, objects, and scripting in PowerShell.</p>
-            <a class="primary-link" href="#learning-goals">Explore the lab <span aria-hidden="true">→</span></a>
+    <main id="main-content" class="docs-main exercise-home">
+      <section class="docs-hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow">PXL · Scripting &amp; Automation</p>
+          <h1 id="page-title">Course exercises</h1>
+          <p class="hero-description">Choose an exercise to explore its overview, answers, scripts, and screenshots.</p>
+        </div>
+        <img class="hero-logo" src="assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+      </section>
+      <section class="docs-section" aria-labelledby="exercise-list-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Available exercises</p>
+            <h2 id="exercise-list-title">Exercises</h2>
           </div>
-          <img class="hero-logo" src="assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
-        </section>
-
-        <section class="docs-section" id="learning-goals">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">What you'll learn</p>
-              <h2>Learning goals</h2>
-            </div>
-            <span class="section-count">5 objectives</span>
-          </div>
-          <ul class="goal-grid">
-            <li>Install and manage software with a package manager.</li>
-            <li>Inspect PowerShell version and execution policies.</li>
-            <li>Use <code>Get-Help</code> and <code>Get-Command</code> effectively.</li>
-            <li>Explore objects and methods with <code>Get-Member</code>.</li>
-            <li>Create and run simple PowerShell scripts.</li>
-          </ul>
-        </section>
-
-        <section class="docs-section" id="submission">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">Turn in your work</p>
-              <h2>Submission</h2>
-            </div>
-          </div>
-          <ol class="submission-list">
-            <li>Complete the answers in <strong>answers.md</strong>.</li>
-            <li>Store your scripts in the <strong>scripts</strong> folder.</li>
-            <li>Commit your changes and push to the GitHub Classroom repository.</li>
-          </ol>
-          <div class="resource-links" aria-label="Project resources">
-            <a href="answers.html">View answers <span aria-hidden="true">→</span></a>
-            <a href="scripts.html">Browse scripts <span aria-hidden="true">→</span></a>
-            <a href="screenshots.html">View screenshots <span aria-hidden="true">→</span></a>
-          </div>
-        </section>
-
-        <section class="docs-section" id="project-structure">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">Repository guide</p>
-              <h2>Project structure</h2>
-            </div>
-          </div>
-          <pre><code>answers.md
-scripts/
-├── Naam.ps1
-├── Script_Template_JouwNaam.ps1
-├── ToonEnvInfo.ps1
-├── Notepad-Joke.ps1
-├── Notepad-Joke-Stop.ps1
-└── firewall-firefox.ps1</code></pre>
-        </section>
-        <footer class="docs-footer">Extended Lab 01 <span aria-hidden="true">·</span> PowerShell</footer>
-      </main>
-    </div>
+        </div>
+        <ul class="exercise-list">
+          <li>
+            <a class="exercise-card" href="ps-01-ext-lab/index.html">
+              <span class="exercise-number">Exercise 01</span>
+              <h3>Ps-01-ext-lab</h3>
+              <p>PowerShell: introduction, help, objects, and scripting.</p>
+              <span class="exercise-card-link">Open exercise <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+        </ul>
+      </section>
+      <footer class="docs-footer">Scripting &amp; Automation <span aria-hidden="true">·</span> PXL</footer>
+    </main>
   </body>
 </html>

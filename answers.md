@@ -74,12 +74,12 @@ Noteer welke extensie je installeerde en hoe je controleerde dat ze werkt.
 
 ## 6. Eerste script: `Naam.ps1`
 
-Maak `scripts/Naam.ps1`. Het script vraagt geen invoer en toont je naam en woonplaats.
+Maak `Naam.ps1` in `ps-01-ext-lab/scripts - ps-01-ext-lab/`. Het script vraagt geen invoer en toont je naam en woonplaats.
 
 Voorbeeld:
 
 ```text
-PS> .\scripts\Naam.ps1
+PS> & ".\ps-01-ext-lab\scripts - ps-01-ext-lab\Naam.ps1"
 Naam: Dominique Houbrechts
 Woonplaats: Kortessem
 ```
@@ -183,15 +183,15 @@ Toon alle aliassen die in je huidige PowerShell-sessie beschikbaar zijn.
 
 ## 16. Maak een script met comment-based help
 
-Maak `scripts/Script_Template_JouwNaam.ps1` op basis van de volgende structuur. Vervang `JouwNaam` eventueel door je eigen naam, zonder tekens die niet in een Windows-bestandsnaam zijn toegestaan.
+Maak `Script_Template_JouwNaam.ps1` in `ps-01-ext-lab/scripts - ps-01-ext-lab/`. Vervang `JouwNaam` eventueel door je eigen naam, zonder tekens die niet in een Windows-bestandsnaam zijn toegestaan.
 
 ![Voorbeeld van comment-based help in een PowerShell-script](assets/script-template.png)
 
 Voer daarna uit:
 
 ```powershell
-Get-Help .\scripts\Script_Template_JouwNaam.ps1
-Get-Help .\scripts\Script_Template_JouwNaam.ps1 -Full
+Get-Help ".\ps-01-ext-lab\scripts - ps-01-ext-lab\Script_Template_JouwNaam.ps1"
+Get-Help ".\ps-01-ext-lab\scripts - ps-01-ext-lab\Script_Template_JouwNaam.ps1" -Full
 ```
 
 ![Voorbeeldoutput van Get-Help voor een script](assets/script-help-output.png)
@@ -235,7 +235,7 @@ Voorbeeld: `C:\Users\Dominique`.
 
 ### 18.5 Maak `ToonEnvInfo.ps1`
 
-Maak `scripts/ToonEnvInfo.ps1`. Het script maakt eerst het scherm leeg en toont daarna een systeemrapport met de vier waarden.
+Maak `ToonEnvInfo.ps1` in `ps-01-ext-lab/scripts - ps-01-ext-lab/`. Het script maakt eerst het scherm leeg en toont daarna een systeemrapport met de vier waarden.
 
 Verwachte uitvoer:
 
@@ -246,7 +246,7 @@ Verwachte uitvoer:
 > [!CAUTION]
 > Sluit je bestaande Notepad-sessies voordat je deze oefening uitvoert. Het stopscript sluit alle processen met de naam `notepad`.
 
-Maak `scripts/Notepad-Joke.ps1` dat vier Notepad-vensters opent.
+Maak `Notepad-Joke.ps1` in `ps-01-ext-lab/scripts - ps-01-ext-lab/` dat vier Notepad-vensters opent.
 
 ### 19.1 Hoe start je Notepad met een cmdlet?
 
@@ -262,7 +262,7 @@ Zorg voor vergelijkbare uitvoer:
 
 ### 19.5 Maak `Notepad-Joke-Stop.ps1`
 
-Maak `scripts/Notepad-Joke-Stop.ps1` dat alle geopende Notepad-processen afsluit.
+Maak `Notepad-Joke-Stop.ps1` in `ps-01-ext-lab/scripts - ps-01-ext-lab/` dat alle geopende Notepad-processen afsluit.
 
 ### 19.6 Open de vensters gemaximaliseerd
 
@@ -273,7 +273,7 @@ Wijzig `Notepad-Joke.ps1` zodat de Notepad-vensters gemaximaliseerd openen.
 > [!CAUTION]
 > Deze oefening wijzigt de Windows Firewall en vereist administratorrechten. Voer ze alleen uit op het aangewezen labsysteem. Verwijder je testregel aan het einde.
 
-Maak `scripts/firewall-firefox.ps1` waarmee je:
+Maak `firewall-firefox.ps1` in `ps-01-ext-lab/scripts - ps-01-ext-lab/` waarmee je:
 
 1. het pad naar `firefox.exe` vindt;
 2. een uitgaande firewallregel maakt die Firefox blokkeert;
@@ -289,7 +289,7 @@ Maak `scripts/firewall-firefox.ps1` waarmee je:
 ## Eindcontrole
 
 - [ ] Alle theorievragen staan in `answers.md`.
-- [ ] Alle zes scripts staan in `scripts/`.
+- [ ] Alle zes scripts staan in `ps-01-ext-lab/scripts - ps-01-ext-lab/`.
 - [ ] De scripts voeren uit zonder syntaxfouten.
 - [ ] De firewallregel is na de test verwijderd.
 - [ ] Alle bestanden zijn gecommit en gepusht naar GitHub Classroom.

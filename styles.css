@@ -271,6 +271,60 @@ body.docs-page {
   padding: 2rem clamp(1.25rem, 4vw, 3.5rem) 3rem;
 }
 
+.exercise-home {
+  min-height: calc(100vh - 68px);
+}
+
+.exercise-list {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 1rem;
+  list-style: none;
+}
+
+.exercise-card {
+  min-height: 200px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid var(--docs-border);
+  border-radius: 8px;
+  background: var(--docs-elevated);
+  text-decoration: none;
+}
+
+.exercise-card:hover {
+  border-color: #3fb950;
+  background: #1c2128;
+}
+
+.exercise-number {
+  color: #7ee787;
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.exercise-card h3 {
+  margin: 0.5rem 0 0;
+  font-size: 1.25rem;
+}
+
+.exercise-card p {
+  margin: 0.5rem 0 1rem;
+  color: var(--docs-muted);
+}
+
+.exercise-card-link {
+  margin-top: auto;
+  color: #58a6ff;
+  font-weight: 600;
+}
+
 .docs-hero {
   position: relative;
   min-height: 265px;
