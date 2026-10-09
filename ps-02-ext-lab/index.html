@@ -1,61 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0d1117" />
-    <title>Extended Lab 02 — PowerShell</title>
+    <title>Extended lab 02 — PowerShell-pipelines, filters, sorteren en meten</title>
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body class="docs-page">
-    <a class="skip-link" href="#main-content">Skip to content</a>
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
 
     <header class="docs-header">
       <a class="docs-brand" href="../index.html">
         <span class="brand-mark" aria-hidden="true">PXL</span>
-        <span>Extended Lab 02</span>
+        <span>PowerShell-lab</span>
       </a>
-      <nav class="docs-global-nav" aria-label="Main navigation">
-        <a href="../index.html">Exercises</a>
-        <a href="index.html" aria-current="page">Overview</a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html" aria-current="page">Overzicht</a>
+        <a class="answers-nav-link" href="answers.html">Answers</a>
       </nav>
     </header>
 
     <div class="docs-breadcrumb">
       <div class="docs-breadcrumb-inner">
-        <a href="../index.html">Home</a>
+        <a href="../index.html">Start</a>
         <span class="breadcrumb-separator" aria-hidden="true">/</span>
         <span aria-current="page">Ps-02-ext-lab</span>
       </div>
     </div>
 
     <div class="docs-layout">
-      <aside class="docs-sidebar" aria-label="Page navigation">
-        <p class="sidebar-heading">Extended Lab 02</p>
-        <a class="sidebar-current" href="#overview" aria-current="page">Overview</a>
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Extended lab 02</p>
+        <a class="sidebar-current" href="#overview" aria-current="page">Overzicht</a>
+        <p class="sidebar-group-label">In deze lab</p>
+        <a href="#leerdoelen">Leerdoelen</a>
+        <a href="#vereisten">Vereisten</a>
+        <a href="#inleveren">Inleveren</a>
+        <p class="sidebar-group-label">Antwoorden</p>
+        <a href="answers.html">Bekijk de antwoorden</a>
       </aside>
 
-      <main id="main-content" class="docs-main">
+      <main id="main-content" class="docs-main lab-content">
         <section class="docs-hero" id="overview" aria-labelledby="page-title">
           <div class="hero-copy">
-            <p class="eyebrow">PXL · Extended Lab 02</p>
-            <h1 id="page-title">Coming soon</h1>
-            <p class="hero-description">The second extended PowerShell lab is being prepared. Its exercises and resources will be published here.</p>
-            <a class="primary-link" href="../index.html">Browse exercises <span aria-hidden="true">→</span></a>
+            <p class="eyebrow">PXL · Extended lab 02</p>
+            <h1 id="page-title">PowerShell-pipelines</h1>
+            <p class="hero-description">In deze uitgebreide lab verwerk je PowerShell-objecten via de pipeline. Je selecteert, filtert, sorteert en meet gegevens van processen, services, bestanden en tekst.</p>
+            <a class="primary-link" href="#leerdoelen">Ontdek de lab <span aria-hidden="true">→</span></a>
           </div>
           <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
         </section>
 
-        <section class="docs-section">
+        <section class="docs-section" id="leerdoelen">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">Extended Lab 02</p>
-              <h2>Lab materials will be available here</h2>
+              <p class="eyebrow">Wat je leert</p>
+              <h2>Leerdoelen</h2>
             </div>
           </div>
+          <p>Na deze lab kun je:</p>
+          <ul>
+            <li>objecten selecteren met <code>Select-Object</code>;</li>
+            <li>objecten filteren met <code>Where-Object</code>;</li>
+            <li>resultaten sorteren met <code>Sort-Object</code>;</li>
+            <li>aantallen en teksteigenschappen bepalen met <code>Measure-Object</code>;</li>
+            <li>berekende properties maken met <code>Select-Object</code>;</li>
+            <li>bestanden en mappen filteren met <code>Get-ChildItem</code>;</li>
+            <li>tekst doorzoeken met reguliere expressies;</li>
+            <li>scripts voorzien van comment-based help.</li>
+          </ul>
         </section>
-        <footer class="docs-footer">Extended Lab 02 <span aria-hidden="true">·</span> PowerShell</footer>
-      </main>
-    </div>
-  </body>
-</html>
+
+        <section class="docs-section" id="vereisten">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Voor je begint</p>
+              <h2>Vereisten</h2>
+            </div>
+          </div>
+          <ul>
+            <li>PowerShell 7.x</li>
+            <li>Visual Studio Code met de PowerShell-extensie</li>
+            <li>Een Windows-labsysteem</li>
+            <li>De meegeleverde bestanden <a href="example_files/mydata.txt"><code>example_files/mydata.txt</code></a> en <a href="example_files/regdata.txt"><code>example_files/regdata.txt</code></a></li>
+          </ul>
+        </section>
+
+        <section class="docs-section" id="inleveren">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">GitHub Classroom</p>
+              <h2>Inleveren</h2>
+            </div>
+          </div>
+          <ol>
+            <li>Noteer antwoorden en losse opdrachten in <code>answers.md</code>.</li>
+            <li>Plaats de drie gevraagde scripts in <code>scripts/</code>.</li>
+            <li>Gebruik de bestanden uit <code>example_files/</code> als invoer en wijzig ze alleen wanneer de opdracht dat vraagt.</li>
+            <li>Voeg waar gevraagd relevante testuitvoer toe aan <code>answers.md</code>.</li>
+            <li>Commit en push alle studentenbestanden naar je Classroom-repository.</li>
+          </ol>
+          <p>Minimaal in te leveren:</p>
+          <pre><code>answers.md
+scripts/
+├── HowManyFilesDir.ps1
+├── MetenIsWeten.ps1
+└── FilterWithRegExp.ps1
+example_files/
+├── mydata.txt
+└── regdata.txt</code></pre>
+        </section>

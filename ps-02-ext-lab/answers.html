@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Answers — Extended lab 02</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-lab</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Overzicht</a>
+        <a class="answers-nav-link" href="answers.html" aria-current="page">Answers</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Ps-02-ext-lab</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">Answers</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Antwoordnavigatie">
+        <p class="sidebar-heading">Antwoorden</p>
+        <a class="sidebar-current" href="#answers" aria-current="page">Overzicht</a>
+        <p class="sidebar-group-label">Onderdelen</p>
+        <a href="#deel-1">Deel 1 · Selecteren en filteren</a>
+        <a href="#deel-2">Deel 2 · Scripts en meten</a>
+        <a href="#deel-3">Deel 3 · Reguliere expressies</a>
+        <a href="#eindcontrole">Eindcontrole</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="answers" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL · Extended lab 02</p>
+            <h1 id="page-title">Answers</h1>
+            <p class="hero-description">Navigeer per onderdeel door de labantwoorden en eindcontrole.</p>
+          </div>
+        </section>
+
+        <section class="docs-section" id="deel-1">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Deel 1</p>
+              <h2>Selecteren, filteren en sorteren</h2>
+            </div>
+          </div>
+
+          <h3>1. Processen selecteren met <code>Select-Object</code></h3>
+          <p>Gebruik voor alle deelvragen de uitvoer van <code>Get-Process</code> als invoer.</p>
+          <h4>1.1 Toon de eerste vijf processen</h4>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-Process | Select-Object -First 5
+        </div>
+
+          <h4>1.2 Toon de laatste vijf processen</h4>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-Process | Select-Object -Last 5
+        </div>
+
+          <h4>1.3 Toon het tweede proces</h4>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-Process | Select-Object -Index 1
+        </div>
+
+          <h4>1.4 Toon alle processen vanaf het vijfde proces</h4>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-Process | Select-Object -Skip 4
+        </div>
+
+          <h4>1.5 Toon de unieke procesnamen</h4>
+
+          <p>Toon alleen de property <code>Name</code> en zorg dat iedere procesnaam maar één keer voorkomt.</p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+                        Get-Process | Select-Object -Property Name -Unique<br>
+            <br>
+            -Unique = om elke procesnaam maar 1-malig weer te geven
+        </div>
+
+          <h4>1.6 Tel de unieke procesnamen</h4>
+          <p>Toon uitsluitend het aantal unieke procesnamen op je systeem.</p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-Process | Select-Object -Property Name -Unique | Measure-Object | Select-Object count<br>
+        </div>
+
+          <h3>2. Grootste werksets</h3>
+          <p>Toon de vijf processen met de grootste werkset. De uitvoer bevat:</p>
+          <ul>
+            <li>de proces-ID met kolomnaam <code>Pid</code>;</li>
+            <li>de procesnaam met kolomnaam <code>ProcessName</code>;</li>
+            <li>de werkset in megabytes met kolomnaam <code>WS(MB)</code>.</li>
+          </ul>
+          <p>Sorteer eerst aflopend op de property <code>WS</code> en selecteer daarna de eerste vijf processen.</p>
+          <p>Verwachte structuur — de waarden verschillen per systeem:</p>
+          <p><img class="lab-screenshot" src="assets/process-working-set.png" alt="De vijf processen met de grootste werkset" loading="lazy" /></p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-Process | Sort-Object -Descending WS | Select-Object -First 5 @{N='Pid';E={$_.Id}}, ProcessName, @{N='WS(MB)';E={[math]::Round($_.WS / 1MB, 2)}}
+        </div>
+          
+          <h3>3. Processen filteren</h3>
+          <h4>3.1 Procesnaam begint met <code>p</code></h4>
+          <p>Toon alle processen waarvan de procesnaam met de letter <code>p</code> begint. Geef minimaal twee werkende oplossingen.</p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            - Get-Process p*<br>
+            - Get-Process -ProcessName p*<br>
+            - Get-Process -Name p*
+        </div>
+
+          <h4>3.2 Processen met een grafisch venster</h4>
+          <p>Toon alle processen die een zichtbaar grafisch venster hebben.</p>
+          <blockquote><strong>Tip:</strong> Onderzoek de properties waarvan de naam <code>Window</code> bevat.</blockquote>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            1. Welke processen bevatten "Window"?<br>
+            Get-Process | Get-Member -Name *Window*<br>
+            <br>
+            2. Bekijk welke waarden erin staan.<br>
+            Get-Process | Select-Object ProcessName, MainWindowTitle, MainWindowHandle*<br>
+            <br>
+            <i>Je zal zien dat processen met een venster een titel hebben(middenste kolom) en een handle(laatste kolom) hebben die geen waarde <b>0</b> heeft.</i><br>
+            <br>
+            3. Filter op dat patroon<br>
+            Get-Process | Where-Object MainWindowTitle -ne ''<br>
+            OF<br>
+            Get-Process | Where-Object MainWindowHandle -ne 0<br>
+            <br>
+            <i><b>-ne</b> staat voor <b>not equal</b>. Bij het eerste commando geef je dus aan dat je alle processen wilt waarvan de <b>MainWindowTitle</b>
+            niet overeenkomt met een lege tekst. Bij het tweede commando geef je aan dat je alle processen wilt waarvan de <b>MainWindowHandle</b>
+            niet overeenkomt met <b>0</b>.</i>
+        </div>
+
+          <h4>3.3 Minstens 30 seconden CPU-tijd</h4>
+          <p>Toon alle processen die minstens 30 seconden CPU-tijd hebben gebruikt. Geef minimaal twee werkende oplossingen.</p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            1. Zoek eerst naar een waarde i.v.m. CPU-tijd.<br>
+            Get-Process | Get-Member -Name *CPU*<br>
+            <br>
+            2. Filter al met een <b>Where-Object</b> welke processen een tijd hebben van minstens 30 seconden.<br>
+            Get-Process | Where-object CPU -ge 30<br>
+            <i><b>-ge</b> = greater than and equal to.</i><br>
+            <br>
+            3. Toon nu de <b>ProcessName</b> en <b>CPU</b> waarden.<br>
+            Get-Process | Where-Object CPU -ge 30 | Select-Object ProcessName, CPU<br>
+            OF<br>
+            Get-Process | Where-Object { $_.CPU -ge 30 } | Select-Object ProcessName, CPU<br>
+            OF<br>
+            Get-Process | Where-Object TotalProcessorTime -ge '00:00:30' | Select-Object ProcessName, TotalProcessorTime
+        </div>
+        
+          <h4>3.4 Sorteren op procesnaam en ID</h4>
+          <p>Toon <code>ProcessName</code> en <code>Id</code> van alle processen. Sorteer eerst oplopend op procesnaam en bij gelijke namen aflopend op ID.</p>
+          <p><img class="lab-screenshot" src="assets/sorted-processes.png" alt="Processen oplopend op naam en aflopend op ID" loading="lazy" /></p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-Process | Sort-Object @{Expression='ProcessName';Ascending=$true}, @{Expression='Id';Descending=$true} | Select-Object ProcessName, Id
+        </div>
+
+          <h3>4. Services filteren</h3>
+          <h4>4.1 Automatisch gestarte services</h4>
+          <p>Toon de services waarvan het opstarttype <code>Automatic</code> is.</p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+
+          <h4>4.2 Draaiende services die niet gestopt kunnen worden</h4>
+          <p>Toon services die:</p>
+          <ul>
+            <li>de status <code>Running</code> hebben;</li>
+            <li>niet gestopt kunnen worden.</li>
+          </ul>
+          <p>Geef minimaal twee werkende oplossingen.</p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+
+          <h3>5. Bestanden filteren en tellen</h3>
+          <p>Gebruik een zelfgekozen testmap met enkele onderliggende mappen. Vermeld het gebruikte pad in <code>answers.md</code>.</p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+
+          <h4>5.1 Bestanden van minstens drie dagen oud</h4>
+          <p>Toon recursief alle bestanden waarvan <code>LastWriteTime</code> minstens drie dagen in het verleden ligt.</p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+          
+          <h4>5.2 Oude tekstbestanden</h4>
+          <p>Toon recursief alle <code>.txt</code>-bestanden die minstens drie dagen oud zijn.</p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+
+          <h4>5.3 Tel oude tekstbestanden</h4>
+          <p>Toon alleen het aantal <code>.txt</code>-bestanden dat minstens drie dagen oud is.</p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+
+          <h4>5.4 Tweede letter is <code>a</code></h4>
+          <p>Tel recursief alle bestanden waarvan de tweede letter van de bestandsnaam <code>a</code> is. <code>PathProcessing.txt</code> is een voorbeeld van een overeenkomende naam.</p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+
+          <h3>6. Uitvoerbare bestanden onderzoeken</h3>
+          <blockquote><strong>Let op:</strong> Deze opdrachten lezen systeemmappen en kunnen meldingen over ontbrekende toegangsrechten geven. Ze wijzigen of verwijderen geen bestanden. Gebruik <code>-ErrorAction SilentlyContinue</code> waar nodig.</blockquote>
+          <h4>6.1 Filter uitvoerbare bestanden in <code>C:\Windows</code></h4>
+          <p>Toon alle <code>.exe</code>-bestanden rechtstreeks in <code>C:\Windows</code> waarvan:</p>
+          <ul>
+            <li>de bestandsgrootte groter is dan 1 MB; <strong>of</strong></li>
+            <li>de bestandsgrootte exact 28.672 bytes is.</li>
+          </ul>
+          <h4>6.2 Extra: zoek recursief met diepte 2</h4>
+          <p>Voer dezelfde filter uit in <code>C:\Windows</code> en de onderliggende mappen, met een maximale recursiediepte van 2.</p>
+          <h4>6.3 Tien grootste bestanden</h4>
+          <p>Toon de tien grootste bestanden rechtstreeks in <code>C:\Windows\System32</code>. Toon minstens <code>Name</code>, <code>Length</code> en <code>FullName</code>.</p>
+
+          <h3>7. Procesproperties en meervoudig sorteren</h3>
+          <h4>7.1 Geheugenproperties</h4>
+          <p>Toon van alle processen:</p>
+          <ul>
+            <li><code>Name</code>;</li>
+            <li><code>Id</code>;</li>
+            <li><code>PM</code> — pageable memory;</li>
+            <li><code>NPM</code> — non-paged memory.</li>
+          </ul>
+          <p>Sorteer aflopend op procesnaam.</p>
+          <h4>7.2 Aflopend sorteren op naam en ID</h4>
+          <p>Toon alle processen met één pipeline, eerst aflopend gesorteerd op procesnaam en vervolgens aflopend op proces-ID.</p>
+        </section>
+
+        <section class="docs-section" id="deel-2">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Deel 2</p>
+              <h2>Scripts en meten</h2>
+            </div>
+          </div>
+
+          <h3>8. Script <code>HowManyFilesDir.ps1</code></h3>
+          <p>Maak <code>scripts/HowManyFilesDir.ps1</code> dat:</p>
+          <ol>
+            <li>het aantal bestanden rechtstreeks in <code>C:\Windows</code> toont;</li>
+            <li>het aantal mappen rechtstreeks in <code>C:\Windows</code> toont;</li>
+            <li>het aantal actieve processen toont;</li>
+            <li>comment-based help bevat die met <code>Get-Help</code> kan worden opgevraagd.</li>
+          </ol>
+          <p>Verwachte structuur — de aantallen verschillen per systeem:</p>
+          <p><img class="lab-screenshot" src="assets/system-counts.png" alt="Verwachte uitvoer van HowManyFilesDir.ps1" loading="lazy" /></p>
+          <p>Test ook:</p>
+          <pre><code>Get-Help .\scripts\HowManyFilesDir.ps1 -Full</code></pre>
+
+          <h3>9. Hotfixes</h3>
+          <blockquote><strong>Opmerking:</strong> <code>Get-HotFix</code> is alleen beschikbaar op Windows. De resultaten verschillen per labsysteem en sommige installatiedatums kunnen ontbreken.</blockquote>
+          <h4>9.1 Zoek de juiste cmdlet</h4>
+          <p>Gebruik het PowerShell-helpsysteem om een cmdlet te vinden die informatie over geïnstalleerde Windows-hotfixes toont.</p>
+          <h4>9.2 Toon alle geïnstalleerde hotfixes</h4>
+          <h4>9.3 Sorteer op installatiedatum</h4>
+          <p>Sorteer de hotfixes op <code>InstalledOn</code> en toon alleen:</p>
+          <ul>
+            <li><code>InstalledOn</code>;</li>
+            <li><code>InstalledBy</code>;</li>
+            <li><code>HotFixId</code>.</li>
+          </ul>
+          <h4>9.4 Sorteer op beschrijving</h4>
+          <p>Sorteer de hotfixes op <code>Description</code> en toon alleen:</p>
+          <ul>
+            <li><code>InstalledOn</code>;</li>
+            <li><code>Description</code>;</li>
+            <li><code>HotFixId</code>.</li>
+          </ul>
+
+          <h3>10. Script <code>MetenIsWeten.ps1</code></h3>
+          <p>Gebruik <a href="example_files/mydata.txt"><code>example_files/mydata.txt</code></a> als invoer. Maak <code>scripts/MetenIsWeten.ps1</code> dat het volgende toont:</p>
+          <ul>
+            <li>het aantal regels;</li>
+            <li>het aantal woorden;</li>
+            <li>het aantal tekens.</li>
+          </ul>
+          <p><img class="lab-screenshot" src="assets/measure-file-output.png" alt="Verwachte uitvoer van MetenIsWeten.ps1" loading="lazy" /></p>
+          <blockquote><strong>Opmerking:</strong> De oorspronkelijke screenshot toont 208 tekens. Met het meegeleverde <code>example_files/mydata.txt</code> geeft <code>Measure-Object -Character</code> 207 tekens; dit is voor deze dataset het correcte resultaat.</blockquote>
+          <p>Voorzie comment-based help en gebruik <code>Get-Content</code> en <code>Measure-Object</code>.</p>
+        </section>
+
+        <section class="docs-section" id="deel-3">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Deel 3</p>
+              <h2>Filteren met reguliere expressies</h2>
+            </div>
+          </div>
+
+          <h3>11. Script <code>FilterWithRegExp.ps1</code></h3>
+          <p>Gebruik <a href="example_files/regdata.txt"><code>example_files/regdata.txt</code></a> als invoer en koppel de volledige inhoud aan de variabele <code>$text</code>.</p>
+          <pre><code>$text = Get-Content .\example_files\regdata.txt -Raw</code></pre>
+          <p>Maak <code>scripts/FilterWithRegExp.ps1</code>. Zoek voor iedere categorie alle overeenkomsten, toon het aantal gevonden waarden en toon daarna de waarden zelf.</p>
+          <h4>11.1 URL's</h4>
+          <p>Herken URL's die met <code>http://</code> of <code>https://</code> beginnen.</p>
+          <h4>11.2 Datums</h4>
+          <p>Herken de datumvormen uit het databestand met <code>/</code>, <code>-</code> of <code>.</code> als scheidingsteken. Ondersteun de aanwezige jaartallen met twee of vier cijfers.</p>
+          <h4>11.3 IPv4-adressen</h4>
+          <p>Herken IPv4-adressen en toon het subnetmasker, bijvoorbeeld <code>/24</code>, niet als onderdeel van het adres.</p>
+          <h4>11.4 Belgische telefoonnummers</h4>
+          <p>Herken de nationale en internationale vormen uit het databestand.</p>
+          <p>Verwachte structuur:</p>
+          <p><img class="lab-screenshot" src="assets/regex-output.png" alt="Verwachte uitvoer van FilterWithRegExp.ps1" loading="lazy" /></p>
+          <blockquote><strong>Tip:</strong> <code>Select-String -AllMatches</code> en <code>[regex]::Matches()</code> geven toegang tot alle gevonden overeenkomsten.</blockquote>
+        </section>
+
+        <section class="docs-section" id="eindcontrole">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Klaar om in te leveren?</p>
+              <h2>Eindcontrole</h2>
+            </div>
+          </div>
+          <ul>
+            <li>Alle losse antwoorden en gebruikte pipelines staan in <code>answers.md</code>.</li>
+            <li><code>HowManyFilesDir.ps1</code>, <code>MetenIsWeten.ps1</code> en <code>FilterWithRegExp.ps1</code> staan in <code>scripts/</code>.</li>
+            <li>Alle drie de scripts bevatten comment-based help.</li>
+            <li>Alle scripts voeren uit zonder syntaxfouten.</li>
+            <li>De verwachte kolomnamen en sorteervolgordes zijn gebruikt.</li>
+            <li>De databestanden staan ongewijzigd in <code>data/</code>.</li>
+            <li>Alle bestanden zijn gecommit en gepusht naar GitHub Classroom.</li>
+          </ul>
+        </section>
+
+        <footer class="docs-footer">Extended lab 02 <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+  </body>
+</html>

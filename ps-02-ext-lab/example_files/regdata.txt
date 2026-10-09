@@ -1,0 +1,24 @@
+PXL
+De school met het netwerk!.
+Passie stuurt aan vanuit ons hart, geeft energie en goesting. 
+Het wakkert de nieuwsgierigheid aan en nodigt uit om te onderzoeken, 
+mogelijkheden te ontdekken en kansen te grijpen.
+
+Dit is een testtekst met verschillende elementen:
+- E-mailadressen: contact@pxl.be, info@example.com
+- URL's: http://www.pxl.be, https://www.example.com
+- Datums: 01/15/2023, 30-09-2023, 10.05.22
+- IP-adressen: 192.168.0.1, 10.0.0.1, 206.10.254.210/24
+- Belgische telefoonnummers: 012/34.56.78, 0470/12.34.56, 012 23.24.55 en+32 476/20.20.15
+- HTML-fragmenten: <p>Dit is een alinea.</p> <a href="https://www.example.com">Link</a>
+- c:\windows\system32\BitLockerWizard.exe
+Wist je dat Albert Einstein geboren is op 4/03/1879?
+
+A B c C
+PXL2023
+PXL2024
+PXL20
+PXL202
+
+test
+dsdstestazdsds

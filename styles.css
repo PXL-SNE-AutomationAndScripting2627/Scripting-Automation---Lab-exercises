@@ -188,6 +188,20 @@ body.docs-page {
   background: #21262d;
 }
 
+.docs-global-nav .answers-nav-link {
+  margin-left: 0.35rem;
+  border: 1px solid #238636;
+  background: #238636;
+  color: #fff;
+  font-weight: 600;
+}
+
+.docs-global-nav .answers-nav-link:hover {
+  border-color: #2ea043;
+  background: #2ea043;
+  color: #fff;
+}
+
 .docs-breadcrumb {
   border-bottom: 1px solid var(--docs-border);
   background: #0d1117;
@@ -269,6 +283,41 @@ body.docs-page {
   max-width: 1100px;
   margin: 0 auto;
   padding: 2rem clamp(1.25rem, 4vw, 3.5rem) 3rem;
+}
+
+.lab-content h3 {
+  margin: 2rem 0 0.6rem;
+  font-size: 1.15rem;
+}
+
+.lab-content h4 {
+  margin: 1.2rem 0 0.35rem;
+  font-size: 1rem;
+}
+
+.lab-content p,
+.lab-content li {
+  color: #c9d1d9;
+}
+
+.lab-content li + li {
+  margin-top: 0.3rem;
+}
+
+.lab-content blockquote {
+  margin: 1rem 0;
+  padding: 0.65rem 1rem;
+  border-left: 3px solid #d29922;
+  background: rgba(187, 128, 9, 0.1);
+  color: #c9d1d9;
+}
+
+.lab-content .lab-screenshot {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--docs-border);
+  border-radius: 6px;
 }
 
 .exercise-home {
