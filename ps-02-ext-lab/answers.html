@@ -19,6 +19,7 @@
         <a href="../index.html">Oefeningen</a>
         <a href="index.html">Overzicht</a>
         <a class="answers-nav-link" href="answers.html" aria-current="page">Answers</a>
+        <a href="scripts.html">Scripts</a>
       </nav>
     </header>
 
@@ -41,6 +42,8 @@
         <a href="#deel-2">Deel 2 · Scripts en meten</a>
         <a href="#deel-3">Deel 3 · Reguliere expressies</a>
         <a href="#eindcontrole">Eindcontrole</a>
+        <p class="sidebar-group-label">Projectpagina's</p>
+        <a href="scripts.html">Scripts</a>
       </aside>
 
       <main id="main-content" class="docs-main lab-content">
@@ -195,7 +198,7 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            Get-Service | Where-Object -Property StartType -eq 'Automatic'
         </div>
 
           <h4>4.2 Draaiende services die niet gestopt kunnen worden</h4>
@@ -208,7 +211,9 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            Get-Service | Where-Object -Property Status -eq 'running' | Where-Object -Property CanStop -eq $false<br>
+            OR<br>
+            Get-Service | Where-Object {$_.Status -eq 'running' -and $_.CanStop -eq $false}
         </div>
 
           <h3>5. Bestanden filteren en tellen</h3>
@@ -216,7 +221,7 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            C:\powershell
         </div>
 
           <h4>5.1 Bestanden van minstens drie dagen oud</h4>
@@ -224,7 +229,7 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            Get-ChildItem -File -Path "C:\Windows\" -Recurse | Where-Object {$_.LastWriteTime -le (Get-Date).AddDays(-3)}
         </div>
           
           <h4>5.2 Oude tekstbestanden</h4>
@@ -232,7 +237,7 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            Get-ChildItem -File -Path "C:\Users\12501999\Documents\" -Recurse | Where-Object {$_.CreationTime -le (Get-Date).AddDays(-3)}
         </div>
 
           <h4>5.3 Tel oude tekstbestanden</h4>
@@ -240,7 +245,9 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            (Get-ChildItem -Filter *.txt -Path "C:\Users\12501999\Documents\" -Recurse | Where-Object {$_.CreationTime -le (Get-Date).AddDays(-3)}).Count<br>
+            OR<br>
+            (Get-ChildItem -Filter *.txt -Path "C:\Users\12501999\Documents\" -Recurse | Where-Object {$_.CreationTime -le (Get-Date).AddDays(-3)} | Measure-Object).Count
         </div>
 
           <h4>5.4 Tweede letter is <code>a</code></h4>
@@ -248,7 +255,11 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            (Get-ChildItem -File -Path C:\Users\12501999\ -Recurse -Filter '?a*' | Measure-Object).Count<br>
+            OR<br>
+            (Get-ChildItem -File -Path C:\Users\12501999\ -Recurse | Where-Object {$_.Name -like '?a*'}).Count<br>
+            OR<br>
+            (Get-ChildItem -File -Path C:\Users\12501999\ -Recurse | Where-Object {$_.Name -match '^.a'}).Count
         </div>
 
           <h3>6. Uitvoerbare bestanden onderzoeken</h3>
@@ -259,10 +270,29 @@
             <li>de bestandsgrootte groter is dan 1 MB; <strong>of</strong></li>
             <li>de bestandsgrootte exact 28.672 bytes is.</li>
           </ul>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-ChildItem -File *.exe -Path C:\Windows\ -ErrorAction SilentlyContinue | Where-Object {$_.Length -gt 1MB -or $_.Length -eq 28672}
+        </div>
+
           <h4>6.2 Extra: zoek recursief met diepte 2</h4>
           <p>Voer dezelfde filter uit in <code>C:\Windows</code> en de onderliggende mappen, met een maximale recursiediepte van 2.</p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-ChildItem -Recurse -Depth 2 -File *.exe -Path C:\Windows\ -ErrorAction SilentlyContinue | Where-Object {$_.Length -gt 1MB -or $_.Length -eq 28672}
+        </div>
+
           <h4>6.3 Tien grootste bestanden</h4>
           <p>Toon de tien grootste bestanden rechtstreeks in <code>C:\Windows\System32</code>. Toon minstens <code>Name</code>, <code>Length</code> en <code>FullName</code>.</p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-ChildItem -File C:\Windows\System32\ -ErrorAction SilentlyContinue | Sort-Object Length -Descending -Top 10 | Select-Object Name,Length,FullName<br>
+            OR<br>
+            Get-ChildItem -File C:\Windows\System32\ -ErrorAction SilentlyContinue | Sort-Object Length -Descending | Select-Object -Top 10 Name,Length,FullName
+        </div>
 
           <h3>7. Procesproperties en meervoudig sorteren</h3>
           <h4>7.1 Geheugenproperties</h4>
@@ -274,9 +304,20 @@
             <li><code>NPM</code> — non-paged memory.</li>
           </ul>
           <p>Sorteer aflopend op procesnaam.</p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-Process | Sort-Object -Property ProcessName -Descending | Select-Object Name,Id,PM,NPM
+        </div>
+
           <h4>7.2 Aflopend sorteren op naam en ID</h4>
           <p>Toon alle processen met één pipeline, eerst aflopend gesorteerd op procesnaam en vervolgens aflopend op proces-ID.</p>
         </section>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            Get-Process | Sort-Object -Descending ProcessName, Id
+        </div>
 
         <section class="docs-section" id="deel-2">
           <div class="section-heading">
@@ -299,11 +340,28 @@
           <p>Test ook:</p>
           <pre><code>Get-Help .\scripts\HowManyFilesDir.ps1 -Full</code></pre>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+
           <h3>9. Hotfixes</h3>
           <blockquote><strong>Opmerking:</strong> <code>Get-HotFix</code> is alleen beschikbaar op Windows. De resultaten verschillen per labsysteem en sommige installatiedatums kunnen ontbreken.</blockquote>
           <h4>9.1 Zoek de juiste cmdlet</h4>
           <p>Gebruik het PowerShell-helpsysteem om een cmdlet te vinden die informatie over geïnstalleerde Windows-hotfixes toont.</p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+
+        </div>
+
           <h4>9.2 Toon alle geïnstalleerde hotfixes</h4>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+
+        </div>
+
           <h4>9.3 Sorteer op installatiedatum</h4>
           <p>Sorteer de hotfixes op <code>InstalledOn</code> en toon alleen:</p>
           <ul>
@@ -311,6 +369,12 @@
             <li><code>InstalledBy</code>;</li>
             <li><code>HotFixId</code>.</li>
           </ul>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+
+        </div>
+
           <h4>9.4 Sorteer op beschrijving</h4>
           <p>Sorteer de hotfixes op <code>Description</code> en toon alleen:</p>
           <ul>
@@ -318,6 +382,11 @@
             <li><code>Description</code>;</li>
             <li><code>HotFixId</code>.</li>
           </ul>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+
+        </div>
 
           <h3>10. Script <code>MetenIsWeten.ps1</code></h3>
           <p>Gebruik <a href="example_files/mydata.txt"><code>example_files/mydata.txt</code></a> als invoer. Maak <code>scripts/MetenIsWeten.ps1</code> dat het volgende toont:</p>
@@ -331,6 +400,11 @@
           <p>Voorzie comment-based help en gebruik <code>Get-Content</code> en <code>Measure-Object</code>.</p>
         </section>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+
+        </div>
+
         <section class="docs-section" id="deel-3">
           <div class="section-heading">
             <div>
@@ -343,18 +417,47 @@
           <p>Gebruik <a href="example_files/regdata.txt"><code>example_files/regdata.txt</code></a> als invoer en koppel de volledige inhoud aan de variabele <code>$text</code>.</p>
           <pre><code>$text = Get-Content .\example_files\regdata.txt -Raw</code></pre>
           <p>Maak <code>scripts/FilterWithRegExp.ps1</code>. Zoek voor iedere categorie alle overeenkomsten, toon het aantal gevonden waarden en toon daarna de waarden zelf.</p>
+          
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+
+        </div>
+          
           <h4>11.1 URL's</h4>
           <p>Herken URL's die met <code>http://</code> of <code>https://</code> beginnen.</p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+
+        </div>
+
           <h4>11.2 Datums</h4>
           <p>Herken de datumvormen uit het databestand met <code>/</code>, <code>-</code> of <code>.</code> als scheidingsteken. Ondersteun de aanwezige jaartallen met twee of vier cijfers.</p>
+          
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+
+        </div>
+          
           <h4>11.3 IPv4-adressen</h4>
           <p>Herken IPv4-adressen en toon het subnetmasker, bijvoorbeeld <code>/24</code>, niet als onderdeel van het adres.</p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+
+        </div>
+
           <h4>11.4 Belgische telefoonnummers</h4>
           <p>Herken de nationale en internationale vormen uit het databestand.</p>
           <p>Verwachte structuur:</p>
           <p><img class="lab-screenshot" src="assets/regex-output.png" alt="Verwachte uitvoer van FilterWithRegExp.ps1" loading="lazy" /></p>
           <blockquote><strong>Tip:</strong> <code>Select-String -AllMatches</code> en <code>[regex]::Matches()</code> geven toegang tot alle gevonden overeenkomsten.</blockquote>
         </section>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+
+        </div>
 
         <section class="docs-section" id="eindcontrole">
           <div class="section-heading">
