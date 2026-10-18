@@ -342,7 +342,28 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+
+              <#<br><br>
+              .SYNOPSIS<br>
+              Shows the amount of files, directories and processes.<br>
+              <br>
+              .DESCRIPTION<br>
+              This script counts the amount of files en directories directly inside C:\Windows and the amount of active processes on the system.<br>
+              <br>
+              .EXAMPLE<br>
+              .\HowmanyFilesDir.ps1<br>
+              Shows the amounts for C:\Windows and the amount of processes.<br>
+              #>
+              <br><br>
+              $path = 'C:\Windows\'<br>
+              $filecount = (Get-ChildItem $path).Count<br>
+              $dircount = (Get-ChildItem $path -Directory).Count<br>
+              $procount = (Get-Process).Count<br>
+              <br>
+              Write-Output "Information of path: $path"<br>
+              Write-Output "File count: $filecount"<br>
+              Write-Output "Directory count: $dircount"<br>
+              Write-Output "Amount of processes: $procount"
         </div>
 
           <h3>9. Hotfixes</h3>
@@ -352,14 +373,14 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-
+            Get-Command -Noun *hotfix*
         </div>
 
           <h4>9.2 Toon alle geïnstalleerde hotfixes</h4>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-
+            Get-HotFix
         </div>
 
           <h4>9.3 Sorteer op installatiedatum</h4>
@@ -372,7 +393,7 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-
+            Get-HotFix | Sort-Object InstalledOn | Select-Object InstalledOn,InstalledBy,HotFixId
         </div>
 
           <h4>9.4 Sorteer op beschrijving</h4>
@@ -385,7 +406,7 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-
+            Get-HotFix | Sort-Object Description | Select-Object InstalledOn,Description,HotFixId
         </div>
 
           <h3>10. Script <code>MetenIsWeten.ps1</code></h3>
@@ -402,7 +423,27 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-
+            <#<br>
+            .SYNOPSIS<br>
+            Shows the amount of lines, words and characters inside mydata.txt<br>
+            <br>
+            .DESCRIPTION<br>
+            This script counts all the amounts.<br>
+            <br>
+            .EXAMPLE<br>
+            .\MetenIsWeten.ps1<br>
+            Shows the amount of lines, words and characters inside mydata.txt<br>
+            #><br>
+            <br>
+            $sourcefile = 'C:\Projects\ps-01-ext-lab-AngeloSwitonPXL\ps-02-ext-lab\example_files\mydata.txt'<br>
+            $linecount = (Get-Content $sourcefile | Measure-Object -Line).Lines<br>
+            $wordcount = (Get-Content $sourcefile | Measure-Object -Word).Words<br>
+            $charcount = (Get-Content $sourcefile | Measure-Object -Character).Characters<br>
+            <br>
+            Write-Output "The file mydata.txt contains"<br>
+            Write-Output "$linecount line(es)"<br>
+            Write-Output "$wordcount word(s)"<br>
+            Write-Output "$charcount character(s)"<br>
         </div>
 
         <section class="docs-section" id="deel-3">
