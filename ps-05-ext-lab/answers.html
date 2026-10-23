@@ -26,6 +26,12 @@
         <article class="docs-article"><h2 id="1-variabelen-en-tekenreeksen">1. Variabelen en tekenreeksen</h2>
           <h3 id="1-1-begrippen">1.1 Begrippen</h3>
           <p>Wat is een variabele in PowerShell? Benoem de drie hoofdonderdelen waaruit een variabele bestaat.</p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+
           <h3 id="1-2-voornaam-als-object">1.2 Voornaam als object</h3>
           <p>Maak <code>$myFirstName</code> en ken je voornaam toe. Voer daarna deze onderzoeken uit:</p>
           <ol>
@@ -36,6 +42,12 @@
           <li>Toon je voornaam in hoofdletters zonder de opgeslagen waarde te wijzigen.</li>
           <li>Toon alleen de eerste en de laatste letter.</li>
           </ol>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+
           <h3 id="1-3-volledige-naam">1.3 Volledige naam</h3>
           <ol>
           <li>Maak <code>$myLastName</code>.</li>
@@ -43,6 +55,12 @@
           <li>Toon de waarde en lengte.</li>
           <li>Verwijder de achterste spatie uit de opgeslagen variabele en toon opnieuw de lengte.</li>
           </ol>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+
           <h2 id="2-arrays">2. Arrays</h2>
           <p>Maak <code>$myHosts</code> met deze vijf waarden:</p>
           <pre><code>Server01
@@ -59,6 +77,12 @@ WorkstationC</code></pre>
           </ol>
           <p>Gebruik een ge&#239;nterpoleerde tekenreeks om het aantal te melden.</p>
           <p><img class="lab-screenshot" src="assets/hosts-count.png" alt="Voorbeeldmelding met het aantal hosts" /></p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+
           <h2 id="3-procesobjecten-in-een-variabele">3. Procesobjecten in een variabele</h2>
           <blockquote><p><strong>LET OP:</strong> Deze oefening start Rekenmachine en stopt alle gevonden Rekenmachine-processen. Sla eventueel werk op, voer dit alleen op een oefensysteem uit en controleer v&#243;&#243;r en na het stoppen met <code>Get-Process</code>.</p></blockquote>
           <ol>
@@ -70,6 +94,12 @@ WorkstationC</code></pre>
           <li>Toon de eerste drie processen, aflopend gesorteerd op <code>StartTime</code>, met alleen <code>Id</code>, <code>ProcessName</code> en <code>StartTime</code>.</li>
           <li>Filter vanuit <code>$myProces</code> de Rekenmachine-processen en stop ze.</li>
           </ol>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+
           <h2 id="4-script-rekenen-ps1">4. Script: <code>Rekenen.ps1</code></h2>
           <p>Maak <code>scripts/Rekenen.ps1</code>:</p>
           <ul>
@@ -80,6 +110,12 @@ WorkstationC</code></pre>
           <li>voeg comment-based help toe.</li>
           </ul>
           <p><img class="lab-screenshot" src="assets/calculator-output.png" alt="Voorbeeldoutput van Rekenen.ps1" /></p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+
           <h2 id="5-script-makebackup-ps1">5. Script: <code>MakeBackup.ps1</code></h2>
           <blockquote><p><strong>LET OP:</strong> Voer deze oefening alleen op een oefensysteem uit. Het script leest uit <code>C:\pxl_data</code> en schrijft ZIP-bestanden naar <code>C:\backups</code>. Controleer beide paden en verwijder testgegevens en testback-ups na beoordeling.</p></blockquote>
           <p>Maak eerst <code>C:\pxl_data</code> met enkele testbestanden en <code>C:\backups</code>.</p>
@@ -93,6 +129,12 @@ WorkstationC</code></pre>
           <li>Voeg comment-based help toe.</li>
           </ol>
           <p><img class="lab-screenshot" src="assets/backup-output.png" alt="Voorbeeldoutput van MakeBackup.ps1" /></p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+
           <h2 id="6-extra-script-adduser-ps1">6. Extra: script <code>AddUser.ps1</code></h2>
           <blockquote><p><strong>LET OP:</strong> Deze extra opdracht vereist beheerdersrechten en maakt een lokale Windows-gebruiker. Gebruik uitsluitend een oefensysteem, controleer het resultaat met <code>Get-LocalUser</code> en verwijder de testgebruiker nadien met <code>Remove-LocalUser</code>. Voeg de gebruiker niet toe aan de groep Administrators.</p></blockquote>
           <p>Maak <code>scripts/AddUser.ps1</code>:</p>
@@ -105,6 +147,12 @@ WorkstationC</code></pre>
           <li>voeg comment-based help toe.</li>
           </ul>
           <p><img class="lab-screenshot" src="assets/add-user-output.png" alt="Voorbeeldoutput van AddUser.ps1" /></p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+
           <h2 id="eindcontrole">Eindcontrole</h2>
           <ul>
           <li><span aria-hidden="true">&#9744;</span> Alle antwoorden en testresultaten staan in <code>answers.md</code>.</li>

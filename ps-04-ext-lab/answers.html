@@ -31,13 +31,25 @@
           <li>Toon de inhoud van dat bestand opnieuw in de terminal.</li>
           <li>Toon dezelfde inhoud vervolgens per pagina.</li>
           </ol>
-          <p>Noteer de drie commando&#39;s in <code>answers.md</code>.</p>
+          <p>Noteer de drie commando&#39;s in <code>answers.html</code>.</p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+
           <h3 id="1-2-windows-bestanden-als-html">1.2 Windows-bestanden als HTML</h3>
           <ol>
           <li>Vraag met <code>Get-ChildItem</code> de inhoud van <code>C:\Windows</code> op.</li>
           <li>Zet de objecten om naar HTML en bewaar ze als <code>output/WinFiles.html</code>.</li>
           <li>Open het HTML-bestand met het standaardprogramma voor <code>.html</code>-bestanden.</li>
           </ol>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+
           <h3 id="1-3-windows-bestanden-als-csv-en-clixml">1.3 Windows-bestanden als CSV en CLIXML</h3>
           <ol>
           <li>Exporteer de inhoud van <code>C:\Windows</code> naar <code>output/WinFiles.csv</code>.</li>
@@ -45,13 +57,22 @@
           <li>Importeer <code>WinFiles.xml</code> opnieuw en toon alleen <code>Name</code>, <code>Extension</code>, <code>Length</code> en <code>LastAccessTime</code>.</li>
           </ol>
           <p>Leg in <code>answers.md</code> kort uit waarom CLIXML geschikter is dan gewone tekst wanneer je PowerShell-objecten opnieuw wilt gebruiken.</p>
+
+
+
           <h3 id="1-4-paden-testen">1.4 Paden testen</h3>
           <ol>
           <li>Maak de map <code>C:\pxl_is_the_best</code>.</li>
           <li>Controleer met een cmdlet of de map bestaat.</li>
           <li>Controleer ook of <code>output/WinFiles.xml</code> bestaat.</li>
-          <li>Noteer beide booleaanse resultaten in <code>answers.md</code>.</li>
+          <li>Noteer beide booleaanse resultaten in <code>answers.html</code>.</li>
           </ol>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+          
           <h2 id="2-bestanden-en-mappen-kopiëren">2. Bestanden en mappen kopi&#235;ren</h2>
           <blockquote><p><strong>LET OP:</strong> Voer dit deel alleen uit op een oefensysteem. De opdrachten maken, verplaatsen en verwijderen mappen onder <code>C:\pxl_source</code>, <code>C:\pxl_destination</code>, <code>C:\pxl_final</code> en <code>C:\pxl_is_the_best</code>. Controleer v&#243;&#243;r iedere verwijdering het letterlijke doelpad. Verwijder deze vier oefenmappen na de oefening.</p></blockquote>
           <h3 id="2-1-bronmap-en-testbestanden">2.1 Bronmap en testbestanden</h3>
@@ -61,6 +82,12 @@
           <li>Verifieer dat exact 50 bestanden aanwezig zijn.</li>
           </ol>
           <blockquote><p><strong>TIP:</strong> Genereer de nummers met de bereikoperator <code>..</code> en gebruik <code>ForEach-Object</code> om voor ieder nummer een bestand te maken.</p></blockquote>
+          
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+          
           <h3 id="2-2-kopieergedrag-onderzoeken">2.2 Kopieergedrag onderzoeken</h3>
           <p>Voer elke stap afzonderlijk uit en noteer in <code>answers.md</code> wat PowerShell doet.</p>
           <ol>
@@ -73,6 +100,12 @@
           <li>Verplaats <code>C:\pxl_destination</code>, inclusief inhoud, naar <code>C:\pxl_final</code>.</li>
           </ol>
           <p>Controleer na elke stap met <code>Get-ChildItem</code> en <code>Test-Path</code>.</p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+
           <h3 id="2-3-opruimen">2.3 Opruimen</h3>
           <p>Controleer dat deze variabele alleen de drie bedoelde oefenpaden bevat en verwijder ze daarna:</p>
           <pre><code>$labPaths = @(
@@ -82,6 +115,12 @@
     &#39;C:\pxl_is_the_best&#39;
 )</code></pre>
           <p>Noteer hoe je v&#243;&#243;r en na het verwijderen hebt gecontroleerd welke paden bestonden.</p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+            
           <h2 id="3-script-applicaties-starten-en-stoppen">3. Script: applicaties starten en stoppen</h2>
           <blockquote><p><strong>LET OP:</strong> Deze scripts starten toepassingen en sluiten alle processen van Kladblok en Rekenmachine af. Sla werk vooraf op, voer de scripts alleen op een oefensysteem uit en controleer met <code>Get-Process</code> of de processen na afloop gestopt zijn.</p></blockquote>
           <h3 id="3-1-eén-pipeline">3.1 E&#233;n pipeline</h3>
@@ -89,11 +128,23 @@
           <li>Start Kladblok en Rekenmachine met &#233;&#233;n pipeline die eindigt in &#233;&#233;n aanroep van <code>Invoke-Item</code>.</li>
           <li>Sluit daarna met &#233;&#233;n pipeline alle processen van beide toepassingen.</li>
           </ol>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+
           <h3 id="3-2-startstopprogsv1-ps1">3.2 <code>StartStopProgsV1.ps1</code></h3>
           <p>Maak <code>scripts/StartStopProgsV1.ps1</code> en bewaar de gevonden objecten in:</p>
           <pre><code>$start_Apps = $null # vervang door de gevonden bestanden
 $stop_Apps  = $null # vervang door de gevonden processen</code></pre>
           <p>Gebruik de variabelen om beide toepassingen te starten en vervolgens te stoppen. Toon duidelijke statusmeldingen.</p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+
           <h3 id="3-3-startstopprogsv2-ps1">3.3 <code>StartStopProgsV2.ps1</code></h3>
           <p>Maak <code>scripts/StartStopProgsV2.ps1</code>. Gebruik ook:</p>
           <pre><code>$app_01 = &#39;notepad&#39;
@@ -102,6 +153,12 @@ $app_02 = &#39;calc&#39;</code></pre>
           <p><img class="lab-screenshot" src="assets/start-stop-command.png" alt="Commando waarmee StartStopProgsV2.ps1 wordt uitgevoerd" /></p>
           <p>De oudere bronafbeelding gebruikt Paint; jouw huidige versie gebruikt Rekenmachine.</p>
           <p><img class="lab-screenshot" src="assets/start-stop-output.png" alt="Voorbeeld van statusmeldingen bij starten en stoppen" /></p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+
           <h2 id="4-command-prompt-en-powershell-vergelijken">4. Command Prompt en PowerShell vergelijken</h2>
           <h3 id="4-1-dir-s-en-ipconfig-all">4.1 <code>dir /s</code> en <code>ipconfig /all</code></h3>
           <p>Voer beide opdrachten eerst uit in <code>cmd.exe</code> en daarna in PowerShell. Beantwoord:</p>
@@ -111,6 +168,12 @@ $app_02 = &#39;calc&#39;</code></pre>
           <li>Hoe achterhaal je in PowerShell wat <code>dir</code> en <code>ipconfig</code> precies zijn?</li>
           <li>Welke betekenis heeft <code>/s</code> in beide omgevingen en waarom kan dat tot verschillend gedrag leiden?</li>
           </ol>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+
           <h2 id="5-geschiedenis-en-transcript">5. Geschiedenis en transcript</h2>
           <h3 id="5-1-get-history">5.1 <code>Get-History</code></h3>
           <p>Leg uit wat <code>Get-History</code> toont en geef een praktisch voorbeeld uit je huidige sessie.</p>
@@ -121,6 +184,12 @@ $app_02 = &#39;calc&#39;</code></pre>
           <li>Stop het transcript expliciet.</li>
           <li>Controleer de inhoud en leg uit wat wordt geregistreerd.</li>
           </ol>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+
           <h2 id="6-script-mapinformatie">6. Script: mapinformatie</h2>
           <h3 id="6-1-eerste-versie">6.1 Eerste versie</h3>
           <p>Maak <code>scripts/ShowFolderInfo.ps1</code>. Gebruik <code>$myFolder</code> en toon inclusief submappen:</p>
@@ -131,11 +200,23 @@ $app_02 = &#39;calc&#39;</code></pre>
           </ul>
           <p>Rond groottes af op twee decimalen. Test eerst met <code>$env:USERPROFILE</code> en daarna met <code>C:\Windows\System32</code>. Gebruik <code>-ErrorAction</code> zodat ontoegankelijke onderdelen geen foutmeldingen tonen en leg uit waarom dit hier passend is.</p>
           <p><img class="lab-screenshot" src="assets/folder-statistics-table.png" alt="Voorbeeld van mapstatistieken in tabelvorm" /></p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+
           <h3 id="6-2-resultaten-in-variabelen">6.2 Resultaten in variabelen</h3>
           <p>Plaats de resultaten in betekenisvolle variabelen en maak een leesbare uitvoer met statuskleuren.</p>
           <p><img class="lab-screenshot" src="assets/folder-statistics-variables.png" alt="Voorbeeld van mapstatistieken uit variabelen" /></p>
           <p>Controleer je script met:</p>
           <pre><code>Get-Help ./scripts/ShowFolderInfo.ps1 -Full</code></pre>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+            
+        </div>
+
           <h2 id="eindcontrole">Eindcontrole</h2>
           <ul>
           <li><span aria-hidden="true">&#9744;</span> <code>answers.md</code> bevat alle gevraagde commando&#39;s, verklaringen en testresultaten.</li>
