@@ -1,40 +1,106 @@
-<p align="center">
-  <img src="assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" width="620">
-</p>
-
-# Extended lab 05 — PowerShell-variabelen
-
-In deze lab onderzoek je variabelen als objecten, werk je met tekenreeksen en arrays en gebruik je variabelen in drie volledige scripts.
-
-> [!IMPORTANT]
-> Gebruik PowerShell-cmdlets wanneer die beschikbaar zijn. Baseer je op de cursus, je notities en de ingebouwde help.
-
-## Leerdoelen
-
-Na deze lab kun je:
-
-- naam, waarde en datatype van een variabele verklaren;
-- properties en methods van objecten onderzoeken;
-- tekenreeksen en arrays indexeren;
-- cmdletresultaten in variabelen bewaren en opnieuw verwerken;
-- gebruikersinvoer naar het juiste datatype omzetten;
-- veilige bestandsnamen met een tijdstempel samenstellen;
-- gevoelige invoer als `SecureString` verwerken.
-
-## Vereisten
-
-- Windows PowerShell 5.1 of PowerShell 7;
-- Visual Studio Code met de PowerShell-extensie;
-- voor de extra gebruikersopdracht: Windows PowerShell als administrator op een labsysteem.
-
-## Inleveren via GitHub Classroom
-
-```text
-answers.md
-scripts/
-├── Rekenen.ps1
-├── MakeBackup.ps1
-└── AddUser.ps1
-```
-
-Noteer korte antwoorden, gebruikte commando's en testresultaten in `<answers class="html"></answers>
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Uitgebreide oefening 05 — PowerShell-variabelen</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-oefening</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html" aria-current="page">Overzicht</a>
+        <a class="answers-nav-link" href="answers.html">Opdrachten</a>
+        <a href="scripts.html">Scripts</a>
+      </nav>
+    </header>
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">Oefening 05</span>
+      </div>
+    </div>
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Uitgebreide oefening 05</p>
+        <a class="sidebar-current" href="#overview" aria-current="page">Overzicht</a>
+        <p class="sidebar-group-label">In deze oefening</p>
+        <a href="#leerdoelen">Leerdoelen</a>
+        <a href="#vereisten">Vereisten</a>
+        <a href="#inleveren">Inleveren</a>
+        <p class="sidebar-group-label">Projectpagina's</p>
+        <a href="answers.html">Opdrachten</a>
+        <a href="scripts.html">Scripts</a>
+      </aside>
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL · Uitgebreide oefening 05</p>
+            <h1 id="page-title">PowerShell-variabelen</h1>
+            <p class="hero-description">Onderzoek variabelen als objecten, werk met tekenreeksen en arrays en bouw complete PowerShell-scripts.</p>
+            <a class="primary-link" href="answers.html">Bekijk de opdrachten <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+        <section class="docs-section" id="leerdoelen">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Wat je leert</p>
+              <h2>Leerdoelen</h2>
+            </div>
+            <span class="section-count">7 doelstellingen</span>
+          </div>
+          <ul class="goal-grid">
+            <li>De naam, waarde en het datatype van een variabele verklaren.</li>
+            <li>Properties en methods van objecten onderzoeken.</li>
+            <li>Tekenreeksen en arrays indexeren.</li>
+            <li>Cmdletresultaten in variabelen bewaren en opnieuw verwerken.</li>
+            <li>Gebruikersinvoer naar het juiste datatype omzetten.</li>
+            <li>Veilige bestandsnamen met een tijdstempel samenstellen.</li>
+            <li>Gevoelige invoer als <code>SecureString</code> verwerken.</li>
+          </ul>
+        </section>
+        <section class="docs-section" id="vereisten">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Voor je begint</p>
+              <h2>Vereisten en veiligheid</h2>
+            </div>
+          </div>
+          <ul>
+            <li>Windows PowerShell 5.1 of PowerShell 7 en Visual Studio Code met de PowerShell-extensie.</li>
+            <li>Voor de extra opdracht: Windows PowerShell met beheerdersrechten op een oefensysteem.</li>
+            <li>Start en stop toepassingen of maak gebruikers alleen aan op een veilig oefensysteem. Verwijder testgegevens na controle.</li>
+          </ul>
+        </section>
+        <section class="docs-section" id="inleveren">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">GitHub Classroom</p>
+              <h2>Inleveren</h2>
+            </div>
+          </div>
+          <ol class="submission-list">
+            <li>Noteer antwoorden, gebruikte commando's en testresultaten in <code>answers.md</code>.</li>
+            <li>Plaats <code>Rekenen.ps1</code>, <code>MakeBackup.ps1</code> en <code>AddUser.ps1</code> in <code>scripts/</code>.</li>
+            <li>Controleer en ruim tijdelijke bestanden, gebruikers en back-ups veilig op.</li>
+            <li>Commit en push je werk naar GitHub Classroom.</li>
+          </ol>
+          <div class="resource-links" aria-label="Projectbronnen">
+            <a href="answers.html">Bekijk de opdrachten <span aria-hidden="true">→</span></a>
+            <a href="scripts.html">Bekijk scripts <span aria-hidden="true">→</span></a>
+          </div>
+        </section>
+        <footer class="docs-footer">Uitgebreide oefening 05 <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+  </body>
+</html>

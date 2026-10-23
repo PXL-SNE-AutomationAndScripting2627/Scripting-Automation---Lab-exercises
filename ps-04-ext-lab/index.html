@@ -1,50 +1,107 @@
-<p align="center">
-  <img src="assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" width="620">
-</p>
-
-# Extended lab 04 — PowerShell bestanden en mappen
-
-In deze uitgebreide lab exporteer en importeer je objecten, beheer je bestanden en mappen, werk je met processen en verzamel je mapstatistieken in scripts.
-
-> [!IMPORTANT]
-> Bestaat er een PowerShell-cmdlet voor een opdracht, gebruik die dan in plaats van een extern commando.
-
-## Leerdoelen
-
-Na deze lab kun je:
-
-- pipeline-uitvoer bewaren als tekst, HTML, CSV en CLIXML;
-- geëxporteerde PowerShell-objecten opnieuw importeren;
-- paden testen en bestanden en mappen veilig beheren;
-- applicaties via PowerShell starten en stoppen;
-- verschillen tussen opdrachten in `cmd.exe` en PowerShell verklaren;
-- sessiegeschiedenis en transcripts gebruiken;
-- bestands- en mapstatistieken berekenen en presenteren.
-
-## Vereisten
-
-- Windows met Windows PowerShell 5.1 of PowerShell 7;
-- toegang tot `C:\Windows` en `C:\Windows\System32`;
-- een gewone PowerShell-sessie; administratorrechten zijn niet vereist;
-- een veilige labsysteemomgeving voor opdrachten onder `C:\pxl_*`;
-- Visual Studio Code met de PowerShell-extensie.
-
-## Inleveren via GitHub Classroom
-
-Maak deze structuur in je repository:
-
-```text
-answers.md
-output/
-├── processInfo.txt
-├── WinFiles.html
-├── WinFiles.csv
-├── WinFiles.xml
-└── transcript001.txt
-scripts/
-├── StartStopProgsV1.ps1
-├── StartStopProgsV2.ps1
-└── ShowFolderInfo.ps1
-```
-
-Noteer in `<answers class="html"></answers> gebruikte commando's, verklaringen en testresultaten.
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Uitgebreide oefening 04 — PowerShell-bestanden en mappen</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-oefening</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html" aria-current="page">Overzicht</a>
+        <a class="answers-nav-link" href="answers.html">Opdrachten</a>
+        <a href="scripts.html">Scripts</a>
+      </nav>
+    </header>
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">Oefening 04</span>
+      </div>
+    </div>
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Uitgebreide oefening 04</p>
+        <a class="sidebar-current" href="#overview" aria-current="page">Overzicht</a>
+        <p class="sidebar-group-label">In deze oefening</p>
+        <a href="#leerdoelen">Leerdoelen</a>
+        <a href="#vereisten">Vereisten</a>
+        <a href="#inleveren">Inleveren</a>
+        <p class="sidebar-group-label">Projectpagina's</p>
+        <a href="answers.html">Opdrachten</a>
+        <a href="scripts.html">Scripts</a>
+      </aside>
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL · Uitgebreide oefening 04</p>
+            <h1 id="page-title">Bestanden en mappen</h1>
+            <p class="hero-description">Exporteer en importeer PowerShell-objecten, beheer bestanden en bouw scripts voor processen en mapstatistieken.</p>
+            <a class="primary-link" href="answers.html">Bekijk de opdrachten <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+        <section class="docs-section" id="leerdoelen">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Wat je leert</p>
+              <h2>Leerdoelen</h2>
+            </div>
+            <span class="section-count">7 doelstellingen</span>
+          </div>
+          <ul class="goal-grid">
+            <li>Pipeline-uitvoer bewaren als tekst, HTML, CSV en CLIXML.</li>
+            <li>Geëxporteerde PowerShell-objecten opnieuw importeren.</li>
+            <li>Paden testen en bestanden en mappen veilig beheren.</li>
+            <li>Applicaties via PowerShell starten en stoppen.</li>
+            <li>Opdrachten in <code>cmd.exe</code> en PowerShell vergelijken.</li>
+            <li>Sessiegeschiedenis en transcripts gebruiken.</li>
+            <li>Bestands- en mapstatistieken berekenen en presenteren.</li>
+          </ul>
+        </section>
+        <section class="docs-section" id="vereisten">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Voor je begint</p>
+              <h2>Vereisten en veiligheid</h2>
+            </div>
+          </div>
+          <ul>
+            <li>Windows PowerShell 5.1 of PowerShell 7 en Visual Studio Code met de PowerShell-extensie.</li>
+            <li>Toegang tot de Windows-mappen die in de opdrachten worden genoemd.</li>
+            <li>Gebruik voor de opdrachten onder <code>C:\pxl_*</code> een veilig oefensysteem en controleer doelpaden vóór opruimen.</li>
+            <li>Administratorrechten zijn niet nodig, behalve waar de extra opdracht dit expliciet vermeldt.</li>
+          </ul>
+        </section>
+        <section class="docs-section" id="inleveren">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">GitHub Classroom</p>
+              <h2>Inleveren</h2>
+            </div>
+          </div>
+          <ol class="submission-list">
+            <li>Noteer commando's, verklaringen en testresultaten in <code>answers.md</code>.</li>
+            <li>Bewaar de gevraagde bestanden in <code>output/</code> en scripts in <code>scripts/</code>.</li>
+            <li>Controleer en verwijder de tijdelijke testmappen na de oefening.</li>
+            <li>Commit en push alleen je studentenbestanden.</li>
+          </ol>
+          <div class="resource-links" aria-label="Projectbronnen">
+            <a href="answers.html">Bekijk de opdrachten <span aria-hidden="true">→</span></a>
+            <a href="scripts.html">Bekijk scripts <span aria-hidden="true">→</span></a>
+          </div>
+        </section>
+        <footer class="docs-footer">Uitgebreide oefening 04 <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+  </body>
+</html>

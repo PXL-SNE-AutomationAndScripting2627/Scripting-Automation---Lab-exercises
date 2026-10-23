@@ -1,58 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0d1117" />
-    <title>Extended Lab 01 — PowerShell</title>
+    <title>Uitgebreide oefening 01 — PowerShell</title>
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body class="docs-page">
-    <a class="skip-link" href="#main-content">Skip to content</a>
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
 
     <header class="docs-header">
       <a class="docs-brand" href="../index.html">
         <span class="brand-mark" aria-hidden="true">PXL</span>
-        <span>PowerShell Lab</span>
+        <span>PowerShell-oefening</span>
       </a>
-      <nav class="docs-global-nav" aria-label="Main navigation">
-        <a href="../index.html">Exercises</a>
-        <a href="index.html" aria-current="page">Overview</a>
-        <a href="answers.html">Answers</a>
-        <a href="screenshots.html">Screenshots</a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html" aria-current="page">Overzicht</a>
+        <a href="answers.html">Opdrachten</a>
+        <a href="screenshots.html">Schermafbeeldingen</a>
         <a href="scripts.html">Scripts</a>
       </nav>
     </header>
 
     <div class="docs-breadcrumb">
       <div class="docs-breadcrumb-inner">
-        <a href="../index.html">Home</a>
+        <a href="../index.html">Start</a>
         <span class="breadcrumb-separator" aria-hidden="true">/</span>
-        <span aria-current="page">Ps-01-ext-lab</span>
+        <span aria-current="page">Oefening 01</span>
       </div>
     </div>
 
     <div class="docs-layout">
-      <aside class="docs-sidebar" aria-label="Page navigation">
-        <p class="sidebar-heading">PowerShell Lab</p>
-        <a class="sidebar-current" href="#overview" aria-current="page">Overview</a>
-        <p class="sidebar-group-label">In this lab</p>
-        <a href="#learning-goals">Learning goals</a>
-        <a href="#submission">Submission</a>
-        <a href="#project-structure">Project structure</a>
-        <p class="sidebar-group-label">Project pages</p>
-        <a href="answers.html">Answers</a>
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Uitgebreide oefening 01</p>
+        <a class="sidebar-current" href="#overview" aria-current="page">Overzicht</a>
+        <p class="sidebar-group-label">In deze oefening</p>
+        <a href="#learning-goals">Leerdoelen</a>
+        <a href="#submission">Inleveren</a>
+        <a href="#project-structure">Projectstructuur</a>
+        <p class="sidebar-group-label">Projectpagina's</p>
+        <a href="answers.html">Opdrachten</a>
         <a href="scripts.html">Scripts</a>
-        <a href="screenshots.html">Screenshots</a>
+        <a href="screenshots.html">Schermafbeeldingen</a>
       </aside>
 
       <main id="main-content" class="docs-main">
         <section class="docs-hero" id="overview" aria-labelledby="page-title">
           <div class="hero-copy">
-            <p class="eyebrow">PXL · Extended Lab 01</p>
+            <p class="eyebrow">PXL · Uitgebreide oefening 01</p>
             <h1 id="page-title">PowerShell</h1>
-            <p class="hero-description">A hands-on introduction to help, objects, and scripting in PowerShell.</p>
-            <a class="primary-link" href="#learning-goals">Explore the lab <span aria-hidden="true">→</span></a>
+            <p class="hero-description">Een praktische introductie tot hulpinformatie, objecten en scripts schrijven in PowerShell.</p>
+            <a class="primary-link" href="#learning-goals">Ontdek de oefening <span aria-hidden="true">→</span></a>
           </div>
           <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
         </section>
@@ -60,44 +60,44 @@
         <section class="docs-section" id="learning-goals">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">What you'll learn</p>
-              <h2>Learning goals</h2>
+              <p class="eyebrow">Wat je leert</p>
+              <h2>Leerdoelen</h2>
             </div>
-            <span class="section-count">5 objectives</span>
+            <span class="section-count">5 doelstellingen</span>
           </div>
           <ul class="goal-grid">
-            <li>Install and manage software with a package manager.</li>
-            <li>Inspect PowerShell version and execution policies.</li>
-            <li>Use <code>Get-Help</code> and <code>Get-Command</code> effectively.</li>
-            <li>Explore objects and methods with <code>Get-Member</code>.</li>
-            <li>Create and run simple PowerShell scripts.</li>
+            <li>Software zoeken en beheren met een pakketbeheerder.</li>
+            <li>De PowerShell-versie en uitvoeringsbeleidsregels controleren.</li>
+            <li><code>Get-Help</code> en <code>Get-Command</code> doeltreffend gebruiken.</li>
+            <li>Objecten en methoden verkennen met <code>Get-Member</code>.</li>
+            <li>Eenvoudige PowerShell-scripts maken en uitvoeren.</li>
           </ul>
         </section>
 
         <section class="docs-section" id="submission">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">Turn in your work</p>
-              <h2>Submission</h2>
+              <p class="eyebrow">Lever je werk in</p>
+              <h2>Inleveren</h2>
             </div>
           </div>
           <ol class="submission-list">
-            <li>Complete the answers in <strong>answers.md</strong>.</li>
-            <li>Store your scripts in the <strong>scripts</strong> folder.</li>
-            <li>Commit your changes and push to the GitHub Classroom repository.</li>
+            <li>Noteer je antwoorden in <strong>answers.md</strong>.</li>
+            <li>Bewaar je scripts in de map <strong>scripts</strong>.</li>
+            <li>Commit je wijzigingen en push ze naar de GitHub Classroom-repository.</li>
           </ol>
-          <div class="resource-links" aria-label="Project resources">
-            <a href="answers.html">View answers <span aria-hidden="true">→</span></a>
-            <a href="scripts.html">Browse scripts <span aria-hidden="true">→</span></a>
-            <a href="screenshots.html">View screenshots <span aria-hidden="true">→</span></a>
+          <div class="resource-links" aria-label="Projectbronnen">
+            <a href="answers.html">Bekijk de opdrachten <span aria-hidden="true">→</span></a>
+            <a href="scripts.html">Bekijk scripts <span aria-hidden="true">→</span></a>
+            <a href="screenshots.html">Bekijk schermafbeeldingen <span aria-hidden="true">→</span></a>
           </div>
         </section>
 
         <section class="docs-section" id="project-structure">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">Repository guide</p>
-              <h2>Project structure</h2>
+              <p class="eyebrow">Projectmapoverzicht</p>
+              <h2>Projectstructuur</h2>
             </div>
           </div>
           <pre><code>answers.md
@@ -115,7 +115,7 @@ ps-01-ext-lab/
 │   └── ToonEnvInfo.ps1
 └── Screenshots - ps-01-ext-lab/</code></pre>
         </section>
-        <footer class="docs-footer">Extended Lab 01 <span aria-hidden="true">·</span> PowerShell</footer>
+        <footer class="docs-footer">Uitgebreide oefening 01 <span aria-hidden="true">·</span> PowerShell</footer>
       </main>
     </div>
   </body>

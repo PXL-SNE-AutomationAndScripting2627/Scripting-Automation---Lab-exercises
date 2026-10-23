@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0d1117" />
-    <title>Answers — Extended lab 02</title>
+    <title>Opdrachten — Uitgebreide oefening 02</title>
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body class="docs-page">
@@ -13,12 +13,12 @@
     <header class="docs-header">
       <a class="docs-brand" href="../index.html">
         <span class="brand-mark" aria-hidden="true">PXL</span>
-        <span>PowerShell-lab</span>
+        <span>PowerShell-oefening</span>
       </a>
       <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
         <a href="../index.html">Oefeningen</a>
         <a href="index.html">Overzicht</a>
-        <a class="answers-nav-link" href="answers.html" aria-current="page">Answers</a>
+        <a class="answers-nav-link" href="answers.html" aria-current="page">Opdrachten</a>
         <a href="scripts.html">Scripts</a>
       </nav>
     </header>
@@ -27,33 +27,38 @@
       <div class="docs-breadcrumb-inner">
         <a href="../index.html">Start</a>
         <span class="breadcrumb-separator" aria-hidden="true">/</span>
-        <a href="index.html">Ps-02-ext-lab</a>
+        <a href="index.html">Oefening 02</a>
         <span class="breadcrumb-separator" aria-hidden="true">/</span>
-        <span aria-current="page">Answers</span>
+        <span aria-current="page">Opdrachten</span>
       </div>
     </div>
 
     <div class="docs-layout">
-      <aside class="docs-sidebar" aria-label="Antwoordnavigatie">
-        <p class="sidebar-heading">Antwoorden</p>
-        <a class="sidebar-current" href="#answers" aria-current="page">Overzicht</a>
-        <p class="sidebar-group-label">Onderdelen</p>
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Uitgebreide oefening 02</p>
+        <a href="index.html">Overzicht</a>
+        <p class="sidebar-group-label">Projectpagina's</p>
+        <a class="sidebar-current" href="answers.html" aria-current="page">Opdrachten</a>
+        <a href="scripts.html">Scripts</a>
+        <p class="sidebar-group-label">Op deze pagina</p>
         <a href="#deel-1">Deel 1 · Selecteren en filteren</a>
         <a href="#deel-2">Deel 2 · Scripts en meten</a>
         <a href="#deel-3">Deel 3 · Reguliere expressies</a>
         <a href="#eindcontrole">Eindcontrole</a>
-        <p class="sidebar-group-label">Projectpagina's</p>
-        <a href="scripts.html">Scripts</a>
       </aside>
 
       <main id="main-content" class="docs-main lab-content">
         <section class="docs-hero" id="answers" aria-labelledby="page-title">
           <div class="hero-copy">
-            <p class="eyebrow">PXL · Extended lab 02</p>
-            <h1 id="page-title">Answers</h1>
-            <p class="hero-description">Navigeer per onderdeel door de labantwoorden en eindcontrole.</p>
+            <p class="eyebrow">PXL · Uitgebreide oefening 02</p>
+            <h1 id="page-title">Opdrachten</h1>
+            <p class="hero-description">Navigeer per onderdeel door de antwoorden en eindcontrole.</p>
           </div>
         </section>
+        <div class="answer-controls">
+          <button class="answer-toggle" type="button" data-answer-toggle aria-pressed="false">Verberg antwoorden</button>
+          <span class="answer-toggle-status" data-answer-status role="status" aria-live="polite"></span>
+        </div>
 
         <section class="docs-section" id="deel-1">
           <div class="section-heading">
@@ -367,7 +372,7 @@
         </div>
 
           <h3>9. Hotfixes</h3>
-          <blockquote><strong>Opmerking:</strong> <code>Get-HotFix</code> is alleen beschikbaar op Windows. De resultaten verschillen per labsysteem en sommige installatiedatums kunnen ontbreken.</blockquote>
+          <blockquote><strong>Opmerking:</strong> <code>Get-HotFix</code> is alleen beschikbaar op Windows. De resultaten verschillen per oefensysteem en sommige installatiedatums kunnen ontbreken.</blockquote>
           <h4>9.1 Zoek de juiste cmdlet</h4>
           <p>Gebruik het PowerShell-helpsysteem om een cmdlet te vinden die informatie over geïnstalleerde Windows-hotfixes toont.</p>
 
@@ -572,8 +577,9 @@
           </ul>
         </section>
 
-        <footer class="docs-footer">Extended lab 02 <span aria-hidden="true">·</span> PowerShell</footer>
+        <footer class="docs-footer">Uitgebreide oefening 02 <span aria-hidden="true">·</span> PowerShell</footer>
       </main>
     </div>
+    <script src="../assets/docs.js" defer></script>
   </body>
 </html>

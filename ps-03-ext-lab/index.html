@@ -1,45 +1,106 @@
-<p align="center">
-  <img src="assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" width="620">
-</p>
-
-# Extended lab 03 — PowerShell formatting, bestanden en mappen
-
-In deze uitgebreide lab werk je met console-opmaak, uitvoerbestanden, Windows-configuratiebestanden en het beheren en meten van bestanden en mappen.
-
-> [!IMPORTANT]
-> Bestaat er een PowerShell-cmdlet voor een opdracht, verkies die dan boven een extern commando. Controleer altijd het doelpad voordat je bestanden of mappen verwijdert of verplaatst.
-
-## Leerdoelen
-
-Na deze lab kun je:
-
-- console-uitvoer vormgeven met `Write-Host`;
-- pipeline-uitvoer bewaren en aanvullen in een tekstbestand;
-- tekstbestanden lezen met `Get-Content`;
-- paden opbouwen en controleren;
-- bestanden en mappen maken, kopiëren, verplaatsen en verwijderen;
-- bestandsgroottes samenvatten met `Measure-Object`;
-- berekende kolommen formatteren;
-- bestanden recursief filteren op extensie en datum.
-
-## Vereisten
-
-- PowerShell 7.x
-- Visual Studio Code met de PowerShell-extensie
-- Een Windows-labsysteem waarop je `C:\pxlData` en `C:\pxlBackup` mag gebruiken
-
-## Inleveren via GitHub Classroom
-
-1. Noteer alle losse commando's en antwoorden in `answers.md`.
-2. Plaats de twee gevraagde scripts in `scripts/`.
-3. Voeg waar gevraagd relevante testuitvoer toe aan `answers.md`.
-4. Commit en push alle studentenbestanden naar je Classroom-repository.
-
-Minimaal in te leveren:
-
-```text
-answers.md
-scripts/
-├── WindowsHostFile.ps1
-└── WindowsHostFilev2.ps1
-```
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Uitgebreide oefening 03 — PowerShell-uitvoer, bestanden en mappen</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-oefening</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html" aria-current="page">Overzicht</a>
+        <a class="answers-nav-link" href="answers.html">Opdrachten</a>
+        <a href="scripts.html">Scripts</a>
+      </nav>
+    </header>
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">Oefening 03</span>
+      </div>
+    </div>
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Uitgebreide oefening 03</p>
+        <a class="sidebar-current" href="#overview" aria-current="page">Overzicht</a>
+        <p class="sidebar-group-label">In deze oefening</p>
+        <a href="#leerdoelen">Leerdoelen</a>
+        <a href="#vereisten">Vereisten</a>
+        <a href="#inleveren">Inleveren</a>
+        <p class="sidebar-group-label">Projectpagina's</p>
+        <a href="answers.html">Opdrachten</a>
+        <a href="scripts.html">Scripts</a>
+      </aside>
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL · Uitgebreide oefening 03</p>
+            <h1 id="page-title">PowerShell-uitvoer</h1>
+            <p class="hero-description">Oefen met console-opmaak, bestanden, Windows-configuratie en statistieken over bestanden en mappen.</p>
+            <a class="primary-link" href="answers.html">Bekijk de opdrachten <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+        <section class="docs-section" id="leerdoelen">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Wat je leert</p>
+              <h2>Leerdoelen</h2>
+            </div>
+            <span class="section-count">8 doelstellingen</span>
+          </div>
+          <ul class="goal-grid">
+            <li>Console-uitvoer vormgeven met <code>Write-Host</code>.</li>
+            <li>Uitvoer bewaren en aanvullen in tekstbestanden.</li>
+            <li>Tekstbestanden lezen en paden opbouwen en controleren.</li>
+            <li>Bestanden en mappen veilig beheren.</li>
+            <li>Bestandsgroottes samenvatten met <code>Measure-Object</code>.</li>
+            <li>Berekende kolommen formatteren.</li>
+            <li>Bestanden recursief filteren op extensie en datum.</li>
+            <li>Opmerkingen voor helpinformatie toevoegen aan scripts.</li>
+          </ul>
+        </section>
+        <section class="docs-section" id="vereisten">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Voor je begint</p>
+              <h2>Vereisten en veiligheid</h2>
+            </div>
+          </div>
+          <ul>
+            <li>PowerShell 7.x en Visual Studio Code met de PowerShell-extensie.</li>
+            <li>Een Windows-oefensysteem waarop je de opgegeven testmappen mag gebruiken.</li>
+            <li>Controleer vóór iedere verwijder- of verplaatsopdracht het exacte doelpad met <code>Test-Path</code>.</li>
+          </ul>
+        </section>
+        <section class="docs-section" id="inleveren">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">GitHub Classroom</p>
+              <h2>Inleveren</h2>
+            </div>
+          </div>
+          <ol class="submission-list">
+            <li>Noteer je antwoorden, commando's en relevante testuitvoer in <code>answers.md</code>.</li>
+            <li>Plaats de scripts <code>WindowsHostFile.ps1</code> en <code>WindowsHostFilev2.ps1</code> in <code>scripts/</code>.</li>
+            <li>Verwijder na controle alle testmappen en commit en push je werk.</li>
+          </ol>
+          <div class="resource-links" aria-label="Projectbronnen">
+            <a href="answers.html">Bekijk de opdrachten <span aria-hidden="true">→</span></a>
+            <a href="scripts.html">Bekijk scripts <span aria-hidden="true">→</span></a>
+          </div>
+        </section>
+        <footer class="docs-footer">Uitgebreide oefening 03 <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Scripts — Uitgebreide oefening 04</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-oefening</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Overzicht</a>
+        <a class="answers-nav-link" href="answers.html">Opdrachten</a>
+        <a href="scripts.html" aria-current="page">Scripts</a>
+      </nav>
+    </header>
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Oefening 04</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">Scripts</span>
+      </div>
+    </div>
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Uitgebreide oefening 04</p>
+        <a href="index.html">Overzicht</a>
+        <p class="sidebar-group-label">Projectpagina's</p>
+        <a href="answers.html">Opdrachten</a>
+        <a class="sidebar-current" href="scripts.html" aria-current="page">Scripts</a>
+      </aside>
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero docs-page-hero" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">Uitgebreide oefening 04 · Projectbestanden</p>
+            <h1 id="page-title">Scripts</h1>
+            <p class="hero-description">Bekijk en download de PowerShell-scripts uit de map <code>scripts/</code>.</p>
+          </div>
+        </section>
+        <section class="docs-section" aria-labelledby="script-list-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Oefenbestanden</p>
+              <h2 id="script-list-title">Beschikbare scripts</h2>
+            </div>
+            <span class="section-count">0 bestanden</span>
+          </div>
+          <p>Er zijn nog geen PowerShell-scripts aan deze oefening toegevoegd.</p>
+          <ul class="script-list"></ul>
+        </section>
+        <section class="docs-section script-viewer-section" aria-labelledby="script-viewer-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Geselecteerd script</p>
+              <h2 id="script-viewer-title">Scriptweergave</h2>
+            </div>
+            <a id="script-download" class="script-download-button" href="#" download hidden>Script downloaden</a>
+          </div>
+          <div class="powershell-window" aria-label="PowerShell-scriptinhoud">
+            <div class="powershell-window-bar">
+              <span class="powershell-window-indicator" aria-hidden="true"></span>
+              <span id="script-filename">PowerShell</span>
+            </div>
+            <p id="script-status" class="script-status" role="status" aria-live="polite">Er zijn nog geen scripts beschikbaar om te bekijken.</p>
+            <pre id="script-content" class="script-content" hidden><code></code></pre>
+          </div>
+        </section>
+        <footer class="docs-footer">Uitgebreide oefening 04 <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script>
+      const scriptLinks = document.querySelectorAll(".script-list a");
+      const scriptDownload = document.querySelector("#script-download");
+      const scriptFilename = document.querySelector("#script-filename");
+      const scriptStatus = document.querySelector("#script-status");
+      const scriptContent = document.querySelector("#script-content");
+      const scriptCode = scriptContent.querySelector("code");
+
+      scriptLinks.forEach((link) => {
+        link.addEventListener("click", async (event) => {
+          event.preventDefault();
+
+          scriptLinks.forEach((scriptLink) => {
+            scriptLink.removeAttribute("aria-current");
+          });
+          link.setAttribute("aria-current", "true");
+
+          const filename = decodeURIComponent(new URL(link.href).pathname.split("/").pop());
+          scriptFilename.textContent = filename;
+          scriptStatus.textContent = `${filename} wordt geladen...`;
+          scriptStatus.hidden = false;
+          scriptContent.hidden = true;
+          scriptDownload.hidden = true;
+
+          try {
+            const response = await fetch(link.href);
+            if (!response.ok) {
+              throw new Error(`De server antwoordde met status ${response.status}.`);
+            }
+
+            scriptCode.textContent = await response.text();
+            scriptContent.hidden = false;
+            scriptStatus.hidden = true;
+            scriptDownload.href = link.href;
+            scriptDownload.download = filename;
+            scriptDownload.hidden = false;
+          } catch (error) {
+            scriptStatus.textContent = `Kon ${filename} niet laden. ${error.message}`;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
