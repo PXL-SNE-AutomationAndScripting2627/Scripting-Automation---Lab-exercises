@@ -1,0 +1,116 @@
+## 1. Variabelen en tekenreeksen
+
+### 1.1 Begrippen
+
+Wat is een variabele in PowerShell? Benoem de drie hoofdonderdelen waaruit een variabele bestaat.
+
+### 1.2 Voornaam als object
+
+Maak `$myFirstName` en ken je voornaam toe. Voer daarna deze onderzoeken uit:
+
+1. Bewijs dat de waarde een object is en toon het datatype.
+2. Toon alle properties en geef van minstens twee properties een concreet voorbeeld.
+3. Toon alle methods en tel hoeveel methods beschikbaar zijn.
+4. Toon de lengte van je voornaam.
+5. Toon je voornaam in hoofdletters zonder de opgeslagen waarde te wijzigen.
+6. Toon alleen de eerste en de laatste letter.
+
+### 1.3 Volledige naam
+
+1. Maak `$myLastName`.
+2. Bouw `$myName` op uit voornaam, één spatie, achternaam en bewust nog één spatie achteraan.
+3. Toon de waarde en lengte.
+4. Verwijder de achterste spatie uit de opgeslagen variabele en toon opnieuw de lengte.
+
+## 2. Arrays
+
+Maak `$myHosts` met deze vijf waarden:
+
+```text
+Server01
+Server02
+WorkstationA
+WorkstationB
+WorkstationC
+```
+
+Toon vervolgens:
+
+1. de volledige inhoud;
+2. het aantal items;
+3. de eerste twee items met één expressie;
+4. de laatste twee items met één expressie.
+
+Gebruik een geïnterpoleerde tekenreeks om het aantal te melden.
+
+![Voorbeeldmelding met het aantal hosts](assets/hosts-count.png)
+
+## 3. Procesobjecten in een variabele
+
+> [!CAUTION]
+> Deze oefening start Rekenmachine en stopt alle gevonden Rekenmachine-processen. Sla eventueel werk op, voer dit alleen op een labsysteem uit en controleer vóór en na het stoppen met `Get-Process`.
+
+1. Start Windows Rekenmachine en laat de toepassing open.
+2. Bewaar alle actieve processen in `$myProces` en toon de inhoud.
+3. Bewijs vanuit de bestaande variabele dat ze een object of verzameling objecten bevat.
+4. Toon de properties en methods.
+5. Toon alleen de procesnamen.
+6. Toon de eerste drie processen, aflopend gesorteerd op `StartTime`, met alleen `Id`, `ProcessName` en `StartTime`.
+7. Filter vanuit `$myProces` de Rekenmachine-processen en stop ze.
+
+## 4. Script: `Rekenen.ps1`
+
+Maak `scripts/Rekenen.ps1`:
+
+- vraag twee getallen via `Read-Host`;
+- accepteer kommagetallen door beide waarden expliciet naar `double` om te zetten;
+- bereken som en product;
+- toon beide resultaten met precies twee cijfers na het decimaalteken;
+- voeg comment-based help toe.
+
+![Voorbeeldoutput van Rekenen.ps1](assets/calculator-output.png)
+
+## 5. Script: `MakeBackup.ps1`
+
+> [!CAUTION]
+> Voer deze oefening alleen op een labsysteem uit. Het script leest uit `C:\pxl_data` en schrijft ZIP-bestanden naar `C:\backups`. Controleer beide paden en verwijder testdata en testback-ups na beoordeling.
+
+Maak eerst `C:\pxl_data` met enkele testbestanden en `C:\backups`.
+
+Maak daarna `scripts/MakeBackup.ps1`:
+
+1. Vraag bronmap, doelmap en back-upnaam.
+2. Toon voor beide mappen het resultaat van `Test-Path`.
+3. Maak met `Compress-Archive` een ZIP-bestand.
+4. Gebruik `yyyyMMddHHmmss_naam.zip` als bestandsnaam.
+5. Toon het volledige pad van de gemaakte back-up.
+6. Voeg comment-based help toe.
+
+![Voorbeeldoutput van MakeBackup.ps1](assets/backup-output.png)
+
+## 6. Extra: script `AddUser.ps1`
+
+> [!CAUTION]
+> Deze extra opdracht vereist administratorrechten en maakt een lokale Windows-gebruiker. Gebruik uitsluitend een labsysteem, controleer het resultaat met `Get-LocalUser` en verwijder de testgebruiker nadien met `Remove-LocalUser`. Voeg de gebruiker niet toe aan de groep Administrators.
+
+Maak `scripts/AddUser.ps1`:
+
+- vraag een gebruikersnaam en volledige naam;
+- vraag het wachtwoord als `SecureString`;
+- maak de lokale gebruiker met `New-LocalUser`;
+- handel fouten af met `try`/`catch`;
+- toon een duidelijke succes- of foutmelding;
+- voeg comment-based help toe.
+
+![Voorbeeldoutput van AddUser.ps1](assets/add-user-output.png)
+
+## Eindcontrole
+
+- [ ] Alle antwoorden en testresultaten staan in `answers.md`.
+- [ ] De drie scripts hebben exact de gevraagde bestandsnamen.
+- [ ] Alle scripts bevatten comment-based help en parsen zonder syntaxfouten.
+- [ ] `Rekenen.ps1` werkt met gehele en decimale getallen.
+- [ ] De back-up bestaat als ZIP-bestand met een correcte tijdstempel.
+- [ ] De testback-up en tijdelijke mappen zijn gecontroleerd en opgeruimd.
+- [ ] De lokale testgebruiker is na controle verwijderd.
+- [ ] Je hebt je wijzigingen gecommit en gepusht.

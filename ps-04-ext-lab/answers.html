@@ -1,0 +1,173 @@
+## 1. Uitvoer bewaren en opnieuw gebruiken
+
+Voer de opdrachten vanuit de root van je repository uit. Maak eerst de map `output/`.
+
+### 1.1 Processen als tekst
+
+1. Schrijf de uitvoer van `Get-Process` naar `output/processInfo.txt`.
+2. Toon de inhoud van dat bestand opnieuw in de terminal.
+3. Toon dezelfde inhoud vervolgens per pagina.
+
+Noteer de drie commando's in `answers.md`.
+
+### 1.2 Windows-bestanden als HTML
+
+1. Vraag met `Get-ChildItem` de inhoud van `C:\Windows` op.
+2. Zet de objecten om naar HTML en bewaar ze als `output/WinFiles.html`.
+3. Open het HTML-bestand met het standaardprogramma voor `.html`-bestanden.
+
+### 1.3 Windows-bestanden als CSV en CLIXML
+
+1. Exporteer de inhoud van `C:\Windows` naar `output/WinFiles.csv`.
+2. Exporteer dezelfde objecten naar `output/WinFiles.xml` in het PowerShell CLIXML-formaat.
+3. Importeer `WinFiles.xml` opnieuw en toon alleen `Name`, `Extension`, `Length` en `LastAccessTime`.
+
+Leg in `answers.md` kort uit waarom CLIXML geschikter is dan gewone tekst wanneer je PowerShell-objecten opnieuw wilt gebruiken.
+
+### 1.4 Paden testen
+
+1. Maak de map `C:\pxl_is_the_best`.
+2. Controleer met een cmdlet of de map bestaat.
+3. Controleer ook of `output/WinFiles.xml` bestaat.
+4. Noteer beide booleaanse resultaten in `answers.md`.
+
+## 2. Bestanden en mappen kopiëren
+
+> [!CAUTION]
+> Voer dit deel alleen uit op een labsysteem. De opdrachten maken, verplaatsen en verwijderen mappen onder `C:\pxl_source`, `C:\pxl_destination`, `C:\pxl_final` en `C:\pxl_is_the_best`. Controleer vóór iedere verwijdering het letterlijke doelpad. Verwijder deze vier labmappen na de oefening.
+
+### 2.1 Bronmap en testbestanden
+
+1. Maak `C:\pxl_source`.
+2. Maak daarin 50 lege bestanden met de namen `File_1.txt` tot en met `File_50.txt`.
+3. Verifieer dat exact 50 bestanden aanwezig zijn.
+
+> [!TIP]
+> Genereer de nummers met de bereikoperator `..` en gebruik `ForEach-Object` om voor ieder nummer een bestand te maken.
+
+### 2.2 Kopieergedrag onderzoeken
+
+Voer elke stap afzonderlijk uit en noteer in `answers.md` wat PowerShell doet.
+
+1. Kopieer de bestanden uit `C:\pxl_source` naar `C:\pxl_destination`, zonder `-Force` of `-Recurse`. Verifieer het resultaat.
+2. Verwijder `C:\pxl_destination`. Kopieer daarna alleen `File_1.txt` naar het niet-bestaande pad `C:\pxl_destination`. Beschrijf of PowerShell een map of bestand maakt.
+3. Verwijder het doel opnieuw zonder bevestigingsvraag. Kopieer daarna alle bronbestanden naar `C:\pxl_destination` zonder de doelmap vooraf te maken.
+4. Herhaal het laatste kopieercommando zonder de doelmap eerst te verwijderen. Leg het verschil uit.
+5. Maak een lege `C:\pxl_destination` en kopieer alle bestanden rechtstreeks naar die map, dus zonder de submap `pxl_source`.
+6. Maak het doel opnieuw leeg en kopieer nu de bronmap inclusief inhoud naar `C:\pxl_destination`.
+7. Verplaats `C:\pxl_destination`, inclusief inhoud, naar `C:\pxl_final`.
+
+Controleer na elke stap met `Get-ChildItem` en `Test-Path`.
+
+### 2.3 Opruimen
+
+Controleer dat deze variabele alleen de drie bedoelde labpaden bevat en verwijder ze daarna:
+
+```powershell
+$labPaths = @(
+    'C:\pxl_source'
+    'C:\pxl_destination'
+    'C:\pxl_final'
+    'C:\pxl_is_the_best'
+)
+```
+
+Noteer hoe je vóór en na het verwijderen hebt gecontroleerd welke paden bestonden.
+
+## 3. Script: applicaties starten en stoppen
+
+> [!CAUTION]
+> Deze scripts starten toepassingen en sluiten alle processen van Kladblok en Rekenmachine af. Sla werk vooraf op, voer de scripts alleen op een labsysteem uit en controleer met `Get-Process` of de processen na afloop gestopt zijn.
+
+### 3.1 Eén pipeline
+
+1. Start Kladblok en Rekenmachine met één pipeline die eindigt in één aanroep van `Invoke-Item`.
+2. Sluit daarna met één pipeline alle processen van beide toepassingen.
+
+### 3.2 `StartStopProgsV1.ps1`
+
+Maak `scripts/StartStopProgsV1.ps1` en bewaar de gevonden objecten in:
+
+```powershell
+$start_Apps = $null # vervang door de gevonden bestanden
+$stop_Apps  = $null # vervang door de gevonden processen
+```
+
+Gebruik de variabelen om beide toepassingen te starten en vervolgens te stoppen. Toon duidelijke statusmeldingen.
+
+### 3.3 `StartStopProgsV2.ps1`
+
+Maak `scripts/StartStopProgsV2.ps1`. Gebruik ook:
+
+```powershell
+$app_01 = 'notepad'
+$app_02 = 'calc'
+```
+
+Gebruik deze namen in je filters; schrijf ze niet opnieuw letterlijk in de filterexpressies.
+
+![Commando waarmee StartStopProgsV2.ps1 wordt uitgevoerd](assets/start-stop-command.png)
+
+De oudere bronafbeelding gebruikt Paint; jouw huidige versie gebruikt Rekenmachine.
+
+![Voorbeeld van statusmeldingen bij starten en stoppen](assets/start-stop-output.png)
+
+## 4. Command Prompt en PowerShell vergelijken
+
+### 4.1 `dir /s` en `ipconfig /all`
+
+Voer beide opdrachten eerst uit in `cmd.exe` en daarna in PowerShell. Beantwoord:
+
+1. Werkt elk commando in beide omgevingen?
+2. Verwijst `dir` in beide omgevingen naar hetzelfde soort commando?
+3. Hoe achterhaal je in PowerShell wat `dir` en `ipconfig` precies zijn?
+4. Welke betekenis heeft `/s` in beide omgevingen en waarom kan dat tot verschillend gedrag leiden?
+
+## 5. Geschiedenis en transcript
+
+### 5.1 `Get-History`
+
+Leg uit wat `Get-History` toont en geef een praktisch voorbeeld uit je huidige sessie.
+
+### 5.2 `Start-Transcript`
+
+1. Start een transcript naar `output/transcript001.txt` zonder een bestaand bestand te overschrijven.
+2. Voer enkele onschuldige opdrachten uit.
+3. Stop het transcript expliciet.
+4. Controleer de inhoud en leg uit wat wordt geregistreerd.
+
+## 6. Script: mapinformatie
+
+### 6.1 Eerste versie
+
+Maak `scripts/ShowFolderInfo.ps1`. Gebruik `$myFolder` en toon inclusief submappen:
+
+- het aantal bestanden;
+- de grootste, gemiddelde en totale bestandsgrootte in MB;
+- het aantal submappen.
+
+Rond groottes af op twee decimalen. Test eerst met `$env:USERPROFILE` en daarna met `C:\Windows\System32`. Gebruik `-ErrorAction` zodat ontoegankelijke onderdelen geen foutmeldingen tonen en leg uit waarom dit hier passend is.
+
+![Voorbeeld van mapstatistieken in tabelvorm](assets/folder-statistics-table.png)
+
+### 6.2 Resultaten in variabelen
+
+Plaats de resultaten in betekenisvolle variabelen en maak een leesbare uitvoer met statuskleuren.
+
+![Voorbeeld van mapstatistieken uit variabelen](assets/folder-statistics-variables.png)
+
+Controleer je script met:
+
+```powershell
+Get-Help ./scripts/ShowFolderInfo.ps1 -Full
+```
+
+## Eindcontrole
+
+- [ ] `answers.md` bevat alle gevraagde commando's, verklaringen en testresultaten.
+- [ ] Alle vijf bestanden in `output/` bestaan en bevatten uitvoer.
+- [ ] De drie scripts hebben exact de gevraagde bestandsnamen, comment-based help en geldige syntaxis.
+- [ ] De start/stop-scripts werken gecontroleerd.
+- [ ] `ShowFolderInfo.ps1` werkt voor beide paden en rondt af op twee decimalen.
+- [ ] De tijdelijke mappen onder `C:\pxl_*` zijn verwijderd.
+- [ ] Je hebt alleen studentenbestanden gecommit en gepusht.
