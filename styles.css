@@ -325,6 +325,16 @@ body.docs-page {
   border-radius: 6px;
 }
 
+.lab-content .text-file-preview {
+  display: block;
+  width: calc(100% + 2.5rem);
+  margin-left: -1.25rem;
+  height: 24rem;
+  border: 1px solid var(--docs-border);
+  border-radius: 6px;
+  background: #fff;
+}
+
 .exercise-home {
   min-height: calc(100vh - 68px);
 }
@@ -782,15 +792,9 @@ body.docs-page {
   color: #c9d1d9;
 }
 
-.answer-controls {
-  margin: -0.75rem 0 1.25rem;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
 .answer-toggle {
+  display: block;
+  margin: 0.75rem 0 0.25rem;
   padding: 0.55rem 0.85rem;
   border: 1px solid var(--docs-border);
   border-radius: 6px;
@@ -802,19 +806,31 @@ body.docs-page {
   cursor: pointer;
 }
 
-.answer-toggle:hover:not(:disabled) {
+.answer-controls {
+  margin: 0.15rem 0;
+}
+
+.answer-controls .answer-toggle {
+  width: 100%;
+  margin: 0;
+  text-align: left;
+}
+
+.answer-toggle-status {
+  display: block;
+  padding: 0.25rem 0.75rem 0;
+  color: var(--docs-muted);
+  font-size: 0.85rem;
+}
+
+.answer-toggle:hover {
   border-color: #58a6ff;
   background: #1c2128;
 }
 
-.answer-toggle:disabled {
-  color: var(--docs-muted);
-  cursor: not-allowed;
-}
-
-.answer-toggle-status {
-  color: var(--docs-muted);
-  font-size: 0.85rem;
+.answer-toggle:focus-visible {
+  outline: 2px solid #58a6ff;
+  outline-offset: 3px;
 }
 
 #main-content div[style*="background:#eef7ff"] {
