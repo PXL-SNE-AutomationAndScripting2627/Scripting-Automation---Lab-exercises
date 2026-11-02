@@ -10,6 +10,8 @@ In deze uitgebreide lab oefen je met PowerShell, package managers, execution pol
 
 De website start op `index.html` en toont de beschikbare oefeningen. Elke oefening krijgt een eigen map met een `index.html`-overzicht en eventuele pagina's voor antwoorden, scripts en screenshots. Voeg een nieuwe oefening toe door een oefeningsmap en een kaart op de startpagina toe te voegen.
 
+Elke pagina bevat een zoekveld dat de volledige website doorzoekt, inclusief de gekoppelde PowerShell-scripts en tekstbestanden. Resultaten linken rechtstreeks naar de bijbehorende pagina of bestandssectie en hebben een voorbeeldknop om de inhoud te bekijken zonder de huidige pagina te verlaten.
+
 De pagina's van deze oefening staan in `ps-01-ext-lab/`. De scripts en screenshots staan in respectievelijk `ps-01-ext-lab/scripts - ps-01-ext-lab/` en `ps-01-ext-lab/Screenshots - ps-01-ext-lab/`. De gedeelde referentieafbeeldingen en het PXL-logo staan in `assets/`.
 
 > [!IMPORTANT]
