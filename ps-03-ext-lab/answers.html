@@ -227,7 +227,10 @@ else {<br>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            <b>Stap 1</b><br>
+            if (-not (Test-Path -Path 'C:\pxlData')) {<br>
+                  New-Item -Path 'C:\pxlData' -ItemType Directory<br>
+              }<br>
         </div>
 
           <h4 id="5-2-controleer-of-de-map-bestaat">5.2 Controleer of de map bestaat</h4>
@@ -235,7 +238,10 @@ else {<br>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            Test-Path -Path C:\pxlData -PathType Container
+            <br>
+            <br>
+            Optioneel kun je met -PathType Container expliciet controleren dat het een map is en geen bestand met dezelfde naam.
         </div>
 
           <h4 id="5-3-maak-pxlinfo-txt">5.3 Maak <code>pxlInfo.txt</code></h4>
@@ -243,7 +249,7 @@ else {<br>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            New-Item -ItemType File -Path C:\pxlData\pxlInfo.txt
         </div>
 
           <h4 id="5-4-maak-tien-genummerde-bestanden">5.4 Maak tien genummerde bestanden</h4>
