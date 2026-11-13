@@ -266,6 +266,20 @@ body.docs-page {
   box-shadow: inset 2px 0 #3fb950;
 }
 
+.docs-sidebar .sidebar-welcome {
+  margin-bottom: 1rem;
+  border: 1px solid #238636;
+  background: #238636;
+  color: #fff;
+  font-weight: 600;
+}
+
+.docs-sidebar .sidebar-welcome:hover {
+  border-color: #2ea043;
+  background: #2ea043;
+  color: #fff;
+}
+
 .sidebar-heading {
   margin: 0 0 1.2rem;
   padding: 0 0.75rem;

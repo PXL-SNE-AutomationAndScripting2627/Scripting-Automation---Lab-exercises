@@ -5,7 +5,7 @@
     <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
     <header class="docs-header"><a class="docs-brand" href="../index.html"><span class="brand-mark" aria-hidden="true">PXL</span><span>PowerShell-oefening</span></a><nav class="docs-global-nav" aria-label="Hoofdnavigatie"><a href="../index.html">Oefeningen</a><a href="index.html">Overzicht</a><a class="answers-nav-link" href="answers.html" aria-current="page">Opdrachten</a><a href="scripts.html">Scripts</a></nav></header>
     <div class="docs-breadcrumb"><div class="docs-breadcrumb-inner"><a href="../index.html">Start</a><span class="breadcrumb-separator" aria-hidden="true">/</span><a href="index.html">Oefening 03</a><span class="breadcrumb-separator" aria-hidden="true">/</span><span aria-current="page">Opdrachten</span></div></div>
-    <div class="docs-layout"><aside class="docs-sidebar" aria-label="Paginanavigatie"><p class="sidebar-heading">Uitgebreide oefening 03</p>
+    <div class="docs-layout"><aside class="docs-sidebar" aria-label="Paginanavigatie"><p class="sidebar-heading">Uitgebreide oefening 03</p><a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
         <a href="index.html">Overzicht</a>
         <p class="sidebar-group-label">Projectpagina's</p>
         <a class="sidebar-current" href="answers.html" aria-current="page">Opdrachten</a>
@@ -95,7 +95,7 @@
             <strong>Mijn antwoord:</strong><br><br>
             Omdat het commando <b>Out-File</b> zonder een extra parameter (-Append) ervoor zorgt dat de inhoud word overschreven.<br>
             Om de mappen toe te voegen aan de reeds bestaande inhoud van <b>windowslist.txt</b> kan je de parameter <b>-Append</b> gebruiken bij het eerste voorbeeld van de vraag 2.2.<br>
-            Bij het tweede voorbeeld van vraag 2.2 typ je twee maal een groter-dan-teken <b>(<<)</b>
+            Bij het tweede voorbeeld van vraag 2.2 typ je twee maal een groter-dan-teken <b>(>>)</b>
         </div>
 
           <h4 id="2-4-toon-de-inhoud-van-windowslist-txt">2.4 Toon de inhoud van <code>windowslist.txt</code></h4>
@@ -257,7 +257,16 @@ else {<br>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            <b>Met een pipeline</b><br>
+            1..10 | ForEach-Object {New-Item -ItemType File -Path "C:\pxlData\pxlInfo_$_.txt"}<br>
+            <br>
+            <b>Met een lus</b><br>
+            foreach ($i in 1..10) {<br>
+            New-Item -Path "C:\pxlData\pxlInfo_$i.txt" -ItemType File<br>
+            }<br>
+            <br>
+            <b>Controleren:</b><br>
+            Get-ChildItem -Path C:\pxlData
         </div>
           
           <h4 id="5-5-maak-een-back-up-van-de-bestanden">5.5 Maak een back-up van de bestanden</h4>
@@ -267,7 +276,10 @@ else {<br>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            New-Item -ItemType Directory -Path "C:\pxlBackup"; Get-ChildItem -File -Path C:\pxlData | Copy-Item -Destination C:\pxlBackup<br>
+            <br>
+            <b>Controleren:</b><br>
+            Get-ChildItem -Path C:\pxlBackup
         </div>
 
           <h4 id="5-6-verwijder-c-pxlbackup">5.6 Verwijder <code>C:\pxlBackup</code></h4>
@@ -275,7 +287,18 @@ else {<br>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+                      <b>Test het pad:</b><br>
+            Test-Path C:\pxlBackup\<br>
+            Get-ChildItem C:\pxlBackup\<br>
+            <br>
+            <b>Tussenstap: -WhatIf</b><br>
+            Remove-Item C:\pxlBackup -Recurse -WhatIf<br>
+            <br>
+            <b>Verwijder de volledige map:</b><br>
+            Remove-Item C:\pxlBackup -Recurse<br>
+            <br>
+            <b>Controleren:</b><br>
+            Test-Path C:\pxlBackup
         </div>
 
           <h4 id="5-7-verplaats-c-pxldata-naar-c-pxldata2">5.7 Verplaats <code>C:\pxlData</code> naar <code>C:\pxlData2</code></h4>
@@ -283,7 +306,14 @@ else {<br>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            Move-Item -Path C:\pxlData -Destination C:\pxlData2<br>
+            <br>
+            <b>Controleren:</b><br>
+            Test-Path -Path C:\pxlData<br>
+            Test-Path -Path C:\pxlData2<br>
+            <br>
+            <b>Controleren: kijk of de inhoud ook is meeverhuisd</b><br>
+            Get-ChildItem -Path C:\pxlData2
         </div>
 
           <h4 id="5-8-ruim-de-testomgeving-op">5.8 Ruim de testomgeving op</h4>
@@ -291,7 +321,13 @@ else {<br>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            Remove-Item C:\pxlData2\ -Recurse<br>
+            <br>
+            <b>Controleren:</b><br>
+            Test-Path C:\pxlData2<br>
+            <br>
+            <b>Je kan altijd een <i>-WhatIf</i> uitvoeren om op veilig te spelen.</b><br>
+            Remove-Item C:\pxlData2 -Recurse -WhatIf
         </div>
 
           <hr />
@@ -309,7 +345,13 @@ else {<br>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            Get-ChildItem -Path C:\Windows -File |<br>
+            Measure-Object -Property Length -Maximum -Minimum -Average -Sum |<br><br>
+            Select-Object<br>
+                  @{Name='Max(MB)';     Expression={'{0:N2}' -f ($_.Maximum / 1MB)}},<br>
+                  @{Name='Min(MB)';             Expression={'{0:N2}' -f ($_.Minimum / 1MB)}},<br>
+                  @{Name='Average(MB)';         Expression={'{0:N2}' -f ($_.Average / 1MB)}},<br>
+                  @{Name='Sum(MB)';             Expression={'{0:N2}' -f ($_.Sum / 1MB)}}<br>
         </div>
 
           <h3 id="7-zoek-recente-word-bestanden">7. Zoek recente Word-bestanden</h3>
@@ -319,7 +361,14 @@ else {<br>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            Get-ChildItem -Path C:\Users -File -Recurse -Include *.doc, *.docx -ErrorAction SilentlyContinue |<br>
+            Where-Object { $_.CreationTime -gt (Get-Date -Date '2022-10-01') } |<br>
+            Select-Object Name, CreationTime, FullName<br>
+            <br>
+            <b>Alternatief met de <i>-in</i>-operator</b><br>
+            Get-ChildItem -Path C:\Users -File -Recurse -ErrorAction SilentlyContinue |<br>
+            Where-Object { $_.Extension -in '.doc', '.docx' -and $_.CreationTime -gt (Get-Date -Date '2022-10-01') } |<br>
+            Select-Object Name, CreationTime, FullName
         </div>
 
           <hr />
