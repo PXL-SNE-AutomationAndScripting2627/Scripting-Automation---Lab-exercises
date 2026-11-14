@@ -79,7 +79,7 @@
             <code>Import-Clixml .\output\WinFiles.xml | Select-Object Name, Extension, Length, LastAccessTime</code><br>
             <br>
             <b>Waarom is <code>CLIXML</code> geschikter dan gewone tekst?</b><br>
-            <code>CLIXML</code> bewaart niet alleen de tekst, maar ook de PowerShell-objecten: hun eigenschappen, waarden en datatypes. Daardoor kun je ze later weer importeren als echte objecten en daarna opnieuw filteren, sorteren en selecteren. Gewone tekst (<code>Out-File</code>) bewaart alleen de weergegeven tekst, niet het objectmodel. Bij <code>Get-Content</code> lees je dan alleen regels in, zonder objecteigenschappen en zonder de mogelijkheid om nog als objecten te werken.<br>
+            <code>Export-Clixml</code> bewaart de PowerShell-objecten zelf (serialisatie): hun eigenschappen, waarden en datatypes. Met <code>Import-Clixml</code> krijg je ze terug als objecten, zodat je opnieuw kunt filteren, sorteren en eigenschappen selecteren. Gewone tekst (<code>Out-File</code>) bewaart alleen wat op het scherm staat; met <code>Get-Content</code> lees je dan enkel tekstregels in. Ook bij CSV (<code>Import-Csv</code>) komen alle waarden terug als tekst (strings).<br>
         </div>
 
           <h3 id="1-4-paden-testen">1.4 Paden testen</h3>
@@ -109,9 +109,11 @@
           
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            <code>New-Item -Path 'C:\pxl_source' -ItemType Directory -Force</code><br>
-            <code>1..50 | ForEach-Object { New-Item -Path "C:\pxl_source\File_$_.txt" -ItemType File -Force }</code><br>
-            <code>(Get-ChildItem 'C:\pxl_source').Count</code> → <code>50</code><br>
+            <code>New-Item -Path C:\pxl_source -ItemType Directory</code><br>
+            <code>1..50 | ForEach-Object { New-Item -Path C:\pxl_source -Name "File_$_.txt" -ItemType File }</code><br>
+            <code>(Get-ChildItem C:\pxl_source | Measure-Object).Count</code> → <code>50</code><br>
+            <br>
+            <code>1..50</code> maakt de getallen 1 tot en met 50. <code>ForEach-Object</code> maakt voor elk getal (<code>$_</code>) een bestand.<br>
         </div>
           
           <h3 id="2-2-kopieergedrag-onderzoeken">2.2 Kopieergedrag onderzoeken</h3>
@@ -130,14 +132,33 @@
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             <ol>
-              <li><code>New-Item -Path 'C:\pxl_destination' -ItemType Directory -Force</code> en dan <code>Copy-Item -Path 'C:\pxl_source\*' -Destination 'C:\pxl_destination'</code>. Zonder <code>-Recurse</code> kopieert PowerShell alleen de bestanden in de bronmap, niet de map zelf.</li>
-              <li><code>Remove-Item 'C:\pxl_destination' -Recurse -Force</code>; daarna <code>Copy-Item -Path 'C:\pxl_source\File_1.txt' -Destination 'C:\pxl_destination'</code>. Omdat de doelnaam niet bestaat, maakt PowerShell een <strong>bestand</strong> met die naam, geen map.</li>
-              <li>Na opnieuw verwijderen: <code>Copy-Item -Path 'C:\pxl_source\*' -Destination 'C:\pxl_destination'</code> zonder de map eerst te maken. Als het doel niet bestaat, toont PowerShell het als een nieuwe map en kopieert de bestanden er direct in.</li>
-              <li>Als het doel al bestaat, wordt hetzelfde commando opnieuw uitgevoerd, maar PowerShell ziet dat dezelfde bestanden al aanwezig zijn; zonder <code>-Force</code> kan het een overwrite-vraag geven of de bestanden overslaan.</li>
-              <li><code>New-Item -Path 'C:\pxl_destination' -ItemType Directory -Force</code> en daarna <code>Copy-Item -Path 'C:\pxl_source\*' -Destination 'C:\pxl_destination'</code>. Nu worden de bestanden rechtstreeks in de doelmap geplaatst, zonder een submap <code>pxl_source</code>.</li>
-              <li><code>Remove-Item 'C:\pxl_destination' -Recurse -Force</code> en daarna <code>Copy-Item -Path 'C:\pxl_source' -Destination 'C:\pxl_destination' -Recurse</code>. Nu kopieert PowerShell de bronmap met inhoud naar het doel, inclusief de submap <code>pxl_source</code>.</li>
-              <li><code>New-Item -Path 'C:\pxl_final' -ItemType Directory -Force</code> en daarna <code>Move-Item -Path 'C:\pxl_destination' -Destination 'C:\pxl_final'</code>. De hele map, inclusief inhoud, verhuist naar <code>C:\pxl_final</code>.</li>
+              <li><code>Copy-Item C:\pxl_source C:\pxl_destination</code><br>
+                Controle: <code>Test-Path C:\pxl_destination</code> → <code>True</code>, maar <code>Get-ChildItem C:\pxl_destination</code> toont niets.<br>
+                Zonder <code>-Recurse</code> kopieert PowerShell alleen de <strong>map zelf</strong>: je krijgt een <strong>lege</strong> map, de 50 bestanden worden niet mee gekopieerd.</li>
+              <li><code>Remove-Item C:\pxl_destination</code><br>
+                <code>Copy-Item C:\pxl_source\File_1.txt C:\pxl_destination</code><br>
+                Controle: <code>Test-Path C:\pxl_destination -PathType Leaf</code> → <code>True</code><br>
+                Het doel bestaat niet, dus PowerShell maakt een <strong>bestand</strong> met de naam <code>pxl_destination</code> (een kopie van <code>File_1.txt</code>), geen map.</li>
+              <li><code>Remove-Item C:\pxl_destination -Force</code><br>
+                <code>Copy-Item C:\pxl_source C:\pxl_destination -Recurse</code><br>
+                Controle: <code>Get-ChildItem C:\pxl_destination</code> → <code>File_1.txt</code> tot <code>File_50.txt</code><br>
+                Het doel bestaat niet, dus PowerShell maakt de map <code>C:\pxl_destination</code> en zet de 50 bestanden er <strong>rechtstreeks</strong> in.</li>
+              <li><code>Copy-Item C:\pxl_source C:\pxl_destination -Recurse</code> (opnieuw)<br>
+                Controle: <code>Get-ChildItem C:\pxl_destination</code> → de 50 bestanden <strong>en</strong> een submap <code>pxl_source</code><br>
+                Verschil: het doel bestaat nu al. Daarom kopieert PowerShell de bronmap <strong>in</strong> de doelmap, als submap <code>C:\pxl_destination\pxl_source</code>. PowerShell vraagt niets.</li>
+              <li><code>Remove-Item C:\pxl_destination -Recurse -Force</code><br>
+                <code>New-Item -Path C:\pxl_destination -ItemType Directory</code><br>
+                <code>Copy-Item C:\pxl_source\* C:\pxl_destination</code><br>
+                De <code>*</code> selecteert de <strong>inhoud</strong> van de bronmap. De bestanden komen rechtstreeks in de doelmap, zonder submap <code>pxl_source</code>.</li>
+              <li><code>Remove-Item C:\pxl_destination\* -Recurse -Force</code> (de map leegmaken, niet verwijderen)<br>
+                <code>Copy-Item C:\pxl_source C:\pxl_destination -Recurse</code><br>
+                Controle: <code>Get-ChildItem C:\pxl_destination -Recurse</code> → <code>C:\pxl_destination\pxl_source\File_1.txt</code> ...<br>
+                Omdat de (lege) doelmap al bestaat, komt de bronmap met inhoud als submap <code>pxl_source</code> in het doel.</li>
+              <li><code>Move-Item C:\pxl_destination C:\pxl_final</code><br>
+                Controle: <code>Test-Path C:\pxl_destination</code> → <code>False</code>, <code>Test-Path C:\pxl_final</code> → <code>True</code><br>
+                <code>C:\pxl_final</code> bestond nog niet, dus de map wordt verplaatst en krijgt de nieuwe naam <code>pxl_final</code>, met de inhoud erin.</li>
             </ol>
+            <b>Samengevat:</b> bestaat het doel nog niet, dan wordt de bronmap het doel. Bestaat het doel al, dan komt de bronmap erin als submap.<br>
         </div>
 
           <h3 id="2-3-opruimen">2.3 Opruimen</h3>
@@ -152,10 +173,17 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            <code>$labPaths = @('C:\pxl_source','C:\pxl_destination','C:\pxl_final','C:\pxl_is_the_best')</code><br>
-            <code>$labPaths | ForEach-Object { Test-Path $_ }</code> → controleer welke paden bestaan<br>
-            <code>Remove-Item -Path $labPaths -Recurse -Force -ErrorAction SilentlyContinue</code><br>
-            <code>$labPaths | ForEach-Object { Test-Path $_ }</code> → alle waarden moeten <code>False</code> zijn<br>
+            <b>Vóór het verwijderen:</b><br>
+            <code>$labPaths</code> → toont de vier paden, zodat je ziet dat het enkel oefenmappen zijn<br>
+            <code>Test-Path $labPaths</code> → <code>True</code>, <code>False</code>, <code>True</code>, <code>True</code> (<code>C:\pxl_destination</code> werd in stap 7 verplaatst)<br>
+            <br>
+            <b>Verwijderen (eerst een voorbeeld met <code>-WhatIf</code>):</b><br>
+            <code>Remove-Item $labPaths -Recurse -Force -WhatIf</code><br>
+            <code>Remove-Item $labPaths -Recurse -Force -ErrorAction SilentlyContinue</code><br>
+            <code>-ErrorAction SilentlyContinue</code> voorkomt een foutmelding voor <code>C:\pxl_destination</code>, dat niet meer bestaat.<br>
+            <br>
+            <b>Na het verwijderen:</b><br>
+            <code>Test-Path $labPaths</code> → vier keer <code>False</code><br>
         </div>
             
           <h2 id="3-script-applicaties-starten-en-stoppen">3. Script: applicaties starten en stoppen</h2>
@@ -168,8 +196,13 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            <code>@('notepad','calc') | Invoke-Item</code><br>
-            <code>Get-Process -Name notepad,calc | Stop-Process -Force</code><br>
+            <b>Starten:</b><br>
+            <code>Get-ChildItem C:\Windows\System32\notepad.exe, C:\Windows\System32\calc.exe | Invoke-Item</code><br>
+            <code>Get-ChildItem</code> zoekt de twee programmabestanden; <code>Invoke-Item</code> opent ze.<br>
+            <br>
+            <b>Stoppen:</b><br>
+            <code>Get-Process notepad, *calc* | Stop-Process</code><br>
+            In Windows 11 heet het proces van Rekenmachine <code>CalculatorApp</code> en niet <code>calc</code>. Met <code>*calc*</code> vind je het toch.<br>
         </div>
 
           <h3 id="3-2-startstopprogsv1-ps1">3.2 <code>StartStopProgsV1.ps1</code></h3>
@@ -180,21 +213,33 @@ $stop_Apps  = $null # vervang door de gevonden processen</code></pre>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            <pre><code>$start_Apps = @(
-    (Get-Command notepad).Source
-    (Get-Command calc).Source
-)
-$stop_Apps = Get-Process -Name notepad,calc
+            <pre><code>&lt;#
+.SYNOPSIS
+    Start en stopt Kladblok en Rekenmachine.
+.DESCRIPTION
+    Zoekt notepad.exe en calc.exe, start ze en sluit ze daarna weer af.
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    ./scripts/StartStopProgsV1.ps1
+#&gt;
 
-Write-Host 'Starten...' -ForegroundColor Green
-$start_Apps | ForEach-Object {
-    Start-Process $_
-    Write-Host "Gestart: $_" -ForegroundColor Green
-}
+# De gevonden bestanden
+$start_Apps = Get-ChildItem C:\Windows\System32\notepad.exe, C:\Windows\System32\calc.exe
 
-Write-Host 'Stoppen...' -ForegroundColor Yellow
-$stop_Apps | Stop-Process -Force
-Write-Host 'Stoppen voltooid.' -ForegroundColor Red</code></pre>
+Write-Host "Kladblok en Rekenmachine worden gestart..." -ForegroundColor Green
+$start_Apps | Invoke-Item
+
+Start-Sleep -Seconds 3
+
+# De gevonden processen (pas zoeken NA het starten)
+$stop_Apps = Get-Process notepad, *calc*
+
+Write-Host "Kladblok en Rekenmachine worden gestopt..." -ForegroundColor Yellow
+$stop_Apps | Stop-Process
+
+Write-Host "Klaar." -ForegroundColor Cyan</code></pre>
+            <code>$stop_Apps</code> wordt pas ingevuld nadat de programma's gestart zijn. Anders zijn er nog geen processen om te vinden.<br>
         </div>
 
           <h3 id="3-3-startstopprogsv2-ps1">3.3 <code>StartStopProgsV2.ps1</code></h3>
@@ -208,21 +253,38 @@ $app_02 = &#39;calc&#39;</code></pre>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            <pre><code>$app_01 = 'notepad'
+            <pre><code>&lt;#
+.SYNOPSIS
+    Start en stopt twee programma's via variabelen.
+.DESCRIPTION
+    Zoekt de programma's uit $app_01 en $app_02, start ze en sluit ze daarna weer af.
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    ./scripts/StartStopProgsV2.ps1
+#&gt;
+
+$app_01 = 'notepad'
 $app_02 = 'calc'
 
-$start_Apps = @(
-    (Get-ChildItem "$env:SystemRoot\System32" -Filter "$app_01.exe" -File).FullName
-    (Get-ChildItem "$env:SystemRoot\System32" -Filter "$app_02.exe" -File).FullName
-)
+# Bestanden zoeken met een filter op de variabelen
+$start_Apps = Get-ChildItem C:\Windows\System32 -File |
+    Where-Object { $_.Name -eq "$app_01.exe" -or $_.Name -eq "$app_02.exe" }
 
-$stop_Apps = Get-Process -Name $app_01,$app_02
+Write-Host "Starten van $app_01 en $app_02..." -ForegroundColor Green
+$start_Apps | Invoke-Item
 
-Write-Host 'Starten...' -ForegroundColor Green
-$start_Apps | ForEach-Object { Start-Process $_ }
+Start-Sleep -Seconds 3
 
-Write-Host 'Stoppen...' -ForegroundColor Yellow
-$stop_Apps | Stop-Process -Force</code></pre>
+# Processen zoeken met een filter op de variabelen
+$stop_Apps = Get-Process |
+    Where-Object { $_.Name -like "*$app_01*" -or $_.Name -like "*$app_02*" }
+
+Write-Host "Stoppen van $app_01 en $app_02..." -ForegroundColor Yellow
+$stop_Apps | Stop-Process
+
+Write-Host "Klaar." -ForegroundColor Cyan</code></pre>
+            De namen staan alleen in <code>$app_01</code> en <code>$app_02</code>. De filters gebruiken die variabelen. <code>-like "*$app_02*"</code> vindt ook het proces <code>CalculatorApp</code>.<br>
         </div>
 
           <h2 id="4-command-prompt-en-powershell-vergelijken">4. Command Prompt en PowerShell vergelijken</h2>
@@ -238,10 +300,17 @@ $stop_Apps | Stop-Process -Force</code></pre>
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             <ol>
-              <li><code>ipconfig /all</code> werkt in beide; <code>dir /s</code> werkt in <code>cmd.exe</code> en is een DOS-commando, maar in PowerShell is <code>dir</code> een alias voor <code>Get-ChildItem</code>.</li>
-              <li>Niet helemaal: in PowerShell verwijst <code>dir</code> naar <code>Get-ChildItem</code>, in <code>cmd.exe</code> naar de ingebouwde maplijst. <code>ipconfig</code> is in beide omgevingen een extern programma.</li>
-              <li>Gebruik <code>Get-Command dir</code> en <code>Get-Command ipconfig</code>. In PowerShell zie je TypeName/CommandType en de eigenlijke cmdlet of executable.</li>
-              <li><code>/s</code> in <code>cmd.exe</code> betekent: recursief door submappen. In PowerShell is het equivalent <code>-Recurse</code>. Omdat de syntaxis van switches verschilt, kan dezelfde parameternaam een verschillend effect hebben.</li>
+              <li><code>ipconfig /all</code> werkt in beide omgevingen.<br>
+                <code>dir /s</code> werkt alleen in <code>cmd.exe</code>. In PowerShell krijg je een fout: <code>Cannot find path 'C:\s' because it does not exist.</code></li>
+              <li>Nee. In <code>cmd.exe</code> is <code>dir</code> een ingebouwd commando van cmd. In PowerShell is <code>dir</code> een <strong>alias</strong> voor de cmdlet <code>Get-ChildItem</code>.<br>
+                <code>ipconfig</code> is in beide omgevingen hetzelfde programma: <code>ipconfig.exe</code>.</li>
+              <li>Met <code>Get-Command</code> (of <code>Get-Alias</code>):<br>
+                <code>Get-Command dir</code> → CommandType <code>Alias</code>: <code>dir -&gt; Get-ChildItem</code><br>
+                <code>Get-Command ipconfig</code> → CommandType <code>Application</code>: <code>C:\Windows\system32\ipconfig.exe</code><br>
+                <code>Get-Alias dir</code> → <code>dir -&gt; Get-ChildItem</code></li>
+              <li>In <code>cmd.exe</code> is <code>/s</code> een optie: "toon ook alle submappen".<br>
+                In PowerShell is <code>/s</code> geen optie. <code>Get-ChildItem</code> leest <code>/s</code> als een <strong>pad</strong> (<code>C:\s</code>), en dat pad bestaat niet. In PowerShell gebruik je <code>dir -Recurse</code> (<code>Get-ChildItem -Recurse</code>).<br>
+                <code>ipconfig /all</code> werkt wel overal, omdat <code>/all</code> gewoon aan het programma <code>ipconfig.exe</code> wordt doorgegeven.</li>
             </ol>
         </div>
 
@@ -258,16 +327,19 @@ $stop_Apps | Stop-Process -Force</code></pre>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            <code>Get-History</code> toont de opdrachten die in de huidige PowerShell-sessie zijn uitgevoerd, met onder meer ID, opdrachtregel en starttijd.<br>
-            Praktisch voorbeeld: <code>Get-History | Select-Object Id,CommandLine -Last 5</code>.<br>
+            <b>5.1 <code>Get-History</code></b><br>
+            <code>Get-History</code> toont de lijst van commando's die je in de <strong>huidige</strong> PowerShell-sessie hebt uitgevoerd, elk met een <code>Id</code>. Sluit je PowerShell, dan begint de lijst opnieuw.<br>
+            Voorbeeld: <code>Get-History</code> toont bv. <code>1 Get-Process | Out-File .\output\processInfo.txt</code>, <code>2 Get-Content .\output\processInfo.txt</code>, ... Zo zie je snel welke commando's je al gebruikt hebt en kun je ze kopiëren naar je antwoorden.<br>
             <br>
+            <b>5.2 <code>Start-Transcript</code></b><br>
             <code>Start-Transcript -Path .\output\transcript001.txt -NoClobber</code><br>
+            <code>Get-Date</code><br>
             <code>Get-Location</code><br>
-            <code>Get-ChildItem .</code><br>
             <code>Stop-Transcript</code><br>
             <code>Get-Content .\output\transcript001.txt</code><br>
             <br>
-            Het transcript registreert de opgegeven commands en de bijbehorende output in een tekstbestand, zodat je de sessie later kunt controleren of teruglezen.
+            <code>-NoClobber</code> zorgt ervoor dat een bestaand bestand niet overschreven wordt.<br>
+            Het transcript bewaart alles van de sessie in een tekstbestand: bovenaan een kop met o.a. gebruiker, computer, starttijd en PowerShell-versie, daarna elk commando dat je typt <strong>en</strong> de uitvoer ervan, tot <code>Stop-Transcript</code>.
         </div>
 
           <h2 id="6-script-mapinformatie">6. Script: mapinformatie</h2>
@@ -283,23 +355,38 @@ $stop_Apps | Stop-Process -Force</code></pre>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            <pre><code>$myFolder = $env:USERPROFILE
-$files = Get-ChildItem -Path $myFolder -Recurse -File -ErrorAction SilentlyContinue
-$folderCount = (Get-ChildItem -Path $myFolder -Recurse -Directory -ErrorAction SilentlyContinue).Count
-$largestMB = [math]::Round(($files | Measure-Object -Property Length -Maximum).Maximum / 1MB, 2)
-$avgMB = [math]::Round((($files | Measure-Object -Property Length -Sum).Sum / 1MB) / $files.Count, 2)
-$totalMB = [math]::Round(($files | Measure-Object -Property Length -Sum).Sum / 1MB, 2)
+            <pre><code>&lt;#
+.SYNOPSIS
+    Toont informatie over de bestanden en mappen in een folder.
+.DESCRIPTION
+    Toont het aantal bestanden, de grootste, gemiddelde en totale grootte in MB
+    en het aantal submappen van $myFolder (inclusief submappen).
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    ./scripts/ShowFolderInfo.ps1
+#&gt;
 
-[PSCustomObject]@{
-    Folder = $myFolder
-    FileCount = $files.Count
-    LargestFileMB = $largestMB
-    AverageFileMB = $avgMB
-    TotalSizeMB = $totalMB
-    SubfolderCount = $folderCount
-}</code></pre>
+$myFolder = $env:USERPROFILE      # test daarna met 'C:\Windows\System32'
+
+Write-Host "Informatie over de bestanden onder de folder $myFolder (inclusief de subfolders)." -ForegroundColor Yellow
+
+Get-ChildItem -Path $myFolder -Recurse -File -ErrorAction SilentlyContinue |
+    Measure-Object -Property Length -Maximum -Average -Sum |
+    Select-Object @{Name='Aantal bestanden'; Expression={$_.Count}},
+                  @{Name='Grootste Bestand(MB)'; Expression={[math]::Round($_.Maximum / 1MB, 2)}},
+                  @{Name='Gemiddelde bestandsgrootte(MB)'; Expression={[math]::Round($_.Average / 1MB, 2)}},
+                  @{Name='Totale grootte (MB)'; Expression={[math]::Round($_.Sum / 1MB, 2)}} |
+    Format-Table
+
+Get-ChildItem -Path $myFolder -Recurse -Directory -ErrorAction SilentlyContinue |
+    Measure-Object |
+    Select-Object @{Name='Totaal aantal folders (inclusief subfolders)'; Expression={$_.Count}} |
+    Format-Table</code></pre>
+            <code>Measure-Object -Property Length -Maximum -Average -Sum</code> berekent alles in één keer (in bytes). Delen door <code>1MB</code> en <code>[math]::Round(..., 2)</code> maakt er MB met twee decimalen van.<br>
             <br>
-            <code>-ErrorAction SilentlyContinue</code> is hier passend, omdat sommige onderliggende folders in Windows beveiligd of ontoegankelijk kunnen zijn. Daardoor worden geen vervelende foutmeldingen getoond en blijft de samenvatting overzichtelijk.
+            <b>Waarom <code>-ErrorAction SilentlyContinue</code>?</b><br>
+            Sommige mappen (vooral in <code>C:\Windows\System32</code>) mag je als gewone gebruiker niet openen. Zonder deze optie krijg je voor elke zo'n map een rode foutmelding. Met <code>SilentlyContinue</code> slaat PowerShell die mappen stil over en telt het gewoon verder met wat wel toegankelijk is. Dat is hier prima, want we willen alleen een overzicht.
         </div>
 
           <h3 id="6-2-resultaten-in-variabelen">6.2 Resultaten in variabelen</h3>
@@ -310,19 +397,44 @@ $totalMB = [math]::Round(($files | Measure-Object -Property Length -Sum).Sum / 1
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            <pre><code>$fileCount = $files.Count
-$largestMB = [math]::Round(($files | Measure-Object -Property Length -Maximum).Maximum / 1MB, 2)
-$avgMB = [math]::Round((($files | Measure-Object -Property Length -Sum).Sum / 1MB) / $fileCount, 2)
-$totalMB = [math]::Round(($files | Measure-Object -Property Length -Sum).Sum / 1MB, 2)
-$subFolderCount = (Get-ChildItem -Path $myFolder -Recurse -Directory -ErrorAction SilentlyContinue).Count
+            <pre><code>&lt;#
+.SYNOPSIS
+    Toont informatie over de bestanden en mappen in een folder.
+.DESCRIPTION
+    Bewaart het aantal bestanden, de grootste, gemiddelde en totale grootte in MB
+    en het aantal submappen van $myFolder in variabelen en toont ze in kleur.
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    ./scripts/ShowFolderInfo.ps1
+#&gt;
 
-Write-Host "Aantal bestanden: $fileCount" -ForegroundColor Cyan
-Write-Host "Grootste bestand: $largestMB MB" -ForegroundColor Yellow
-Write-Host "Gemiddelde bestandsgrootte: $avgMB MB" -ForegroundColor Green
-Write-Host "Totale grootte: $totalMB MB" -ForegroundColor Magenta
-Write-Host "Aantal submappen: $subFolderCount" -ForegroundColor DarkYellow
+$myFolder = $env:USERPROFILE
 
-Get-Help ./scripts/ShowFolderInfo.ps1 -Full</code></pre>
+# Metingen
+$fileInfo   = Get-ChildItem -Path $myFolder -Recurse -File -ErrorAction SilentlyContinue |
+              Measure-Object -Property Length -Maximum -Average -Sum
+$folderInfo = Get-ChildItem -Path $myFolder -Recurse -Directory -ErrorAction SilentlyContinue |
+              Measure-Object
+
+# Resultaten in betekenisvolle variabelen
+$aantalBestanden = $fileInfo.Count
+$grootsteMB      = [math]::Round($fileInfo.Maximum / 1MB, 2)
+$totaalMB        = [math]::Round($fileInfo.Sum / 1MB, 2)
+$gemiddeldeMB    = [math]::Round($fileInfo.Average / 1MB, 2)
+$aantalFolders   = $folderInfo.Count
+
+# Uitvoer
+Write-Host "Folder $myFolder" -ForegroundColor Yellow
+Write-Host "Recursive: True" -ForegroundColor Green
+Write-Host "`t-&gt; Aantal bestanden: $aantalBestanden"
+Write-Host "`t-&gt; Grootste bestand: $grootsteMB MB"
+Write-Host "`t-&gt; Totale grootte: $totaalMB MB"
+Write-Host "`t-&gt; Gemiddelde bestandsgrootte: $gemiddeldeMB MB"
+Write-Host "`t-&gt; Aantal Folders: $aantalFolders"</code></pre>
+            <b>Controle van de help</b> (in de terminal, niet in het script):<br>
+            <code>Get-Help ./scripts/ShowFolderInfo.ps1 -Full</code><br>
+            Dit toont de SYNOPSIS, DESCRIPTION, NOTES en EXAMPLE uit het <code>&lt;# ... #&gt;</code>-blok bovenaan het script.<br>
         </div>
 
           <h2 id="eindcontrole">Eindcontrole</h2>
