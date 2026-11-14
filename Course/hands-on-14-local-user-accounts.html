@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Hands-on — Local user accounts — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">14 - Local user accounts</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a class="sidebar-current" href="hands-on-14-local-user-accounts.html" aria-current="page">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; Hands-on</p>
+            <h1 id="page-title">Hands-on — Local user accounts</h1>
+            <p class="hero-description">14 - Local user accounts</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/hands-on/14-local-user-accounts/01-local-user-accounts">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="goal">Goal</h2>
+<p>Automate the lifecycle of one disposable local Windows account without exposing passwords or affecting unrelated accounts.</p>
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>By the end of this lab, you can:</p>
+<ul>
+<li>perform a safety and privilege check before changing accounts;</li>
+<li>inspect local users, groups, and membership as objects;</li>
+<li>preview and create a disabled local lab account;</li>
+<li>manage membership, password, and enabled state; and</li>
+<li>build an idempotent, previewable account-management script.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Complete <a href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/hands-on/13-modules/01-modules">13 — Modules</a>.</li>
+<li>Complete <a href="powershell-automation-01-local-user-accounts.html">Automating local user accounts</a> before starting this lab.</li>
+<li>Use an instructor-provided disposable Windows VM or Windows Sandbox.</li>
+<li>Use 64-bit PowerShell and an administrator terminal.</li>
+<li>Reserve the exact account name <code>PSLabStudent14</code> for this lab.</li>
+</ul>
+<h2 id="how-to-work-in-this-lab">How to work in this lab</h2>
+<p>Predict, run, and reflect. Run every <code>-WhatIf</code> preview before its real command. Stop if <code>PSLabStudent14</code> already exists before you begin; do not remove or reuse an account you did not create.</p>
+<hr />
+<h2 id="part-1-perform-safety-checks">Part 1 — Perform safety checks</h2>
+<h3 id="activity-1.1-confirm-the-platform-and-module">Activity 1.1 — Confirm the platform and module</h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$IsWindows
+[Environment]::Is64BitProcess
+Get-Module -ListAvailable Microsoft.PowerShell.LocalAccounts
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Why is this lab Windows-only?</li>
+<li>Why must the PowerShell process be 64-bit on a 64-bit computer?</li>
+<li>Which module provides the local-account commands?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong> On the required Windows system,
+both Boolean checks should be <code>True</code> and the module should be listed.
+Local users and groups are Windows security principals, and the
+<code>Microsoft.PowerShell.LocalAccounts</code> module is Windows-only. It is unavailable
+in 32-bit PowerShell on a 64-bit system.</p>
+</details>
+<h3 id="activity-1.2-confirm-elevation-and-account-absence">Activity 1.2 — Confirm elevation and account absence</h3>
+<pre><code class="language-powershell">$identity = [Security.Principal.WindowsIdentity]::GetCurrent()
+$principal = [Security.Principal.WindowsPrincipal]::new($identity)
+$isAdministrator = $principal.IsInRole(
+    [Security.Principal.WindowsBuiltInRole]::Administrator
+)
+
+$isAdministrator
+Get-LocalUser -Name 'PSLabStudent14' -ErrorAction SilentlyContinue
+</code></pre>
+<p>Stop and contact the instructor if elevation is <code>False</code> or the account already exists.</p>
+<p><strong>Reflect</strong></p>
+<p>Why is absence a required precondition for this lab?</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answer:</strong> Elevation must be <code>True</code>, and the
+account query must return no object. If the name already exists, you cannot
+assume the account belongs to this lab; stop rather than change or remove it.</p>
+</details>
+<hr />
+<h2 id="part-2-inspect-accounts-and-groups">Part 2 — Inspect accounts and groups</h2>
+<h3 id="activity-2.1-inspect-local-users">Activity 2.1 — Inspect local users</h3>
+<pre><code class="language-powershell">Get-LocalUser |
+    Sort-Object Name |
+    Select-Object Name, Enabled, LastLogon, Description
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What type of object does <code>Get-LocalUser</code> return?</li>
+<li>Why should you select properties before formatting?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong> <code>Get-LocalUser</code> returns
+<code>LocalUser</code> objects. The listed accounts and properties vary by computer.
+Selecting properties retains objects for further processing; formatting too
+early produces display instructions instead.</p>
+</details>
+<h3 id="activity-2.2-resolve-the-built-in-users-group">Activity 2.2 — Resolve the built-in Users group</h3>
+<pre><code class="language-powershell">$usersGroup = Get-LocalGroup -SID 'S-1-5-32-545'
+$usersGroup | Select-Object Name, SID, Description
+
+Get-LocalGroupMember -Group $usersGroup |
+    Select-Object Name, ObjectClass, PrincipalSource
+</code></pre>
+<p><strong>Reflect</strong></p>
+<p>Why is the SID more portable than typing <code>Users</code> or its translated name?</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answer:</strong> The query resolves the built-in
+Users group and lists its current members, which vary by computer. Its
+well-known SID is stable across display languages, unlike its localized name.</p>
+</details>
+<hr />
+<h2 id="part-3-create-and-verify-the-account">Part 3 — Create and verify the account</h2>
+<h3 id="activity-3.1-prepare-secure-input">Activity 3.1 — Prepare secure input</h3>
+<pre><code class="language-powershell">$password = Read-Host -Prompt 'Enter the temporary lab password' -AsSecureString
+$password.GetType().FullName
+</code></pre>
+<p><strong>Reflect</strong></p>
+<p>Why should the password not appear as a quoted string in the script?</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answer:</strong> The type is
+<code>System.Security.SecureString</code>. A quoted password can be exposed in source
+files, command history, logs, or screenshots. Enter it securely instead.</p>
+</details>
+<h3 id="activity-3.2-preview-and-create-a-disabled-account">Activity 3.2 — Preview and create a disabled account</h3>
+<pre><code class="language-powershell">$newUserParameters = @{
+    Name        = 'PSLabStudent14'
+    Password    = $password
+    FullName    = 'PowerShell Lab Student 14'
+    Description = 'Disposable account created in lab 14'
+    Disabled    = $true
+}
+
+New-LocalUser @newUserParameters -WhatIf
+New-LocalUser @newUserParameters
+
+Get-LocalUser -Name 'PSLabStudent14' |
+    Select-Object Name, Enabled, Description
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What did the preview say would change?</li>
+<li>Why is the account initially disabled?</li>
+<li>Which command verifies the created state?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong> The preview describes creating
+<code>PSLabStudent14</code> without changing it. Disabled-first creation allows you to
+verify the account before sign-in. After the approved creation,
+<code>Get-LocalUser -Name 'PSLabStudent14'</code> should show <code>Enabled</code> as <code>False</code>.
+Compare the result; do not repeat an already completed creation.</p>
+</details>
+<hr />
+<h2 id="part-4-manage-membership-and-state">Part 4 — Manage membership and state</h2>
+<h3 id="activity-4.1-add-least-privilege-membership">Activity 4.1 — Add least-privilege membership</h3>
+<pre><code class="language-powershell">$account = Get-LocalUser -Name 'PSLabStudent14'
+
+Add-LocalGroupMember -Group $usersGroup -Member $account -WhatIf
+Add-LocalGroupMember -Group $usersGroup -Member $account
+
+Get-LocalGroupMember -Group $usersGroup |
+    Where-Object Name -Like '*\PSLabStudent14'
+</code></pre>
+<p><strong>Reflect</strong></p>
+<p>Why should this account not be added to Administrators?</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answer:</strong> The preview identifies the
+membership change, and the final query should show the lab account in the
+built-in Users group. Ordinary lab work does not require administrative
+privileges. Use least privilege and do not repeat a completed membership change.</p>
+</details>
+<h3 id="activity-4.2-reset-the-password-and-enable-the-account">Activity 4.2 — Reset the password and enable the account</h3>
+<pre><code class="language-powershell">$replacementPassword = Read-Host -Prompt 'Enter a replacement password' -AsSecureString
+$account | Set-LocalUser -Password $replacementPassword -WhatIf
+$account | Set-LocalUser -Password $replacementPassword
+
+$account | Enable-LocalUser -WhatIf
+$account | Enable-LocalUser
+
+Get-LocalUser -Name 'PSLabStudent14' |
+    Select-Object Name, Enabled, PasswordLastSet
+</code></pre>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results:</strong> After the previews and approved changes, the fresh query
+shows <code>Enabled</code> as <code>True</code> and a password-set timestamp. The timestamp varies.
+Do not repeat a completed password reset or enable operation merely to check it.</p>
+</details>
+<h3 id="activity-4.3-disable-and-verify">Activity 4.3 — Disable and verify</h3>
+<pre><code class="language-powershell">Get-LocalUser -Name 'PSLabStudent14' | Disable-LocalUser -WhatIf
+Get-LocalUser -Name 'PSLabStudent14' | Disable-LocalUser
+Get-LocalUser -Name 'PSLabStudent14' | Select-Object Name, Enabled
+</code></pre>
+<p><strong>Reflect</strong></p>
+<p>Why query the account again after each change?</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected result and reflection answer:</strong> The final query should show
+<code>Enabled</code> as <code>False</code>. A fresh query verifies the actual persisted state
+rather than assuming the change succeeded. Compare the current state instead
+of repeating a completed change.</p>
+</details>
+<hr />
+<h2 id="part-5-challenge-create-an-account-lifecycle-script">Part 5 — Challenge: create an account lifecycle script</h2>
+<p>Filename: <code>Manage-CourseLocalUser.ps1</code></p>
+<p>Create <code>Manage-CourseLocalUser.ps1</code> in a dedicated lab folder. The script must:</p>
+<ul>
+<li>use <code>[CmdletBinding(SupportsShouldProcess)]</code>;</li>
+<li>accept <code>Action</code> with <code>Status</code>, <code>Create</code>, <code>Enable</code>, <code>Disable</code>, or <code>Remove</code>;</li>
+<li>accept an account name that must start with <code>PSLab</code>;</li>
+<li>default to <code>PSLabStudent14</code>;</li>
+<li>prompt securely for a password only when an actual creation runs;</li>
+<li>resolve the built-in Users group by SID;</li>
+<li>avoid duplicate creation and handle a missing account clearly;</li>
+<li>return a structured result object; and</li>
+<li>support <code>-WhatIf</code> for every modifying action.</li>
+</ul>
+<p>Test at least:</p>
+<pre><code class="language-powershell">.\Manage-CourseLocalUser.ps1 -Action Status
+.\Manage-CourseLocalUser.ps1 -Action Enable -WhatIf
+.\Manage-CourseLocalUser.ps1 -Action Remove -WhatIf
+</code></pre>
+<p>Do not perform the final removal until Part 6.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Step-by-step solution:</strong> Use <a href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/hands-on/solutions/14-local-user-accounts/files/Manage-CourseLocalUser.ps1"><code>Manage-CourseLocalUser.ps1</code></a>. It separates requested and performed actions, prompts only inside an approved creation, skips already-correct states, and re-queries before returning the final object. Only manage accounts you created for this lab.</p>
+<pre><code class="language-powershell">.\Manage-CourseLocalUser.ps1 -Action Status
+.\Manage-CourseLocalUser.ps1 -Action Enable -WhatIf
+.\Manage-CourseLocalUser.ps1 -Action Remove -WhatIf
+</code></pre>
+<details>
+<summary>Show solution Optimized</summary>
+<p>This alternative shares the state checks for Enable and Disable. It keeps
+creation and deletion separate and prompts for a password only after approval.
+Run actual changes only on the disposable account you created.</p>
+<pre><code class="language-powershell">[CmdletBinding(SupportsShouldProcess)]
+param(
+    [Parameter(Mandatory)]
+    [ValidateSet('Status', 'Create', 'Enable', 'Disable', 'Remove')]
+    [string]$Action,
+    [ValidatePattern('^PSLab[A-Za-z0-9_-]*$')]
+    [string]$Name = 'PSLabStudent14',
+    [ValidateNotNullOrEmpty()]
+    [string]$FullName = 'PowerShell Lab Student 14'
+)
+
+if (-not $IsWindows) { throw 'This script requires Windows.' }
+Import-Module Microsoft.PowerShell.LocalAccounts -ErrorAction Stop
+$account = Get-LocalUser -ErrorAction Stop | Where-Object Name -eq $Name
+$performed = 'None'
+$message = if ($account) { 'Account found.' } else { 'Account does not exist.' }
+
+if ($Action -eq 'Create') {
+    if ($account) {
+        $message = 'Account already exists; no duplicate was created.'
+    } elseif ($PSCmdlet.ShouldProcess($Name, 'Create disabled account and add to Users')) {
+        $group = Get-LocalGroup -SID 'S-1-5-32-545' -ErrorAction Stop
+        $password = Read-Host -Prompt &quot;Enter the temporary password for $Name&quot; -AsSecureString
+        $account = New-LocalUser -Name $Name -Password $password -FullName $FullName `
+            -Description 'Disposable PowerShell course account' -Disabled -ErrorAction Stop
+        $member = Get-LocalGroupMember -Group $group -ErrorAction Stop |
+            Where-Object SID -eq $account.SID
+        if (-not $member) {
+            Add-LocalGroupMember -Group $group -Member $account -ErrorAction Stop
+        }
+        $performed = 'Created'
+        $message = 'Disabled account created and added to the built-in Users group.'
+    } else {
+        $performed = 'Preview'
+        $message = 'Creation was previewed or declined.'
+    }
+} elseif ($Action -in 'Enable', 'Disable' -and $account) {
+    $desiredEnabled = $Action -eq 'Enable'
+    if ($account.Enabled -eq $desiredEnabled) {
+        $message = &quot;Account is already $($Action.ToLower())d.&quot;
+    } elseif ($PSCmdlet.ShouldProcess($Name, &quot;$Action local account&quot;)) {
+        if ($desiredEnabled) {
+            $account | Enable-LocalUser -ErrorAction Stop
+            $performed = 'Enabled'
+        } else {
+            $account | Disable-LocalUser -ErrorAction Stop
+            $performed = 'Disabled'
+        }
+        $message = &quot;Account $($performed.ToLower()).&quot;
+    } else {
+        $performed = 'Preview'
+        $message = &quot;$Action was previewed or declined.&quot;
+    }
+} elseif ($Action -eq 'Remove' -and $account) {
+    if ($PSCmdlet.ShouldProcess($Name, 'Permanently remove local account')) {
+        $account | Remove-LocalUser -ErrorAction Stop
+        $performed = 'Removed'
+        $message = 'Account removed.'
+    } else {
+        $performed = 'Preview'
+        $message = 'Removal was previewed or declined.'
+    }
+} elseif ($Action -eq 'Remove') {
+    $message = 'Account is already absent.'
+}
+
+$current = Get-LocalUser -ErrorAction Stop | Where-Object Name -eq $Name
+[pscustomobject]@{
+    Name = $Name
+    RequestedAction = $Action
+    PerformedAction = $performed
+    Exists = [bool]$current
+    Enabled = if ($current) { $current.Enabled } else { $null }
+    Message = $message
+}
+</code></pre>
+</details>
+</details>
+<hr />
+<h2 id="part-6-clean-up-the-lab-account">Part 6 — Clean up the lab account</h2>
+<h3 id="activity-6.1-preview-remove-and-verify">Activity 6.1 — Preview, remove, and verify</h3>
+<pre><code class="language-powershell">Get-LocalUser -Name 'PSLabStudent14' | Remove-LocalUser -WhatIf
+Get-LocalUser -Name 'PSLabStudent14' | Remove-LocalUser
+
+Get-LocalUser -Name 'PSLabStudent14' -ErrorAction SilentlyContinue
+</code></pre>
+<p>The final query should return no account.</p>
+<p><strong>Reflect</strong></p>
+<p>Which checks made this destructive operation acceptably scoped?</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected result and reflection answer:</strong> The exact reserved name was checked
+for absence before creation; the account is resolved by name and removal is
+previewed before it is performed. The final exact-name query returns no
+account. Do not remove any account you did not create for the lab.</p>
+</details>
+<h2 id="practice-and-self-check">Practice and self-check</h2>
+<ol>
+<li>Which cmdlet lists local groups?</li>
+<li>Which SID identifies the built-in Users group?</li>
+<li>Which parameter previews supported changes?</li>
+<li>How should a script handle an account that already exists?</li>
+<li>What must be verified after removal?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Answers:</strong></p>
+<ol>
+<li><code>Get-LocalGroup</code>.</li>
+<li><code>S-1-5-32-545</code>.</li>
+<li><code>-WhatIf</code>.</li>
+<li>Report and skip it; do not create a duplicate or silently replace it.</li>
+<li>A fresh exact-name query must return no account.</li>
+</ol>
+</details>
+<h2 id="submission-checklist">Submission checklist</h2>
+<ul>
+<li>Submit <code>Manage-CourseLocalUser.ps1</code>.</li>
+<li>Show successful <code>Status</code> output and <code>-WhatIf</code> output for a modifying action.</li>
+<li>Demonstrate that <code>PSLabStudent14</code> no longer exists after cleanup.</li>
+<li>Include brief answers to every reflection question.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>You inspected local security principals, used secure password input, created a disabled account, managed membership and state, verified each operation, and removed only the dedicated lab account.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.localaccounts/">Microsoft.PowerShell.LocalAccounts module</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.localaccounts/new-localuser">New-LocalUser</a></li>
+</ul>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

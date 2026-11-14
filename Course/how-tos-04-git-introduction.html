@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Git &amp; GitHub with VS Code — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">04 - Git Introduction</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a class="sidebar-current" href="how-tos-04-git-introduction.html" aria-current="page">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; How-tos</p>
+            <h1 id="page-title">Git &amp; GitHub with VS Code</h1>
+            <p class="hero-description">04 - Git Introduction</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/course/howtos/04-github-git-intro">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<p>This short guide shows you how to use <strong>Git</strong> and <strong>GitHub</strong> with
+<strong>Visual Studio Code</strong>.</p>
+<p>No previous Git knowledge is required.</p>
+<hr />
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://git-scm.com/">Git</a></li>
+<li><a href="https://www.w3schools.com/git/git_install.asp?remote=github">W3Schools Git Tutorial</a></li>
+<li><a href="https://github.com/dhoubrechts/git-intro-course.git">Git intro course repository</a></li>
+</ul>
+<hr />
+<h2 id="git-vs-github">1. Git vs GitHub</h2>
+<h3 id="git">Git</h3>
+<p><strong>Git</strong> is a version control system installed on your computer.</p>
+<p>It keeps track of changes you make to your files.</p>
+<pre><code class="language-text">Version 1 → Version 2 → Version 3
+</code></pre>
+<p>Each saved version is called a <strong>commit</strong>.</p>
+<h3 id="github">GitHub</h3>
+<p><strong>GitHub</strong> is an online platform where Git repositories can be stored and shared.</p>
+<p>A <strong>repository</strong> or <strong>repo</strong> is a project that is managed by Git.</p>
+<table>
+<thead>
+<tr>
+<th>Git</th>
+<th>GitHub</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Installed on your computer</td>
+<td>Online service</td>
+</tr>
+<tr>
+<td>Tracks changes</td>
+<td>Stores and shares repositories</td>
+</tr>
+<tr>
+<td>Uses <code>git</code> commands</td>
+<td>Provides online Git repositories</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="what-do-you-need">2. What do you need?</h2>
+<p>You need:</p>
+<ul>
+<li><strong>Visual Studio Code</strong></li>
+<li><strong>Git</strong></li>
+<li>a <strong>GitHub account</strong></li>
+</ul>
+<hr />
+<h2 id="check-if-git-is-installed">3. Check if Git is installed</h2>
+<p>Open <strong>Visual Studio Code</strong>.</p>
+<p>Open a terminal:</p>
+<pre><code class="language-text">Terminal → New Terminal
+</code></pre>
+<p>Enter:</p>
+<pre><code class="language-powershell">git --version
+</code></pre>
+<p>If Git is installed, you will see something similar to:</p>
+<pre><code class="language-text">git version 2.51.0.windows.1
+</code></pre>
+<p>If you see a Git version, continue to <strong>Configure Git</strong>.</p>
+<hr />
+<h2 id="install-git-if-it-is-not-installed">4. Install Git if it is not installed</h2>
+<p>If you receive an error such as:</p>
+<pre><code class="language-text">git : The term 'git' is not recognized...
+</code></pre>
+<p>Git is probably not installed.</p>
+<h3 id="option-1-install-git-using-winget">Option 1 — Install Git using winget</h3>
+<p>On a recent Windows installation, you can install Git directly from PowerShell:</p>
+<pre><code class="language-powershell">winget install --id Git.Git -e --source winget
+</code></pre>
+<p>Wait until the installation has completed.</p>
+<p>Restart VS Code and check again:</p>
+<pre><code class="language-powershell">git --version
+</code></pre>
+<h3 id="option-2-install-git-manually">Option 2 — Install Git manually</h3>
+<p>Download <strong>Git for Windows</strong> from:</p>
+<pre><code class="language-text">https://git-scm.com/
+</code></pre>
+<p>Run the installer. The default installation options are normally sufficient.</p>
+<p>After installation:</p>
+<ol>
+<li>Close VS Code.</li>
+<li>Start VS Code again.</li>
+<li>Open a terminal.</li>
+<li>Execute:</li>
+</ol>
+<pre><code class="language-powershell">git --version
+</code></pre>
+<hr />
+<h2 id="configure-git">5. Configure Git</h2>
+<p>Git needs to know who creates the commits.</p>
+<p>Configure your name:</p>
+<pre><code class="language-powershell">git config --global user.name &quot;John Doe&quot;
+</code></pre>
+<p>Configure your email:</p>
+<pre><code class="language-powershell">git config --global user.email &quot;john.doe@example.com&quot;
+</code></pre>
+<p>Preferably use the email address associated with your GitHub account.</p>
+<p>Check the configuration:</p>
+<pre><code class="language-powershell">git config --global --list
+</code></pre>
+<p>You should see:</p>
+<pre><code class="language-text">user.name=John Doe
+user.email=john.doe@example.com
+</code></pre>
+<blockquote>
+<p>You normally only have to configure this <strong>once per computer</strong>.</p>
+</blockquote>
+<hr />
+<h2 id="the-basic-git-workflow">6. The basic Git workflow</h2>
+<pre><code class="language-text">┌──────────────┐
+│  Edit files  │
+└──────┬───────┘
+       │ git add
+       ▼
+┌──────────────┐
+│ Stage changes│
+└──────┬───────┘
+       │ git commit
+       ▼
+┌──────────────┐
+│ Save version │
+└──────┬───────┘
+       │ git push
+       ▼
+┌──────────────┐
+│    GitHub    │
+└──────────────┘
+</code></pre>
+<p>Remember:</p>
+<pre><code class="language-text">EDIT → ADD → COMMIT → PUSH
+</code></pre>
+<hr />
+<h2 id="clone-a-github-repository">7. Clone a GitHub repository</h2>
+<p>On GitHub, click:</p>
+<pre><code class="language-text">Code → HTTPS
+</code></pre>
+<p>Copy the HTTPS URL:</p>
+<pre><code class="language-text">https://github.com/dhoubrechts/git-intro-course.git
+</code></pre>
+<p>Open the VS Code terminal and go to the directory where you want to store your projects:</p>
+<pre><code class="language-powershell">cd C:\Projects
+</code></pre>
+<p>Clone the repository:</p>
+<pre><code class="language-powershell">git clone https://github.com/dhoubrechts/git-intro-course.git
+</code></pre>
+<p>Enter the directory:</p>
+<pre><code class="language-powershell">cd git-intro-course
+</code></pre>
+<p>Open it in VS Code:</p>
+<pre><code class="language-powershell">code .
+</code></pre>
+<hr />
+<h2 id="check-the-repository">8. Check the repository</h2>
+<p>Execute:</p>
+<pre><code class="language-powershell">git status
+</code></pre>
+<p>You should see something similar to:</p>
+<pre><code class="language-text">On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+</code></pre>
+<hr />
+<h2 id="make-a-change">9. Make a change</h2>
+<p>Modify a file in VS Code and save it.</p>
+<p>Then check what changed:</p>
+<pre><code class="language-powershell">git status
+</code></pre>
+<p>For example:</p>
+<pre><code class="language-text">modified: README.md
+</code></pre>
+<hr />
+<h2 id="stage-your-changes">10. Stage your changes</h2>
+<p>Stage the changes:</p>
+<pre><code class="language-powershell">git add .
+</code></pre>
+<p>Check:</p>
+<pre><code class="language-powershell">git status
+</code></pre>
+<p>The changes should now appear under:</p>
+<pre><code class="language-text">Changes to be committed:
+</code></pre>
+<hr />
+<h2 id="commit-your-changes">11. Commit your changes</h2>
+<p>Create a commit:</p>
+<pre><code class="language-powershell">git commit -m &quot;Update README&quot;
+</code></pre>
+<p>A <strong>commit</strong> saves a version of your changes in your local Git repository.</p>
+<p>Use clear commit messages:</p>
+<pre><code class="language-text">Update README
+Add Python exercise
+Fix calculation
+Add documentation
+</code></pre>
+<p>Avoid unclear messages:</p>
+<pre><code class="language-text">test
+stuff
+changes
+asdf
+</code></pre>
+<hr />
+<h2 id="push-your-changes-to-github">12. Push your changes to GitHub</h2>
+<p>Send your commits to GitHub:</p>
+<pre><code class="language-powershell">git push
+</code></pre>
+<pre><code class="language-text">Your files
+    │
+    │ git add .
+    ▼
+Staging
+    │
+    │ git commit
+    ▼
+Local Git repository
+    │
+    │ git push
+    ▼
+GitHub
+</code></pre>
+<hr />
+<h2 id="pull-changes-from-github">13. Pull changes from GitHub</h2>
+<p>Retrieve the latest changes from GitHub:</p>
+<pre><code class="language-powershell">git pull
+</code></pre>
+<pre><code class="language-text">             git push
+Computer ───────────────► GitHub
+
+             git pull
+Computer ◄─────────────── GitHub
+</code></pre>
+<p>It is a good habit to <strong>pull before you start working</strong>.</p>
+<hr />
+<h2 id="your-normal-workflow">14. Your normal workflow</h2>
+<p>Start by retrieving the latest version:</p>
+<pre><code class="language-powershell">git pull
+</code></pre>
+<p>Edit your files.</p>
+<p>Check what changed:</p>
+<pre><code class="language-powershell">git status
+</code></pre>
+<p>Stage:</p>
+<pre><code class="language-powershell">git add .
+</code></pre>
+<p>Commit:</p>
+<pre><code class="language-powershell">git commit -m &quot;Describe what you changed&quot;
+</code></pre>
+<p>Push:</p>
+<pre><code class="language-powershell">git push
+</code></pre>
+<p>Remember:</p>
+<pre><code class="language-text">PULL → EDIT → ADD → COMMIT → PUSH
+</code></pre>
+<hr />
+<h2 id="exercise-create-and-use-your-own-repository">15. Exercise — Create and use your own repository</h2>
+<p>In this exercise, you will create <strong>your own GitHub repository</strong>, clone it to
+your computer, modify it in VS Code, commit your changes, and push them back to
+<strong>your own repository</strong>.</p>
+<blockquote>
+<p><strong>Important:</strong> Never push exercises or changes to the lecturer's original
+repository unless explicitly instructed to do so.</p>
+</blockquote>
+<h2 id="step-1-create-your-own-repository">Step 1 — Create your own repository</h2>
+<p>Go to GitHub and create a <strong>new repository</strong>.</p>
+<p>Name it:</p>
+<pre><code class="language-text">git-first-exercise
+</code></pre>
+<p>Select:</p>
+<pre><code class="language-text">Add a README file
+</code></pre>
+<p>Create the repository.</p>
+<hr />
+<h2 id="step-2-clone-your-repository">Step 2 — Clone your repository</h2>
+<p>On GitHub:</p>
+<pre><code class="language-text">Code → HTTPS
+</code></pre>
+<p>Copy the URL of <strong>your repository</strong>:</p>
+<p><strong>Example:</strong></p>
+<p><img src="images/course__howtos__pictures__image-1.png" alt="alt text" /></p>
+<pre><code class="language-text">https://github.com/your-username/git-first-exercise.git
+</code></pre>
+<p>Clone it:</p>
+<pre><code class="language-powershell">git clone https://github.com/your-username/git-first-exercise.git
+</code></pre>
+<p>Enter the directory:</p>
+<pre><code class="language-powershell">cd git-first-exercise
+</code></pre>
+<p>Open it:</p>
+<pre><code class="language-powershell">code .
+</code></pre>
+<hr />
+<h2 id="step-3-check-the-repository">Step 3 — Check the repository</h2>
+<pre><code class="language-powershell">git status
+</code></pre>
+<p>You should see:</p>
+<pre><code class="language-text">On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+</code></pre>
+<hr />
+<h2 id="step-4-modify-readme.md">Step 4 — Modify README.md</h2>
+<p>Change <code>README.md</code> in your VS Code editor to something like:</p>
+<pre><code class="language-markdown"># My First Git Repository
+
+This is my first Git and GitHub exercise.
+
+## Student
+
+Your Name
+</code></pre>
+<p>Save the file.</p>
+<hr />
+<h2 id="step-5-check-your-changes">Step 5 — Check your changes</h2>
+<pre><code class="language-powershell">git status
+</code></pre>
+<p>You should see:</p>
+<pre><code class="language-text">modified: README.md
+</code></pre>
+<hr />
+<h2 id="step-6-stage-your-changes">Step 6 — Stage your changes</h2>
+<pre><code class="language-powershell">git add .
+</code></pre>
+<hr />
+<h2 id="step-7-commit-your-changes">Step 7 — Commit your changes</h2>
+<pre><code class="language-powershell">git commit -m &quot;Update README&quot;
+</code></pre>
+<hr />
+<h2 id="step-8-push-your-changes">Step 8 — Push your changes</h2>
+<pre><code class="language-powershell">git push
+</code></pre>
+<hr />
+<h2 id="step-9-verify-on-github">Step 9 — Verify on GitHub</h2>
+<p>Open <strong>your repository</strong> on GitHub.</p>
+<p>Check that:</p>
+<ul>
+<li>your modified <code>README.md</code> is visible</li>
+<li>your commit is visible</li>
+<li>the commit message is <code>Update README</code></li>
+</ul>
+<p>You have now completed:</p>
+<pre><code class="language-text">CREATE → CLONE → EDIT → ADD → COMMIT → PUSH
+</code></pre>
+<h2 id="step-10-check-the-status-of-your-repository">Step 10 — Check the status of your repository</h2>
+<pre><code class="language-powershell">git status
+</code></pre>
+<p>You should see:</p>
+<pre><code class="language-text">On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+</code></pre>
+<p>This means that your <strong>local repository</strong> is in sync with your <strong>GitHub repository</strong>.</p>
+<hr />
+<h2 id="git-cheat-sheet">16. Git Cheat Sheet</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What does it do?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git --version</code></td>
+<td>Check if Git is installed</td>
+</tr>
+<tr>
+<td><code>git clone URL</code></td>
+<td>Download a repository</td>
+</tr>
+<tr>
+<td><code>git status</code></td>
+<td>Check what has changed</td>
+</tr>
+<tr>
+<td><code>git pull</code></td>
+<td>Get the latest changes from GitHub</td>
+</tr>
+<tr>
+<td><code>git add .</code></td>
+<td>Stage your changes</td>
+</tr>
+<tr>
+<td><code>git commit -m &quot;message&quot;</code></td>
+<td>Save your changes in Git</td>
+</tr>
+<tr>
+<td><code>git push</code></td>
+<td>Send your commits to GitHub</td>
+</tr>
+</tbody>
+</table>
+<p>The five commands you will use most often:</p>
+<pre><code class="language-powershell">git pull
+git status
+git add .
+git commit -m &quot;Describe your changes&quot;
+git push
+</code></pre>
+<hr />
+<h2 id="using-git-with-the-vs-code-interface">17. Using Git with the VS Code Interface</h2>
+<p>Everything we did using Git commands can also be done using the
+<strong>graphical interface in VS Code</strong>.</p>
+<p>You are still using Git. VS Code simply executes the Git operations for you.</p>
+<h2 id="source-control">Source Control</h2>
+<p>Click the <strong>Source Control</strong> icon on the left side of VS Code.</p>
+<p>You can also use:</p>
+<pre><code class="language-text">Ctrl + Shift + G
+</code></pre>
+<p>The Source Control panel shows the files that have changed.</p>
+<p>For example:</p>
+<pre><code class="language-text">Changes
+
+M  README.md
+M  Myscript.ps1
+</code></pre>
+<p><code>M</code> means that the file was <strong>modified</strong>.</p>
+<hr />
+<h2 id="clone-a-repository">Clone a repository</h2>
+<p>Instead of:</p>
+<pre><code class="language-powershell">git clone URL
+</code></pre>
+<p>You can use VS Code.</p>
+<p>Open the <strong>Command Palette</strong>:</p>
+<pre><code class="language-text">Ctrl + Shift + P
+</code></pre>
+<p>Search for:</p>
+<pre><code class="language-text">Git: Clone
+</code></pre>
+<p><img src="images/course__howtos__pictures__image-3.png" alt="alt text" /></p>
+<p>Then:</p>
+<ol>
+<li>Select <strong>Git: Clone</strong>.</li>
+<li>Paste the GitHub repository URL.</li>
+<li>Choose where you want to save the repository.</li>
+<li>Click <strong>Open</strong> when VS Code asks if you want to open the cloned repository.</li>
+</ol>
+<p>So:</p>
+<table>
+<thead>
+<tr>
+<th>Terminal</th>
+<th>VS Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>git clone URL</td>
+<td>Git: Clone</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="pull-changes">Pull changes</h2>
+<p>Instead of:</p>
+<pre><code class="language-powershell">git pull
+</code></pre>
+<p>Open:</p>
+<pre><code class="language-text">Source Control
+</code></pre>
+<p><img src="images/course__howtos__pictures__image.png" alt="alt text" /></p>
+<p>Click the <strong>...</strong> menu and select:</p>
+<pre><code class="language-text">Pull
+</code></pre>
+<p><img src="images/course__howtos__pictures__image-2.png" alt="alt text" /></p>
+<p>This retrieves the latest changes from GitHub.</p>
+<pre><code class="language-text">GitHub
+   │
+   │ Pull
+   ▼
+VS Code
+</code></pre>
+<p>It is a good habit to <strong>pull before you start working</strong>.</p>
+<hr />
+<h2 id="edit-your-files">Edit your files</h2>
+<p>Edit your files normally in VS Code.</p>
+<p>After saving a file, Source Control will automatically detect the change.</p>
+<p>For example:</p>
+<pre><code class="language-text">Changes
+
+M  README.md
+</code></pre>
+<p><img src="images/course__howtos__pictures__image-4.png" alt="alt text" /></p>
+<p>You do not have to tell VS Code that the file changed.</p>
+<hr />
+<h2 id="stage-your-changes-1">Stage your changes</h2>
+<p>Instead of:</p>
+<pre><code class="language-powershell">git add README.md
+</code></pre>
+<p>Open <strong>Source Control</strong>.</p>
+<p>Move your mouse over the changed file and click:</p>
+<pre><code class="language-text">+
+</code></pre>
+<p>The file moves from:</p>
+<pre><code class="language-text">Changes
+</code></pre>
+<p>to:</p>
+<pre><code class="language-text">Staged Changes
+</code></pre>
+<p>To stage all changes, click the <code>+</code> next to <strong>Changes</strong>.</p>
+<p><img src="images/course__howtos__pictures__image-5.png" alt="alt text" /></p>
+<p>So:</p>
+<pre><code class="language-text">Terminal         VS Code
+git add file = + next to file
+git add .    = + next to Changes
+</code></pre>
+<hr />
+<h2 id="commit-your-changes-1">Commit your changes</h2>
+<p>Instead of:</p>
+<pre><code class="language-powershell">git commit -m &quot;Update README&quot;
+</code></pre>
+<p>type a commit message in the Source Control message box:</p>
+<pre><code class="language-text">Update README
+</code></pre>
+<p>Then click:</p>
+<pre><code class="language-text">Commit
+</code></pre>
+<p>The changes are now committed to your <strong>local Git repository</strong>.</p>
+<hr />
+<h2 id="push-your-changes">Push your changes</h2>
+<p>Instead of:</p>
+<pre><code class="language-powershell">git push
+</code></pre>
+<p>Open the Source Control <strong>...</strong> menu and select:</p>
+<pre><code class="language-text">Push
+</code></pre>
+<p>You may also see:</p>
+<pre><code class="language-text">Sync Changes
+</code></pre>
+<p><code>Sync Changes</code> can synchronize incoming and outgoing changes. When learning
+Git, it is useful to understand <strong>Pull</strong> and <strong>Push</strong> separately first.</p>
+<pre><code class="language-text">VS Code
+   │
+   │ Push
+   ▼
+GitHub
+</code></pre>
+<hr />
+<h2 id="create-a-git-repository-in-vs-code">Create a Git repository in VS Code</h2>
+<p>You can also start Git for an existing local project without using:</p>
+<pre><code class="language-powershell">git init
+</code></pre>
+<p>Open your project folder in VS Code.</p>
+<p>Open:</p>
+<pre><code class="language-text">Source Control
+</code></pre>
+<p>Select:</p>
+<pre><code class="language-text">Initialize Repository
+</code></pre>
+<p><img src="images/course__howtos__pictures__image-6.png" alt="alt text" /></p>
+<p>VS Code will initialize Git for the current folder.</p>
+<p>This is equivalent to:</p>
+<pre><code class="language-powershell">git init
+</code></pre>
+<p><img src="images/course__howtos__pictures__image-7.png" alt="alt text" /></p>
+<blockquote>
+<p>Initializing a repository creates a <strong>local Git repository</strong>. It does not
+automatically create a repository on GitHub.</p>
+</blockquote>
+<hr />
+<h2 id="vs-code-vs-git-commands">VS Code vs Git commands</h2>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Git</th>
+<th>VS Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clone</td>
+<td><code>git clone URL</code></td>
+<td><strong>Git: Clone</strong></td>
+</tr>
+<tr>
+<td>Check changes</td>
+<td><code>git status</code></td>
+<td><strong>Source Control</strong></td>
+</tr>
+<tr>
+<td>Pull</td>
+<td><code>git pull</code></td>
+<td><strong>... → Pull</strong></td>
+</tr>
+<tr>
+<td>Stage one file</td>
+<td><code>git add file</code></td>
+<td>Click <strong>+</strong></td>
+</tr>
+<tr>
+<td>Stage all changes</td>
+<td><code>git add .</code></td>
+<td>Click <strong>+</strong> next to Changes</td>
+</tr>
+<tr>
+<td>Commit</td>
+<td><code>git commit -m &quot;...&quot;</code></td>
+<td>Enter message → <strong>Commit</strong></td>
+</tr>
+<tr>
+<td>Push</td>
+<td><code>git push</code></td>
+<td><strong>... → Push</strong></td>
+</tr>
+<tr>
+<td>Init Git</td>
+<td><code>git init</code></td>
+<td><strong>Initialize Repository</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="the-vs-code-workflow">18. The VS Code Workflow</h2>
+<p>Once your repository is configured, you can perform almost the complete
+workflow without using the terminal.</p>
+<pre><code class="language-text">┌───────────────┐
+│     PULL      │
+│ Source Ctrl   │
+│ → Pull        │
+└──────┬────────┘
+       ▼
+┌───────────────┐
+│     EDIT      │
+│ edit and save │
+└──────┬────────┘
+       ▼
+┌───────────────┐
+│    STAGE      │
+│ click +       │
+└──────┬────────┘
+       ▼
+┌───────────────┐
+│    COMMIT     │
+│ message → OK  │
+└──────┬────────┘
+       ▼
+┌───────────────┐
+│     PUSH      │
+│ Source Ctrl   │
+│ → Push        │
+└───────────────┘
+</code></pre>
+<p>The command-line workflow:</p>
+<pre><code class="language-text">git pull
+   ↓
+EDIT
+   ↓
+git add .
+   ↓
+git commit -m &quot;message&quot;
+   ↓
+git push
+</code></pre>
+<p>is the same as the VS Code workflow:</p>
+<pre><code class="language-text">Pull
+  ↓
+EDIT
+  ↓
+Stage (+)
+  ↓
+Commit
+  ↓
+Push
+</code></pre>
+<h2 id="remember">Remember</h2>
+<p>Whether you use the <strong>terminal</strong> or the <strong>VS Code interface</strong>, you are using
+the same Git workflow:</p>
+<pre><code class="language-text">PULL → EDIT → ADD/STAGE → COMMIT → PUSH
+</code></pre>
+<h2 id="autofetch-in-vs-code">Autofetch in VS Code</h2>
+<p>Fetch means to check for changes on GitHub without downloading them. While you can fetch manually using the <strong>... → Fetch</strong> menu, it is more convenient to have VS Code check for changes automatically. You get a notification when changes are available, and you can then pull them.</p>
+<p>For example, if you are working on a project with other people, they may have pushed changes to GitHub while you were working. If you fetch, you will see that there are changes available. You can then pull the changes to your local repository.</p>
+<p>You can enable <strong>autofetch</strong> in VS Code to automatically check for changes on GitHub.</p>
+<p>To enable autofetch:</p>
+<ol>
+<li><p>Open the <strong>Command Palette</strong>:</p>
+<pre><code class="language-text">Ctrl + Shift + P
+</code></pre>
+</li>
+<li><p>Search for:</p>
+<pre><code class="language-text">settings
+</code></pre>
+<p><img src="images/course__howtos__pictures__image-8.png" alt="alt text" /></p>
+</li>
+<li><p>Select:</p>
+<pre><code class="language-text">Open Settings (JSON)
+</code></pre>
+</li>
+<li><p>Search for the following line in your <code>settings.json</code> file:</p>
+<pre><code class="language-json">{
+ &quot;git.autofetch&quot;: false
+}
+</code></pre>
+</li>
+<li><p>Change it to:</p>
+<pre><code class="language-json">{
+ &quot;git.autofetch&quot;: true
+}
+</code></pre>
+</li>
+<li><p>Save the file.</p>
+</li>
+</ol>
+<p>Now VS Code will automatically check for changes on GitHub every few minutes.</p>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

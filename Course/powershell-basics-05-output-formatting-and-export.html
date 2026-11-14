@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Show, Format, Output, and Export Information — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">05 - Output, formatting, and export</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a class="sidebar-current" href="powershell-basics-05-output-formatting-and-export.html" aria-current="page">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; PowerShell Basics</p>
+            <h1 id="page-title">Show, Format, Output, and Export Information</h1>
+            <p class="hero-description">05 - Output, formatting, and export</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/course/ps_basics/03-output_format_files_directories/03-ps-output_format_files">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="learning-objectives">Learning objectives</h2>
+<ul>
+<li>Format objects for screen output without losing data prematurely.</li>
+<li>Export data to common file formats.</li>
+<li>Explain basic string quoting and serialization choices.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Familiarity with PowerShell objects and the pipeline.</li>
+</ul>
+<h2 id="references">References</h2>
+<p><a href="https://learn.microsoft.com/en-us/powershell/scripting/learn/deep-dives/everything-about-string-substitutions?view=powershell-7.2">about-string-substitutions</a></p>
+<h2 id="single-quotes">Single Quotes (' ')</h2>
+<p>Enclosed text is treated as a literal string. Variables and escape sequences are not expanded within single-quoted strings.
+Use single quotes when you want to ensure that the string remains exactly as is, without any variable substitution or escape sequence interpretation.</p>
+<p>Example:</p>
+<pre><code class="language-powershell">$name = 'John'
+$greeting = 'Hello, $name!'  # Output: Hello, $name!
+</code></pre>
+<h2 id="double-quotes">Double Quotes (&quot; &quot;)</h2>
+<p>Enclosed text allows variable interpolation and escape sequences. Variables are expanded within double-quoted strings, and escape sequences (e.g., n for newline) are interpreted.
+Use double quotes when you want to include variable values within the string or use escape sequences.</p>
+<p>Example:</p>
+<pre><code class="language-powershell">$name = 'John'
+$greeting = &quot;Hello, $name!&quot;  # Output: Hello, John!
+</code></pre>
+<p>So, the best choice between single and double quotes depends on your specific use case. If you need to include variables or escape sequences, use double quotes. If you want a completely literal string, use single quotes.</p>
+<h2 id="clear-the-screen">Clear the screen</h2>
+<p>Clears the display in the host program.</p>
+<p>Clear-Host affects only the current display. It does not delete saved results or remove any items from the session. Session-specific items, such as variables and functions, are not affected by this function.</p>
+<p><a href="https://learn.microsoft.com/nl-nl/powershell/module/Microsoft.PowerShell.Core/Clear-Host?view=powershell-7">Clear-Host</a></p>
+<pre><code class="language-powershell">Clear-Host
+
+Get-Alias -Definition Clear-Host
+</code></pre>
+<pre><code class="language-output">CommandType     Name                                               Version
+-----------     ----                                               -------
+Alias           clear -&gt; Clear-Host
+Alias           cls -&gt; Clear-Host
+</code></pre>
+<h2 id="write-to-the-screen">Write to the screen</h2>
+<h3 id="write-host">Write-Host</h3>
+<p><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/write-host?view=powershell-7.2&amp;WT.mc_id=ps-gethelp">Write-Host</a></p>
+<p>Writes customized output to a host.</p>
+<p>Write-Host writes display text directly to the host. In PowerShell 5 and later, it also writes to the Information stream; by default it does not send objects to the success output pipeline.</p>
+<pre><code class="language-powershell">Write-Host &quot;This is a test&quot; | Get-Member
+</code></pre>
+<pre><code class="language-output">This is a test
+Get-Member: You must specify an object for the Get-Member cmdlet.
+</code></pre>
+<pre><code class="language-powershell">(Write-Host &quot;This is a test&quot;).ToUpper()
+</code></pre>
+<pre><code class="language-output">This is a test
+InvalidOperation: You cannot call a method on a null-valued expression.
+</code></pre>
+<p>String Object methods have nothing to do with the write-host cmdlet.</p>
+<pre><code class="language-powershell">Write-Host &quot;This is a test&quot;.ToUpper()
+THIS IS A TEST
+</code></pre>
+<p><strong>Colors:</strong></p>
+<p>ForegroundColor and BackgroundColor parameters.</p>
+<pre><code class="language-powershell">Write-Host &quot;Welkom bij PXL&quot; -ForegroundColor Red -BackgroundColor Yellow
+</code></pre>
+<pre><code class="language-powershell"> Write-Host &quot;Success&quot; -ForegroundColor Green -BackgroundColor Black -NoNewline;
+ Write-Host &quot;Warning&quot; -ForegroundColor Yellow -BackgroundColor Black -NoNewline;
+ Write-Host &quot;Error&quot; -ForegroundColor Red -BackgroundColor Black;
+</code></pre>
+<p><strong>NoNewLine:</strong></p>
+<p>Without parameter <code>NoNewLine</code>.</p>
+<pre><code class="language-powershell">Write-Host &quot;no newline test &quot;; Write-Host &quot;second string&quot;
+</code></pre>
+<pre><code class="language-output">no newline test
+second string
+</code></pre>
+<p>With parameter <code>NoNewLine</code>.</p>
+<pre><code class="language-powershell">Write-Host &quot;no newline test &quot; -NoNewline; Write-Host &quot;second string&quot;
+</code></pre>
+<pre><code class="language-output">no newline test second string
+</code></pre>
+<p>Useful in a script.</p>
+<pre><code class="language-powershell"># Script
+Write-Host &quot;no newline test &quot; -NoNewline
+Write-Host &quot;second string&quot;
+</code></pre>
+<h3 id="write-output">Write-Output</h3>
+<p><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/write-output?view=powershell-7.2">Write-Output</a></p>
+<p>Writes the specified objects to the pipeline.</p>
+<p>If Write-Output is the last command in the pipeline, the objects are displayed in the console.</p>
+<p><strong>Why?</strong></p>
+<details>
+<summary>Show solution</summary>
+<p><code>Write-Output</code> sends objects to the success-output stream. A following
+pipeline command can process them, a file-writing command can save a
+representation, or the host can display them when no downstream command
+consumes them. It does not limit output to a message drawn on the screen.</p>
+</details>
+<pre><code class="language-powershell">Get-Alias -Definition Write-Output
+</code></pre>
+<pre><code class="language-output">CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Alias           echo -&gt; Write-Output
+Alias           write -&gt; Write-Output
+</code></pre>
+<p><strong>Example:</strong></p>
+<p>Write-Output is equivalent to:</p>
+<pre><code class="language-powershell">Get-Process
+Get-Process | Write-Output
+</code></pre>
+<p>Write-Output will send the output to the next command in the pipeline.</p>
+<pre><code class="language-powershell">Get-Process | Write-Output | Select-String Win
+</code></pre>
+<p>Example output varies with running processes:</p>
+<pre><code class="language-output">System.Diagnostics.Process (OneApp.IGCC.WinService)
+System.Diagnostics.Process (WindowsTerminal)
+System.Diagnostics.Process (WindowsTerminal)
+System.Diagnostics.Process (wininit)
+System.Diagnostics.Process (winlogon)
+</code></pre>
+<p>By default, Write-Host does not pass objects to the next cmdlet through the success output pipeline.</p>
+<pre><code class="language-powershell">Get-Process | Select-Object -First 1 | Write-Host | Select-String Win
+</code></pre>
+<pre><code class="language-output">Write-Host displays the incoming process object in the host.
+Select-String receives no objects from Write-Host, so it emits no output.
+</code></pre>
+<pre><code class="language-powershell">echo &quot;Home directory: $HOME&quot;
+&quot;Home directory: $HOME&quot;
+</code></pre>
+<p>Get-Member shows that Write-Output passes a string object down the pipeline.</p>
+<pre><code class="language-powershell">Write-Output &quot;test output&quot; | Get-Member
+</code></pre>
+<pre><code class="language-output">TypeName: System.String
+</code></pre>
+<p>With GetType() method.</p>
+<pre><code class="language-powershell">(Write-Output &quot;test output&quot;).GetType()
+</code></pre>
+<p>or</p>
+<pre><code class="language-powershell">(&quot;test output&quot;).GetType()
+</code></pre>
+<pre><code class="language-output">IsPublic IsSerial Name                                     BaseType
+-------- -------- ----                                     --------
+True     True     String                                   System.Object
+</code></pre>
+<p>In PowerShell, a System.String represents text. PowerShell 7 is built on .NET, and simple data types like strings are objects.
+Sends the text as an object to the next pipeline command</p>
+<pre><code class="language-powershell">Write-Output &quot;PXL&quot;,&quot;UHasselt&quot; | Select-Object @{Label='Overview';Expression={'I like '+ $_}}
+</code></pre>
+<pre><code class="language-powershell"> Write-Output &quot;PXL&quot;,&quot;UHasselt&quot; | ForEach-Object {Write-Host 'I like' $_}
+</code></pre>
+<p>Not possible with write-host cmdlet.</p>
+<pre><code class="language-powershell">(Write-Host &quot;test output&quot;).GetType()
+test output
+InvalidOperation: You cannot call a method on a null-valued expression.
+</code></pre>
+<pre><code class="language-powershell">Write-Host &quot;PXL&quot;,&quot;UHasselt&quot; | Select-Object @{Label='Overview';Expression={'I like '+ $_}}
+</code></pre>
+<pre><code class="language-output">PXL UHasselt
+</code></pre>
+<h3 id="write-warning">Write-Warning</h3>
+<p>Write-Warning writes a message to the warning stream.</p>
+<pre><code class="language-powershell">Write-Warning &quot;This is a warning message.&quot;
+</code></pre>
+<h3 id="write-error">Write-Error</h3>
+<p>Write-Error writes a non-terminating error to the error stream by default.</p>
+<pre><code class="language-powershell">Write-Error &quot;An error occurred.&quot;
+</code></pre>
+<h3 id="write-verbose">Write-Verbose</h3>
+<p>Write-Verbose writes to the verbose stream, which is hidden by default unless enabled with <code>-Verbose</code> or <code>$VerbosePreference</code>.</p>
+<pre><code class="language-powershell">Write-Verbose &quot;Verbose information.&quot;
+Write-Verbose &quot;Verbose information.&quot; -verbose
+Write-Verbose -Message &quot;This is a verbose message&quot; 
+</code></pre>
+<pre><code class="language-powershell">$VerbosePreference 
+$VerbosePreference = 'continue' 
+</code></pre>
+<h2 id="format-the-string">Format the string</h2>
+<h3 id="string-formatting-f-operator">String Formatting (<code>-f </code>Operator)</h3>
+<pre><code class="language-powershell"> $firstName = 'Dominique'
+ $lastName = 'Houbrechts'
+
+'Hello, {0} {1}.' -f $firstName, $lastName
+</code></pre>
+<pre><code class="language-output">Hello, Dominique Houbrechts.
+</code></pre>
+<p>The string is parsed for the tokens {0} and {1}, then it uses that number to pick from the values provided. If you want to repeat one value some place in the string, you can reuse the same index. The <code>-f</code> operator formats values using the current culture; the date format example returns a string.</p>
+<pre><code class="language-powershell">&quot;{0:yyyyMMdd}&quot; -f (Get-Date)
+</code></pre>
+<pre><code class="language-powershell">&quot;Population {0:N0}&quot; -f  8175133
+
+$getal = 10.8512
+$getal = $getal.ToString('N2')
+</code></pre>
+<h2 id="expression">$(expression)</h2>
+<pre><code class="language-powershell">$mijnService = Get-Service W32Time
+Write-Host &quot;The name of the service is: $($mijnService.Name)&quot;
+</code></pre>
+<pre><code class="language-powershell">Write-Host 'The name of the service is:' $mijnService.Name
+</code></pre>
+<h2 id="formatting-the-output">Formatting the output</h2>
+<pre><code class="language-powershell">Get-Command -Verb format
+</code></pre>
+<pre><code class="language-output">- Format-Custom
+- Format-Table
+- Format-List
+- Format-Wide
+</code></pre>
+<ul>
+<li>Format-* cmdlets control how objects are displayed.</li>
+<li>Format-* cmdlets emit formatting records rather than the original objects.
+<ul>
+<li>Place Format-* cmdlets at the end of a pipeline when formatting for display.</li>
+</ul>
+</li>
+</ul>
+<h3 id="format-table">Format-Table​</h3>
+<p><a href="https://learn.microsoft.com/nl-nl/powershell/module/microsoft.powershell.utility/format-table?view=powershell-7.3&amp;WT.mc_id=ps-gethelp">Format-Table</a></p>
+<p>Formats objects as a table with the selected properties in columns.</p>
+<p>Without explicit properties, Format-Table uses the object's default table view. Specify properties to choose columns; output may wrap or truncate depending on the console width.</p>
+<pre><code class="language-powershell">Get-Service W32Time | Select-Object Name, Status, StartType, CanStop
+</code></pre>
+<pre><code class="language-output">Name     Status StartType CanStop
+----     ------ --------- -------
+W32Time Stopped    Manual   False
+</code></pre>
+<pre><code class="language-powershell">Get-Service W32Time | Select-Object Name, Status, StartType, CanStop, CanShutdown | Format-Table
+</code></pre>
+<pre><code class="language-powershell">Get-Service W32Time | Format-Table Name, Status, StartType, CanStop, CanShutdown
+</code></pre>
+<pre><code class="language-powershell">Get-ChildItem | Format-Table -Property Name, Extension, Length, CreationTime | Get-Member
+</code></pre>
+<pre><code class="language-output">   TypeName: Microsoft.PowerShell.Commands.Internal.Format.FormatStartData
+   TypeName: Microsoft.PowerShell.Commands.Internal.Format.GroupStartData
+   TypeName: Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData
+   TypeName: Microsoft.PowerShell.Commands.Internal.Format.GroupEndData
+   TypeName: Microsoft.PowerShell.Commands.Internal.Format.FormatEndData
+</code></pre>
+<p><code>PowerShell's internal formatting data types</code>. PowerShell uses formatting data to control how the output of commands is displayed in the console. These formatting data types help structure and format the output for readability. Here's a brief explanation of each of the listed types:</p>
+<ul>
+<li><p>Microsoft.PowerShell.Commands.Internal.Format.FormatStartData: This is a formatting data type used to indicate the start of a format section. It contains information that helps define how a particular set of objects should be formatted.</p>
+</li>
+<li><p>Microsoft.PowerShell.Commands.Internal.Format.GroupStartData: This type is used to indicate the start of a group within the formatting data. A group is a way to group related objects together for formatting purposes.</p>
+</li>
+<li><p>Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData: This type is used to represent an entry or item within a formatting group. It contains information about how to format a single object.</p>
+</li>
+<li><p>Microsoft.PowerShell.Commands.Internal.Format.GroupEndData: This is used to indicate the end of a group in the formatting data. It closes a group defined using GroupStartData.</p>
+</li>
+<li><p>Microsoft.PowerShell.Commands.Internal.Format.FormatEndData: This type marks the end of a formatting section. It signals the end of formatting instructions for a set of objects.</p>
+</li>
+</ul>
+<h3 id="format-list">Format-List</h3>
+<p><a href="https://learn.microsoft.com/nl-nl/powershell/module/microsoft.powershell.utility/format-list?view=powershell-7.3&amp;WT.mc_id=ps-gethelp">Format-List</a></p>
+<p>Formats the output as a list of properties in which each property appears on a new line.</p>
+<p>The service status and start type shown in the examples vary by system.</p>
+<p><strong>Five selected properties:</strong></p>
+<pre><code class="language-powershell">Get-Service W32Time | Format-List Name, Status, StartType, CanStop, CanShutdown 
+</code></pre>
+<pre><code class="language-output">Name        : W32Time
+Status      : Stopped
+StartType   : Manual
+CanStop     : False
+CanShutdown : False
+</code></pre>
+<p><strong>Compare the default display for four selected properties:</strong></p>
+<pre><code class="language-powershell">Get-Service W32Time | Select-Object Name, Status, StartType, CanStop
+</code></pre>
+<details>
+<summary>Show solution</summary>
+<p>The four selected properties normally receive a table display, for example:</p>
+<pre><code class="language-text">Name     Status StartType CanStop
+----     ------ --------- -------
+W32Time Stopped    Manual   False
+</code></pre>
+<p>The preceding explicit <code>Format-List</code> displays its five properties as
+name/value lines. Default formatting can depend on object type, metadata,
+and host width; use an explicit formatting command when a layout matters.
+The actual service status, start type, and Boolean values can differ.</p>
+</details>
+<h3 id="format-wide">Format-Wide</h3>
+<p>Formats objects as a wide table that displays only one property of each object.</p>
+<pre><code class="language-powershell">Get-ChildItem
+</code></pre>
+<pre><code class="language-powershell">Get-ChildItem | Format-Wide -Column 3
+</code></pre>
+<pre><code class="language-powershell">Get-ChildItem | Format-Wide -Column 4
+</code></pre>
+<h2 id="output-the-information">Output the information</h2>
+<pre><code class="language-powershell">Get-Command -verb out
+</code></pre>
+<p>Common Out-* commands include:</p>
+<ul>
+<li>Out-File</li>
+<li>Out-GridView</li>
+<li>Out-Null</li>
+</ul>
+<h3 id="out-file">Out-File</h3>
+<p>Out-File writes text to a file using PowerShell's formatting system, so it saves a display representation rather than the original objects. PowerShell 7 defaults to UTF-8 without a BOM(Byte Order Mark); Windows PowerShell 5.1 defaults to ASCII for text files. Specify <code>-Encoding</code> when you need a predictable encoding.</p>
+<p><strong>With redirection:</strong></p>
+<pre><code class="language-powershell">Get-Process &gt; .\process_info.txt  # write/overwrite
+Get-Process &gt;&gt; .\process_info.txt # append
+</code></pre>
+<p>Use <code>Out-File</code> when you need its parameters. The <code>&gt;</code> and <code>&gt;&gt;</code> operators are concise alternatives that overwrite and append, respectively, and use Out-File behavior.</p>
+<p><strong>write - output to a file:</strong></p>
+<pre><code class="language-powershell">Get-Process | Out-File .\Process_Services.txt
+</code></pre>
+<p><strong>read - content from a file:</strong></p>
+<pre><code class="language-powershell">Get-Content .\Process_Services.txt
+</code></pre>
+<p><strong>append content to a file:</strong></p>
+<pre><code class="language-powershell">Get-Service | Select-Object Name -First 10 | out-file -Append .\Process_Services.txt
+</code></pre>
+<p><strong>NoClobber:</strong></p>
+<p><code>-NoClobber</code> prevents an existing file from being overwritten and reports an error if the file already exists.</p>
+<pre><code class="language-powershell">Get-Process | Out-File .\Process_Services.txt -NoClobber
+</code></pre>
+<h3 id="out-gridview">Out-GridView</h3>
+<p>Sends output to an interactive table in a separate window.</p>
+<pre><code class="language-powershell">Get-Process | Out-GridView
+</code></pre>
+<p><img src="images/course__ps_basics__03-output_format_files_directories__Out-GridView_Process_Example.png" alt="Out-GridView_Process_Example" /></p>
+<h3 id="out-null">Out-Null</h3>
+<p>Discards objects sent to the success output stream instead of displaying or passing them down the pipeline. Other streams are not suppressed.</p>
+<p>Out-Null can be useful in scripts or commands where you only care about the side effects of a command (e.g., modifying a system state) and don't need to see the output</p>
+<pre><code class="language-powershell">choco install microsoft-windows-terminal --upgrade -y | Out-Null
+</code></pre>
+<p>Chocolatey's <code>upgrade</code> command also installs a package if it is not already installed.</p>
+<h2 id="convert-export-import">Convert / export / import</h2>
+<p><strong>Keep data structured until presentation</strong></p>
+<pre class="mermaid">flowchart LR
+    A["PowerShell objects"] --> B["Select properties"]
+    B --> C["Export-Csv: write rows"]
+    C --> D["Import-Csv: read objects"]
+    D --> E["CSV field values are strings"]
+    B --> F["Format-Table: display only"]
+</pre>
+<p>Choose the export path before formatting: <code>Format-Table</code> produces formatting
+objects, not the original report rows.</p>
+<pre><code class="language-powershell">Get-Command -verb ConvertTo
+</code></pre>
+<p><strong>ConvertTo-Html:</strong></p>
+<p>ConvertTo-Html is valuable for generating reports, documenting system information, and sharing data in a more structured and visually appealing format. It is commonly used in scripting and automation tasks where you need to convert PowerShell data into a readable and presentable format for documentation or reporting purposes.</p>
+<pre><code class="language-powershell">Get-Date | Select-Object *
+
+ConvertTo-Html -InputObject (Get-Date) | Out-File dateInfo.html
+Invoke-Item dateInfo.html
+
+
+Get-ChildItem | ConvertTo-Html | Out-File host_files.html
+Get-ChildItem c:\windows | Select-Object name | ConvertTo-Html | out-file WinFiles.html
+
+Get-WinEvent 'Security' -MaxEvents 10 -FilterXPath '*[System[EventID=4625]]' | Format-Table
+</code></pre>
+<p><strong>Export/ConvertTo-Csv:</strong></p>
+<p><code>Export-Csv</code> converts input objects to CSV rows; <code>Import-Csv</code> reads rows back as objects with string-valued fields. In PowerShell 7, both default to UTF-8 without a BOM; Windows PowerShell 5.1 defaults to ASCII for CSV. Specify <code>-Encoding</code> when you need a predictable encoding.</p>
+<pre><code class="language-powershell">Get-ChildItem -Path 'C:\Windows\System32'  | Export-Csv .\logboek.csv
+Get-ChildItem -Path 'C:\Windows\System32'  | ConvertTo-Csv | Out-File logboek.csv
+</code></pre>
+<p>Error warning: <code>Get-ChildItem</code> may throw errors for some directories due to permission issues. Use <code>-ErrorAction SilentlyContinue</code> to suppress these errors if needed.</p>
+<pre><code class="language-powershell">Import-Csv .\logboek.csv | Select-Object -First 5
+</code></pre>
+<p><strong>Export-Clixml:</strong></p>
+<pre><code class="language-powershell">$logboekPath = Join-Path $env:TEMP 'logboek.xml'
+Get-ChildItem -Path .\ -Recurse | Export-Clixml -Path $logboekPath
+</code></pre>
+<p><strong>Import-Clixml:</strong></p>
+<pre><code class="language-powershell">Import-Clixml -Path $logboekPath
+Import-Clixml -Path $logboekPath | Get-Member
+Import-Clixml -Path $logboekPath | Select-Object Name, extension, Length, LastAccessTime
+</code></pre>
+<h2 id="why-use-serialization">Why use Serialization?</h2>
+<p>Serialization converts an object into a format such as XML or JSON for storage, transfer, or sharing. Deserialization reconstructs an object; some .NET objects are restored as deserialized representations rather than their original runtime types.</p>
+<h3 id="why-use-serialization-1">Why Use Serialization?</h3>
+<ul>
+<li>Persistence: Save object states to files for later use.</li>
+<li>Communication: Send objects over the network or between processes.</li>
+<li>Data Exchange: Exchange structured data in a standardized format like JSON or XML.</li>
+</ul>
+<h3 id="example-using-xml-serialization">Example: Using XML Serialization</h3>
+<p>Step 1: Create and Serialize an Object</p>
+<pre><code class="language-powershell"># Step 1: Create a custom object
+$person = [pscustomobject]@{
+    FirstName = 'John'
+    LastName  = 'Doe'
+    Age       = 30
+}
+
+# Step 2: Serialize the object to XML and save to a file
+$xmlFilePath = Join-Path $env:TEMP 'person.xml'
+$person | Export-Clixml -Path $xmlFilePath
+
+Write-Host &quot;Serialized object saved to $xmlFilePath&quot;
+</code></pre>
+<p>Step 2: Deserialize the Object</p>
+<p>Read the serialized XML file and convert it back into a PowerShell object.</p>
+<pre><code class="language-powershell"># Step 3: Import the XML file and deserialize it back into an object
+$importedPerson = Import-Clixml -Path $xmlFilePath
+
+# Step 4: Display the deserialized object
+Write-Host &quot;Deserialized object:&quot;
+$importedPerson
+</code></pre>
+<h3 id="example-using-json-serialization">Example: Using JSON Serialization</h3>
+<p>Step 1: Create and Serialize an Object to JSON</p>
+<pre><code class="language-powershell"># Step 1: Create a custom object
+$car = [pscustomobject]@{
+    Make  = 'Tesla'
+    Model = 'Model S'
+    Year  = 2022
+}
+
+# Step 2: Convert the object to JSON format
+$json = $car | ConvertTo-Json
+
+# Step 3: Save the JSON to a file
+$jsonFilePath = Join-Path $env:TEMP 'car.json'
+Set-Content -Path $jsonFilePath -Value $json
+Write-Host &quot;Serialized object saved to $jsonFilePath&quot;
+</code></pre>
+<p><code>Set-Content</code> creates or replaces file contents; it does not append. PowerShell 7 defaults to UTF-8 without a BOM, while Windows PowerShell 5.1 defaults to the system ANSI code page. Specify <code>-Encoding</code> for a predictable encoding.</p>
+<p>Step 2: Deserialize the JSON Object</p>
+<pre><code class="language-powershell"># Step 4: Read the JSON file and deserialize it back into an object
+$jsonContent = Get-Content -Path $jsonFilePath -Raw
+$importedCar = $jsonContent | ConvertFrom-Json
+
+# Step 5: Display the deserialized object
+Write-Host &quot;Deserialized object:&quot;
+$importedCar
+</code></pre>
+<h3 id="summary-of-serializationdeserialization-uses">Summary of Serialization/Deserialization Uses</h3>
+<ul>
+<li>Data Persistence: Save complex data structures to a file and reload them as needed.</li>
+<li>Data Sharing: Share data between scripts, applications, or systems in a structured format.</li>
+<li>Configuration Storage: Store configuration settings or object states in a file for later use.</li>
+</ul>
+<p>These serialization techniques enable easy manipulation of data and help in scenarios like backups, configuration management, and communication between different components or systems.</p>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

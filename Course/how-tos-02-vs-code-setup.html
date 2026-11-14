@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Visual Studio Code setup — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">02 - VS Code setup</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a class="sidebar-current" href="how-tos-02-vs-code-setup.html" aria-current="page">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; How-tos</p>
+            <h1 id="page-title">Visual Studio Code setup</h1>
+            <p class="hero-description">02 - VS Code setup</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/course/howtos/02-vscode-setup">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>After completing this guide, you can:</p>
+<ul>
+<li>install Visual Studio Code (VS Code);</li>
+<li>install the Microsoft PowerShell extension; and</li>
+<li>open a course folder and run a selection of PowerShell code.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>PowerShell 7 Core installed.</li>
+<li>Permission to install software or extensions, if required by your institution.</li>
+</ul>
+<h2 id="why-use-vs-code">Why use VS Code?</h2>
+<p>VS Code gives you one place to write, run, and debug PowerShell scripts. The Microsoft PowerShell extension highlights mistakes, suggests cmdlets and parameters as you type, and lets you run selected code in an integrated terminal. These features make it easier to experiment safely and understand what your script does.</p>
+<h2 id="install-vs-code">Install VS Code</h2>
+<p>Download the recommended user installer from the <a href="https://code.visualstudio.com/">official VS Code download page</a>. The user installer does not normally require administrator permission and supports background updates.</p>
+<p>Alternatively, install VS Code with WinGet:</p>
+<pre><code class="language-powershell">winget install --id Microsoft.VisualStudioCode --exact --source winget
+</code></pre>
+<p>Restart PowerShell after the installation, then verify that the <code>code</code> command is available:</p>
+<pre><code class="language-powershell">code --version
+</code></pre>
+<h2 id="install-the-powershell-extension">Install the PowerShell extension</h2>
+<p>In VS Code, open <strong>Extensions</strong> with <code>Ctrl+Shift+X</code>, search for <strong>PowerShell</strong>, and install the extension oi by Microsoft.</p>
+<p>You can also install it from PowerShell:</p>
+<pre><code class="language-powershell">code --install-extension ms-vscode.PowerShell
+</code></pre>
+<p>The extension provides syntax highlighting, completion suggestions, script analysis, debugging, and PowerShell terminal integration. For help, see <a href="https://code.visualstudio.com/docs/languages/powershell">PowerShell in VS Code</a>.</p>
+<h2 id="open-your-course-folder">Open your course folder</h2>
+<p>In PowerShell, move to the folder where you keep this course and run:</p>
+<pre><code class="language-powershell">code .
+</code></pre>
+<p>Open or create a <code>.ps1</code> file. Use the terminal profile selector in VS Code to choose <strong>PowerShell</strong>, then check that it starts PowerShell 7:</p>
+<pre><code class="language-powershell">$PSVersionTable.PSVersion
+</code></pre>
+<h2 id="useful-shortcuts">Useful shortcuts</h2>
+<ul>
+<li><code>F8</code> runs the selected PowerShell code in the integrated terminal.</li>
+<li><code>Ctrl+` </code> opens or closes the integrated terminal.</li>
+<li><code>Ctrl+/</code> toggles a line comment.</li>
+<li><code>Shift+Alt+A</code> toggles a block comment.</li>
+</ul>
+<p>More shortcuts are available in the <a href="https://code.visualstudio.com/docs/getstarted/keybindings">VS Code keyboard shortcuts reference</a>.</p>
+<h2 id="practice">Practice</h2>
+<ol>
+<li><p>Open a <code>.ps1</code> file in VS Code.</p>
+</li>
+<li><p>Add the command below, select it, and press <code>F8</code>:</p>
+<pre><code class="language-powershell">Get-Date
+</code></pre>
+</li>
+<li><p>Confirm that the date appears in the integrated PowerShell terminal.</p>
+</li>
+</ol>
+<h2 id="run-powershell-scripts-with-powershell-7-in-vs-code">Run PowerShell scripts with PowerShell 7 in VS Code</h2>
+<p>Your script is currently executed using <strong>Windows PowerShell 5.1</strong>. Follow these steps to switch to <strong>PowerShell 7 (Core)</strong>.</p>
+<h3 id="select-powershell-7">Select PowerShell 7</h3>
+<ol>
+<li><p>Open your <code>.ps1</code> file in Visual Studio Code.</p>
+</li>
+<li><p>Press <code>Ctrl+Shift+P</code>.</p>
+</li>
+<li><p>Search for:</p>
+<pre><code class="language-text">PowerShell: Show Session Menu
+</code></pre>
+</li>
+<li><p>Select one of the following options:</p>
+<pre><code class="language-text">PowerShell 7 (x64)
+</code></pre>
+<p>or:</p>
+<pre><code class="language-text">PowerShell (x64)
+</code></pre>
+</li>
+<li><p>Run the script again.</p>
+</li>
+</ol>
+<h3 id="verify-the-powershell-version">Verify the PowerShell version</h3>
+<p>Add the following instructions to your script:</p>
+<pre><code class="language-powershell">$PSVersionTable.PSVersion
+</code></pre>
+<pre><code class="language-powershell">$PSVersionTable.PSEdition
+</code></pre>
+<p>The result should show:</p>
+<ul>
+<li>A PowerShell version beginning with <code>7</code></li>
+<li><code>Core</code> as the PowerShell edition</li>
+</ul>
+<h3 id="install-powershell-7">Install PowerShell 7</h3>
+<p>If PowerShell 7 is not listed in the session menu, install it using:</p>
+<pre><code class="language-powershell">winget install --id Microsoft.PowerShell --source winget
+</code></pre>
+<p>Completely restart Visual Studio Code after the installation.</p>
+<h3 id="make-powershell-7-the-default">Make PowerShell 7 the default</h3>
+<ol>
+<li>Press <code>Ctrl+Shift+P</code>.</li>
+<li>Select <strong>Preferences: Open User Settings (JSON)</strong>.</li>
+<li>Add the following setting:</li>
+</ol>
+<pre><code class="language-json">{
+    &quot;powershell.powerShellDefaultVersion&quot;: &quot;PowerShell (x64)&quot;
+}
+</code></pre>
+<blockquote>
+<p>The value must exactly match the PowerShell 7 name displayed in <strong>PowerShell: Show Session Menu</strong>.</p>
+</blockquote>
+<h3 id="powershell-extension-versus-terminal">PowerShell extension versus terminal</h3>
+<p>Pressing <code>F5</code> or selecting <strong>Run PowerShell File</strong> uses the version selected by the PowerShell extension.</p>
+<p>A regular terminal can use a different PowerShell version. To configure it:</p>
+<ol>
+<li>Press <code>Ctrl+Shift+P</code>.</li>
+<li>Select <strong>Terminal: Select Default Profile</strong>.</li>
+<li>Select <strong>PowerShell</strong>.</li>
+</ol>
+<h2 id="move-primary-side-bar-right">Move Primary Side Bar Right</h2>
+<p>In <strong>Visual Studio Code</strong>, you can move the <strong>Primary Side Bar</strong> (Explorer, Search, Source Control, Extensions, etc.) from the left to the <strong>right side</strong> of the screen.</p>
+<h3 id="method-1-using-the-menu">Method 1: Using the Menu</h3>
+<ol>
+<li>Open <strong>Visual Studio Code</strong>.</li>
+<li>Go to <strong>View</strong> → <strong>Appearance</strong>.</li>
+<li>Select <strong>Move Primary Side Bar Right</strong>.</li>
+</ol>
+<p>The Primary Side Bar will immediately move to the right side of the VS Code window.</p>
+<h3 id="method-2-using-settings.json">Method 2: Using <code>settings.json</code></h3>
+<p>Open your VS Code <code>settings.json</code> file and add:</p>
+<pre><code class="language-json">{
+    &quot;workbench.sideBar.location&quot;: &quot;right&quot;
+}
+</code></pre>
+<p>To move the Primary Side Bar back to the left:</p>
+<pre><code class="language-json">{
+    &quot;workbench.sideBar.location&quot;: &quot;left&quot;
+}
+</code></pre>
+<h2 id="create-vs-code-shortcuts-for-powershell-markdown-blocks">Create VS Code Shortcuts for PowerShell Markdown Blocks</h2>
+<p>You can create custom keyboard shortcuts in VS Code that automatically wrap selected text inside a Markdown code block.</p>
+<h3 id="open-keybindings.json">1. Open <code>keybindings.json</code></h3>
+<p>Press:</p>
+<pre><code class="language-text">Ctrl + Shift + P
+</code></pre>
+<p>Search for:</p>
+<pre><code class="language-text">Preferences: Open Keyboard Shortcuts (JSON)
+</code></pre>
+<p>This opens the <code>keybindings.json</code> configuration file.</p>
+<hr />
+<h3 id="add-the-powershell-shortcut">2. Add the PowerShell shortcut</h3>
+<p>Add the following configuration inside the <code>[ ]</code>:</p>
+<pre><code class="language-jsonc">{
+    &quot;key&quot;: &quot;ctrl+alt+s&quot;,
+    &quot;command&quot;: &quot;editor.action.insertSnippet&quot;,
+    &quot;when&quot;: &quot;editorTextFocus&quot;,
+    &quot;args&quot;: {
+        &quot;snippet&quot;: &quot;```powershell\n$TM_SELECTED_TEXT\n```&quot;
+    }
+}
+</code></pre>
+<p>This uses:</p>
+<pre><code class="language-text">Ctrl + Alt + S
+</code></pre>
+<p>to wrap selected text in a <code>powershell</code> code block.</p>
+<hr />
+<h3 id="add-a-shortcut-for-powershell-output">3. Add a shortcut for PowerShell output</h3>
+<p>It is often useful to distinguish between a PowerShell <strong>command</strong> and its <strong>output</strong>.</p>
+<p>Add a second shortcut using:</p>
+<pre><code class="language-text">Ctrl + Alt + O
+</code></pre>
+<p>Use the generic <code>text</code> language identifier for output:</p>
+<pre><code class="language-jsonc">{
+    &quot;key&quot;: &quot;ctrl+alt+o&quot;,
+    &quot;command&quot;: &quot;editor.action.insertSnippet&quot;,
+    &quot;when&quot;: &quot;editorTextFocus&quot;,
+    &quot;args&quot;: {
+        &quot;snippet&quot;: &quot;```text\n$TM_SELECTED_TEXT\n```&quot;
+    }
+}
+</code></pre>
+<p>For example, select:</p>
+<pre><code class="language-text">Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id
+-------  ------    -----      -----     ------     --
+    542      29    68432      80244       2.53   8740
+</code></pre>
+<p>Press <code>Ctrl + Alt + O</code>.</p>
+<p>The result is:</p>
+<pre><code class="language-markdown">```text
+Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id
+-------  ------    -----      -----     ------     --
+    542      29    68432      80244       2.53   8740
+```
+</code></pre>
+<hr />
+<h3 id="complete-keybindings.json">4. Complete <code>keybindings.json</code></h3>
+<p>You can combine both shortcuts:</p>
+<pre><code class="language-jsonc">[
+    {
+        &quot;key&quot;: &quot;ctrl+alt+s&quot;,
+        &quot;command&quot;: &quot;editor.action.insertSnippet&quot;,
+        &quot;when&quot;: &quot;editorTextFocus &amp;&amp; editorLangId == markdown&quot;,
+        &quot;args&quot;: {
+            &quot;snippet&quot;: &quot;```powershell\n$TM_SELECTED_TEXT\n```&quot;
+        }
+    },
+    {
+        &quot;key&quot;: &quot;ctrl+alt+o&quot;,
+        &quot;command&quot;: &quot;editor.action.insertSnippet&quot;,
+        &quot;when&quot;: &quot;editorTextFocus &amp;&amp; editorLangId == markdown&quot;,
+        &quot;args&quot;: {
+            &quot;snippet&quot;: &quot;```text\n$TM_SELECTED_TEXT\n```&quot;
+        }
+    }
+]
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Purpose</th>
+<th>Markdown</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl + Alt + S</code></td>
+<td>PowerShell command/script</td>
+<td><code>powershell</code></td>
+</tr>
+<tr>
+<td><code>Ctrl + Alt + O</code></td>
+<td>Command output</td>
+<td><code>text</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="bracket-visualization">5. Bracket visualization</h3>
+<p>Example:</p>
+<p><img src="images/course__howtos__image-1.png" alt="alt text" /></p>
+<p>This will show a colored line connecting the opening and closing braces of a code block. It is particularly useful for nested <code>if</code>, <code>foreach</code>, <code>switch</code>, and <code>try/catch</code> blocks.</p>
+<h4 id="where-to-configure-these-settings">Where to configure these settings</h4>
+<ol>
+<li>Open VS Code.</li>
+<li>Press <code>Ctrl + Shift + P</code>.</li>
+<li>Select <strong>Preferences: Open User Settings (JSON)</strong>.</li>
+<li>Add the following settings:</li>
+</ol>
+<pre><code class="language-json">{
+    &quot;editor.bracketPairColorization.enabled&quot;: true,
+    &quot;editor.guides.bracketPairs&quot;: true,
+    &quot;editor.guides.bracketPairsHorizontal&quot;: true
+}
+</code></pre>
+<p>You can also place these settings in <code>.vscode/settings.json</code> to apply them only to a particular workspace.</p>
+<h4 id="important-for-powershell-scripting">Important for PowerShell scripting</h4>
+<p>These settings are editor features, not PowerShell features.</p>
+<p>They do not change script execution, syntax, or performance. They only help you visually understand nested code structures.</p>
+<h2 id="summary">Summary</h2>
+<p>VS Code with Microsoft's PowerShell extension is the recommended editor for this course. Open a folder with <code>code .</code>, use PowerShell 7 in the terminal, and run selected code with <code>F8</code>.</p>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

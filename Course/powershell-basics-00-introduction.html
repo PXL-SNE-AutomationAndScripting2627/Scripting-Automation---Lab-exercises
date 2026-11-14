@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Introduction — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">00 - Introduction</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a class="sidebar-current" href="powershell-basics-00-introduction.html" aria-current="page">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; PowerShell Basics</p>
+            <h1 id="page-title">Introduction</h1>
+            <p class="hero-description">00 - Introduction</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/course/ps_basics/00-introduction/00-ps-introduction">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="learning-objectives">Learning objectives</h2>
+<ul>
+<li>Explain why organisations automate repetitive work.</li>
+<li>Identify the main PowerShell environment and help commands.</li>
+<li>Run basic commands safely in a personal practice environment.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Access to PowerShell and a personal practice folder.</li>
+</ul>
+<p><img src="images/course__ps_basics__00-introduction__powershell_logo.png" alt="Alt text" /></p>
+<p>Welcome to learn more about Automation and Scripting.</p>
+<h2 id="why-automation">Why automation?</h2>
+<p>Automation is the practice of using technology and processes to perform tasks with minimal human intervention. There are several compelling reasons why automation is widely adopted and considered essential in various fields:</p>
+<ul>
+<li><p><strong>Efficiency</strong>: Automation can significantly increase efficiency by completing tasks faster and with fewer errors compared to manual processes. It allows organizations to do more with less, which can lead to cost savings and improved productivity.</p>
+</li>
+<li><p><strong>Consistency</strong>: Automated systems perform tasks consistently and according to predefined rules, ensuring that each execution is the same. This reduces the variability and uncertainty associated with manual work.</p>
+</li>
+<li><p><strong>Accuracy</strong>: Automation reduces the risk of human error. Repetitive tasks that are prone to mistakes, such as data entry, can be automated to ensure data accuracy.</p>
+</li>
+<li><p><strong>Cost Savings</strong>: By automating routine tasks, organizations can reduce labor costs, as they require fewer human resources to perform these tasks. Additionally, automation can lead to energy savings and increased operational efficiency.</p>
+</li>
+<li><p><strong>Scalability</strong>: Automated processes can easily scale to handle increased workloads without a proportional increase in labor. This makes automation well-suited for businesses and operations that need to grow and adapt to changing demands.</p>
+</li>
+<li><p><strong>24/7 Availability</strong>: Automated systems can work around the clock, providing services and support without human intervention. This is especially important for tasks that require continuous monitoring or rapid response.</p>
+</li>
+<li><p><strong>Risk Reduction</strong>: Automation can help mitigate risks by enforcing security policies, conducting regular backups, and ensuring compliance with regulatory requirements.</p>
+</li>
+<li><p><strong>Faster Execution</strong>: Automation can complete tasks in a fraction of the time it takes for humans to perform the same tasks. This is critical for processes that require rapid responses or real-time decision-making.</p>
+</li>
+<li><p><strong>Data Analysis</strong>: Automated data collection and analysis can identify trends, patterns, and anomalies in large datasets, allowing organizations to make data-driven decisions and gain insights they might otherwise miss.</p>
+</li>
+<li><p><strong>Improved Customer Experience</strong>: Automation can enhance the customer experience by providing faster response times, self-service options, and personalized interactions, all of which contribute to customer satisfaction.</p>
+</li>
+<li><p><strong>Competitive Advantage</strong>: Organizations that embrace automation can gain a competitive edge by streamlining operations, offering faster services, and responding more quickly to market changes.</p>
+</li>
+<li><p><strong>Reduced Repetitiveness</strong>: Automation frees up human workers from monotonous, repetitive tasks, allowing them to focus on more creative and strategic aspects of their roles.</p>
+</li>
+<li><p><strong>Compliance and Reporting</strong>: Automation can assist in maintaining accurate records and generating compliance reports, which is particularly important in regulated industries.</p>
+</li>
+<li><p><strong>Adaptation to Technology Trends</strong>: As technology evolves, automation enables organizations to adopt and adapt to emerging technologies and trends quickly.</p>
+</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<ul>
+<li><p>servers and clients from bare metal to cloud</p>
+</li>
+<li><p>virtual machines, containers​</p>
+</li>
+<li><p>network, network devices, domains, network services​</p>
+</li>
+<li><p>operating systems​</p>
+</li>
+<li><p>software installations</p>
+</li>
+</ul>
+<p>In essence, automation empowers organizations and individuals to work smarter, not harder. It is a vital tool for increasing productivity, reducing errors, and staying competitive in today's fast-paced and technology-driven world.</p>
+<h3 id="infrastructure-as-code-iac">Infrastructure as Code (IaC)</h3>
+<p>Infrastructure as Code (IaC) is an approach to managing and provisioning infrastructure using code and automation. In the context of IaC, &quot;short infrastructure as code&quot; typically means writing concise and efficient code to define, configure, and manage infrastructure resources.</p>
+<h2 id="why-scripting">Why scripting?</h2>
+<p>Scripting is a method of computer programming that involves writing scripts, which are sets of instructions that are executed in a specific order. Scripting is commonly used for various purposes in the world of technology and computing. Here are some reasons why scripting is a valuable approach:</p>
+<ul>
+<li><code>Automation</code>: Scripts can automate repetitive tasks. This is particularly useful in system administration, where scripts can be used to perform routine maintenance, manage files, and more. It can save time and reduce the risk of human error.</li>
+</ul>
+<p>-<code>Customization</code>: Scripts allow for high levels of customization. You can create scripts to tailor software or processes to your specific needs, making them more efficient and suitable for your particular use case.</p>
+<ul>
+<li><p><code>Rapid Development</code>: Scripting languages often have less rigid syntax and require fewer lines of code compared to traditional programming languages. This can lead to faster development and prototyping.</p>
+</li>
+<li><p><code>Interoperability</code>: Scripts can act as glue code, enabling different software systems and components to work together. They can bridge the gap between different programming languages or applications, making it easier to integrate them.</p>
+</li>
+<li><p><code>Easy to Learn</code>: Many scripting languages are designed to be relatively easy to learn and use, making them accessible to a wide range of users, including those who may not have a strong programming background.</p>
+</li>
+<li><p><code>Debugging and Maintenance</code>: Scripts are typically easier to debug and maintain than larger, compiled applications. You can often modify a script quickly to address issues or make updates.</p>
+</li>
+<li><p><code>Script Libraries</code>: Many scripting languages have extensive libraries and frameworks, which can significantly speed up development by providing pre-built functions and modules.</p>
+</li>
+<li><p><code>Portability</code>: Scripts are often portable, as they can run on different operating systems and platforms without much modification. This makes them versatile for various environments.</p>
+</li>
+<li><p><code>Prototyping</code>: Scripting is excellent for quickly prototyping ideas. You can create a functional proof of concept with minimal effort, allowing you to test and refine your ideas before committing to full-scale development.</p>
+</li>
+<li><p><code>Education and Learning</code>: Scripting languages are often used as entry points for individuals learning to program. They provide a foundation for understanding programming concepts and syntax.</p>
+</li>
+</ul>
+<p>Common scripting languages include Python, JavaScript, Ruby, and Bash. The choice of scripting language depends on the task at hand, the ecosystem you are working in, and personal preference.</p>
+<h2 id="why-powershell">Why PowerShell?</h2>
+<p>Learning PowerShell 7, the cross-platform edition of PowerShell, is valuable for several reasons:</p>
+<ul>
+<li><p>PowerShell is a <code>command-line shell and a scripting language</code> used for automation.</p>
+</li>
+<li><p><code>Cross-Platform Compatibility</code>: PowerShell 7 works on multiple platforms, including Windows, Linux, and macOS. This cross-platform compatibility is especially important in today's diverse computing environments, where administrators and developers may need to manage systems on different operating systems.</p>
+</li>
+<li><p><code>Scripting and Automation</code>: PowerShell is a powerful scripting language that allows you to automate a wide range of tasks, particularly in the context of system administration. You can script tasks like user management, system configuration, and file operations, making it a valuable tool for IT professionals.</p>
+</li>
+<li><p><code>Interoperability</code>: PowerShell can interact with a variety of technologies and services, including .NET, REST APIs, and other programming languages. This makes it a versatile tool for integrating and automating tasks across different applications and services.</p>
+</li>
+<li><p><code>Manageability</code>: It is known for its robust management capabilities. You can use PowerShell to manage not only the Windows operating system but also various Microsoft server products like Active Directory, Exchange, and SharePoint.</p>
+</li>
+<li><p><code>Security</code>: PowerShell includes features for secure administration. It allows you to restrict and audit script execution to enhance system security.</p>
+</li>
+<li><p><code>Community and Resources</code>: PowerShell has a large and active community, which means you can find a wealth of resources, scripts, and modules created and shared by others. This can significantly accelerate your learning and productivity.</p>
+</li>
+<li><p><code>Microsoft Ecosystem</code>: If you work with Microsoft products, PowerShell is an essential tool. Many Microsoft services and applications, such as Azure, Office 365, and Windows Server, offer extensive PowerShell support for management and automation.</p>
+</li>
+<li><p><code>Job Opportunities</code>: Knowledge of PowerShell is in high demand in the job market, especially for roles related to system administration, cloud computing, and DevOps. Learning PowerShell can enhance your career prospects in IT.</p>
+</li>
+<li><p><code>Learning Path to DevOps</code>: PowerShell is often a stepping stone for those interested in pursuing a DevOps career. It helps bridge the gap between traditional IT operations and development by automating infrastructure provisioning and configuration.</p>
+</li>
+<li><p><code>Scripting Best Practices</code>: Learning PowerShell can help you develop scripting best practices, which can be applied to other scripting and programming languages as well. This can improve your overall programming skills.</p>
+</li>
+</ul>
+<p>In summary, learning PowerShell is beneficial for anyone involved in system administration, IT management, and automation, as well as those interested in a career in DevOps or cloud computing. It offers cross-platform capabilities, automation power, and a supportive community, making it a valuable addition to your skill set.</p>
+<h2 id="is-powershell-popular">Is PowerShell popular?</h2>
+<p><a href="https://survey.stackoverflow.co/2023/#most-popular-technologies-language">Developer Survey - Most Popular technologies</a></p>
+<p>Yes, PowerShell is a popular scripting and automation language, especially within the Windows ecosystem. It has gained significant popularity among system administrators, IT professionals, and developers for various reasons:</p>
+<ul>
+<li><p><code>Native to Windows</code>: PowerShell is integrated into Windows operating systems, making it readily available for system administration, automation, and management of Windows-based environments.</p>
+</li>
+<li><p><code>Versatile Scripting Language</code>: PowerShell is a versatile language that can handle a wide range of tasks, from simple automation and management to complex system administration and configuration tasks.</p>
+</li>
+<li><p><code>Automation Capabilities</code>: PowerShell is designed for automation, enabling users to create scripts and automation workflows to perform repetitive tasks, saving time and reducing the potential for errors.</p>
+</li>
+<li><p><code>Integration with Microsoft Products</code>: PowerShell has robust integration with Microsoft products like Windows Server, Active Directory, Exchange, SharePoint, and Azure, making it an essential tool for managing Microsoft-centric environments.</p>
+</li>
+<li><p><code>Extensive Ecosystem</code>: PowerShell has a vast ecosystem of modules and libraries available, both from Microsoft and the community, which extends its capabilities and provides solutions for various scenarios.</p>
+</li>
+<li><p><code>Active Community</code>: PowerShell has a dedicated and active community of users, scripters, and developers who share knowledge, scripts, and best practices, contributing to its popularity.</p>
+</li>
+<li><p><code>Security and Compliance</code>: PowerShell has built-in security features and auditing capabilities, which are crucial for maintaining the security and compliance of Windows-based systems.</p>
+</li>
+<li><p><code>Cross-Platform Support</code>: PowerShell 7 expanded PowerShell support to other operating systems such as Linux and macOS, making it more versatile.</p>
+</li>
+<li><p><code>Development for Azure Functions</code>: PowerShell is one of the languages supported for creating Azure Functions, enabling serverless computing solutions in the Microsoft Azure cloud platform.</p>
+</li>
+<li><p><code>Active Development</code>: Microsoft actively develops and enhances PowerShell, providing frequent updates and improvements.</p>
+</li>
+</ul>
+<p>Overall, PowerShell is a powerful tool for managing and automating Windows-based systems and services. Its extensive capabilities, strong community support, and integration with Microsoft technologies contribute to its popularity among IT professionals and developers.</p>
+<h2 id="is-visual-studio-popular">Is Visual studio popular?</h2>
+<p><a href="https://survey.stackoverflow.co/2023/#most-popular-technologies-new-collab-tools">Developer Survey - Integrated development environment</a></p>
+<p>Yes, Visual Studio is a highly popular and widely used integrated development environment (IDE) created by Microsoft. Visual Studio provides a comprehensive set of tools and features for software development, making it a popular choice among developers for a variety of reasons:</p>
+<ul>
+<li><p><code>Robust Development Environment</code>: Visual Studio offers a feature-rich and powerful development environment that supports multiple programming languages, frameworks, and platforms.</p>
+</li>
+<li><p><code>Language Support</code>: It provides extensive support for popular programming languages like C#, C++, Python, JavaScript, and more, making it suitable for a wide range of development projects.</p>
+</li>
+<li><p><code>Cross-Platform Development</code>: Visual Studio supports cross-platform development, allowing developers to create applications for Windows, macOS, Linux, web, mobile, cloud, and IoT platforms.</p>
+</li>
+<li><p><code>Rich Ecosystem</code>: Visual Studio has a vast ecosystem of extensions and add-ons available through the Visual Studio Marketplace. These extensions can enhance the IDE's capabilities and adapt it to various development scenarios.</p>
+</li>
+<li><p><code>Integrated Tools</code>: Visual Studio integrates tools for debugging, code analysis, version control (with Git and TFS support), testing, and more, streamlining the development workflow.</p>
+</li>
+<li><p><code>Productivity Features</code>: It includes features like code completion, refactoring, IntelliSense, and code templates to improve developer productivity.</p>
+</li>
+<li><p><code>Cloud Development</code>: Visual Studio offers tools and services for cloud development, including integration with Microsoft Azure, which is valuable for cloud-based application development.</p>
+</li>
+<li><p><code>Team Collaboration</code>: Visual Studio Team Services (now Azure DevOps) provides collaboration tools for teams, enabling efficient project management, version control, continuous integration, and more.</p>
+</li>
+<li><p><code>Community Edition</code>: Microsoft offers a free Community edition of Visual Studio with a comprehensive set of features, making it accessible to individual developers and smaller teams.</p>
+</li>
+<li><p><code>Enterprise Solutions</code>: Visual Studio also provides enterprise-level solutions with features for large-scale software development, such as Visual Studio Enterprise and Visual Studio for Mac.</p>
+</li>
+<li><p><code>Active Community and Support</code>: Visual Studio has a large and active community of developers, along with Microsoft's support, making it easy to find resources, tutorials, and solutions to development challenges.</p>
+</li>
+<li><p><code>Popular Platforms and Frameworks</code>: Visual Studio is widely used for creating Windows applications, web applications, mobile apps (using Xamarin), game development (Unity), and much more.</p>
+</li>
+</ul>
+<h2 id="powershell-introduction">PowerShell Introduction</h2>
+<p>Whether you work in DevOps or SysAdmin roles or want to add PowerShell to your digital toolbox, this lesson’s content will get you started with this powerful command-line tool.</p>
+<p>PowerShell was introduced to the Windows operating system in 2006 and has since become a popular tool for automating many Windows tasks. While the shell focuses on Windows administration, PowerShell command-line applications are now available to install on the Mac OS and Linux operating systems.</p>
+<p>While most computing interfaces involve a GUI, Graphical User Interface, there is a clear reason why developers and administrators still use command-line tools like PowerShell: they are just better at certain tasks.</p>
+<p>In addition to its robust features for system management and automation, PowerShell has a vibrant community, extensive documentation, and strong support from Microsoft. Whether you're a seasoned IT professional or just getting started, PowerShell is a valuable tool for simplifying tasks, improving efficiency, and managing systems effectively.</p>
+<ul>
+<li>an object-oriented ​</li>
+<li>shell and scripting language for Microsoft Windows.​</li>
+<li>a CLI windows administration (configuration) platform​</li>
+<li>command line interface (CLI).</li>
+<li>interface to .NET Framework​</li>
+<li>pipelines​</li>
+<li>built-in help: Get-Help​</li>
+<li>can also script</li>
+</ul>
+<p><a href="https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.3">https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.3</a></p>
+<h3 id="powershell-versions">PowerShell Versions?</h3>
+<p><img src="images/course__ps_basics__00-introduction__powershell_versions_overview-1.png" alt="powershell versions" /></p>
+<ul>
+<li><p>older versions of Windows Server are tied to older PowerShell versions</p>
+</li>
+<li><p><code>PowerShell 1.0</code>​</p>
+<ul>
+<li>PowerShell version 1.0 basic version</li>
+<li>Supports Windows XP SP2, Windows Server 2003 SP1, and Windows Vista.​</li>
+</ul>
+</li>
+<li><p><code>PowerShell 5.1</code>​</p>
+<ul>
+<li>pre-installed: Windows Server 2019 and Windows 10/11​</li>
+</ul>
+</li>
+<li><p><code>PowerShell 6.0</code> ​</p>
+<ul>
+<li>Cross Platform (Free and Open Source)​</li>
+<li>Many Windows PowerShell 5.1 modules can be used through the compatibility layer, but compatibility is not guaranteed.</li>
+<li>not (yet) installed by default on Windows Pro/Server ​</li>
+<li>built on .NET core: open-source successor to .NET Framework.​</li>
+</ul>
+</li>
+<li><p><code>PowerShell 7.x (built on modern .NET)</code></p>
+<ul>
+<li>not yet installed by default</li>
+<li>cross-platform (linux, macos), open source</li>
+<li>.NET</li>
+<li>Run side-by-side with Windows PowerShell 5.1​</li>
+<li>Compatibility and available cmdlets vary by platform and installed modules.</li>
+</ul>
+</li>
+</ul>
+<p><code>PowerShell 7</code> is the cross-platform, open-source edition of PowerShell, built for heterogeneous environments and hybrid cloud management.</p>
+<p><a href="https://www.educba.com/powershell-versions/">PowerShell version History</a></p>
+<p><a href="https://learn.microsoft.com/en-us/powershell/scripting/install/powershell-support-lifecycle?view=powershell-7.3">PowerShell Support Lifecycle</a></p>
+<h3 id="case-sensitivity">Case Sensitivity</h3>
+<p><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_case-sensitivity?view=powershell-7.3">Get-help about_Case-Sensitivity</a></p>
+<ul>
+<li>PowerShell cmdlet names, parameter names, and variable names are
+case-insensitive by default on Windows, Linux, and macOS.</li>
+<li>Filesystem path case sensitivity depends on the operating system and volume:
+Linux filesystems are usually case-sensitive, while macOS volumes are often
+case-insensitive by default but can be case-sensitive. Unix environment
+variable names are case-sensitive.</li>
+</ul>
+<h3 id="tab-completion">Tab completion</h3>
+<p>Tab completion helps you enter commands, parameters, paths, and variable names without typing every character. Type the beginning of an item and press <code>Tab</code>. PowerShell completes the matching text; press <code>Tab</code> again to cycle through other matches. This helps you discover valid names and reduces typing mistakes.</p>
+<p><strong>Small example</strong></p>
+<p>Type <code>Get-Ch</code> in a PowerShell terminal, then press <code>Tab</code> until PowerShell completes the command:</p>
+<pre><code class="language-powershell">Get-ChildItem
+</code></pre>
+<p>You can also complete parameters. Type <code>Get-Date -F</code>, press <code>Tab</code>, and PowerShell completes <code>-Format</code>:</p>
+<pre><code class="language-powershell">Get-Date -Format 'yyyy-MM-dd'
+</code></pre>
+<p><code>Get-Date -Format</code> returns a formatted string, not a <code>DateTime</code> object.</p>
+<p>Tab completion can also complete an argument value, such as a folder path. Type the following command up to <code>Doc</code>, then press <code>Tab</code>:</p>
+<pre><code class="language-powershell">Get-ChildItem -Path $HOME\Doc
+</code></pre>
+<p>On a typical Windows profile, PowerShell completes the argument to <code>$HOME\Documents</code>. Press <code>Enter</code> only after checking that the completed path is the folder you intend to inspect.</p>
+<p>If there are several possible matches, press <code>Ctrl+Space</code> to open a completion menu instead of cycling through choices one at a time. For example, type <code>Get-</code> and press <code>Ctrl+Space</code> to view commands that begin with <code>Get-</code>; use the arrow keys to choose one and press <code>Enter</code> to insert it.</p>
+<p>Use tab completion to help write a command, but still read the completed command before pressing <code>Enter</code>.</p>
+<h3 id="modern.net-vs.net-framework">Modern .NET vs .NET Framework</h3>
+<p><code>.NET</code> is an open-source, general-purpose development platform. Versions 5 and later run on Windows, Linux, and macOS. The name <code>.NET Core</code> applies to versions 1.x through 3.1; the platform was renamed <code>.NET</code> starting with version 5.
+It offers the following features:</p>
+<ul>
+<li>Cross-Platform​</li>
+<li>Open Source​</li>
+<li>High Performance​</li>
+<li>Multiple environments and development mode etc.</li>
+</ul>
+<p><code>.NET Framework</code> is the Windows-only implementation of the .NET platform, first released in 2002. It supports applications such as Windows Forms, WPF, and ASP.NET; it is distinct from modern <code>.NET</code>.
+<a href="https://versionsof.net/core/">.Net (Core) Versions</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">BASED ON</th>
+<th style="text-align: left;">Modern .NET (5+)</th>
+<th style="text-align: left;">.NET Framework</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Open Source</td>
+<td style="text-align: left;">Modern .NET is open source.</td>
+<td style="text-align: left;">Certain components of the .NET Framework are open source.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Cross-Platform</td>
+<td style="text-align: left;">Runs on Windows, Linux, and macOS, though application portability depends on platform-specific APIs.</td>
+<td style="text-align: left;">.NET Framework runs on Windows.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Application Models</td>
+<td style="text-align: left;">Modern .NET supports web, cloud, console, and desktop applications; Windows desktop frameworks such as Windows Forms and WPF are Windows-only.</td>
+<td style="text-align: left;">.NET Framework supports Windows desktop and web applications, including Windows Forms and WPF.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Installation</td>
+<td style="text-align: left;">Modern .NET is packaged and installed independently of the underlying operating system.</td>
+<td style="text-align: left;">.NET Framework is installed as part of Windows.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Support for Micro-Services and REST Services</td>
+<td style="text-align: left;">Both platforms can be used to build web services and REST APIs; modern .NET is cross-platform and commonly used for containerized services.</td>
+<td style="text-align: left;">.NET Framework can host web services and REST APIs, but it runs only on Windows.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Performance and Scalability</td>
+<td style="text-align: left;">Performance and scalability depend on the application, libraries, and configuration.</td>
+<td style="text-align: left;">Performance and scalability depend on the application, libraries, and configuration.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Compatibility</td>
+<td style="text-align: left;">Modern .NET is available for Windows, Linux, and macOS.</td>
+<td style="text-align: left;">.NET Framework is Windows-only.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Support</td>
+<td style="text-align: left;">Modern .NET receives ongoing feature development.</td>
+<td style="text-align: left;">.NET Framework 4.8.1 is maintained as a Windows component; it does not receive the same ongoing feature development.</td>
+</tr>
+<tr>
+<td style="text-align: left;">CLI Tools</td>
+<td style="text-align: left;">The .NET SDK includes cross-platform command-line tools.</td>
+<td style="text-align: left;">.NET Framework development commonly uses Windows-based tooling; it also has command-line tools.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="powershell-security">PowerShell Security</h2>
+<p>PowerShell's execution policy controls the conditions under which PowerShell loads configuration files and runs scripts.
+Execution policies can discourage accidental execution of scripts, but they are not a security boundary and do not prevent a determined user from running malicious code. Policies can be set at different scopes, such as the current user, local machine, or process level.</p>
+<pre><code class="language-powershell">Get-Help about_Execution_Policies
+</code></pre>
+<p><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.2#allsigned">PowerShell execution policies - Overview</a></p>
+<ul>
+<li>Default
+<ul>
+<li>Restricted for Windows clients.</li>
+<li>RemoteSigned for Windows servers.</li>
+</ul>
+</li>
+</ul>
+<p>Gets the execution policies for the current session</p>
+<pre><code class="language-powershell">Get-ExecutionPolicy
+</code></pre>
+<p>Gets a full overview of the execution policies with the different scopes</p>
+<pre><code class="language-powershell">Get-ExecutionPolicy -List
+</code></pre>
+<pre><code class="language-output">        Scope ExecutionPolicy
+        ----- ---------------
+MachinePolicy       Undefined
+   UserPolicy       Undefined
+      Process       Undefined
+  CurrentUser       Undefined
+ LocalMachine      Restricted
+</code></pre>
+<ul>
+<li>MachinePolicy  Set by a Group Policy for all users of the computer.</li>
+<li>UserPolicy     Set by a Group Policy for the current user of the computer.</li>
+<li>Process        Affects only the current PowerShell session.</li>
+<li>CurrentUser    Affects only the current user.</li>
+<li>LocalMachine   Default scope that affects all users of the computer.</li>
+</ul>
+<p>Set the policy to Unrestricted for the LocalMachine</p>
+<ul>
+<li>Run As Administrator</li>
+</ul>
+<pre><code class="language-powershell">Set-ExecutionPolicy  Unrestricted -Scope LocalMachine
+</code></pre>
+<p>or</p>
+<pre><code class="language-powershell">Set-ExecutionPolicy  Unrestricted
+</code></pre>
+<h2 id="windows-package-manager">Windows Package Manager</h2>
+<ul>
+<li><p>A tool or collection of software tools</p>
+</li>
+<li><p>Automating software installations:</p>
+<ul>
+<li>to install software</li>
+<li>easy to upgrade software</li>
+<li>easy to remove installed software</li>
+<li>a lot of configuration possibilities</li>
+</ul>
+</li>
+<li><p>More convenient than searching, downloading and clicking</p>
+</li>
+<li><p>Works in scripts! -&gt; Automation</p>
+</li>
+</ul>
+<h3 id="installation-package-managers">Installation Package Managers</h3>
+<ul>
+<li>Winget
+<ul>
+<li><a href="https://github.com/microsoft/winget-cli/releases">Installing Winget</a></li>
+<li><a href="https://learn.microsoft.com/en-us/windows/package-manager/winget/install">Getting Started</a></li>
+</ul>
+</li>
+<li>Chocolatey
+<ul>
+<li><a href="https://community.chocolatey.org/courses/installation/installing?method=installing-chocolatey">Installing Chocolatey</a></li>
+<li><a href="https://community.chocolatey.org/courses">Getting Started</a></li>
+</ul>
+</li>
+<li>Scoop
+<ul>
+<li><a href="https://scoop.sh">Install Scoop</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="powershell-7-installation">PowerShell 7 - installation</h2>
+<p>see Howto: PowerShell setup</p>
+<h2 id="visual-studio-code-installation">Visual Studio Code - Installation</h2>
+<p>see Howto: VS Code setup</p>
+<h2 id="windows-terminal">Windows Terminal</h2>
+<p>see Howto: Windows Terminal setup</p>
+<h2 id="linux-commands-in-windows">Linux Commands in Windows</h2>
+<ul>
+<li>scoop search busybox</li>
+<li>scoop install busybox</li>
+<li>scoop install nano</li>
+<li>scoop install vim</li>
+</ul>
+<h2 id="first-script">First script</h2>
+<ul>
+<li>Start a PowerShell terminal and check the version of your PowerShell.
+<ul>
+<li>PSVersion: 7+</li>
+<li>PSEdition: Core</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-powershell"> pwsh.exe
+</code></pre>
+<pre><code class="language-powershell"> $PSVersionTable
+</code></pre>
+<pre><code class="language-output">Name                           Value
+----                           -----
+PSVersion                      7.x.x
+PSEdition                      Core
+GitCommitId                    7.x.x
+OS                             Microsoft Windows 10.0.22621
+Platform                       Win32NT
+PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0…}
+PSRemotingProtocolVersion      2.3
+SerializationVersion           1.1.0.1
+WSManStackVersion              3.0
+</code></pre>
+<ul>
+<li>Make a folder c:\powershell</li>
+</ul>
+<pre><code class="language-powershell">New-Item c:\powershell -ItemType Directory
+</code></pre>
+<ul>
+<li>Go to the folder c:\powershell</li>
+</ul>
+<pre><code class="language-powershell">Set-Location c:\powershell
+</code></pre>
+<ul>
+<li>Start Visual Studio Code and create the file 'HelloWorld.ps1'</li>
+</ul>
+<pre><code class="language-powershell">code HelloWorld.ps1
+</code></pre>
+<ul>
+<li>Place the following text in the script</li>
+</ul>
+<pre><code class="language-powershell">Write-Output &quot;Hello World&quot;
+</code></pre>
+<h2 id="vs-code-trusted-workspaces">VS Code: Trusted Workspaces</h2>
+<ul>
+<li>In Restricted Mode, Visual Studio Code may limit PowerShell script execution and other workspace features. Trust only folders you trust.</li>
+</ul>
+<p><img src="images/course__ps_basics__00-introduction__image-5.png" alt="Alt text" /></p>
+<ul>
+<li>Click Manage and add directory c:\powershell via 'Add Folder'.</li>
+</ul>
+<p><img src="images/course__ps_basics__00-introduction__image-6.png" alt="Alt text" /></p>
+<p>restart Visual Studio Code</p>
+<h2 id="vs-code-auto-save">VS Code: Auto Save</h2>
+<ul>
+<li>Enable Auto Save</li>
+</ul>
+<p><img src="images/course__ps_basics__00-introduction__image-7.png" alt="Alt text" /></p>
+<h2 id="run-script-in-vscode">Run script in VSCode</h2>
+<p><img src="images/course__ps_basics__00-introduction__image-8.png" alt="Alt text" /></p>
+<p>Press &quot;Play&quot; button.</p>
+<p>or</p>
+<p>Run Selection (F8)</p>
+<h2 id="run-script-in-ps-shell">Run script in PS Shell</h2>
+<ul>
+<li>Run script with full path</li>
+<li>PowerShell script files normally use the <code>.ps1</code> extension when invoked by path.</li>
+</ul>
+<pre><code class="language-powershell"> C:\powershell\HelloWorld.ps1
+</code></pre>
+<pre><code class="language-output">Hello World
+</code></pre>
+<p>or</p>
+<pre><code class="language-powershell">.\HelloWorld.ps1
+</code></pre>
+<pre><code class="language-output">Hello World
+</code></pre>
+<ul>
+<li>Make a copy of the script with spaces in the filename.</li>
+<li>Spaces in filenames are almost always a bad idea</li>
+</ul>
+<pre><code class="language-powershell">Copy-Item .\HelloWorld.ps1 '.\Hello World with spaces.ps1'
+</code></pre>
+<ul>
+<li>Run script with spaces in the filename</li>
+</ul>
+<pre><code class="language-powershell"> &amp; '.\Hello World with spaces.ps1'
+</code></pre>
+<pre><code class="language-output">Hello World
+</code></pre>
+<h2 id="update-help-documentation">Update help documentation</h2>
+<ul>
+<li>Update-Help checks the version of the help files on your computer.</li>
+<li>Update PowerShell Help after installing PowerShell and periodically thereafter</li>
+<li>Run <code>Update-Help</code> in an elevated PowerShell session when required, then restart PowerShell if prompted.</li>
+<li>Some help files are not translated to a specific language.</li>
+</ul>
+<pre><code class="language-powershell">Update-Help -Verbose -UICulture en-US -force
+</code></pre>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

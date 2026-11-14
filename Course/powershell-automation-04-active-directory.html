@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Automating Active Directory — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">04 - Active Directory</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a class="sidebar-current" href="powershell-automation-04-active-directory.html" aria-current="page">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; PowerShell Automation</p>
+            <h1 id="page-title">Automating Active Directory</h1>
+            <p class="hero-description">04 - Active Directory</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/course/ps_automation/04-active-directory/04-active-directory">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<p>Active Directory Domain Services (AD DS) provides centralized identity, authentication, authorization, policy, and resource organization for Windows domain networks. The ActiveDirectory PowerShell module makes individual and bulk administration discoverable and repeatable.</p>
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>By the end of this lesson, you can:</p>
+<ul>
+<li>explain domains, domain controllers, organizational units, and directory objects;</li>
+<li>distinguish organizational units from security and distribution groups;</li>
+<li>discover and use ActiveDirectory module commands;</li>
+<li>query and manage users, groups, group membership, and organizational units; and</li>
+<li>design a safe, previewable bulk-provisioning workflow.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Complete the PowerShell Basics course and the Windows management lessons.</li>
+<li>Use an instructor-provided training domain and account with delegated lab permissions.</li>
+<li>Have the ActiveDirectory module available through Windows Server management tools or RSAT.</li>
+<li>Never run the modifying examples against a production directory.</li>
+</ul>
+<h2 id="understand-the-directory-structure">Understand the directory structure</h2>
+<p>An AD DS directory is hierarchical:</p>
+<ul>
+<li>a <strong>forest</strong> is the top-level security and schema boundary;</li>
+<li>a <strong>domain</strong> contains directory objects and a DNS name;</li>
+<li>a <strong>domain controller</strong> hosts AD DS and responds to directory requests;</li>
+<li>an <strong>organizational unit (OU)</strong> organizes objects, supports delegation, and can receive Group Policy; and</li>
+<li>an <strong>object</strong> represents a user, group, computer, contact, or another directory resource.</li>
+</ul>
+<p><strong>Example directory hierarchy</strong></p>
+<pre class="mermaid">flowchart TD
+    A["Forest"] --> B["Domain: training.example"]
+    B --> C["OU: PowerShell Labs"]
+    C --> D["OU: Lab Users"]
+    D --> E["User: Alex Morgan"]
+</pre>
+<p>This shows one possible hierarchy; domain controllers host the directory
+service and are not represented as a parent of the OUs.</p>
+<p>Distinguished names identify an object's location from the object to the domain root. For example:</p>
+<pre><code class="language-text">CN=Alex Morgan,OU=Lab Users,OU=PowerShell Labs,DC=training,DC=example
+</code></pre>
+<h2 id="organizational-units-versus-groups">Organizational units versus groups</h2>
+<table>
+<thead>
+<tr>
+<th>Organizational units</th>
+<th>Groups</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Organize directory objects hierarchically</td>
+<td>Collect users, computers, or groups</td>
+</tr>
+<tr>
+<td>Support delegated administration</td>
+<td>Assign access or distribute messages</td>
+</tr>
+<tr>
+<td>Can be linked to Group Policy</td>
+<td>Do not directly receive Group Policy</td>
+</tr>
+<tr>
+<td>An object normally has one parent OU/container</td>
+<td>An object can belong to many groups</td>
+</tr>
+</tbody>
+</table>
+<p>Use OUs for organization and delegated management. Use security groups to assign permissions. Avoid assigning permissions directly to individual user accounts when a suitable group can represent the role.</p>
+<h2 id="prepare-and-discover-the-module">Prepare and discover the module</h2>
+<pre><code class="language-powershell">Get-Module -ListAvailable ActiveDirectory
+Import-Module ActiveDirectory
+
+Get-Command -Module ActiveDirectory -Noun ADUser, ADGroup, ADOrganizationalUnit |
+    Sort-Object Noun, Verb |
+    Select-Object Name
+</code></pre>
+<p>On a Windows client, administrators normally install the AD DS and AD LDS RSAT tools. On Windows Server, install the appropriate management tools rather than adding the AD DS server role merely to obtain cmdlets.</p>
+<h2 id="query-users-deliberately">Query users deliberately</h2>
+<p><code>Get-ADUser</code> requires <code>-Identity</code> for one known user or <code>-Filter</code> for a query. It returns a default property set unless <code>-Properties</code> requests more.</p>
+<pre><code class="language-powershell">Get-ADUser -Identity 'amorgan' -Properties Department, Title, Enabled |
+    Select-Object SamAccountName, Name, Department, Title, Enabled
+
+Get-ADUser -Filter &quot;Department -eq 'IT'&quot; -Properties Department |
+    Select-Object Name, SamAccountName, Department
+</code></pre>
+<p>Avoid <code>-Filter *</code> without a search base in a large directory. Scope queries to the correct OU when possible.</p>
+<pre><code class="language-powershell">$searchBase = 'OU=Lab Users,OU=PowerShell Labs,DC=training,DC=example'
+Get-ADUser -Filter * -SearchBase $searchBase |
+    Select-Object Name, SamAccountName, Enabled
+</code></pre>
+<h2 id="create-and-update-a-user">Create and update a user</h2>
+<p>Ask for a temporary password without embedding it in the script. Preview the creation first.</p>
+<pre><code class="language-powershell">$temporaryPassword = Read-Host -Prompt 'Enter the temporary password' -AsSecureString
+
+$userParameters = @{
+    Name                  = 'Alex Morgan'
+    GivenName             = 'Alex'
+    Surname               = 'Morgan'
+    SamAccountName        = 'amorgan'
+    UserPrincipalName     = 'amorgan@training.example'
+    Path                  = 'OU=Lab Users,OU=PowerShell Labs,DC=training,DC=example'
+    Department            = 'IT'
+    AccountPassword       = $temporaryPassword
+    Enabled               = $true
+    ChangePasswordAtLogon = $true
+}
+
+New-ADUser @userParameters -WhatIf
+Set-ADUser -Identity 'amorgan' -Title 'Support trainee' -WhatIf
+</code></pre>
+<p>A robust script first checks whether the <code>SamAccountName</code> and user principal name are available. It should report a conflict instead of silently updating the wrong account.</p>
+<h2 id="manage-organizational-units-and-groups">Manage organizational units and groups</h2>
+<pre><code class="language-powershell">$labRoot = 'OU=PowerShell Labs,DC=training,DC=example'
+
+New-ADOrganizationalUnit -Name 'Lab Users' -Path $labRoot -WhatIf
+
+New-ADGroup `
+    -Name 'PS Lab Operators' `
+    -SamAccountName 'PSLabOperators' `
+    -GroupCategory Security `
+    -GroupScope Global `
+    -Path &quot;OU=Groups,$labRoot&quot; `
+    -WhatIf
+
+Add-ADGroupMember -Identity 'PSLabOperators' -Members 'amorgan' -WhatIf
+</code></pre>
+<p>Use <code>Get-ADGroupMember</code> to verify membership. Removing an object or group membership also supports <code>-WhatIf</code>; always resolve the exact target first.</p>
+<h2 id="design-safe-bulk-provisioning">Design safe bulk provisioning</h2>
+<p>A CSV-driven workflow should:</p>
+<ol>
+<li>validate required columns and values;</li>
+<li>scope all paths to a dedicated training OU;</li>
+<li>check for duplicate identities;</li>
+<li>use one securely entered temporary password rather than storing it in CSV;</li>
+<li>create accounts disabled or require password change at first sign-in;</li>
+<li>support <code>-WhatIf</code> through <code>SupportsShouldProcess</code>; and</li>
+<li>return one result object per input row.</li>
+</ol>
+<pre><code class="language-powershell">Import-Csv '.\new-users.csv' | ForEach-Object {
+    [pscustomobject]@{
+        SamAccountName = $_.SamAccountName
+        TargetOU       = $_.Path
+        PlannedAction  = 'Create'
+    }
+}
+</code></pre>
+<p>Do not use a CSV as proof that a change succeeded. Query AD after the operation and record the verified state.</p>
+<h2 id="treat-domain-join-as-a-separate-infrastructure-change">Treat domain join as a separate infrastructure change</h2>
+<p>Joining a computer changes its security context, requires suitable local and domain credentials, and commonly requires a restart. It is not part of the student provisioning lab. On an instructor-assigned disposable client, an administrator can first preview the exact request:</p>
+<pre><code class="language-powershell">Add-Computer `
+    -ComputerName 'Client01' `
+    -DomainName 'training.example' `
+    -OUPath 'OU=Lab Computers,OU=PowerShell Labs,DC=training,DC=example' `
+    -Credential (Get-Credential) `
+    -WhatIf
+</code></pre>
+<p>Do not use <code>-Restart</code> until the change is approved, connectivity is verified, BitLocker and local recovery access are understood, and the instructor has provided a rollback procedure.</p>
+<h2 id="practice-and-self-check">Practice and self-check</h2>
+<ol>
+<li>How do OUs and groups serve different purposes?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>Organizational units organize objects and support delegation and Group Policy.
+Groups collect members for purposes such as assigning permissions or
+distributing messages.</p>
+</details>
+<ol start="2">
+<li>Why should a large user query include <code>-SearchBase</code>?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>It limits the search to the intended directory location, reducing unnecessary
+results and helping avoid inspecting unrelated accounts.</p>
+</details>
+<ol start="3">
+<li>Why does <code>Get-ADUser</code> require <code>-Properties</code> for non-default properties?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>The cmdlet returns a default set of properties. Use <code>-Properties</code> to request
+additional attributes, such as <code>Department</code>, needed by the report.</p>
+</details>
+<ol start="4">
+<li>Which parameters identify the destination OU and logon names for <code>New-ADUser</code>?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p><code>-Path</code> identifies the destination OU. <code>-SamAccountName</code> specifies the
+SAM account name, and <code>-UserPrincipalName</code> specifies the user principal
+name used for sign-in.</p>
+</details>
+<ol start="5">
+<li>Why should temporary passwords stay out of CSV files?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>CSV files store plain text and can be copied, shared, or committed
+accidentally. Request the password securely instead and do not expose it in
+logs or source files.</p>
+</details>
+<ol start="6">
+<li>What should a bulk-provisioning script return for every input row?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>Return a structured result identifying the input account and its outcome,
+including validation errors, conflicts, failures, or a planned action when
+using <code>-WhatIf</code>. Verify actual changes in Active Directory.</p>
+</details>
+<p>Apply the lesson in <a href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/hands-on/17-active-directory/01-active-directory">Hands-on 17 — Active Directory</a>.</p>
+<h2 id="summary">Summary</h2>
+<p>Active Directory automation manages centralized objects through scoped, object-based commands. Understand the directory hierarchy, separate OU and group responsibilities, query narrowly, protect passwords, preview changes, and verify results in a dedicated training OU.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/activedirectory/">ActiveDirectory module</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/activedirectory/get-aduser">Get-ADUser</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/activedirectory/new-aduser">New-ADUser</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/activedirectory/add-adgroupmember">Add-ADGroupMember</a></li>
+</ul>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

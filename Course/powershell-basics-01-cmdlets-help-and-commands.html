@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Cmdlets, Get-Help, Get-Command, Get-Member, Get-Alias — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">01 - Cmdlets, help, and commands</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a class="sidebar-current" href="powershell-basics-01-cmdlets-help-and-commands.html" aria-current="page">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; PowerShell Basics</p>
+            <h1 id="page-title">Cmdlets, Get-Help, Get-Command, Get-Member, Get-Alias</h1>
+            <p class="hero-description">01 - Cmdlets, help, and commands</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/course/ps_basics/01-intro_objects_help/01-ps-cmdlets_help_commands">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="learning-objectives">Learning objectives</h2>
+<ul>
+<li>Recognise PowerShell's verb-noun cmdlet convention.</li>
+<li>Discover commands and retrieve syntax, examples, and parameter help.</li>
+<li>Use <code>Get-Member</code> and aliases appropriately.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Complete the introduction and have an interactive PowerShell prompt available.</li>
+</ul>
+<h2 id="cmdlets">Cmdlets</h2>
+<p>A Cmdlet -- pronounced command-let -- is a small, lightweight command that is used in the Windows PowerShell environment.</p>
+<p>Cmdlets use a verb-noun naming convention; aliases, functions, scripts, and external applications do not necessarily follow it.</p>
+<p>Example: <code>Get-Help</code>, <code>Get-Command</code>,<code>Get-Member</code>,<code>Get-Process</code>, ...</p>
+<p><strong>Command discovery overview</strong></p>
+<pre class="mermaid">flowchart LR
+    A["Find a command: Get-Command"] --> B["Learn its parameters: Get-Help"]
+    B --> C["Run a safe query"]
+    C --> D["Inspect its objects: Get-Member"]
+</pre>
+<p>Use the help and examples to check a command before running it, especially
+when it can change data.</p>
+<p><strong>Overview of all verbs:</strong></p>
+<pre><code class="language-powershell">Get-Verb
+</code></pre>
+<p>The <code>-Group parameter</code> for the Get-Verb cmdlet allows you to filter the list of approved verbs by a specific group. The &quot;Common&quot; group is one of the predefined groups that you can use to filter the list of verbs.</p>
+<pre><code class="language-powershell">Get-Verb -Group Common
+Get-Verb -Group security
+</code></pre>
+<h2 id="update-help-documentation">Update help documentation</h2>
+<ul>
+<li>Update-Help checks the version of the help files on your computer.</li>
+<li>Update PowerShell Help after installing PowerShell and periodically thereafter</li>
+<li>Run <code>Update-Help</code> in an elevated PowerShell session when required, then restart PowerShell if prompted.</li>
+<li>Some help files are not translated to a specific language.</li>
+</ul>
+<pre><code class="language-powershell">Update-Help -Verbose -UICulture en-US -force
+</code></pre>
+<h2 id="get-help">Get-Help</h2>
+<ul>
+<li>Displays information about PowerShell commands and concepts.</li>
+<li>It is a valuable command for accessing documentation about cmdlets, functions, modules, scripts, and PowerShell concepts.</li>
+<li>It helps you understand command syntax, parameters, and examples.</li>
+<li>Dumps everything at one go, you can use <code>| more</code> to view page by page.</li>
+<li>Shows the MAML(Microsoft Assistance Markup Language) or Comment-Based help written by the module author.</li>
+</ul>
+<pre><code class="language-powershell">Get-Command Get-Help -Syntax
+</code></pre>
+<pre><code class="language-output">Get-Help [[-Name] &lt;string&gt;] [-Path &lt;string&gt;] [-Category &lt;string[]&gt;] [-Full] [-Component &lt;string[]&gt;] [-Functionality &lt;string[]&gt;] [-Role &lt;string[]&gt;] [&lt;CommonParameters&gt;]
+Get-Help [[-Name] &lt;string&gt;] -Detailed [-Path &lt;string&gt;] [-Category &lt;string[]&gt;] [-Component &lt;string[]&gt;] [-Functionality &lt;string[]&gt;] [-Role &lt;string[]&gt;] [&lt;CommonParameters&gt;]
+Get-Help [[-Name] &lt;string&gt;] -Examples [-Path &lt;string&gt;] [-Category &lt;string[]&gt;] [-Component &lt;string[]&gt;] [-Functionality &lt;string[]&gt;] [-Role &lt;string[]&gt;] [&lt;CommonParameters&gt;]
+Get-Help [[-Name] &lt;string&gt;] -Parameter &lt;string[]&gt; [-Path &lt;string&gt;] [-Category &lt;string[]&gt;] [-Component &lt;string[]&gt;] [-Functionality &lt;string[]&gt;] [-Role &lt;string[]&gt;] [&lt;CommonParameters&gt;]
+Get-Help [[-Name] &lt;string&gt;] -Online [-Path &lt;string&gt;] [-Category &lt;string[]&gt;] [-Component &lt;string[]&gt;] [-Functionality &lt;string[]&gt;] [-Role &lt;string[]&gt;] [&lt;CommonParameters&gt;]
+Get-Help [[-Name] &lt;string&gt;] -ShowWindow [-Path &lt;string&gt;] [-Category &lt;string[]&gt;] [-Component &lt;string[]&gt;] [-Functionality &lt;string[]&gt;] [-Role &lt;string[]&gt;] [&lt;CommonParameters&gt;]
+</code></pre>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><p><code>Name</code>: Specifies the name of the cmdlet, function, script, module, or topic for which you want to get help.</p>
+</li>
+<li><p><code>Parameter</code>: Allows you to specify a specific parameter within the cmdlet or function for more detailed help.</p>
+</li>
+<li><p><code>Category</code>: Filters the help content based on specific categories like &quot;Cmdlet,&quot; &quot;Function,&quot; &quot;Script,&quot; and more.</p>
+</li>
+<li><p><code>Full</code>: Retrieves the full help content, including examples and detailed descriptions.</p>
+</li>
+<li><p><code>Online</code>: Opens the online version of the help content in your default web browser.</p>
+</li>
+<li><p><code>ShowWindow</code>: Opens a separate help window.</p>
+</li>
+<li><p><code>Examples</code>: Displays examples of how to use the cmdlet or function.</p>
+</li>
+<li><p>If you want to learn more about a command, you can always get help on it.</p>
+</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<pre><code class="language-powershell">Get-Help Get-Command 
+# or
+Help Get-Command
+# or
+Get-Command -?
+</code></pre>
+<ul>
+<li>For information</li>
+</ul>
+<pre><code class="language-powershell">Get-Process -?
+Get-Help Get-Process
+Help Get-Process
+</code></pre>
+<ul>
+<li>Only show examples</li>
+</ul>
+<pre><code class="language-powershell">Get-Help Get-Process -Examples
+</code></pre>
+<ul>
+<li>For more information</li>
+</ul>
+<pre><code class="language-powershell"> Get-Help Get-Process -Detailed
+</code></pre>
+<ul>
+<li>For technical information</li>
+</ul>
+<pre><code class="language-powershell"> Get-Help Get-Process -Full
+</code></pre>
+<ul>
+<li>For online help</li>
+</ul>
+<pre><code class="language-powershell"> Get-Help Get-Process -Online
+</code></pre>
+<ul>
+<li>Display help information in UI Window</li>
+</ul>
+<pre><code class="language-powershell">Get-Help Get-Process -ShowWindow
+</code></pre>
+<p><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/?view=powershell-7.3">PowerShell Online Help</a></p>
+<p><strong>Global help files about general topics:</strong></p>
+<p>In PowerShell, global help files, often referred to as &quot;about_ topics,&quot; provide valuable information about various aspects of PowerShell and its usage. These topics are available through the Get-Help cmdlet and can be accessed to learn more about PowerShell itself, its concepts, and best practices. Here are some common global help topics in PowerShell:</p>
+<ul>
+<li><p><code>about_Automatic_Variables</code>: This topic explains the automatic variables in PowerShell, which are predefined variables that store system information or user-defined preferences.</p>
+</li>
+<li><p><code>about_Comment_Based_Help</code>: It provides information on how to add comments to your scripts and functions to provide inline help.</p>
+</li>
+<li><p><code>about_Execution_Policies</code>: This topic explains PowerShell execution policies and how they affect script execution.</p>
+</li>
+<li><p><code>about_Functions</code>: It covers creating and using functions in PowerShell.</p>
+</li>
+<li><p><code>about_Pipelines</code>: It explains how pipelines work in PowerShell and how to pass data between cmdlets using the pipeline operator (|).</p>
+</li>
+<li><p><code>about_Scripts</code>: It provides information on writing and running scripts in PowerShell.</p>
+</li>
+<li><p><code>about_Variables</code>: It explains how to work with variables in PowerShell, including variable scope and naming conventions.</p>
+</li>
+</ul>
+<p>To access information on any of these topics or others, you can use the Get-Help cmdlet followed by the specific topic name. For example, to get help on automatic variables, you can use the following command:</p>
+<pre><code class="language-powershell">Get-Help variables
+</code></pre>
+<pre><code class="language-output">Name                              Category  Module                    Synopsis
+----                              --------  ------                    --------
+Set-DynamicParameterVariables     Function  Pester                    …
+about_Automatic_Variables         HelpFile
+about_Environment_Variables       HelpFile
+about_Preference_Variables        HelpFile
+about_Remote_Variables            HelpFile
+about_Variables                   HelpFile
+</code></pre>
+<pre><code class="language-powershell">Get-Help about_variables
+</code></pre>
+<pre><code class="language-powershell">Get-Help about_variables -online
+</code></pre>
+<pre><code class="language-output">Get-Help: The online version of this Help topic cannot be displayed because the Internet address (URI) of the Help topic is not specified in the command code or in the help file for the command.
+</code></pre>
+<p>Online Help for PowerShell topics can be found at the following link:</p>
+<ul>
+<li><a href="https://learn.microsoft.com/nl-nl/powershell/module/microsoft.powershell.core/about/about_automatic_variables?view=powershell-7.6">PowerShell Documentation</a></li>
+</ul>
+<p><strong>Wildcard support:</strong></p>
+<p>The Get-Help cmdlet, <code>by default, performs wildcard searches</code> when you provide a partial or incomplete cmdlet or help topic name. However, you can make it perform an exact match search without using wildcards by providing the complete cmdlet or topic name enclosed in double quotes.</p>
+<pre><code class="language-powershell">Get-Help execution_pol
+</code></pre>
+<pre><code class="language-powershell">Get-Help about*var*
+</code></pre>
+<pre><code class="language-powershell">Get-Help about_Variables
+</code></pre>
+<p><strong>Get help of a specific parameter of a Cmdlet:</strong></p>
+<pre><code class="language-powershell">Get-Help Get-Command -Parameter all
+</code></pre>
+<pre><code class="language-powershell">Get-Help Get-Process -Parameter id
+</code></pre>
+<h2 id="get-command">Get-Command</h2>
+<p>This command gets the PowerShell cmdlets, functions, and aliases that are installed on the computer.</p>
+<pre><code class="language-powershell">Get-Command
+</code></pre>
+<p>This command gets all commands of all types on the local computer, including executable files in the paths of the Path environment variable ($env:path).</p>
+<pre><code class="language-powershell">Get-Command *
+</code></pre>
+<p><strong>Is there a difference between the two commands?</strong></p>
+<details>
+<summary>Show solution</summary>
+<p>Yes. Without a name or pattern, <code>Get-Command</code> lists aliases, functions,
+and cmdlets. Supplying <code>*</code> also searches for external scripts and applications
+available through <code>$env:PATH</code>. Available module commands can be discovered
+without the module already being imported. The exact results depend on
+installed commands and the current environment.</p>
+</details>
+<pre><code class="language-powershell">Get-Command Notepad
+</code></pre>
+<pre><code class="language-output">CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Application     notepad.exe                                        10.0.2262… C:\Windows\system32\notepad.exe
+</code></pre>
+<ul>
+<li>Parameter -All Indicates that this cmdlet gets all commands, including commands of the same type that have the same name.</li>
+</ul>
+<pre><code class="language-powershell">Get-Command Notepad -all
+</code></pre>
+<pre><code class="language-output">CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Application     notepad.exe                                        10.0.2262… C:\Windows\system32\notepad.exe
+Application     notepad.exe                                        10.0.2262… C:\Windows\notepad.exe
+Application     notepad.exe                                        0.0.0.0    C:\Users\Dominique\AppData\Local\Microsoft\WindowsApps\notepad.exe
+</code></pre>
+<p><strong>Wildcards:</strong></p>
+<p>Get-Command uses the exact name of the command, without wildcard characters you have type the full command.</p>
+<pre><code class="language-powershell">Get-Command -name service
+</code></pre>
+<pre><code class="language-output">Get-Command: The term 'service' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+</code></pre>
+<p>With the use of wildcards, all possible Cmdlets will be shown.</p>
+<pre><code class="language-powershell">Get-Command -name *service
+</code></pre>
+<pre><code class="language-output">...
+Cmdlet          Get-Service                                        7.0.0.0    Microsoft.PowerShell.Management
+...
+</code></pre>
+<p><strong>Searching for just a verb or noun:</strong></p>
+<pre><code class="language-powershell">Get-Command -verb get -noun process
+</code></pre>
+<p><strong>Show syntax of a command:</strong></p>
+<pre><code class="language-powershell"> Get-Command Get-Process -Syntax
+</code></pre>
+<pre><code class="language-output">Get-Process [[-Name] &lt;string[]&gt;] [-Module] [-FileVersionInfo] [&lt;CommonParameters&gt;]
+...
+</code></pre>
+<p>Syntax is vital for several important reasons:</p>
+<ul>
+<li><p><code>Correct Interpretation</code>: Syntax defines the structure and rules for writing PowerShell code. Following proper syntax ensures that PowerShell can correctly interpret and execute your commands. Incorrect syntax can lead to errors and unexpected behavior.</p>
+<ul>
+<li>The <code>-Name</code> parameter is optional; when a name is supplied positionally, it is the default parameter for <code>Get-Process</code>.</li>
+</ul>
+</li>
+<li><p><code>Readability</code>: A well-structured and consistent syntax makes your code more readable and understandable. It helps both you and others who may read or collaborate on your scripts. Clear code is easier to maintain and troubleshoot.</p>
+</li>
+<li><p><code>Consistency</code>: PowerShell has a well-defined syntax, including rules for naming conventions, parameter order, and command formatting. Adhering to these conventions ensures consistency across scripts and modules, making your codebase more cohesive and maintainable.</p>
+</li>
+<li><p><code>Preventing Errors</code>: Proper syntax helps prevent syntax errors, which can disrupt script execution. PowerShell's strict syntax checking is designed to catch and highlight syntax errors early, which can save you time and effort during debugging.</p>
+</li>
+<li><p><code>Avoiding Ambiguity</code>: Accurate syntax helps PowerShell avoid ambiguity in command interpretation. When you write code that follows the expected syntax, PowerShell can confidently identify the intended action and execute it correctly.</p>
+</li>
+<li><p><code>Predictability</code>: Correct syntax allows you to predict the behavior of your code more reliably. It ensures that your scripts execute as you intended and produces the expected outcomes.</p>
+</li>
+<li><p><code>Compliance with Best Practices</code>: PowerShell has best practices and guidelines for naming, formatting, and structuring your code. Adhering to these best practices ensures that your code is consistent with industry standards and facilitates collaboration with other PowerShell users.</p>
+</li>
+<li><p><code>Integration with Ecosystem</code>: Proper syntax is essential for integrating PowerShell with other systems, tools, and services. Interoperability often relies on adhering to a specific syntax for command invocation and parameter passing.</p>
+</li>
+<li><p><code>Security</code>: Misused or improperly formatted commands can be a security risk. Ensuring correct syntax helps reduce the likelihood of security vulnerabilities in your scripts.</p>
+</li>
+<li><p><code>Documentation and Help</code>: Well-structured syntax is critical for generating and understanding code documentation and help content. It helps others, including future maintainers and users of your scripts, to find and utilize the correct commands and parameters.</p>
+</li>
+</ul>
+<h2 id="get-member">Get-Member</h2>
+<p>The Get-Member cmdlet in PowerShell is a powerful and useful tool for understanding and exploring objects and their properties and methods. It's a valuable asset when programming in PowerShell for several reasons:</p>
+<ul>
+<li><code>Object Inspection</code>: Get-Member allows you to inspect the structure and characteristics of objects. This is especially useful when dealing with unfamiliar objects or when you need to understand what properties and methods are available.</li>
+</ul>
+<pre><code class="language-powershell">Get-Process | Get-Member
+</code></pre>
+<ul>
+<li><code>Property Discovery</code>: You can use Get-Member to discover the properties of an object. Knowing an object's properties is essential for accessing and manipulating its data.</li>
+</ul>
+<pre><code class="language-powershell">Get-Process | Get-Member -MemberType Property 
+</code></pre>
+<ul>
+<li><code>Method Exploration</code>: It helps you explore the methods associated with an object. Methods are actions or functions that you can invoke on an object. Get-Member lets you discover what actions are available.</li>
+</ul>
+<pre><code class="language-powershell">Get-Process | Get-Member -MemberType Method
+</code></pre>
+<ul>
+<li><code>Type Identification</code>: You can use Get-Member to determine the data type of an object. Knowing the data type is crucial for performing data type-specific operations.</li>
+</ul>
+<pre><code class="language-powershell">Get-Process | Get-Member |
+    Select-Object -ExpandProperty TypeName -Unique
+</code></pre>
+<ul>
+<li><code>Dot-Notation Exploration</code>: It guides you in using dot notation to access properties and methods of objects. For example, if you want to access a property or invoke a method, you'll often use the dot notation, and Get-Member helps you identify the available options.</li>
+</ul>
+<pre><code class="language-powershell"> (Get-Process smss).Id
+</code></pre>
+<ul>
+<li><p><code>Object Hierarchy</code>: When dealing with complex objects or object hierarchies, Get-Member assists in navigating and understanding the structure. This is particularly useful for objects that contain other objects or collections.</p>
+</li>
+<li><p><code>Debugging and Troubleshooting</code>: Get-Member is an invaluable tool for debugging and troubleshooting. It can help you identify issues related to object properties and methods that might be causing errors or unexpected behavior in your scripts.</p>
+</li>
+<li><p><code>Learning and Exploring APIs</code>: When working with external APIs, web services, or modules, Get-Member helps you explore the available functionality, enabling you to make effective use of those APIs in your scripts.</p>
+</li>
+<li><p><code>Documentation and Self-Discovery</code>: Get-Member can serve as a form of self-documentation. When you're working with objects, you can use Get-Member to quickly understand what's possible without having to consult external documentation.</p>
+</li>
+<li><p><code>Scripting and Automation</code>: It facilitates scripting and automation by allowing you to dynamically discover and interact with the properties and methods of objects, making your scripts more versatile and adaptable to various scenarios.</p>
+</li>
+</ul>
+<h2 id="get-alias">Get-Alias</h2>
+<p><code>Alias Exploration</code>: It allows you to explore and list the aliases defined in your PowerShell session. This is helpful when you want to know what shorthand notations are available for common cmdlets and functions.</p>
+<pre><code class="language-powershell">Get-Alias
+</code></pre>
+<p><code>Quick Command Entry</code>: Aliases provide a convenient way to quickly enter common cmdlets or functions. For example, <code>ls</code> and <code>dir</code> are aliases for <code>Get-ChildItem</code>.</p>
+<pre><code class="language-powershell">Get-Alias ls
+</code></pre>
+<pre><code class="language-output">CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Alias           ls -&gt; Get-ChildItem
+</code></pre>
+<p><code>Reducing Typing</code>: Aliases can significantly reduce the amount of typing needed to execute commands, which can be especially helpful for long or frequently used commands.</p>
+<ul>
+<li>Alias           ps -&gt; Get-Process</li>
+</ul>
+<p><code>Learning and Transitioning</code>: For users who are new to PowerShell or transitioning from other shell environments, Get-Alias can be a valuable resource for quickly identifying the aliases for familiar commands.</p>
+<p><code>Interactive Use</code>: When working interactively in the PowerShell console, you can use aliases for rapid testing and command execution.</p>
+<p><code>Script Readability</code>: While aliases can be useful for command entry, it's often <em>recommended to use full cmdlet names in scripts to improve script readability</em> and maintainability.</p>
+<p><strong>Parameter -definition:</strong></p>
+<p>Gets the aliases for the specified item. Enter the name of a cmdlet, function, script, file, or executable file.</p>
+<pre><code class="language-powershell">Get-alias -Definition Get-Process
+</code></pre>
+<pre><code class="language-output">CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Alias           gps -&gt; Get-Process
+Alias           ps -&gt; Get-Process
+</code></pre>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

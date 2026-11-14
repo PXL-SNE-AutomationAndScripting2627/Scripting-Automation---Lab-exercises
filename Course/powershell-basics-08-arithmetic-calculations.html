@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Arithmetic Calculations — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">08 - Arithmetic calculations</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a class="sidebar-current" href="powershell-basics-08-arithmetic-calculations.html" aria-current="page">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; PowerShell Basics</p>
+            <h1 id="page-title">Arithmetic Calculations</h1>
+            <p class="hero-description">08 - Arithmetic calculations</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/course/ps_basics/04-variables/041-ps-arithmetic">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="learning-objectives">Learning objectives</h2>
+<ul>
+<li>Apply arithmetic operators in PowerShell expressions.</li>
+<li>Predict how numeric and string types affect calculations.</li>
+<li>Read user input and cast it safely.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Understand variables and basic data types.</li>
+</ul>
+<p>Reference: <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_arithmetic_operators?view=powershell-7.1">about_Arithmetic_Operators</a></p>
+<pre><code class="language-powershell">Get-Help about_Arithmetic_Operators
+</code></pre>
+<pre><code class="language-powershell">Write-Host &quot;2 + 3 is $(2 + 3)&quot;
+</code></pre>
+<pre><code class="language-Console">2 + 3 is 5
+</code></pre>
+<pre><code class="language-powershell">$Getal1 = 2
+$Getal2 = 3
+Write-Host &quot;$Getal1 + $Getal2 is $($Getal1 + $Getal2)&quot;
+</code></pre>
+<pre><code class="language-powershell">2 + 3 is 5
+</code></pre>
+<h2 id="math-round">Math round</h2>
+<pre><code class="language-powershell">$a = 111.2226
+
+$resultaat = [math]::Round($a)
+$resultaat
+
+$resultaat = [math]::Round($a,2)
+$resultaat
+
+$resultaat = [math]::Round($a,3)
+$resultaat
+
+$string = &quot;100.5&quot;
+$decimal = [decimal]$string
+$decimal
+
+
+$string + 0.5
+# Outputs 100.10.5
+
+$decimal + 0.5
+# Outputs 101,0
+
+#1005
+$string = &quot;100,5&quot;
+$decimal = [decimal]$string
+$decimal
+
+#100,5
+$string = &quot;100,5&quot;.replace(&quot;,&quot;,&quot;.&quot;)
+$decimal = [decimal]$string
+$decimal
+</code></pre>
+<h2 id="casting">Casting</h2>
+<p><strong>From input to calculation</strong></p>
+<pre class="mermaid">flowchart LR
+    A["Read-Host: text input"] --> B["Validate and convert to a number"]
+    B --> C["Perform numeric arithmetic"]
+    C --> D["Round or format the result when needed"]
+</pre>
+<p>Invalid numeric input must be reported or corrected rather than used as a
+number. Casting changes the type; formatting is for presentation.</p>
+<pre><code class="language-powershell">#Example: you need to read in a number that will be multiplied by 10
+
+$number = Read-Host &quot;Enter a number&quot;
+$number = $number * 10
+$number
+$number.GetType().Name
+</code></pre>
+<pre><code class="language-powershell">#Declare as integer [casting]
+[int]$number = Read-Host &quot;Enter a number&quot;
+$number = $number * 10
+$number
+$number.GetType().Name
+</code></pre>
+<pre><code class="language-powershell">#Declare as a string
+[string]$city = Read-Host &quot;Where do you live?&quot;
+$city = $city * 10
+$city
+$city.GetType().Name
+</code></pre>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Run VsCode as Admin without notification — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">02.1 - VS Code Admin setup</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a class="sidebar-current" href="how-tos-02-1-vs-code-admin-setup.html" aria-current="page">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; How-tos</p>
+            <h1 id="page-title">Run VsCode as Admin without notification</h1>
+            <p class="hero-description">02.1 - VS Code Admin setup</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/course/howtos/021-vscode-admin-setup">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<p>In Windows, launching a program like VSCode with elevated (administrator) rights without triggering the User Account Control (UAC) prompt directly is not supported natively for security reasons. UAC is designed to prevent unauthorized changes by alerting the user when a program tries to gain elevated privileges.</p>
+<p>However, there are ways to configure certain applications or shortcuts to bypass the UAC prompt. Here's how to do it with some workarounds:</p>
+<h2 id="task-scheduler-workaround">Task Scheduler Workaround</h2>
+<p>You can create a scheduled task to run the application with elevated privileges and then create a shortcut to trigger that task, bypassing the UAC prompt.</p>
+<h2 id="steps">Steps</h2>
+<ul>
+<li><p>Open Task Scheduler:</p>
+<ul>
+<li>Press Win + R, type taskschd.msc, and press Enter.</li>
+</ul>
+</li>
+<li><p>Create a New Task:</p>
+<ul>
+<li>In the Task Scheduler, click on Action &gt; Create Task.</li>
+</ul>
+</li>
+<li><p>Configure the Task:</p>
+<ul>
+<li>On the General tab:
+<ul>
+<li>Give the task a name (e.g., &quot;Run VSCode with Admin Rights&quot;).</li>
+<li>Check the box for Run with highest privileges.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Set Up the Trigger (Optional):</p>
+<ul>
+<li>You can skip the Triggers tab, as the task will be triggered manually through a shortcut.</li>
+</ul>
+</li>
+<li><p>Set Up the Conditions :</p>
+<ul>
+<li>Remove any conditions that might prevent the task from running, such as &quot;Start the task only if the computer is on AC power.&quot;!</li>
+</ul>
+<p><img src="images/course__howtos__image.png" alt="alt text" /></p>
+</li>
+<li><p>Set Up the Action:</p>
+<ul>
+<li>On the Actions tab, click New.</li>
+<li>In the Program/script field, browse to the path of the program you want to run (e.g., C:\Program Files\Microsoft VS Code\Code.exe for VSCode).</li>
+</ul>
+</li>
+<li><p>Create the Task:</p>
+<ul>
+<li>Click OK to create the task. You may need to enter your administrator password.</li>
+</ul>
+</li>
+<li><p>Create a Shortcut to the Task:</p>
+<ul>
+<li><p>Right-click on your desktop and select New &gt; Shortcut.</p>
+</li>
+<li><p>In the Type the location of the item field, enter:</p>
+<pre><code class="language-bash">schtasks /run /tn &quot;Run VSCode with Admin Rights&quot;
+</code></pre>
+</li>
+<li><p>(Replace &quot;Run VSCode with Admin Rights&quot; with the name of your task.)</p>
+</li>
+</ul>
+</li>
+<li><p>Finish the Shortcut:</p>
+<ul>
+<li>Click Next, give your shortcut a name, and click Finish.
+Now, when you double-click this shortcut, VSCode will launch with admin rights without triggering the UAC prompt.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> The admin rights will only apply to the VSCode instance launched when no other instance of VSCode is running.
+If you already have a VSCode window open, the new instance will not have admin rights.
+To ensure that the new instance has admin rights, close all existing VSCode windows before launching it through the shortcut.</p>
+</blockquote>
+<p>Open a terminal and run the following command to check if VSCode is running as admin:</p>
+<pre><code class="language-powershell">([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+</code></pre>
+<p>If the output is <code>True</code>, then VSCode is running with administrator privileges. If it returns <code>False</code>, then it is not running as admin.</p>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

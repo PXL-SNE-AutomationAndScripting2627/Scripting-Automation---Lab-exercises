@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Hands-on — Windows information — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">15 - Windows information</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a class="sidebar-current" href="hands-on-15-windows-information.html" aria-current="page">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; Hands-on</p>
+            <h1 id="page-title">Hands-on — Windows information</h1>
+            <p class="hero-description">15 - Windows information</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/hands-on/15-windows-information/01-windows-information">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="goal">Goal</h2>
+<p>Collect a focused Windows hardware and operating-system inventory as reusable PowerShell objects.</p>
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>By the end of this lab, you can:</p>
+<ul>
+<li>compare <code>Get-ComputerInfo</code> with targeted CIM queries;</li>
+<li>discover CIM classes and inspect their members;</li>
+<li>filter processes and fixed disks efficiently;</li>
+<li>calculate readable inventory values; and</li>
+<li>create and verify a reusable inventory script and CSV report.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Complete <a href="hands-on-14-local-user-accounts.html">14 — Local user accounts</a>.</li>
+<li>Complete <a href="powershell-automation-02-windows-information.html">Collecting Windows information</a> before starting this lab.</li>
+<li>Use PowerShell on Windows.</li>
+</ul>
+<h2 id="how-to-work-in-this-lab">How to work in this lab</h2>
+<p>All activities are read-only except writing files to your dedicated lab folder. Keep data structured until the final display or export.</p>
+<hr />
+<h2 id="part-1-prepare-the-workspace">Part 1 — Prepare the workspace</h2>
+<h3 id="activity-1.1-create-the-lab-folder">Activity 1.1 — Create the lab folder</h3>
+<pre><code class="language-powershell">$labRoot = Join-Path 'C:\powershell' 'Windows-Information-Lab'
+New-Item -Path $labRoot -ItemType Directory -Force
+Set-Location -Path $labRoot
+</code></pre>
+<p><strong>Reflect</strong></p>
+<p>Why should report files remain inside one known folder?</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected result and reflection answer:</strong> The dedicated lab folder exists and
+becomes the current location. Keeping reports there makes their location,
+review, and cleanup predictable. If it already exists, compare its contents
+instead of repeating setup unnecessarily.</p>
+</details>
+<hr />
+<h2 id="part-2-compare-information-sources">Part 2 — Compare information sources</h2>
+<h3 id="activity-2.1-use-get-computerinfo">Activity 2.1 — Use <code>Get-ComputerInfo</code></h3>
+<pre><code class="language-powershell">$computerInfo = Get-ComputerInfo
+$computerInfo |
+    Select-Object CsName, WindowsProductName, WindowsVersion,
+        OsArchitecture, CsTotalPhysicalMemory, BiosSerialNumber
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What type of object is returned?</li>
+<li>When is a consolidated object convenient?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong> <code>Get-ComputerInfo</code> returns a
+<code>ComputerInfo</code> object. The selected values depend on the computer. A
+consolidated object is convenient for a quick overview when its properties
+already provide the required information.</p>
+</details>
+<h3 id="activity-2.2-discover-cim-classes">Activity 2.2 — Discover CIM classes</h3>
+<pre><code class="language-powershell">Get-CimClass -ClassName 'Win32_*OperatingSystem*' |
+    Select-Object CimClassName
+
+Get-CimClass -ClassName Win32_OperatingSystem |
+    Select-Object -ExpandProperty CimClassProperties |
+    Select-Object -First 15 Name, CimType
+</code></pre>
+<p><strong>Reflect</strong></p>
+<p>What is the difference between a class definition and an instance?</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answer:</strong> The first query lists matching
+CIM class names; the second displays up to 15 property names and CIM types.
+A class defines a resource type, while an instance represents an actual
+resource of that type.</p>
+</details>
+<hr />
+<h2 id="part-3-query-focused-system-information">Part 3 — Query focused system information</h2>
+<h3 id="activity-3.1-operating-system-and-computer-system">Activity 3.1 — Operating system and computer system</h3>
+<pre><code class="language-powershell">$os = Get-CimInstance -ClassName Win32_OperatingSystem
+$computer = Get-CimInstance -ClassName Win32_ComputerSystem
+
+$os | Select-Object CSName, Caption, Version, OSArchitecture, LastBootUpTime
+$computer | Select-Object Name, Manufacturer, Model, TotalPhysicalMemory
+</code></pre>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results:</strong> The two queries return operating-system and
+computer-system properties, including the OS caption and physical memory.
+Values such as model and boot time vary by computer and execution.</p>
+</details>
+<h3 id="activity-3.2-processor-bios-and-baseboard">Activity 3.2 — Processor, BIOS, and baseboard</h3>
+<pre><code class="language-powershell">$processor = Get-CimInstance -ClassName Win32_Processor | Select-Object -First 1
+$bios = Get-CimInstance -ClassName Win32_BIOS
+$baseboard = Get-CimInstance -ClassName Win32_BaseBoard | Select-Object -First 1
+
+$processor | Select-Object Name, NumberOfCores, NumberOfLogicalProcessors
+$bios | Select-Object Manufacturer, SMBIOSBIOSVersion, SerialNumber
+$baseboard | Select-Object Manufacturer, Product, SerialNumber
+</code></pre>
+<p><strong>Reflect</strong></p>
+<p>Why does the example select only the first processor and baseboard instance?</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answer:</strong> The selected properties describe
+the first processor and baseboard, plus the BIOS. Selecting one instance keeps
+this simple report to one value per component; it can omit additional
+processors or boards. Values vary by computer.</p>
+</details>
+<h3 id="activity-3.3-fixed-disks">Activity 3.3 — Fixed disks</h3>
+<pre><code class="language-powershell">$fixedDisks = Get-CimInstance -ClassName Win32_LogicalDisk -Filter 'DriveType = 3' |
+    Select-Object DeviceID, VolumeName,
+        @{ Name = 'SizeGB'; Expression = { [math]::Round($_.Size / 1GB, 2) } },
+        @{ Name = 'FreeGB'; Expression = { [math]::Round($_.FreeSpace / 1GB, 2) } }
+
+$fixedDisks
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Where is the disk filter executed?</li>
+<li>Why are bytes converted to gigabytes?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong> The CIM provider applies
+<code>DriveType = 3</code> before returning fixed logical disks. The calculated <code>SizeGB</code>
+and <code>FreeGB</code> properties make byte quantities easier to read; the values and
+number of disks vary by computer.</p>
+</details>
+<h3 id="activity-3.4-processes-and-adapters">Activity 3.4 — Processes and adapters</h3>
+<pre><code class="language-powershell">Get-CimInstance -ClassName Win32_Process -Filter &quot;Name LIKE 'P%'&quot; |
+    Select-Object Name, ProcessId, WorkingSetSize
+
+Get-CimInstance -ClassName Win32_NetworkAdapter |
+    Where-Object PhysicalAdapter |
+    Select-Object Name, MACAddress, NetEnabled
+</code></pre>
+<p><strong>Reflect</strong></p>
+<p>Why is <code>Win32_Product</code> not used for software inventory?</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answer:</strong> The first query selects processes
+with names beginning with <code>P</code>; the second selects physical adapters. Results
+vary and may be empty. <code>Win32_Product</code> can be slow and trigger Windows
+Installer consistency checks, so it is unsuitable for routine inventory.</p>
+</details>
+<hr />
+<h2 id="part-4-challenge-build-an-inventory-script">Part 4 — Challenge: build an inventory script</h2>
+<p>Filename: <code>Get-WindowsInventory.ps1</code></p>
+<p>Create <code>Get-WindowsInventory.ps1</code>. It must:</p>
+<ul>
+<li>use <code>[CmdletBinding()]</code>;</li>
+<li>accept optional <code>OutputPath</code>;</li>
+<li>query <code>Win32_OperatingSystem</code>, <code>Win32_ComputerSystem</code>, <code>Win32_Processor</code>, and <code>Win32_BIOS</code>;</li>
+<li>return one <code>PSCustomObject</code> with computer name, manufacturer, model, OS, version, architecture, last boot, processor, memory in GB, serial number, and fixed-disk count;</li>
+<li>round memory to two decimal places;</li>
+<li>export the object when <code>OutputPath</code> is supplied; and</li>
+<li>still write the object to the success-output stream.</li>
+</ul>
+<p>Test:</p>
+<pre><code class="language-powershell">.\Get-WindowsInventory.ps1
+
+$csvPath = Join-Path $labRoot 'computer-inventory.csv'
+.\Get-WindowsInventory.ps1 -OutputPath $csvPath
+Import-Csv -Path $csvPath
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Why should the script output an object even when it exports CSV?</li>
+<li>Which imported CSV properties become strings?</li>
+<li>How would you extend the script for several authorized computers?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Student requirements:</strong> Build <code>Get-WindowsInventory.ps1</code> with the four required CIM classes, one report object, rounded memory, fixed-disk count, optional CSV export, and continued object output.</p>
+<p><strong>Detailed solution:</strong> Use <a href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/hands-on/solutions/15-windows-information/files/Get-WindowsInventory.ps1"><code>Get-WindowsInventory.ps1</code></a>. It queries each class once, builds the object before exporting, validates the output directory, and returns the same object to the caller.</p>
+<pre><code class="language-powershell">.\Get-WindowsInventory.ps1
+$csvPath = Join-Path $labRoot 'computer-inventory.csv'
+.\Get-WindowsInventory.ps1 -OutputPath $csvPath
+Import-Csv -Path $csvPath
+</code></pre>
+<p><strong>Questions and detailed answers</strong></p>
+<ol>
+<li>Object output allows assignment, further pipelines, tests, and formats other than CSV.</li>
+<li>CSV imports fields as strings, including memory, disk count, and the last-boot value.</li>
+<li>Add a validated computer-name parameter or CIM-session input, query each authorized target, catch per-target failures, and add a computer-name/error result for every request.</li>
+</ol>
+<details>
+<summary>Show solution Optimized</summary>
+<p>The existing script above is the step-by-step version. This alternative keeps
+the same properties and uses a provider-side filter for the disk count.
+Save it as <code>Get-WindowsInventory.ps1</code>.</p>
+<pre><code class="language-powershell">[CmdletBinding()]
+param([string]$OutputPath)
+
+if (-not $IsWindows) { throw 'This script requires Windows.' }
+
+$os = Get-CimInstance Win32_OperatingSystem -ErrorAction Stop
+$computer = Get-CimInstance Win32_ComputerSystem -ErrorAction Stop
+$processor = Get-CimInstance Win32_Processor -ErrorAction Stop | Select-Object -First 1
+$bios = Get-CimInstance Win32_BIOS -ErrorAction Stop
+$disks = @(Get-CimInstance Win32_LogicalDisk -Filter 'DriveType = 3' -ErrorAction Stop)
+
+$result = [pscustomobject]@{
+    ComputerName    = $computer.Name
+    Manufacturer    = $computer.Manufacturer
+    Model           = $computer.Model
+    OperatingSystem = $os.Caption
+    Version         = $os.Version
+    Architecture    = $os.OSArchitecture
+    LastBoot        = $os.LastBootUpTime
+    Processor       = $processor.Name
+    MemoryGB        = [math]::Round($computer.TotalPhysicalMemory / 1GB, 2)
+    SerialNumber    = $bios.SerialNumber
+    FixedDiskCount  = $disks.Count
+}
+
+if ($OutputPath) {
+    $parent = Split-Path -Path $OutputPath -Parent
+    if ($parent -and -not (Test-Path -LiteralPath $parent -PathType Container)) {
+        throw &quot;Output directory does not exist: $parent&quot;
+    }
+    $result | Export-Csv -Path $OutputPath -NoTypeInformation -ErrorAction Stop
+}
+$result
+</code></pre>
+<p>Inventory values differ between computers and runs.</p>
+</details>
+</details>
+<h2 id="practice-and-self-check">Practice and self-check</h2>
+<ol>
+<li>Which cmdlet discovers CIM classes?</li>
+<li>Which class reports the Windows operating system?</li>
+<li>What does <code>DriveType = 3</code> select?</li>
+<li>Why use calculated properties for byte values?</li>
+<li>Why should formatting occur after exportable objects are built?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Answers:</strong></p>
+<ol>
+<li><code>Get-CimClass</code>.</li>
+<li><code>Win32_OperatingSystem</code>.</li>
+<li>Fixed logical disks.</li>
+<li>To convert raw bytes into readable values such as gigabytes.</li>
+<li>Objects retain properties for filtering and export; formatting produces
+display-oriented output.</li>
+</ol>
+</details>
+<h2 id="submission-checklist">Submission checklist</h2>
+<ul>
+<li>Submit <code>Get-WindowsInventory.ps1</code> and <code>computer-inventory.csv</code>.</li>
+<li>Demonstrate one direct object result and one imported CSV row.</li>
+<li>Include answers to all reflection questions.</li>
+<li>Confirm that no system settings were changed.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>You compared consolidated and targeted inventory, discovered CIM metadata, filtered data at the provider, converted raw values, and produced a reusable object and CSV report.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/cimcmdlets/get-ciminstance">Get-CimInstance</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/scripting/samples/collecting-information-about-computers">Collecting information about computers</a></li>
+</ul>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

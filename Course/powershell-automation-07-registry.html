@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Automating the Windows registry — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">07 - Registry</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a class="sidebar-current" href="powershell-automation-07-registry.html" aria-current="page">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; PowerShell Automation</p>
+            <h1 id="page-title">Automating the Windows registry</h1>
+            <p class="hero-description">07 - Registry</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/course/ps_automation/07-registry/07-registry">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<p>PowerShell exposes the Windows registry through a provider. Registry keys behave like containers on a PowerShell drive, while registry values are properties of those keys.</p>
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>By the end of this lesson, you can:</p>
+<ul>
+<li>navigate the <code>HKCU:</code> and <code>HKLM:</code> registry drives;</li>
+<li>distinguish registry keys from registry values;</li>
+<li>read, create, update, rename, and remove values in a dedicated practice key;</li>
+<li>preview and verify registry changes; and</li>
+<li>restore or remove lab settings safely.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Complete the PowerShell Basics course, especially files, providers, and exception handling.</li>
+<li>Use PowerShell on Windows.</li>
+<li>Perform modifying examples only under <code>HKCU:\Software\PowerShellCourse\RegistryLab</code>.</li>
+<li>Do not copy examples to policy, security, startup, Windows Update, or system-wide locations.</li>
+</ul>
+<h2 id="understand-the-registry-provider">Understand the Registry provider</h2>
+<pre><code class="language-powershell">Get-PSProvider -PSProvider Registry
+Get-PSDrive -PSProvider Registry
+</code></pre>
+<p>PowerShell normally exposes:</p>
+<ul>
+<li><code>HKCU:</code> for <code>HKEY_CURRENT_USER</code>; and</li>
+<li><code>HKLM:</code> for <code>HKEY_LOCAL_MACHINE</code>.</li>
+</ul>
+<p>The provider makes familiar item cmdlets available. Registry keys are items; entries and their data are item properties.</p>
+<p><strong>Key and value overview</strong></p>
+<pre class="mermaid">flowchart TD
+    A["HKCU: current-user hive"] --> B["Software"]
+    B --> C["PowerShellCourse"]
+    C --> D["RegistryLab: key"]
+    D --> E["CourseMode: named value"]
+    D --> F["RunCount: named value"]
+</pre>
+<p>The diagram distinguishes the lab key from its values. Modify only the
+specified practice key, and preview changes first.</p>
+<table>
+<thead>
+<tr>
+<th>Registry task</th>
+<th>Cmdlet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get or enumerate keys</td>
+<td><code>Get-Item</code>, <code>Get-ChildItem</code></td>
+</tr>
+<tr>
+<td>Create, rename, or remove a key</td>
+<td><code>New-Item</code>, <code>Rename-Item</code>, <code>Remove-Item</code></td>
+</tr>
+<tr>
+<td>Read values</td>
+<td><code>Get-ItemProperty</code>, <code>Get-ItemPropertyValue</code></td>
+</tr>
+<tr>
+<td>Create a value</td>
+<td><code>New-ItemProperty</code></td>
+</tr>
+<tr>
+<td>Change a value</td>
+<td><code>Set-ItemProperty</code></td>
+</tr>
+<tr>
+<td>Rename or remove a value</td>
+<td><code>Rename-ItemProperty</code>, <code>Remove-ItemProperty</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="navigate-without-losing-your-location">Navigate without losing your location</h2>
+<p>You can use a full provider path from any current location.</p>
+<pre><code class="language-powershell">Get-Item -Path 'HKCU:\Software'
+Get-ChildItem -Path 'HKCU:\Software' |
+    Select-Object -First 10 PSChildName, Name
+
+Get-Item -Path 'Registry::HKEY_CURRENT_USER\Software'
+</code></pre>
+<p>If you temporarily use <code>Set-Location</code>, save and restore the previous location.</p>
+<pre><code class="language-powershell">Push-Location 'HKCU:\Software'
+Get-Location
+Pop-Location
+</code></pre>
+<h2 id="create-a-dedicated-practice-key">Create a dedicated practice key</h2>
+<pre><code class="language-powershell">$labKey = 'HKCU:\Software\PowerShellCourse\RegistryLab'
+
+New-Item -Path $labKey -Force -WhatIf
+Test-Path -Path $labKey
+</code></pre>
+<p>Preview the operation, then run it without <code>-WhatIf</code> only for this exact path. <code>-Force</code> creates missing parent keys and returns the existing key when it already exists.</p>
+<h2 id="create-and-read-registry-values">Create and read registry values</h2>
+<p>Registry values have a name, a type, and data.</p>
+<pre><code class="language-powershell">New-ItemProperty `
+    -Path $labKey `
+    -Name 'CourseMode' `
+    -PropertyType String `
+    -Value 'Practice' `
+    -WhatIf
+
+New-ItemProperty `
+    -Path $labKey `
+    -Name 'AttemptCount' `
+    -PropertyType DWord `
+    -Value 1 `
+    -WhatIf
+</code></pre>
+<p>After performing the approved operations, read the values:</p>
+<pre><code class="language-powershell">Get-ItemProperty -Path $labKey |
+    Select-Object CourseMode, AttemptCount
+
+Get-ItemPropertyValue -Path $labKey -Name 'CourseMode'
+</code></pre>
+<p>Common value types include <code>String</code>, <code>ExpandString</code>, <code>MultiString</code>, <code>Binary</code>, <code>DWord</code>, and <code>QWord</code>. Choose the type expected by the consuming application.</p>
+<h2 id="update-and-rename-values">Update and rename values</h2>
+<pre><code class="language-powershell">Set-ItemProperty -Path $labKey -Name 'CourseMode' -Value 'Assessment' -WhatIf
+Rename-ItemProperty -Path $labKey -Name 'AttemptCount' -NewName 'RunCount' -WhatIf
+</code></pre>
+<p>Query the value before and after a real change. Registry commands can succeed syntactically while the application still rejects an unsupported value.</p>
+<h2 id="find-keys-and-values-carefully">Find keys and values carefully</h2>
+<p>Recursive registry searches can be slow and may encounter access errors. Start from the narrowest known path.</p>
+<pre><code class="language-powershell">Get-ChildItem -Path 'HKCU:\Software\PowerShellCourse' -Recurse |
+    Where-Object PSChildName -Like '*Registry*' |
+    Select-Object Name
+
+$properties = Get-ItemProperty -Path $labKey
+$properties.PSObject.Properties |
+    Where-Object Name -NotLike 'PS*' |
+    Select-Object Name, Value
+</code></pre>
+<h2 id="remove-only-the-lab-artifacts">Remove only the lab artifacts</h2>
+<pre><code class="language-powershell">Remove-ItemProperty -Path $labKey -Name 'CourseMode' -WhatIf
+Remove-Item -Path $labKey -Recurse -WhatIf
+</code></pre>
+<p>Before removal, compare the resolved path to the exact lab key. Do not use a wildcard or a variable that has not been validated. After cleanup, <code>Test-Path $labKey</code> should return <code>False</code>.</p>
+<h2 id="build-reversible-registry-automation">Build reversible registry automation</h2>
+<p>A responsible registry script:</p>
+<ol>
+<li>validates that it is running on Windows;</li>
+<li>restricts its path to an approved root;</li>
+<li>captures the previous value and type;</li>
+<li>supports <code>-WhatIf</code> and confirmation;</li>
+<li>verifies the new state; and</li>
+<li>provides a restore or cleanup action.</li>
+</ol>
+<h2 id="practice-and-self-check">Practice and self-check</h2>
+<ol>
+<li>Which registry hives do <code>HKCU:</code> and <code>HKLM:</code> represent?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p><code>HKCU:</code> represents <code>HKEY_CURRENT_USER</code>; <code>HKLM:</code> represents
+<code>HKEY_LOCAL_MACHINE</code>.</p>
+</details>
+<ol start="2">
+<li>Why are registry values managed with <code>ItemProperty</code> cmdlets?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>The Registry provider represents keys as items and the named values inside
+them as item properties. Use commands such as <code>Get-ItemProperty</code> and
+<code>Set-ItemProperty</code> to work with those values.</p>
+</details>
+<ol start="3">
+<li>What is the difference between <code>String</code> and <code>DWord</code> value types?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p><code>String</code> stores text; <code>DWord</code> stores a 32-bit integer. Use the type expected
+by the application that reads the value.</p>
+</details>
+<ol start="4">
+<li>Why should a recursive search start from a narrow path?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>A narrow starting path reduces the number of keys searched and the chance of
+encountering unrelated data or access errors. It also makes results easier
+to review.</p>
+</details>
+<ol start="5">
+<li>What should be recorded before changing an existing value?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>Record the exact key and value name, the previous data, and its registry type
+so the original setting can be restored.</p>
+</details>
+<ol start="6">
+<li>Which checks make registry automation reversible?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>Confirm Windows and the approved path, record whether the value existed and
+its previous data and type, preview the change, and verify the result. Provide
+a restore action for an existing value or a scoped cleanup action for a
+new lab value, then verify the restored state.</p>
+</details>
+<p>Apply the lesson in <a href="hands-on-20-registry.html">Hands-on 20 — Registry</a>.</p>
+<h2 id="summary">Summary</h2>
+<p>The Registry provider maps keys to items and values to item properties. Work only in an approved path, choose the correct value type, preview supported changes, verify results, and keep a clear rollback or cleanup action.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_registry_provider">About the Registry provider</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/scripting/samples/working-with-registry-keys">Working with registry keys</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/scripting/samples/working-with-registry-entries">Working with registry entries</a></li>
+</ul>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

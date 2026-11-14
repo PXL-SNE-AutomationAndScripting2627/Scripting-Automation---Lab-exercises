@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Selecting and Filtering Data in PowerShell — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">03 - Piping, filtering, sorting, grouping, and measuring</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a class="sidebar-current" href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html" aria-current="page">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; PowerShell Basics</p>
+            <h1 id="page-title">Selecting and Filtering Data in PowerShell</h1>
+            <p class="hero-description">03 - Piping, filtering, sorting, grouping, and measuring</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/course/ps_basics/02-pipe_filters_sorting_group_measure/02-ps-piping_filters_sorting_measure">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="learning-objectives">Learning objectives</h2>
+<ul>
+<li>Filter objects with <code>Where-Object</code> and comparison operators.</li>
+<li>Select, sort, group, and measure pipeline output.</li>
+<li>Choose object operations before formatting output.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Understand PowerShell objects and the pipeline.</li>
+</ul>
+<h2 id="topics">Topics</h2>
+<ul>
+<li>Tab completion</li>
+<li>Pipeline and Piping</li>
+<li>Select-Object</li>
+<li>Comparison Operators</li>
+<li>Matching Operators</li>
+<li>Replacement Operators</li>
+<li>Containment Operators</li>
+<li>Type Operators</li>
+<li>Logical Operators</li>
+<li>Where-Object</li>
+<li>Where(scriptblock expression)</li>
+<li>Sort-Object</li>
+<li>Group-Object</li>
+<li>Measure-Object</li>
+<li>Measure-Command</li>
+</ul>
+<h2 id="tab-completion">Tab completion</h2>
+<p>The tab completion feature in PowerShell allows you to quickly and easily complete commands, cmdlets, parameters, and other elements by pressing the Tab key. This feature can save you time and reduce typing errors when working in the PowerShell environment. Here's how tab completion works in PowerShell:</p>
+<ul>
+<li><p><code>Cmdlet Completion</code>: When you type the first few letters of a cmdlet or command and press Tab, PowerShell will attempt to complete the command for you. If there are multiple possible completions, you can press Tab again to cycle through the options.</p>
+</li>
+<li><p><code>Parameter Completion</code>: When you type a cmdlet or command followed by a hyphen (-) and press Tab, PowerShell will display a list of available parameters for that cmdlet. You can then continue typing the parameter name and press Tab to complete it.</p>
+</li>
+<li><p><code>Path Completion</code>: When you type a path (e.g., a file or directory path) and press Tab, PowerShell will attempt to complete the path for you. If there are multiple possible completions, you can press Tab again to cycle through the options.</p>
+</li>
+</ul>
+<p>Pressing <code>&lt;ctrl&gt; + &lt;space&gt;</code> will show you the available options.</p>
+<h2 id="pipeline-and-piping">Pipeline and Piping</h2>
+<p>PowerShell piping is a powerful <code>feature that allows you to pass the output of one command (or cmdlet) as input to another command.</code> This feature makes it easier to chain together multiple commands to perform complex tasks, manipulate data, and streamline your workflow in the PowerShell environment.</p>
+<p>In PowerShell, the pipe symbol | is used to connect commands in a pipeline. Here's how it works:</p>
+<ul>
+<li><code>Command Execution</code>: You start by running a PowerShell command or cmdlet. PowerShell cmdlets typically emit objects; external commands often emit text.</li>
+<li><code>Pipe (|) Operator</code>: To pass the output of the first command to a second command, you use the pipe operator (|). For example:</li>
+<li><code>Data Flow</code>: The output of the first command is &quot;piped&quot; into the second command. The second command processes this data, and you can continue chaining additional commands together, creating a sequence of operations.</li>
+<li><code>Output</code>: The final output of the last command in the pipeline is displayed or can be stored in a variable for further use</li>
+</ul>
+<pre><code class="language-powershell">Get-Service | Where-Object Status -eq &quot;Stopped&quot; | Select-Object DisplayName, StartType, Status
+</code></pre>
+<p><strong>Follow the objects through this pipeline</strong></p>
+<pre class="mermaid">flowchart LR
+    A["Get-Service: service objects"] --> B["Where-Object: keep stopped services"]
+    B --> C["Select-Object: choose three properties"]
+    C --> D["Display or use the resulting objects"]
+</pre>
+<p>Filtering decides which objects continue; selecting decides which properties
+appear in the resulting objects.</p>
+<p>A Pipe can break commands up among several lines</p>
+<pre><code class="language-powershell"># (note pipe must be last char on line)
+Get-Service |
+   Where-Object Status -eq &quot;Stopped&quot; |
+   Select-Object DisplayName, StartType, Status
+</code></pre>
+<p>A backtick can be used for line continuation</p>
+<pre><code class="language-powershell">Get-ChildItem -Path C:\ `
+    -File -Filter &quot;*.ini&quot;
+</code></pre>
+<h2 id="select-object">Select-Object</h2>
+<p>Is a versatile cmdlet in PowerShell <code>used for selecting and shaping</code> the properties of objects in the output of other cmdlets or commands. It allows you to choose which properties of an object you want to display, rename properties, calculate new properties, and more. This cmdlet is particularly useful when you want to focus on specific data within the output of a command and select properties for display.</p>
+<pre><code class="language-powershell">Get-Help Select-Object -online
+</code></pre>
+<pre><code class="language-powershell">Get-Command Select-Object -Syntax
+</code></pre>
+<pre><code class="language-output">Select-Object [[-Property] &lt;Object[]&gt;] [-InputObject &lt;psobject&gt;] [-ExcludeProperty &lt;string[]&gt;] [-ExpandProperty &lt;string&gt;] [-Unique] [-CaseInsensitive] [-Last &lt;int&gt;] [-First &lt;int&gt;] [-Skip &lt;int&gt;] [-Wait] [&lt;CommonParameters&gt;]
+
+Select-Object [[-Property] &lt;Object[]&gt;] [-InputObject &lt;psobject&gt;] [-ExcludeProperty &lt;string[]&gt;] [-ExpandProperty &lt;string&gt;] [-Unique] [-CaseInsensitive] [-SkipLast &lt;int&gt;] [&lt;CommonParameters&gt;]
+
+Select-Object [-InputObject &lt;psobject&gt;] [-Unique] [-CaseInsensitive] [-Wait] [-Index &lt;int[]&gt;] [&lt;CommonParameters&gt;]
+
+Select-Object [-InputObject &lt;psobject&gt;] [-Unique] [-CaseInsensitive] [-SkipIndex &lt;int[]&gt;] [&lt;CommonParameters&gt;]
+</code></pre>
+<p><strong>What are common parameters?</strong></p>
+<details>
+<summary>Show solution</summary>
+<p>Common parameters are parameters that you can use with any cmdlet or advanced function in PowerShell. These parameters provide additional functionality and control over the behavior of the cmdlet or function. Some common parameters include <code>-Verbose</code>, <code>-Debug</code>, <code>-ErrorAction</code>, <code>-WarningAction</code>, <code>-InformationAction</code>, <code>-ErrorVariable</code>, <code>-WarningVariable</code>, <code>-InformationVariable</code>, <code>-OutVariable</code>, <code>-OutBuffer</code>, and <code>-PipelineVariable</code>.</p>
+</details>
+<p><strong>Selecting specific properties of an object:</strong></p>
+<ul>
+<li>Property parameter</li>
+</ul>
+<pre><code class="language-powershell">Get-Process | Select-Object -Property ProcessName, Id, WS
+Get-Process | Select-Object ProcessName, Id, WS
+</code></pre>
+<p>Explain the following command:</p>
+<pre><code class="language-powershell">Get-Process | Select-Object -p name
+</code></pre>
+<details>
+<summary>Show solution</summary>
+<p><code>Get-Process</code> supplies process objects. <code>Select-Object -p name</code> selects
+their <code>Name</code> property and returns objects containing that property.</p>
+<p><code>-p</code> is a parameter-name abbreviation for <code>-Property</code> here, rather than a
+declared alias. Prefer <code>-Property</code> in saved scripts so the meaning is clear.
+The names and number of returned processes depend on the running system.</p>
+</details>
+<p><strong>Expanding properties:</strong></p>
+<ul>
+<li>ExpandProperty parameter</li>
+</ul>
+<p>ExpandProperty is used with the Select-Object cmdlet in PowerShell to extract and display properties of objects directly. This is particularly useful when you want to access nested properties or need to flatten the output to show just the values of a specific property rather than the property name and value pairs</p>
+<pre><code class="language-powershell">Get-Process svchost | Select-Object -ExpandProperty ProcessName -Unique
+</code></pre>
+<pre><code class="language-output">svchost
+</code></pre>
+<p>The expanded property is the value of the property, not the property name and value pair. The output is a string object, not a process object.</p>
+<p><strong>Limiting the Number of Results:</strong></p>
+<ul>
+<li>Parameter -First</li>
+</ul>
+<pre><code class="language-powershell">Get-Process | Select-Object -First 10
+Get-Process | Select-Object id, ProcessName, WS -first 5
+</code></pre>
+<ul>
+<li>Parameter -Last</li>
+</ul>
+<pre><code class="language-powershell">Get-Process | Select-Object -last 5
+</code></pre>
+<ul>
+<li>Parameter -skip</li>
+</ul>
+<pre><code class="language-powershell">Get-Process | Select-Object -skip 5
+</code></pre>
+<ul>
+<li>Parameter -Index</li>
+</ul>
+<pre><code class="language-powershell">Get-Help Select-Object -Parameter index
+</code></pre>
+<pre><code class="language-output">-Index &lt;System.Int32[]&gt;
+    Selects objects from an array based on their index values. Enter the indexes in a comma-separated list. Indexes in an array begin with 0, where 0
+    represents the first value and (n-1) represents the last value.
+
+    Required?                    false
+    Position?                    named
+    Default value                None
+    Accept pipeline input?       False
+    Accept wildcard characters?  false
+</code></pre>
+<pre><code class="language-powershell">Get-Process | Select-Object -Index 0 |  Select-Object id, Name
+</code></pre>
+<p>Why is the following command not working?</p>
+<pre><code class="language-powershell">Get-Process -ProcessName svchost | Select-Object -Property Name -Index 0
+</code></pre>
+<details>
+<summary>Show solution</summary>
+<p><code>-Index</code> and <code>-Property</code> belong to different <code>Select-Object</code> parameter
+sets, so this combination cannot bind. Separate the operations:</p>
+<pre><code class="language-powershell">Get-Process -Name svchost |
+    Select-Object -Index 0 |
+    Select-Object -Property Name
+Get-Command Select-Object -Syntax
+</code></pre>
+<p>The first selection keeps the first process object; the next selects its
+<code>Name</code> property. The syntax lists <code>-Index</code> in a set without <code>-Property</code>.
+The selected process depends on the current process listing.</p>
+</details>
+<ul>
+<li>Parameter -unique</li>
+</ul>
+<pre><code class="language-powershell">Get-Process -ProcessName svchost | Select-Object name -unique
+</code></pre>
+<p>How do you display the unique process names without the column name?</p>
+<details>
+<summary>Show solution</summary>
+<pre><code class="language-powershell">(Get-Process -ProcessName svchost | Select-Object name -unique).Name
+</code></pre>
+<p>or</p>
+<pre><code class="language-powershell">Get-Process -ProcessName svchost | Select-Object -ExpandProperty name -unique
+</code></pre>
+<pre><code class="language-output">svchost
+</code></pre>
+<p>Dot notation retrieves the selected <code>Name</code> values. <code>-ExpandProperty</code>
+returns those values directly as strings. Both approaches display <code>svchost</code>
+when that process name exists, without a selected-object column heading.</p>
+</details>
+<p>How do you count the number of unique process names?</p>
+<details>
+<summary>Show solution</summary>
+<pre><code class="language-powershell">Get-Process |
+    Select-Object -Property Name -Unique |
+    Measure-Object |
+    Select-Object -Property Count
+</code></pre>
+<p>Select unique names before counting. The result is one object whose <code>Count</code>
+is the number of distinct names at query time, not the number of all process
+instances. A Unix-style <code>wc -l</code> is not supplied by PowerShell and, when
+installed separately, counts text lines rather than process objects.</p>
+</details>
+<p><strong>Calculating and renaming Properties:</strong></p>
+<p>In PowerShell, you can calculate the value of a data unit like MB, GB, TB, etc., to display the size of a file or process in a more readable format. You can do this by dividing the value by the appropriate unit (e.g., 1MB, 1GB, 1TB) and renaming the property to reflect the new unit. Here's an example of how to calculate and rename properties.</p>
+<pre><code class="language-powershell">1MB # 1,048,576 bytes  
+1GB # 1,073,741,824 bytes
+1TB # 1,099,511,627,776 bytes
+</code></pre>
+<p>The automatic variable <code>$PSItem</code> (or its alias <code>$_</code>) contains the current object in the pipeline.</p>
+<p><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_psitem?view=powershell-7.2">Get-Help about_PSItem</a></p>
+<pre><code class="language-powershell">Get-Process | Select-Object -first 5 ProcessName,@{Label='WS(MB)';Expression={$_.WS/1MB}}
+Get-Process | Select-Object -first 5 ProcessName,@{Label='WS(MB)';Expression={$PSItem.WS/1MB}}
+Get-Process | Select-Object -first 5 ProcessName,@{Name='WS(MB)';Expression={$_.WS/1MB}}
+Get-Process | Select-Object -first 5 ProcessName,@{N='WS(MB)';E={$_.WS/1MB}}
+</code></pre>
+<p><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-process?view=powershell-7.4&amp;viewFallbackFrom=powershell-7.3&amp;WT.mc_id=ps-gethelp">Get-Help Get-Process -Online</a></p>
+<p>Interpreting the WS (workspace) Value</p>
+<ul>
+<li>Unit: The WS value is shown in bytes.</li>
+<li>Meaning: It represents the number of bytes of physical memory currently allocated to the process.</li>
+</ul>
+<p><strong>Custom Formatting:</strong></p>
+<p>Customize the display format of properties.</p>
+<pre><code class="language-powershell">Get-ChildItem C:\Windows -File | Select-Object Name, @{Name=&quot;Size (MB)&quot;; Expression={&quot;{0:N1}&quot; -f ($_.Length / 1MB)}}
+</code></pre>
+<p>This calculated property is a culture-dependent string because <code>-f</code> returns a string; sort by the original numeric <code>Length</code> before formatting if numeric order matters.</p>
+<h2 id="comparison-operators">Comparison Operators</h2>
+<pre><code class="language-powershell">Get-Help about_Comparison_Operators
+</code></pre>
+<ul>
+<li><p>Equality</p>
+<ul>
+<li>-eq, -ieq, -ceq - equals</li>
+<li>-ne, -ine, -cne - not equals</li>
+<li>-gt, -igt, -cgt - greater than</li>
+<li>-ge, -ige, -cge - greater than or equal</li>
+<li>-lt, -ilt, -clt - less than</li>
+<li>-le, -ile, -cle - less than or equal</li>
+</ul>
+</li>
+<li><p>Matching</p>
+<ul>
+<li>-like, -ilike, -clike - string matches wildcard pattern</li>
+<li>-notlike, -inotlike, -cnotlike - string doesn't match wildcard pattern</li>
+<li>-match, -imatch, -cmatch - string matches regex pattern</li>
+<li>-notmatch, -inotmatch, -cnotmatch - string doesn't match regex pattern</li>
+</ul>
+</li>
+<li><p>Replacement</p>
+<ul>
+<li>-replace, -ireplace, -creplace - replaces strings matching a regex pattern</li>
+</ul>
+</li>
+<li><p>Containment</p>
+<ul>
+<li>-contains, -icontains, -ccontains - collection contains a value</li>
+<li>-notcontains, -inotcontains, -cnotcontains - collection doesn't contain a value</li>
+<li>-in - value is in a collection</li>
+<li>-notin - value isn't in a collection</li>
+</ul>
+</li>
+<li><p>Type</p>
+<ul>
+<li>-is - checks whether an object is of a specified type</li>
+<li>-isnot - checks whether an object is not of a specified type</li>
+</ul>
+</li>
+</ul>
+<h3 id="equality-operators">Equality Operators</h3>
+<p>In PowerShell, there are different comparison operators used to check for equality.</p>
+<ul>
+<li>-eq, -ieq, -ceq - equals</li>
+<li>-ne, -ine, -cne - not equals</li>
+<li>-gt, -igt, -cgt - greater than</li>
+<li>-ge, -ige, -cge - greater than or equal</li>
+<li>-lt, -ilt, -clt - less than</li>
+<li>-le, -ile, -cle - less than or equal</li>
+</ul>
+<p><strong>Equals</strong> (-eq, -ieq, -ceq)</p>
+<p>The basic operator is -eq (equals), but there are variations like -ieq and -ceq. Here's an explanation of each:</p>
+<ol>
+<li><p>-eq (equals)</p>
+<ul>
+<li>Checks if two values are equal.</li>
+<li>It is case-insensitive, meaning it does not distinguish between uppercase and lowercase letters.</li>
+</ul>
+<pre><code class="language-powershell">&quot;hello&quot; -eq &quot;HELLO&quot;   # This returns True
+</code></pre>
+</li>
+<li><p>-ieq (case-insensitive equals)</p>
+<ul>
+<li>Similar to -eq, but it is case-insensitive.</li>
+<li>It does not distinguish between uppercase and lowercase letters.</li>
+</ul>
+<pre><code class="language-powershell">&quot;hello&quot; -ieq &quot;HELLO&quot;   # This returns True
+</code></pre>
+</li>
+<li><p>-ceq (case-sensitive equals)</p>
+<ul>
+<li><p>Similar to -eq, but it is case-sensitive.</p>
+</li>
+<li><p>It distinguishes between uppercase and lowercase letters.</p>
+<pre><code class="language-powershell">&quot;hello&quot; -ceq &quot;HELLO&quot;   # This returns False
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<p>Some other examples:</p>
+<pre><code class="language-powershell">[DateTime]'2001-11-18' -lt [DateTime]'2020-08-01' # True
+</code></pre>
+<p>Numeric comparison:</p>
+<pre><code class="language-powershell">1 -eq 1 # True
+1 -eq 2 # False
+1 -ne 2 # True
+1 -gt 0 # True
+5 -gt 7 # False 
+1 -ge 1 # True
+1 -lt 2 # True
+5 -lt 3 # False
+1 -le 1 # True
+</code></pre>
+<p><strong>Summary:</strong></p>
+<p>-eq and -ieq are both case-insensitive and behave the same way.
+-ceq is case-sensitive and will only return True if the values are exactly the same, including uppercase and lowercase letters.</p>
+<h3 id="matching-operators">Matching Operators</h3>
+<p>In PowerShell, you can use matching operators to compare strings using wildcard patterns or regular expressions. Here are some common matching operators:</p>
+<ul>
+<li>-like, -ilike, -clike - string matches wildcard pattern</li>
+<li>-notlike, -inotlike, -cnotlike - string doesn't match wildcard pattern</li>
+<li>-match, -imatch, -cmatch - string matches regex pattern</li>
+<li>-notmatch, -inotmatch, -cnotmatch - string doesn't match regex pattern</li>
+</ul>
+<p><strong>For wildcards, use -like:</strong></p>
+<ul>
+<li><code>*</code> (asterisk) - Represents zero or more characters.</li>
+<li><code>?</code> (Question mark) - Represents exactly one single character.</li>
+<li><code>[ ]</code> (square brackets) - Define a character set; a hyphen inside them specifies a range.</li>
+</ul>
+<p><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_wildcards?view=powershell-7.4">Get-Help about_Wildcards</a></p>
+<pre><code class="language-powershell">&quot;PowerShell&quot; -like &quot;power*&quot;   # True (matches &quot;Power&quot; followed by any number of characters)
+&quot;PowerShell&quot; -like &quot;*shell&quot;   # True (matches any characters followed by &quot;shell&quot;)
+&quot;PowerShell&quot; -like &quot;*wer*&quot;    # True (matches any characters with &quot;wer&quot; in the middle)
+</code></pre>
+<pre><code class="language-powershell">&quot;PowerShell&quot; -like &quot;p?werShell&quot;   # True (matches &quot;PowerShell&quot; because the second character is any single character)
+&quot;PowerShell&quot; -like &quot;p??werShell&quot;  # False (does not match &quot;PowerShell&quot; because the second character is not exactly two characters)
+&quot;PowerShell&quot; -like &quot;power?????&quot;   # True (matches exactly 10 characters)
+</code></pre>
+<pre><code class="language-powershell">&quot;PowerShell&quot; -like &quot;p[oa]wershell&quot;  # True (matches &quot;P&quot; followed by either &quot;o&quot; or &quot;a&quot;; does match &quot;PowerShell&quot;)
+&quot;PowerShell&quot; -like &quot;power[ab]shell&quot; # False (matches &quot;PowerAShell&quot; or &quot;PowerBShell&quot;)
+&quot;PowerShell&quot; -like &quot;power[a-s]hell&quot; # True (matches &quot;PowerShell&quot; because the second character is in the range &quot;a&quot; to &quot;s&quot;)
+&quot;PowerShell&quot; -like &quot;power[a-r]hell&quot; # False (does not match &quot;PowerShell&quot; because the second character is not in the range &quot;a&quot; to &quot;r&quot;)
+</code></pre>
+<p><strong>For regex, use -match:</strong></p>
+<ul>
+<li><code>.</code> (Dot) - Matches any single character except a newline.</li>
+<li><code>\d</code> - Matches any digit character.</li>
+<li><code>\w</code> - Matches any word character (alphanumeric and underscore).</li>
+<li><code>\s</code> - Matches any whitespace character.</li>
+<li><code>^</code> (Caret) - Matches the start of a string.</li>
+<li><code>$</code> (Dollar) - Matches the end of a string.</li>
+<li><code>|</code> (Pipe) - Matches either the expression before or after the pipe.</li>
+<li><code>[ ]</code> (Square brackets) - Matches any one of the characters inside the brackets.</li>
+<li><code>[-]</code> (Hyphen inside square brackets) - Represents a range of characters.</li>
+<li><code>[^ ]</code> (Caret inside square brackets) - Matches any character not inside the brackets.</li>
+<li><code>{}</code> (Curly braces) - Matches a specific number of occurrences of the preceding character or group.
+<ul>
+<li><code>*</code> - Zero or more occurrences.</li>
+<li><code>?</code> - Zero or one occurrence.</li>
+<li><code>+</code> - One or more occurrences.</li>
+<li><code>{n}</code> - Exactly n occurrences.</li>
+<li><code>{n,}</code> - n or more occurrences.</li>
+<li><code>{n,m}</code> - Between n and m occurrences.</li>
+</ul>
+</li>
+<li><code>\\</code> (Backslash) - Escapes a metacharacter, allowing you to match the character itself.</li>
+<li><code>\b</code> (Word boundary) - Matches a word boundary position.</li>
+</ul>
+<p><code>Metacharacters</code>: matches a character</p>
+<ul>
+<li><code>.(dot)</code>: ANY ONE character except newline. Same as [^\n]</li>
+<li><code>\d \D</code>: ANY ONE digit/non-digit character. Digits are [0-9]</li>
+<li><code>\w, \W</code>: ANY ONE word/non-word character. For ASCII, word characters are [a-zA-Z0-9_]</li>
+<li><code>\s, \S</code>: ANY ONE space/non-space character. For ASCII, whitespace characters are [ \n\r\t\f]</li>
+</ul>
+<p><code>$Matches</code> is an automatic hashtable populated by a successful <code>-match</code> operation when the left operand is a single string.
+It contains the full match and any captured groups; a failed match does not update it.</p>
+<p><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_regular_expressions?view=powershell-7.4">about_Regular_Expressions</a></p>
+<pre><code class="language-powershell">&quot;PowerShell&quot; -match &quot;Power&quot;         # True (matches &quot;Power&quot; anywhere in the string)
+&quot;PowerShell&quot; -match &quot;^Power&quot;        # True (matches &quot;Power&quot; at the start of the string)
+&quot;Super PowerShell&quot; -match &quot;^Power&quot;  # False (does not match &quot;Power&quot; at the start of the string)
+&quot;PowerShell&quot; -match &quot;Shell$&quot;        # True (matches &quot;Shell&quot; at the end of the string)
+&quot;PowerShell&quot; -match &quot;PowerShell&quot;    # True (matches the entire string)
+</code></pre>
+<pre><code class="language-powershell">&quot;PowerShell&quot; -match &quot;P.wer&quot;     # True (matches &quot;P&quot; followed by any single character followed by &quot;wer&quot;)
+&quot;PowerShell&quot; -match &quot;P.*wer&quot;    # True (matches &quot;P&quot; followed by any number of characters followed by &quot;wer&quot;)
+&quot;PowerShell&quot; -match &quot;P\w+wer&quot;   # True (matches &quot;P&quot; followed by one or more word characters followed by &quot;wer&quot;)
+&quot;PowerShell&quot; -match &quot;P\w{3}wer&quot; # True (matches &quot;P&quot; followed by exactly three word characters followed by &quot;wer&quot;)
+</code></pre>
+<pre><code class="language-powershell">&quot;PowerShell&quot; -match &quot;P[oa]werShell&quot;  # True (matches &quot;P&quot; followed by either &quot;o&quot; or &quot;a&quot;; does match &quot;PowerShell&quot;)
+&quot;PowerShell&quot; -match &quot;Power[ab]Shell&quot; # False (matches &quot;PowerAShell&quot; or &quot;PowerBShell&quot;)
+&quot;PowerShell&quot; -match &quot;Power[a-s]hell&quot; # True (matches &quot;PowerShell&quot; because the second character is in the range &quot;a&quot; to &quot;s&quot;)
+&quot;PowerShell&quot; -match &quot;Power[a-r]hell&quot; # False (does not match &quot;PowerShell&quot; because the second character is not in the range &quot;a&quot; to &quot;r&quot;)
+</code></pre>
+<pre><code class="language-powershell"># This expression returns true if it matches a server name.
+# (Server-01 - Server-99).
+'Server-01' -match 'Server-\d\d'  # True (matches &quot;Server-&quot; followed by two digits)
+'Server-01' -match 'Server-\d{2}' # True (matches &quot;Server-&quot; followed by exactly two digits)
+$matches
+</code></pre>
+<pre><code class="language-powershell">'ACCOUNT NAME:    Administrator' -match 'ACCOUNT NAME:\s*\w*' # True (matches &quot;ACCOUNT NAME:&quot; followed by zero or more whitespace characters followed by zero or more word characters)
+'DC-01' -match '[A-Z]+-\d\d'  # True (matches one or more uppercase letters followed by a hyphen and two digits)
+'-01' -match '[A-Z]+-\d\d'    # False (does not match because there are no uppercase letters)
+'SERVER-01' -match '[A-Z]+-?\d\d' # True (matches one or more uppercase letters followed by an optional hyphen and two digits)
+'SERVER01' -match '[A-Z]+-?\d\d' # True (matches one or more uppercase letters followed by an optional hyphen and two digits)
+</code></pre>
+<pre><code class="language-powershell">'111-222-3333' -match '\d{3}-\d{3}-\d{4}' # True (matches exactly three digits followed by a hyphen, repeated three times)
+'3.141' -match '3\.\d{2,}'                # True (matches &quot;3.&quot; followed by two or more digits)
+'3,141' -match '3\.\d{2,}'                # False (does not match because the decimal point is a comma)
+</code></pre>
+<pre><code class="language-powershell"># not case sensitive
+Get-Process | Where-Object ProcessName -like &quot;svch*&quot;
+
+# case sensitive
+Get-Process | Where-Object ProcessName -cmatch &quot;^S[v]&quot;
+</code></pre>
+<h3 id="replacement-operators">Replacement Operators</h3>
+<p>In PowerShell, the -replace operator is used to replace strings that match a specified pattern with a new string. This operator is particularly useful for modifying text or data based on a regular expression pattern. Here's an explanation of the -replace operator and how to use it:</p>
+<pre><code class="language-powershell">
+# Replace all occurrences of &quot;a&quot; with &quot;b&quot; in a string (case-insensitive)
+&quot;apple&quot; -replace &quot;a&quot;, &quot;b&quot;  # Output: bpple
+
+# Replace all occurrences of &quot;a&quot; with &quot;b&quot; in a string (case-sensitive)
+&quot;Apple&quot; -creplace &quot;a&quot;, &quot;b&quot;  # Output: Apple
+</code></pre>
+<h3 id="containment-operators">Containment Operators</h3>
+<p>In PowerShell, you can use containment operators to check if a collection contains a specific value. Here are some common containment operators:</p>
+<ul>
+<li>-contains, -icontains, -ccontains - collection contains a value</li>
+<li>-notcontains, -inotcontains, -cnotcontains - collection doesn't contain a value</li>
+<li>-in - value is in a collection</li>
+<li>-notin - value isn't in a collection</li>
+</ul>
+<p>The containment operators do not support wildcards or regular expressions.
+It is a strict equality comparison operator that checks if a collection (like an array or list) contains a specific element.</p>
+<pre><code class="language-powershell"># Check if a collection contains a specific value (case-insensitive)
+$numbers = 1, 2, 3, 4, 5
+$numbers -contains 3  # Output: True
+
+# Check if a collection contains a specific value (case-insensitive)
+$fruits = &quot;Apple&quot;, &quot;Banana&quot;, &quot;Cherry&quot;
+$fruits -contains &quot;banana&quot;  # Output: True
+$fruits -notcontains &quot;banana&quot; # Output: False
+
+$fruits -contains &quot;ban*&quot; # Output: False
+
+# Check if a collection contains a specific value (case-sensitive)
+$fruits = &quot;Apple&quot;, &quot;Banana&quot;, &quot;Cherry&quot;
+$fruits -ccontains &quot;banana&quot;  # Output: False
+
+# Check if a value is in a collection (case-insensitive)
+&quot;banana&quot; -in $fruits  # Output: True
+
+# Check if a value isn't in a collection (case-insensitive)
+&quot;banana&quot; -notin $fruits  # Output: False
+</code></pre>
+<pre><code class="language-powershell">Get-Process | Where-Object ProcessName -contains &quot;svchost&quot;
+# `-contains` does not support wildcards.
+Get-Process | Where-Object ProcessName -contains &quot;svch*&quot;
+</code></pre>
+<h3 id="type-operators">Type Operators</h3>
+<p>In PowerShell, type operators test whether an object is of a specified type. Here are the common type operators:</p>
+<ul>
+<li>-is - checks whether an object is of a specified type</li>
+<li>-isnot - checks whether an object is not of a specified type</li>
+</ul>
+<pre><code class="language-powershell"># Check if two objects are of the same type
+&quot;hello&quot; -is [string]  # Output: True
+
+# Check if two objects are of the same type
+&quot;hello&quot; -is [int]  # Output: False
+
+# Check if two objects are of the same type
+1 -is [int]  # Output: True
+</code></pre>
+<h2 id="logical_operators">Logical_Operators</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_logical_operators?view=powershell-7.2">about_Logical_Operators</a></li>
+</ul>
+<pre><code class="language-powershell">Get-Help about_Logical_Operators 
+</code></pre>
+<ul>
+<li>-and - logical AND</li>
+<li>-or - logical OR</li>
+<li>-xor - logical XOR</li>
+<li>-not - logical NOT</li>
+</ul>
+<pre><code class="language-powershell"># Logical AND
+# When using the -and operator, both conditions must be true for the overall condition to be true.
+
+# Simple examples:
+$true -and $true  # Output: True
+$true -and $false  # Output: False
+$false -and $true  # Output: False
+$false -and $false  # Output: False
+
+# Logical OR
+# When using the -or operator, at least one of the conditions must be true for the overall condition to be true.
+
+# Simple examples:
+$true -or $true  # Output: True
+$true -or $false  # Output: True
+$false -or $true  # Output: True
+$false -or $false  # Output: False
+
+# Logical XOR
+# When using the -xor operator, only one of the conditions must be true, but not both.
+
+# Simple examples:
+$true -xor $true  # Output: False
+$true -xor $false  # Output: True
+$false -xor $true  # Output: True
+$false -xor $false  # Output: False
+
+# Logical NOT
+# When using the -not operator, the condition is negated.
+
+# Simple examples:
+-not $true  # Output: False
+-not $false  # Output: True
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-powershell">Get-Process | Where-Object { $_.CPU -gt 60 }
+Get-Process | Where-Object { -not $_.CPU -gt 60 }
+
+Get-Process | Where-Object { $_.CPU -gt 60 -and $_.WS -gt 100MB }
+</code></pre>
+<h2 id="where-object">Where-Object</h2>
+<p>In PowerShell, the Where-Object cmdlet is used to filter objects based on a specified condition or criteria. It allows you to select objects from a collection that meet specific requirements, such as matching a particular property value, satisfying a logical condition, or meeting a pattern or wildcard match.</p>
+<p><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/where-object?view=powershell-7.4&amp;viewFallbackFrom=powershell-7.3&amp;WT.mc_id=ps-gethelp">Get-Help Where-Object -online</a></p>
+<pre><code class="language-powershell">Get-Help Where-Object -online
+</code></pre>
+<p><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_logical_operators?view=powershell-7.4">Get-Help about_Logical_Operators</a></p>
+<pre><code class="language-powershell">Get-Help about_Logical_Operators
+</code></pre>
+<p>Show the processes whose cumulative CPU time is greater than 60 seconds:</p>
+<details>
+<summary>Show solution</summary>
+<pre><code class="language-powershell">Get-Process | Where-Object CPU -gt 60
+Get-Process | Where-Object {$_.CPU -gt 60}
+</code></pre>
+<p>The filter keeps process objects whose <code>CPU</code> property exceeds 60 seconds
+of cumulative processor time. It does not test a current CPU percentage.
+Processes without an accessible CPU value do not satisfy that comparison.</p>
+</details>
+<p>Show the services that are stopped:</p>
+<details>
+<summary>Show solution</summary>
+<pre><code class="language-powershell">Get-Service | Where-Object Status -eq &quot;Stopped&quot;
+# &lt;$_.Property&gt;
+Get-Service | Where-Object {$_.Status -eq &quot;Stopped&quot;}
+</code></pre>
+<p>Only service objects whose <code>Status</code> is <code>Stopped</code> pass the filter.
+The actual service names and count depend on the machine.</p>
+</details>
+<p>Show services where the Displayname is &quot;Windows Time&quot; and the name is &quot;w32time&quot;:</p>
+<details>
+<summary>Show solution</summary>
+<pre><code class="language-powershell">Get-Service -DisplayName &quot;Windows Time&quot; | Where-Object {$_.Name -eq 'w32time'}
+</code></pre>
+<p>The query first selects the display name, then verifies the service's
+<code>Name</code>. A matching Windows Time service is returned regardless of its
+current running status.</p>
+</details>
+<p>Show services where the status is &quot;Running&quot; and the name contains &quot;lm&quot;:</p>
+<details>
+<summary>Show solution</summary>
+<pre><code class="language-powershell">Get-Service -ErrorAction 'SilentlyContinue' | Where-Object {$_.Status -eq &quot;running&quot; -and $_.Name -like &quot;*lm*&quot; }
+</code></pre>
+<p>Both conditions must be true: the service is running and its name contains
+<code>lm</code>. The default string matching is case-insensitive. No matches is valid.
+<code>-ErrorAction SilentlyContinue</code> suppresses non-terminating retrieval errors;
+it does not repair access failures or guarantee a complete service listing.</p>
+</details>
+<pre><code class="language-powershell"># Boolean: true or false values
+Get-Service | Where-Object CanStop -eq $true
+</code></pre>
+<pre><code class="language-powershell">Get-ChildItem | Where-Object { $_.Length -gt 1kb -and $_.Name -like &quot;w*&quot;}
+</code></pre>
+<h3 id="where-object-example-1">Where-Object - Example 1</h3>
+<p>List all processes that start with the letter &quot;l&quot;.
+Make use of the like and the match operator.</p>
+<p>Why does using <code>-match &quot;^l*&quot;</code> fail to restrict the result to those names?</p>
+<details>
+<summary>Show solution</summary>
+<pre><code class="language-powershell">Get-Process | Where-Object Name -Like 'l*'
+Get-Process | Where-Object { $_.ProcessName -match '^l' }
+</code></pre>
+<p>Both commands select names beginning with <code>l</code>, case-insensitively.
+The wildcard <code>l*</code> requires the initial letter and allows any suffix.
+The regex <code>^l</code> requires <code>l</code> at the start.</p>
+<p><code>^l*</code> is valid regex, but <code>l*</code> permits zero <code>l</code> characters. It therefore
+matches the beginning of every process name, including names not starting
+with <code>l</code>. The names and count returned by the corrected filters vary.</p>
+</details>
+<h3 id="where-object-example-2">Where-Object - Example 2</h3>
+<p>List all services that are automatic started during the boot process and are currently running.</p>
+<p>How remove the red error messages in the output?</p>
+<details>
+<summary>Show solution</summary>
+<pre><code class="language-powershell">Get-Service -ErrorAction SilentlyContinue |
+    Where-Object { $_.StartType -eq 'Automatic' -and $_.Status -eq 'Running' } |
+    Select-Object Name, Status, StartType
+</code></pre>
+<p>Both conditions are needed. Filtering only <code>StartType</code> also includes
+automatic services that are currently stopped. Filter service objects before
+selecting the display properties.</p>
+<p><code>-ErrorAction SilentlyContinue</code> hides non-terminating errors from
+<code>Get-Service</code>. It does not fix the underlying problem, stop terminating
+errors, or prove that every service was read. Investigate unexpected errors
+before relying on the inventory.</p>
+</details>
+<h3 id="where-object-example-3">Where-Object - Example 3</h3>
+<p>List all the executables in the Windows directory and subdirectories with a filesize greater or equal to 128 bytes</p>
+<p>Hint : Get-Childitem</p>
+<details>
+<summary>Show solution</summary>
+<pre><code class="language-powershell">Get-ChildItem -Path C:\Windows -Filter *.exe -File -Recurse | Where-Object {$_.Length -ge 128}
+</code></pre>
+<p><code>-Filter '*.exe'</code> limits filenames during retrieval, <code>-File</code> excludes
+directories, and <code>-Recurse</code> searches subdirectories. The property filter
+keeps lengths of at least 128 bytes, including exactly 128. Results and
+access errors depend on the system; this command only reads files.</p>
+</details>
+<h3 id="where-object-example-4">Where-Object - Example 4</h3>
+<p>List all the files in a directory (Windows) that were modified in the last 24 hours.</p>
+<p>Show the amount of files that were modified in the last 24 hours.</p>
+<details>
+<summary>Show solution</summary>
+<pre><code class="language-powershell">$modifiedSince = (Get-Date).AddHours(-24)
+$recentFiles = @(Get-ChildItem -LiteralPath 'C:\Windows' -File -Recurse |
+    Where-Object { $_.LastWriteTime -ge $modifiedSince })
+$recentFiles
+$recentFiles.Count
+</code></pre>
+<p>The cutoff is a <code>DateTime</code> value. <code>-ge</code> includes a timestamp exactly at the
+cutoff. Save one selection and count it rather than querying twice while
+files and the clock may change. <code>@(...)</code> gives a stable count even for
+zero or one result. The count and any access errors vary by machine.</p>
+</details>
+<h2 id="where-scriptblock-expression-extra-possibilities-to-filter-a-collection-of-objects-in-a-more-efficient-way">Where (scriptblock expression) - extra possibilities to filter a collection of objects in a more efficient way</h2>
+<pre><code class="language-powershell"># Get all services
+$services = Get-Service w*
+# Now filter out any services that are not running
+$services.where{$_.Status -eq 'Running'}
+# Get the first 10 services in our collection that are running
+$services.where({$_.Status -eq 'Running'},'Default',10)
+# Get the first service in our collection that is running
+$services.where({$_.Status -eq 'Running'},'First')
+# Get the first service in our collection that is running
+$services.where({$_.Status -eq 'Running'},'First',1)
+# Get the first 10 services in our collection that are running
+$services.where({$_.Status -eq 'Running'},'First',10)
+# Get the last service in our collection that is running
+$services.where({$_.Status -eq 'Running'},'Last')
+# Get the last service in our collection that is running
+$services.where({$_.Status -eq 'Running'},'Last',1)
+# Get the last 10 services in our collection that are running
+$services.where({$_.Status -eq 'Running'},'Last',10)
+</code></pre>
+<h2 id="sort-object">Sort-Object</h2>
+<p>In PowerShell, the Sort-Object cmdlet sorts the elements of an array or collection based on one or more properties. This cmdlet allows you to arrange data in ascending or descending order and can be used to order data by numerical, alphabetical, or date-based criteria. Here's an explanation of Sort-Object and how to use it:</p>
+<p><a href="https://learn.microsoft.com/nl-nl/powershell/module/microsoft.powershell.utility/sort-object?view=powershell-7.4&amp;viewFallbackFrom=powershell-7.3&amp;WT.mc_id=ps-gethelp">Get-Help Sort-Object -Online</a></p>
+<pre><code class="language-powershell">Get-Help Sort-Object -Online
+</code></pre>
+<p>Sorting a list of numbers in ascending order:</p>
+<pre><code class="language-powershell">$numbers = 5, 2, 8, 1, 7
+$sortedNumbers = $numbers | Sort-Object
+</code></pre>
+<pre><code class="language-powershell">Get-ChildItem -Path $PSHOME -File | Sort-Object Name
+</code></pre>
+<p>Sorting a list of strings in descending order, considering case sensitivity:</p>
+<pre><code class="language-powershell">$fruits = &quot;Apple&quot;, &quot;apple&quot;, &quot;banana&quot;, &quot;Cherry&quot;, &quot;Strawberry&quot;
+$sortedFruits = $fruits | Sort-Object -Descending -CaseSensitive
+</code></pre>
+<pre><code class="language-powershell">Get-ChildItem -Path $PSHOME -File | Sort-Object Name -Descending
+</code></pre>
+<p>You can also sort objects based on a property (e.g., sorting a list of processes by their &quot;WS&quot; property):</p>
+<pre><code class="language-powershell">Get-Process | Sort-Object -Descending WS | Select-Object -first 5 ProcessName,@{Label='WS(MB)';Expression={$_.WS/1MB}}
+Get-Process | Sort-Object -Descending WS | Select-Object -first 5 ProcessName,@{Name='WS(MB)';Expression={$_.WS/1MB}}
+Get-Process | Sort-Object -Descending WS | Select-Object -first 5 ProcessName,@{N='WS(MB)';E={$_.WS/1MB}}
+</code></pre>
+<p>To sort by ProcessName in descending order and then by WS in ascending order, use:</p>
+<pre><code class="language-powershell">Get-Process | Sort-Object @{Expression='ProcessName';Descending=$true}, @{Expression='WS';Ascending=$true} | Select-Object -First 5 ProcessName,@{Name='WS(MB)';Expression={$_.WS/1MB}}
+</code></pre>
+<p>Output will vary depending on the processes currently running, but the rows will be sorted first by ProcessName in descending order and then by WS in ascending order.</p>
+<pre><code class="language-output">ProcessName        WS(MB)
+-----------        ------
+XboxPcAppFT         19,12
+XboxGameBarSpotify  61,60
+WWAHost             68,41
+WUDFHost               20
+WUDFHost            10,15
+</code></pre>
+<p>Sorting each property differently</p>
+<pre><code class="language-powershell">Get-Process | Sort-Object ProcessName,Id | Select-Object ProcessName, Id -First 20
+</code></pre>
+<pre><code class="language-output">ProcessName              Id
+-----------              --
+Adobe Desktop Service  2852
+AdobeIPCBroker        18184
+AdobeUpdateService     6344
+AggregatorHost         9184
+ai                    22380
+ai                    27000
+ai                    31292
+...
+</code></pre>
+<p>2 Hashtables -makes it possible to sort each property differently</p>
+<pre><code class="language-powershell">Get-Process | Sort-Object @{Expression='ProcessName';Ascending=$true},
+                          @{Expression='Id';Descending=$true} | Select-Object ProcessName,Id -First 20
+</code></pre>
+<pre><code class="language-output">ProcessName              Id
+-----------              --
+Adobe Desktop Service  2852
+AdobeIPCBroker        18184
+AdobeUpdateService     6344
+AggregatorHost         9184
+ai                    31292
+ai                    27000
+ai                    22380
+...
+</code></pre>
+<p>Sorting and unique</p>
+<pre><code class="language-powershell">Get-Process | Sort-Object Name -Unique
+</code></pre>
+<h2 id="sort-object-example">Sort-Object - Example</h2>
+<p>List the 10 biggest files in the Windows System32 directory.
+Sort the files by their size in descending order.
+Show the Fullname and the size of the files in MB, round the size to 2 decimal places.</p>
+<details>
+<summary>Show solution</summary>
+<pre><code class="language-powershell">Get-ChildItem C:\Windows\System32 -File |
+    Sort-Object Length -Descending -Top 10 |
+    Select-Object FullName,
+        @{Name='Size(MB)'; Expression={ '{0:N2}' -f ($_.Length / 1MB) }}
+</code></pre>
+<p>Sort the numeric <code>Length</code> values before converting sizes to display text.
+<code>-Top 10</code> keeps at most ten files, largest first. <code>1MB</code> is 1,048,576 bytes;
+<code>'{0:N2}' -f</code> produces a string with two decimal places using the session's
+culture. File names, sizes, and ties vary by computer.</p>
+</details>
+<h2 id="group-object">Group-Object</h2>
+<p>Group-Object is a PowerShell cmdlet used to group objects based on the value of a specified property. It is useful when you want to categorize data or find how many objects share the same property value.</p>
+<pre><code class="language-powershell">Get-Help Group-Object -online
+</code></pre>
+<p><strong>Example 1 : Grouping data:</strong></p>
+<pre><code class="language-powershell">1,2,2,2,2,2,3,3,4,4,4,4,4,4,4,4,4,4,5,5 | Group-Object -Property {$_}
+</code></pre>
+<pre><code class="language-output">Count Name                      Group
+----- ----                      -----
+    1 1                         {1}
+    5 2                         {2, 2, 2, 2…}
+    2 3                         {3, 3}
+   10 4                         {4, 4, 4, 4…}
+    2 5                         {5, 5}
+</code></pre>
+<pre><code class="language-powershell">'Python','Python','Python','Cow','Cow','Dog' | Group-Object -Property {$_}
+</code></pre>
+<pre><code class="language-output">Count Name                      Group
+----- ----                      -----
+    2 Cow                       {Cow, Cow}
+    1 Dog                       {Dog}
+    3 Python                    {Python, Python, Python}
+</code></pre>
+<p><strong>Example 2 : Grouping processes by the ProcessName:</strong></p>
+<pre><code class="language-powershell"># Get all processes and group them by their names
+# Group-Object -Property ProcessName: Groups the processes by the ProcessName property.
+Get-Process | Group-Object -Property ProcessName
+</code></pre>
+<p>Show the five process names with the highest process counts:</p>
+<details>
+<summary>Show solution</summary>
+<pre><code class="language-powershell">Get-Process | Group-Object -Property ProcessName | Sort-Object -Descending Count -Top 5 | Select-Object Count, Name
+</code></pre>
+<pre><code class="language-output">Output varies with the processes currently running; groups are sorted by count descending.
+</code></pre>
+<p>Group process instances by <code>ProcessName</code>, sort the resulting groups by
+their numeric <code>Count</code> descending, and keep at most five groups.
+<code>Name</code> is the group's process name. Counts and tie ordering depend on
+the current processes.</p>
+</details>
+<p><strong>Example 3 : Grouping Files by Extension:</strong></p>
+<pre><code class="language-powershell">Get-ChildItem -Path &quot;C:\Windows&quot; -File | Group-Object -Property Extension | Sort-Object -Descending Count
+</code></pre>
+<h2 id="measure-object">Measure-Object</h2>
+<p>In PowerShell, the Measure-Object cmdlet is used to calculate various statistical measures of a set of values. It's particularly useful for obtaining information about the size, count, and statistical properties of a collection of objects or data. Here's an explanation of Measure-Object and how to use it:</p>
+<pre><code class="language-powershell">Get-Help Measure-Object -online
+</code></pre>
+<p>Calculating the sum, average, minimum, maximum, and count of a collection of numbers:</p>
+<pre><code class="language-powershell">1,2,3,4,5 | Measure-Object
+</code></pre>
+<pre><code class="language-powershell">1,2,3,4,5 | Measure-Object -Sum -Average -Minimum -Maximum
+</code></pre>
+<pre><code class="language-powershell">Get-ChildItem | Measure-Object length -Maximum -Minimum -Average
+</code></pre>
+<pre><code class="language-powershell">(Get-ChildItem c:\ | Measure-Object).Count
+</code></pre>
+<p>Make a file <code>filelist.txt</code> with the following content:</p>
+<pre><code class="language-text">Dit is een test.
+Welkom bij PowerShell.
+</code></pre>
+<details>
+<summary>Show solution</summary>
+<p>Use the instructor-prepared writable course base and a dedicated folder:</p>
+<pre><code class="language-powershell">$pipelineLessonRoot = Join-Path -Path 'C:\powershell' -ChildPath 'Piping-Lesson'
+New-Item -Path $pipelineLessonRoot -ItemType Directory -Force | Out-Null
+$wordCountPath = Join-Path -Path $pipelineLessonRoot -ChildPath 'filelist.txt'
+Set-Content -LiteralPath $wordCountPath -Value 'Dit is een test.', 'Welkom bij PowerShell.'
+Get-Content -LiteralPath $wordCountPath |
+    Measure-Object -Character -Line -Word
+</code></pre>
+<p>The result is <code>2</code> lines, <code>7</code> words, and <code>38</code> characters. <code>Get-Content</code>
+supplies lines without their newline characters, so those separators do not
+contribute to this character count. Repeating <code>Set-Content</code> replaces only
+this named practice file; keep existing work before repeating the example.</p>
+</details>
+<h2 id="measure-command">Measure-Command</h2>
+<p>In PowerShell, the Measure-Command cmdlet measures how long a script block or command takes to run and returns a TimeSpan with elapsed-time properties. It is useful for basic performance comparisons and benchmarking.</p>
+<pre><code class="language-powershell">Measure-Command{Get-Process}
+</code></pre>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

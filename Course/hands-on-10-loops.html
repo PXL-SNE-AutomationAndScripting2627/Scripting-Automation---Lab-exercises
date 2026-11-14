@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Hands-on — Loops — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">10 - Loops</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a class="sidebar-current" href="hands-on-10-loops.html" aria-current="page">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; Hands-on</p>
+            <h1 id="page-title">Hands-on — Loops</h1>
+            <p class="hero-description">10 - Loops</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/hands-on/10-loops/01-loops">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="goal">Goal</h2>
+<p>Repeat work predictably with bounded loops and choose the loop type that best fits the data or condition.</p>
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>By the end of this lab, you can:</p>
+<ul>
+<li>use <code>for</code>, <code>while</code>, <code>do while</code>, and <code>do until</code> loops;</li>
+<li>iterate collections with <code>foreach</code> and <code>ForEach-Object</code>;</li>
+<li>prevent off-by-one and non-terminating loops; and</li>
+<li>control iteration with <code>break</code> and <code>continue</code>.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Complete <a href="powershell-basics-11-loops.html">Loops</a>
+before starting this lab.</li>
+<li>Complete <a href="hands-on-09-conditionals.html">09 — Conditionals</a>.</li>
+<li>Understand arrays and Boolean conditions.</li>
+</ul>
+<h2 id="how-to-work-in-this-lab">How to work in this lab</h2>
+<p>Predict the number and order of outputs before running each bounded example.</p>
+<p>After attempting each activity, open <strong>Show solution</strong> to check your commands,
+expected results, and explanations. The final exercise and self-check also
+have solutions. Keep the session and setup required by the activity. If you
+already changed a file or variable, compare its result rather than replaying
+the change from the solution.</p>
+<hr />
+<h2 id="part-1-repeat-a-known-number-of-times">Part 1 — Repeat a known number of times</h2>
+<h3 id="activity-1.1-use-a-for-loop">Activity 1.1 — Use a <code>for</code> loop</h3>
+<pre><code class="language-powershell">for ($index = 1; $index -le 5; $index++) {
+    &quot;Iteration $index&quot;
+}
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Identify initializer, condition, and iterator.</li>
+<li>How many times does the body run?</li>
+<li>What value makes the condition false?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p>Initializer is <code>$index = 1</code>, condition <code>$index -le 5</code>, iterator <code>$index++</code>. It runs five times; after incrementing to 6, the condition is false.</p>
+</details>
+<h3 id="activity-1.2-index-an-array-safely">Activity 1.2 — Index an array safely</h3>
+<pre><code class="language-powershell">$servers = @('SRV-01', 'SRV-02', 'SRV-03')
+
+for ($index = 0; $index -lt $servers.Count; $index++) {
+    [pscustomobject]@{
+        Index  = $index
+        Server = $servers[$index]
+    }
+}
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Why does the loop begin at zero?</li>
+<li>Why use <code>-lt $servers.Count</code> instead of <code>-le</code>?</li>
+<li>What is an off-by-one error?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p>Arrays begin at index 0. Valid indexes are 0 through <code>Count - 1</code>, so the test must be <code>-lt Count</code>. Using <code>-le Count</code> attempts one index beyond the end.</p>
+<p>The objects pair indexes <code>0</code>, <code>1</code>, and <code>2</code> with <code>SRV-01</code>, <code>SRV-02</code>, and
+<code>SRV-03</code>. An off-by-one error includes one too many or too few iterations.</p>
+</details>
+<hr />
+<h2 id="part-2-repeat-while-a-condition-changes">Part 2 — Repeat while a condition changes</h2>
+<h3 id="activity-2.1-use-while">Activity 2.1 — Use <code>while</code></h3>
+<pre><code class="language-powershell">$remainingAttempts = 3
+
+while ($remainingAttempts -gt 0) {
+    &quot;Attempts remaining: $remainingAttempts&quot;
+    $remainingAttempts--
+}
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>When is the condition checked?</li>
+<li>Which statement guarantees progress toward stopping?</li>
+<li>What would happen without the decrement?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p><code>while</code> checks before every iteration. <code>$remainingAttempts--</code> guarantees progress. Without it, the condition remains true and the loop does not terminate.</p>
+<p>The messages show attempts remaining <code>3</code>, <code>2</code>, and <code>1</code>; the final value is <code>0</code>.</p>
+</details>
+<h3 id="activity-2.2-compare-while-and-do-while">Activity 2.2 — Compare <code>while</code> and <code>do while</code></h3>
+<pre><code class="language-powershell">$counter = 5
+
+while ($counter -lt 3) {
+    'while body ran'
+}
+
+do {
+    'do-while body ran'
+} while ($counter -lt 3)
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which body runs at least once?</li>
+<li>Why does the ordinary <code>while</code> body not run?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p>The ordinary <code>while</code> runs zero times because 5 is not less than 3. <code>do while</code> runs once before checking.</p>
+</details>
+<h3 id="activity-2.3-use-do-until">Activity 2.3 — Use <code>do until</code></h3>
+<pre><code class="language-powershell">$step = 1
+
+do {
+    &quot;Step $step&quot;
+    $step++
+} until ($step -gt 3)
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>When does <code>do until</code> stop?</li>
+<li>Which steps are displayed?</li>
+<li>Difference between <code>until</code> and <code>while</code> conditions?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p>It displays steps 1, 2, and 3, then stops when <code>$step -gt 3</code> becomes true. <code>until</code> stops on true; <code>while</code> continues on true.</p>
+</details>
+<hr />
+<h2 id="part-3-iterate-collections">Part 3 — Iterate collections</h2>
+<h3 id="activity-3.1-use-foreach">Activity 3.1 — Use <code>foreach</code></h3>
+<pre><code class="language-powershell">$devices = @('LT-204', 'LT-205', 'DT-301')
+
+$labels = foreach ($device in $devices) {
+    &quot;Device: $device&quot;
+}
+
+$labels
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What does <code>$device</code> represent?</li>
+<li>What is stored in <code>$labels</code>?</li>
+<li>Why is direct output more reusable than <code>Write-Host</code> here?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p><code>$device</code> is the current array item. <code>$labels</code> stores three output strings. Success output can be assigned, filtered, or exported.</p>
+</details>
+<h3 id="activity-3.2-use-foreach-object">Activity 3.2 — Use <code>ForEach-Object</code></h3>
+<pre><code class="language-powershell">1..4 | ForEach-Object {
+    [pscustomobject]@{
+        Original = $_
+        Doubled  = $_ * 2
+    }
+}
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What does <code>$_</code> represent?</li>
+<li>How does pipeline iteration differ syntactically from <code>foreach</code>?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p><code>$_</code> is the current pipeline object. <code>ForEach-Object</code> receives pipeline input; <code>foreach</code> declares a loop variable and collection directly.</p>
+<p>The four output objects pair <code>Original</code> values <code>1</code>, <code>2</code>, <code>3</code>, and <code>4</code> with
+<code>Doubled</code> values <code>2</code>, <code>4</code>, <code>6</code>, and <code>8</code>.</p>
+</details>
+<hr />
+<h2 id="part-4-control-loop-flow">Part 4 — Control loop flow</h2>
+<h3 id="activity-4.1-skip-with-continue">Activity 4.1 — Skip with <code>continue</code></h3>
+<pre><code class="language-powershell">foreach ($number in 1..6) {
+    if ($number % 2 -ne 0) {
+        continue
+    }
+
+    &quot;Even number: $number&quot;
+}
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which numbers are displayed?</li>
+<li>What part of the current iteration is skipped?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p>It displays 2, 4, and 6. <code>continue</code> skips the remaining statements for odd-number iterations.</p>
+</details>
+<h3 id="activity-4.2-stop-with-break">Activity 4.2 — Stop with <code>break</code></h3>
+<pre><code class="language-powershell">foreach ($number in 1..10) {
+    if ($number -eq 5) {
+        break
+    }
+
+    &quot;Processed: $number&quot;
+}
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which numbers are displayed?</li>
+<li>Difference between <code>break</code> and <code>continue</code>?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p>It displays 1 through 4. <code>break</code> exits the complete loop; <code>continue</code> advances only to the next iteration.</p>
+</details>
+<hr />
+<h2 id="part-5-challenge-process-a-ticket-queue">Part 5 — Challenge: process a ticket queue</h2>
+<p>Filename: <code>Get-TicketQueue.ps1</code></p>
+<p>Save the supplied data and your challenge commands in this file. Run
+<code>. .\Get-TicketQueue.ps1</code> in your lab session.</p>
+<p>Use:</p>
+<pre><code class="language-powershell">$tickets = @(
+    [pscustomobject]@{ Id = 201; Status = 'Open';   Minutes = 15 }
+    [pscustomobject]@{ Id = 202; Status = 'Closed'; Minutes = 20 }
+    [pscustomobject]@{ Id = 203; Status = 'Open';   Minutes = 45 }
+    [pscustomobject]@{ Id = 204; Status = 'Blocked'; Minutes = 30 }
+    [pscustomobject]@{ Id = 205; Status = 'Open';   Minutes = 25 }
+)
+</code></pre>
+<p>Create <code>$processedTickets</code> with a <code>foreach</code> loop:</p>
+<ul>
+<li>skip closed tickets with <code>continue</code>;</li>
+<li>stop processing when a blocked ticket is reached;</li>
+<li>for every processed ticket, output an object with <code>Id</code>, <code>Minutes</code>, and <code>Sequence</code>;</li>
+<li>increment <code>Sequence</code> only for processed tickets; and</li>
+<li>calculate the total minutes after the loop.</li>
+</ul>
+<p>Explain why tickets after the blocked item are not processed.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p>Use the challenge's supplied input objects in the same session.</p>
+<p><strong>Queue-processing solution (Beginner):</strong></p>
+<pre><code class="language-powershell">$sequence = 0
+
+$processedTickets = foreach ($ticket in $tickets) {
+    if ($ticket.Status -eq 'Closed') {
+        continue
+    }
+
+    if ($ticket.Status -eq 'Blocked') {
+        break
+    }
+
+    $sequence++
+
+    [pscustomobject]@{
+        Id       = $ticket.Id
+        Minutes  = $ticket.Minutes
+        Sequence = $sequence
+    }
+}
+
+$totalMinutes = ($processedTickets | Measure-Object Minutes -Sum).Sum
+$processedTickets
+$totalMinutes
+</code></pre>
+<p>Tickets 201 and 203 are processed with sequences 1 and 2. Ticket 202 is skipped. Ticket 204 ends the loop, so 205 is never reached. Total minutes are <code>60</code>.</p>
+<details>
+<summary>Show solution Optimized</summary>
+<p>Use the challenge's supplied input objects in the same session.</p>
+<p><strong>Queue-processing solution (Optimized):</strong></p>
+<pre><code class="language-powershell">$processedTickets = foreach ($ticket in $tickets) {
+    if ($ticket.Status -eq 'Blocked') {
+        break
+    }
+    if ($ticket.Status -ne 'Closed') {
+        $ticket
+    }
+} | ForEach-Object -Begin { $sequence = 0 } -Process {
+    $sequence++
+    [pscustomobject]@{
+        Id       = $_.Id
+        Minutes  = $_.Minutes
+        Sequence = $sequence
+    }
+}
+
+$totalMinutes = ($processedTickets | Measure-Object -Property Minutes -Sum).Sum
+$processedTickets
+$totalMinutes
+</code></pre>
+<p>The optimized version combines the ticket filtering in the first loop and uses <code>ForEach-Object</code> with <code>-Begin</code> and <code>-Process</code> blocks for cleaner sequence tracking. Both produce the same result: tickets 201 and 203 with sequences 1 and 2, total minutes of 60.</p>
+</details>
+</details>
+<h2 id="practice-and-self-check">Practice and self-check</h2>
+<ol>
+<li>When is <code>for</code> a good choice?</li>
+<li>Why must a condition-controlled loop change its condition?</li>
+<li>Which loop always executes once?</li>
+<li>Difference between <code>foreach</code> and <code>ForEach-Object</code>?</li>
+<li>Difference between <code>break</code> and <code>continue</code>?</li>
+<li>How do you avoid an array off-by-one error?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Self-check answers:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>for</code></td>
+<td>Known count or index-controlled repetition.</td>
+</tr>
+<tr>
+<td>Condition progress</td>
+<td>Prevents a non-terminating loop.</td>
+</tr>
+<tr>
+<td>Always once</td>
+<td>A <code>do</code> loop.</td>
+</tr>
+<tr>
+<td><code>foreach</code> / <code>ForEach-Object</code></td>
+<td>Language loop over a collection versus pipeline cmdlet.</td>
+</tr>
+<tr>
+<td><code>break</code> / <code>continue</code></td>
+<td>Exit loop versus skip current iteration.</td>
+</tr>
+<tr>
+<td>Array bound</td>
+<td>Use index <code>&lt; Count</code>.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h2 id="submission-checklist">Submission checklist</h2>
+<ul>
+<li>Run all bounded loop types.</li>
+<li>Explain the termination condition of every condition-controlled loop.</li>
+<li>Complete the queue challenge with the correct sequence and total.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>Choose loops based on whether repetition follows a count, condition, collection, or pipeline. Every condition-controlled loop needs a clear path to termination.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_for">About for</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_while">About while</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_foreach">About foreach</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/foreach-object">ForEach-Object</a></li>
+</ul>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

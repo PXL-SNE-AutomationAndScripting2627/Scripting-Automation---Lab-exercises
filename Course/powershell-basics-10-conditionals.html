@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Conditionals — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">10 - Conditionals</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a class="sidebar-current" href="powershell-basics-10-conditionals.html" aria-current="page">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; PowerShell Basics</p>
+            <h1 id="page-title">Conditionals</h1>
+            <p class="hero-description">10 - Conditionals</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/course/ps_basics/06-conditionals/06-ps-Conditionals">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>By the end of this chapter, you can:</p>
+<ul>
+<li>use comparisons to produce Boolean decisions;</li>
+<li>choose between <code>if</code>, <code>elseif</code>, <code>else</code>, and <code>switch</code>;</li>
+<li>combine conditions with <code>-and</code>, <code>-or</code>, and <code>-not</code>;</li>
+<li>distinguish null, empty text, and a supplied parameter;</li>
+<li>inspect a path before choosing a file operation; and</li>
+<li>explain first-match behaviour and multiple matching switch cases.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Complete the <a href="powershell-basics-07-variables-objects-and-data-types.html">variables lesson</a> and
+<a href="powershell-basics-09-parameters.html">parameters lesson</a>.</li>
+<li>Understand Boolean values, named properties, and basic pipelines.</li>
+<li>Use PowerShell 7 on your Windows lab computer.</li>
+</ul>
+<h2 id="why-conditions-matter">Why conditions matter</h2>
+<p>A backup report should not announce success just because a folder exists.
+It may also need a recent verification and enough free space. Conditions turn
+these rules into explicit decisions whose inputs and results you can inspect.</p>
+<p>The examples below read values or change session variables. The path example
+only inspects <code>C:\powershell</code>. Your instructor must prepare that base folder
+before class; no administrator rights are needed for these checks.
+Use the matching lab to apply the ideas to a separate device-readiness task.</p>
+<h2 id="start-with-a-comparison-and-one-decision">Start with a comparison and one decision</h2>
+<p>A <strong>condition</strong> is an expression that PowerShell interprets as true or false.
+A comparison produces a Boolean value for scalar inputs:</p>
+<pre><code class="language-powershell">$availableGB = 12
+$availableGB -ge 20
+</code></pre>
+<p>The result is <code>False</code> because <code>12</code> is not at least <code>20</code>.</p>
+<p>An <code>if</code> statement runs its body only when the condition is true.
+An <code>else</code> body handles the false case:</p>
+<pre class="mermaid">flowchart TD
+    A{"availableGB at least 20?"} -- Yes --> B["Space check passed"]
+    A -- No --> C["Review available space"]
+</pre>
+<pre><code class="language-powershell">if ($availableGB -ge 20) {
+    'Space check passed.'
+} else {
+    'Review available space.'
+}
+</code></pre>
+<p>The output is <code>Review available space.</code>. Parentheses contain the condition;
+braces contain the statements to run. Change the assignment above the statement
+when testing another input, then rerun the statement.</p>
+<h3 id="comparison-reference">Comparison reference</h3>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Meaning</th>
+<th>Example result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-eq</code></td>
+<td>Equal</td>
+<td><code>12 -eq 12</code> is true</td>
+</tr>
+<tr>
+<td><code>-ne</code></td>
+<td>Not equal</td>
+<td><code>12 -ne 20</code> is true</td>
+</tr>
+<tr>
+<td><code>-lt</code></td>
+<td>Less than</td>
+<td><code>12 -lt 20</code> is true</td>
+</tr>
+<tr>
+<td><code>-le</code></td>
+<td>Less than or equal</td>
+<td><code>12 -le 12</code> is true</td>
+</tr>
+<tr>
+<td><code>-gt</code></td>
+<td>Greater than</td>
+<td><code>12 -gt 20</code> is false</td>
+</tr>
+<tr>
+<td><code>-ge</code></td>
+<td>Greater than or equal</td>
+<td><code>12 -ge 12</code> is true</td>
+</tr>
+</tbody>
+</table>
+<p>Use <code>=</code> to assign and <code>-eq</code> to compare. An assignment inside a condition can
+change the value instead of checking it.</p>
+<p>Store numeric values as numbers. If the left operand is text, comparisons can
+use text ordering or type conversion rather than the intended numeric rule.
+The <a href="powershell-basics-07-variables-objects-and-data-types.html">conversion examples</a> explain why the input type matters.</p>
+<p><strong>Apply:</strong> <a href="hands-on-09-conditionals.html#activity-11-use-if-and-else">Activity 1.1: if and else</a>.</p>
+<h2 id="order-several-outcomes-with-elseif">Order several outcomes with elseif</h2>
+<p>Use <code>elseif</code> when a later outcome should be tested only if earlier conditions
+were false:</p>
+<pre><code class="language-powershell">$backupAgeHours = 30
+
+if ($backupAgeHours -le 24) {
+    $backupReview = 'Current'
+} elseif ($backupAgeHours -le 48) {
+    $backupReview = 'Review soon'
+} else {
+    $backupReview = 'Overdue'
+}
+
+$backupReview
+</code></pre>
+<p>The result is <code>Review soon</code>. The tests are evaluated in order. After a true
+condition, PowerShell runs that body and skips later branches.
+If no condition matches, <code>else</code> runs.</p>
+<p>Put narrower ranges before broader ranges. If the <code>48</code> test came first,
+a value of <code>12</code> would be called <code>Review soon</code> even though it is current.
+Check boundary values: <code>24</code>, <code>48</code>, and <code>49</code>.</p>
+<details>
+<summary>Show solution</summary>
+<p><code>24</code> selects <code>Current</code> because it satisfies <code>-le 24</code>. <code>48</code> selects
+<code>Review soon</code> because the first test is false and <code>-le 48</code> is true.
+<code>49</code> reaches <code>Overdue</code> because both earlier comparisons are false.</p>
+</details>
+<h3 id="nest-decisions-when-a-second-test-depends-on-the-first">Nest decisions when a second test depends on the first</h3>
+<p>A nested <code>if</code> is useful when a second question only makes sense after the
+first one has been answered:</p>
+<pre><code class="language-powershell">$backupAvailable = $true
+$backupVerified = $false
+
+if ($backupAvailable) {
+    if ($backupVerified) {
+        'Backup is available and verified.'
+    } else {
+        'Backup exists but still needs verification.'
+    }
+} else {
+    'No backup is available.'
+}
+</code></pre>
+<p>The middle message appears. Flatten related ranges with <code>elseif</code> when that is
+clearer; keep a nested decision when it represents a dependent check.</p>
+<p><strong>Apply:</strong> <a href="hands-on-09-conditionals.html#activity-12-use-elseif">Activities 1.2–1.3: ranges and first-match behaviour</a>.</p>
+<h2 id="combine-conditions">Combine conditions</h2>
+<p>Logical operators combine Boolean tests.</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-and</code></td>
+<td>Both conditions must be true.</td>
+</tr>
+<tr>
+<td><code>-or</code></td>
+<td>At least one condition must be true.</td>
+</tr>
+<tr>
+<td><code>-not</code> or <code>!</code></td>
+<td>Reverse the Boolean value.</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-powershell">$destinationAvailable = $true
+$freeSpaceGB = 26
+
+if ($destinationAvailable -and ($freeSpaceGB -ge 20)) {
+    'Backup destination passes both checks.'
+}
+</code></pre>
+<p>The message appears because both checks pass. Changing the space to <code>10</code>
+prevents it.</p>
+<pre><code class="language-powershell">$backupOverdue = $false
+$verificationFailed = $true
+
+if ($backupOverdue -or $verificationFailed) {
+    'A backup review is needed.'
+}
+
+$maintenanceActive = $false
+if (-not $maintenanceActive) {
+    'Normal scheduling can continue.'
+}
+</code></pre>
+<p>Both messages appear. Parentheses make the intended grouping clearer when
+combining several tests. PowerShell short-circuits <code>-and</code> and <code>-or</code>: it skips
+the right side when the left side already determines the outcome.</p>
+<p><strong>Apply:</strong> <a href="hands-on-09-conditionals.html#activity-21-require-both-conditions">Activities 2.1–2.3: combined conditions</a>.</p>
+<h2 id="distinguish-missing-values-from-valid-false-values">Distinguish missing values from valid false values</h2>
+<p>Null, empty text, and whitespace can require different handling:</p>
+<pre><code class="language-powershell">$missingLabel = $null
+$emptyLabel = ''
+$blankLabel = '   '
+
+$null -eq $missingLabel
+$null -eq $emptyLabel
+[string]::IsNullOrWhiteSpace($blankLabel)
+</code></pre>
+<p>The results are <code>True</code>, <code>False</code>, and <code>True</code>. <code>IsNullOrWhiteSpace()</code> accepts
+null, empty, and whitespace-only text as having no useful characters.</p>
+<h3 id="a-truth-test-is-broader-than-a-null-test">A truth test is broader than a null test</h3>
+<pre><code class="language-powershell">$retryCount = 0
+
+if ($retryCount) {
+    'The count is nonzero.'
+} else {
+    'The count is zero.'
+}
+</code></pre>
+<p>The second message appears. <code>0</code> is a legitimate numeric value even though it
+evaluates as false. <code>$false</code>, <code>''</code>, and <code>$null</code> are also false in a condition.
+The nonempty strings <code>'False'</code> and <code>'0'</code> are true; they are text, not Boolean
+or numeric values. Converting arbitrary text with <code>[bool]</code> does not interpret
+words such as <code>'False'</code> as Boolean false.</p>
+<p>Use a Boolean property directly when it already contains a Boolean.
+Use <code>$null -eq $value</code> to test absence, and an explicit comparison or text
+validation method for other rules. Scalar and collection comparisons differ:
+a collection on the left of <code>-eq</code> filters matching elements rather than
+necessarily returning one Boolean. Keep <code>$null</code> on the left for null tests.</p>
+<h3 id="parameter-presence-is-a-separate-question">Parameter presence is a separate question</h3>
+<p>A null value does not prove that the caller omitted an argument. The caller
+may explicitly supply null. A default can also produce a non-null value even
+when its argument was omitted.</p>
+<p>Use <code>$PSBoundParameters.ContainsKey('Name')</code> inside a script or function when
+the question is whether the parameter was supplied. Use its variable's value
+when the question is what to do. In particular, test a switch's value for the
+feature decision; an explicitly false switch was supplied but is still disabled.
+See the <a href="powershell-basics-09-parameters.html#checking-whether-a-parameter-was-supplied">parameter presence example</a> for a complete script.</p>
+<p><strong>Apply:</strong> <a href="hands-on-09-conditionals.html#activity-31-compare-null-and-empty-text">Activity 3.1: null and empty text</a>.</p>
+<h2 id="check-paths-and-object-types">Check paths and object types</h2>
+<p><code>Test-Path</code> checks existence and returns a Boolean for a single ordinary path.
+<code>-PathType Container</code> requires a directory; <code>Leaf</code> requires a file in the
+FileSystem provider.</p>
+<pre><code class="language-powershell">$inspectionRoot = 'C:\powershell'
+
+if (Test-Path -LiteralPath $inspectionRoot -PathType Container) {
+    'The course base is a directory.'
+} else {
+    'Ask the instructor to prepare the course base.'
+}
+</code></pre>
+<p>The first message appears after preparation. <code>-LiteralPath</code> treats the path
+as written instead of interpreting wildcard characters. Existence does not
+prove that a file contains correct data or that the account can write there.</p>
+<p>The <code>-is</code> operator checks whether a value is compatible with a type;
+<code>-isnot</code> negates that test. These do not compare two objects for equality.</p>
+<pre><code class="language-powershell">$observedValue = 20
+
+$observedValue -is [int]
+$observedValue -isnot [string]
+</code></pre>
+<p>Both results are <code>True</code>. For a file-system object, <code>[System.IO.DirectoryInfo]</code>
+identifies a directory and <code>[System.IO.FileInfo]</code> identifies a file.</p>
+<p><strong>Apply:</strong> <a href="hands-on-09-conditionals.html#activity-32-decide-with-test-path">Activity 3.2: read-only path decisions</a>.</p>
+<h2 id="match-named-cases-with-switch">Match named cases with switch</h2>
+<p>Use <code>switch</code> when comparing one value with several named cases is clearer
+than a chain of comparisons.</p>
+<pre><code class="language-powershell">$backupStage = 'Verified'
+
+switch ($backupStage) {
+    'Queued'   { 'Wait for processing.' }
+    'Copied'   { 'Run verification.' }
+    'Verified' { 'Prepare the handover.' }
+    default    { 'Review the unknown stage.' }
+}
+</code></pre>
+<p>The output is <code>Prepare the handover.</code>. <code>default</code> runs only when no case
+matches. Basic text matching is case-insensitive; use <code>-CaseSensitive</code> when
+case is significant.</p>
+<h3 id="wildcards-for-simple-name-selection">Wildcards for simple name selection</h3>
+<pre><code class="language-powershell">$reportName = 'backup-summary.csv'
+
+switch -Wildcard ($reportName) {
+    '*.csv' { 'Use the tabular report reader.' }
+    '*.json' { 'Use the JSON reader.' }
+    default { 'Review the report format.' }
+}
+</code></pre>
+<p>The first case matches. <code>-Wildcard</code> interprets each case as a wildcard pattern.
+Here <code>*</code> means zero or more characters. A normal <code>switch</code> treats <code>'*.csv'</code>
+as literal text instead.</p>
+<p><strong>Apply:</strong> <a href="hands-on-09-conditionals.html#activity-41-use-exact-switch-cases">Activities 4.1–4.2: exact and wildcard cases</a>.</p>
+<h2 id="advanced-more-than-one-switch-case-can-match">Advanced: more than one switch case can match</h2>
+<p>Unlike <code>if/elseif</code>, <code>switch</code> can execute several matching bodies for the
+same input:</p>
+<pre><code class="language-powershell">$jobSize = 5
+
+switch ($jobSize) {
+    { $_ -gt 0 }  { 'Positive job size.' }
+    { $_ -lt 10 } { 'Small job.' }
+}
+</code></pre>
+<p>Both messages appear. A condition in braces is a script block that tests the
+current switch input, represented by <code>$_</code>.</p>
+<p>To choose only the first matching case, use <code>break</code>:</p>
+<pre><code class="language-powershell">switch ($jobSize) {
+    { $_ -gt 0 }  { 'Positive job size.'; break }
+    { $_ -lt 10 } { 'Small job.'; break }
+}
+</code></pre>
+<p>Only <code>Positive job size.</code> appears. Case order now decides which result wins.
+When <code>switch</code> receives several input values, <code>break</code> exits the whole switch,
+not just processing of one value. Use <code>continue</code> to advance to the next switch
+input. The <a href="powershell-basics-11-loops.html">loops lesson</a> develops these flow-control statements.</p>
+<h3 id="regex-cases">Regex cases</h3>
+<p><code>-Regex</code> interprets case labels as regular expressions. Use it when checking
+structure or capturing a field rather than selecting a simple filename suffix.</p>
+<pre><code class="language-powershell">$queueMessage = 'Queue: PRN-42'
+
+switch -Regex -CaseSensitive ($queueMessage) {
+    '^Queue: PRN-(?&lt;Number&gt;[0-9]{2})$' {
+        &quot;Queue number: $($Matches.Number)&quot;
+        break
+    }
+    default { 'The queue message has an unexpected format.' }
+}
+</code></pre>
+<p>The result is <code>Queue number: 42</code>. Anchors require the complete shape,
+<code>[0-9]{2}</code> requires two digits, and the named capture supplies the number.
+Inspect <code>$Matches</code> inside the successful body before another match replaces
+it. The <a href="powershell-basics-04-regular-expressions.html">regex lesson</a> explains the pattern syntax.</p>
+<h2 id="quick-operator-reference">Quick operator reference</h2>
+<table>
+<thead>
+<tr>
+<th>Need</th>
+<th>Operator</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scalar equality or ordering</td>
+<td><code>-eq</code>, <code>-ne</code>, <code>-lt</code>, <code>-le</code>, <code>-gt</code>, <code>-ge</code></td>
+</tr>
+<tr>
+<td>Simple wildcard matching</td>
+<td><code>-like</code>, <code>-notlike</code></td>
+</tr>
+<tr>
+<td>Regex matching</td>
+<td><code>-match</code>, <code>-notmatch</code></td>
+</tr>
+<tr>
+<td>Collection membership</td>
+<td><code>-contains</code>, <code>-notcontains</code>, <code>-in</code>, <code>-notin</code></td>
+</tr>
+<tr>
+<td>Type compatibility</td>
+<td><code>-is</code>, <code>-isnot</code></td>
+</tr>
+<tr>
+<td>Combined Boolean conditions</td>
+<td><code>-and</code>, <code>-or</code>, <code>-not</code></td>
+</tr>
+</tbody>
+</table>
+<p>For case-sensitive string comparisons, use forms such as <code>-ceq</code>, <code>-clike</code>,
+and <code>-cmatch</code>. Default string comparison forms are case-insensitive.
+<code>-replace</code> performs a regex replacement and returns text; it is not a
+Boolean comparison operator.</p>
+<h2 id="practice-and-self-check">Practice and self-check</h2>
+<p>Work through the <a href="hands-on-09-conditionals.html">matching conditionals hands-on</a>.
+Predict before running each activity, inspect its result, and explain the
+selected branch before opening the solution.</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Numbered practice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>True and false branches</td>
+<td>Activity 1.1</td>
+</tr>
+<tr>
+<td>Ordered thresholds and first match</td>
+<td>Activities 1.2–1.3</td>
+</tr>
+<tr>
+<td>Logical combinations</td>
+<td>Activities 2.1–2.3</td>
+</tr>
+<tr>
+<td>Null and path checks</td>
+<td>Activities 3.1–3.2</td>
+</tr>
+<tr>
+<td>Exact and wildcard cases</td>
+<td>Activities 4.1–4.2</td>
+</tr>
+<tr>
+<td>Combine decisions into reusable objects</td>
+<td>Part 5 challenge</td>
+</tr>
+</tbody>
+</table>
+<p>For the advanced examples, predict how removing <code>break</code> changes switch output.</p>
+<details>
+<summary>Show solution</summary>
+<p>For <code>$jobSize = 5</code>, removing the first matching <code>break</code> allows both
+<code>Positive job size.</code> and <code>Small job.</code> to appear because both conditions
+match. With <code>break</code>, only the first message appears. For several switch
+input values, <code>break</code> exits the entire switch.</p>
+<p>Removing <code>break</code> from the queue-regex example adds no output with its
+current single matching case: <code>default</code> does not run after a successful
+match. It could matter if another matching case or further inputs were added.</p>
+</details>
+Explain why matching a queue message with regex is a different task from
+selecting a file by its suffix.
+<details>
+<summary>Show solution</summary>
+<p>The queue regex checks the complete <code>Queue: PRN-42</code> structure, requires two
+digits, and captures <code>42</code> as <code>$Matches.Number</code>. A wildcard such as <code>*.csv</code>
+selects a name ending in that suffix without extracting a field or checking
+the rest of its structure. Choose the pattern language for the requirement.</p>
+</details>
+<p>Do not copy a complete theory example as the
+device-readiness challenge answer; apply its rules to the supplied data.</p>
+<h2 id="summary">Summary</h2>
+<p>Comparisons turn scalar values into Boolean decisions. <code>if/elseif/else</code>
+chooses the first matching branch. Logical operators combine rules, while
+explicit null, text, path, and type checks make the intended test clear.</p>
+<p>A switch can match multiple cases unless control flow stops it. Choose
+literal cases, wildcards, or regex according to the required check, and include
+a fallback for unexpected input. A supplied parameter and a true value are
+different facts.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_if">About if</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_switch">About switch</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_comparison_operators">Comparison operators</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_logical_operators">Logical operators</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_booleans">Boolean values</a></li>
+</ul>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

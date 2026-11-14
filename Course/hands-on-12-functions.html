@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Hands-on — Functions — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">12 - Functions</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a class="sidebar-current" href="hands-on-12-functions.html" aria-current="page">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; Hands-on</p>
+            <h1 id="page-title">Hands-on — Functions</h1>
+            <p class="hero-description">12 - Functions</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/hands-on/12-functions/01-functions">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="goal">Goal</h2>
+<p>Turn tested PowerShell logic into reusable, discoverable functions that accept parameters and return objects.</p>
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>By the end of this lab, you can:</p>
+<ul>
+<li>define and call a function using an approved verb-noun name;</li>
+<li>add typed, validated, and default parameters;</li>
+<li>use <code>[CmdletBinding()]</code> and <code>Write-Verbose</code>;</li>
+<li>return pipeline-friendly values and custom objects;</li>
+<li>accept pipeline input in a <code>process</code> block; and</li>
+<li>explain local function scope.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Complete <a href="powershell-basics-13-functions.html">Functions</a>
+before starting this lab.</li>
+<li>Complete <a href="hands-on-11-exception-handling.html">11 — Exception handling</a>.</li>
+<li>Understand parameters, conditions, loops, and custom objects.</li>
+</ul>
+<h2 id="how-to-work-in-this-lab">How to work in this lab</h2>
+<p>Define each function in the current session, test it immediately, and inspect its command metadata.</p>
+<p>After attempting each activity, open <strong>Show solution</strong> to check your commands,
+expected results, and explanations. The final exercise and self-check also
+have solutions. Keep the session and setup required by the activity. If you
+already changed a file or variable, compare its result rather than replaying
+the change from the solution.</p>
+<hr />
+<h2 id="part-1-define-reusable-commands">Part 1 — Define reusable commands</h2>
+<h3 id="activity-1.1-create-a-simple-function">Activity 1.1 — Create a simple function</h3>
+<pre><code class="language-powershell">function Get-CourseGreeting {
+    'Welcome to Automation and Scripting.'
+}
+
+Get-CourseGreeting
+Get-Command Get-CourseGreeting
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What naming pattern does the function use?</li>
+<li>Why use an approved PowerShell verb?</li>
+<li>How long does this function remain available?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p>The function uses Verb-Noun. Approved verbs improve consistency and discovery. The function remains in the current session unless saved and loaded again through a script, profile, or module.</p>
+<p>The call displays <code>Welcome to Automation and Scripting.</code>; <code>Get-Command</code>
+identifies <code>Get-CourseGreeting</code> as a function.</p>
+</details>
+<h3 id="activity-1.2-add-parameters-and-return-a-value">Activity 1.2 — Add parameters and return a value</h3>
+<pre><code class="language-powershell">function Get-FullName {
+    param(
+        [Parameter(Mandatory)]
+        [string]$FirstName,
+
+        [Parameter(Mandatory)]
+        [string]$LastName
+    )
+
+    &quot;$FirstName $LastName&quot;
+}
+
+$fullName = Get-FullName -FirstName 'Alex' -LastName 'Morgan'
+$fullName
+$fullName.GetType().Name
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What type is returned?</li>
+<li>Why is direct output preferable to <code>Write-Host</code>?</li>
+<li>Is <code>return</code> required for this simple result?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p>The result is <code>String</code>. Direct output can be assigned or piped. PowerShell outputs uncaptured expressions, so <code>return</code> is not required here.</p>
+<p>The returned name is <code>Alex Morgan</code>.</p>
+</details>
+<hr />
+<h2 id="part-2-build-an-advanced-function">Part 2 — Build an advanced function</h2>
+<h3 id="activity-2.1-add-cmdlet-binding-and-validation">Activity 2.1 — Add cmdlet binding and validation</h3>
+<pre><code class="language-powershell">function ConvertTo-GradeLabel {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory)]
+        [ValidateRange(0, 100)]
+        [int]$Score
+    )
+
+    Write-Verbose &quot;Classifying score $Score&quot;
+
+    if ($Score -ge 85) {
+        'Distinction'
+    } elseif ($Score -ge 50) {
+        'Pass'
+    } else {
+        'Fail'
+    }
+}
+
+ConvertTo-GradeLabel -Score 78
+ConvertTo-GradeLabel -Score 92 -Verbose
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What capability does <code>[CmdletBinding()]</code> add here?</li>
+<li>Which input range is accepted?</li>
+<li>Does verbose text become part of the success output?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p><code>[CmdletBinding()]</code> supplies common parameters including <code>-Verbose</code>. Validation accepts 0 through 100. Verbose stream output is separate from success output.</p>
+<p>The labels are <code>Pass</code> for <code>78</code> and <code>Distinction</code> for <code>92</code>. The second
+call additionally displays the verbose classification message.</p>
+</details>
+<h3 id="activity-2.2-return-a-custom-object">Activity 2.2 — Return a custom object</h3>
+<pre><code class="language-powershell">function Get-ScoreAssessment {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory)]
+        [ValidateRange(0, 100)]
+        [int]$Score
+    )
+
+    [pscustomobject]@{
+        Score = $Score
+        Label = ConvertTo-GradeLabel -Score $Score
+        Passed = $Score -ge 50
+    }
+}
+
+Get-ScoreAssessment -Score 78
+Get-ScoreAssessment -Score 78 | Get-Member
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which properties are returned?</li>
+<li>Why is object output easier to filter and export than a coloured message?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p>The object has <code>Score</code>, <code>Label</code>, and Boolean <code>Passed</code>. Consumers can filter or export named properties without parsing display text.</p>
+<p>For <code>78</code>, the properties are <code>Score = 78</code>, <code>Label = Pass</code>, and <code>Passed = True</code>.</p>
+</details>
+<hr />
+<h2 id="part-3-accept-pipeline-input">Part 3 — Accept pipeline input</h2>
+<h3 id="activity-3.1-process-every-pipeline-value">Activity 3.1 — Process every pipeline value</h3>
+<pre><code class="language-powershell">function Get-NumberAssessment {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory, ValueFromPipeline)]
+        [int]$Number
+    )
+
+    process {
+        [pscustomobject]@{
+            Number = $Number
+            Even   = $Number % 2 -eq 0
+            Square = $Number * $Number
+        }
+    }
+}
+
+1..4 | Get-NumberAssessment
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What does <code>ValueFromPipeline</code> permit?</li>
+<li>Why is the <code>process</code> block required for each input object?</li>
+<li>How many objects are returned?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p><code>ValueFromPipeline</code> binds each incoming integer to <code>Number</code>. <code>process</code> runs once per incoming item and returns four objects.</p>
+<p>The numbers <code>1</code> through <code>4</code> have squares <code>1</code>, <code>4</code>, <code>9</code>, and <code>16</code>.
+<code>Even</code> is <code>False</code>, <code>True</code>, <code>False</code>, and <code>True</code>, respectively. A <code>process</code>
+block ensures that the calculation runs for each incoming object.</p>
+</details>
+<h3 id="activity-3.2-inspect-help-and-syntax">Activity 3.2 — Inspect help and syntax</h3>
+<pre><code class="language-powershell">Get-Command Get-NumberAssessment -Syntax
+Get-Help Get-NumberAssessment -Parameter Number
+</code></pre>
+<p><strong>Reflect</strong></p>
+<p>Which metadata can PowerShell discover from the function definition?</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p>PowerShell discovers the name, parameter type, mandatory state, position, common parameters, and pipeline-input support.</p>
+</details>
+<hr />
+<h2 id="part-4-observe-scope">Part 4 — Observe scope</h2>
+<h3 id="activity-4.1-keep-internal-variables-local">Activity 4.1 — Keep internal variables local</h3>
+<pre><code class="language-powershell">$message = 'Outside'
+
+function Test-FunctionScope {
+    $message = 'Inside'
+    $message
+}
+
+Test-FunctionScope
+$message
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which two values appear?</li>
+<li>Why did the function assignment not replace the outside value?</li>
+<li>Why is local scope useful?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p>Outputs are <code>Inside</code> then <code>Outside</code>. Function-local assignment shadows rather than replaces the parent-scope variable. Local scope reduces naming conflicts and unintended side effects.</p>
+</details>
+<hr />
+<h2 id="part-5-challenge-assess-device-readiness">Part 5 — Challenge: assess device readiness</h2>
+<p>Filename: <code>Get-DeviceAssessment.ps1</code></p>
+<p>Save the function in this file and run <code>. .\Get-DeviceAssessment.ps1</code> in your
+lab session before testing it.</p>
+<p>Create <code>Get-DeviceAssessment</code> as an advanced function that:</p>
+<ul>
+<li>accepts device objects through the pipeline;</li>
+<li>has a <code>MinimumFreeGB</code> integer parameter with default <code>15</code> and range <code>1</code> to <code>1000</code>;</li>
+<li>expects input properties <code>Name</code>, <code>State</code>, <code>Updated</code>, and <code>FreeGB</code>;</li>
+<li>returns <code>Name</code>, <code>Ready</code>, and <code>Reason</code> as a custom object;</li>
+<li>reports <code>Offline</code>, <code>Updates required</code>, <code>Insufficient free space</code>, or <code>Ready</code>; and</li>
+<li>writes an optional verbose message for each device.</li>
+</ul>
+<p>Test with:</p>
+<pre><code class="language-powershell">$devices = @(
+    [pscustomobject]@{ Name = 'LT-204'; State = 'Online';  Updated = $true;  FreeGB = 24 }
+    [pscustomobject]@{ Name = 'LT-205'; State = 'Online';  Updated = $false; FreeGB = 30 }
+    [pscustomobject]@{ Name = 'DT-301'; State = 'Online';  Updated = $true;  FreeGB = 8  }
+    [pscustomobject]@{ Name = 'DT-302'; State = 'Offline'; Updated = $true;  FreeGB = 40 }
+)
+
+$devices | Get-DeviceAssessment -Verbose
+</code></pre>
+<p>Filter the result to ready devices and explain why the function does not modify the input objects.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p>Use the challenge's supplied input objects in the same session.</p>
+<p><strong>Device-assessment solution (Beginner):</strong></p>
+<pre><code class="language-powershell">function Get-DeviceAssessment {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory, ValueFromPipeline)]
+        [psobject]$InputObject,
+
+        [ValidateRange(1, 1000)]
+        [int]$MinimumFreeGB = 15
+    )
+
+    process {
+        Write-Verbose &quot;Assessing $($InputObject.Name)&quot;
+
+        if ($InputObject.State -ne 'Online') {
+            $ready = $false
+            $reason = 'Offline'
+        } elseif (-not $InputObject.Updated) {
+            $ready = $false
+            $reason = 'Updates required'
+        } elseif ($InputObject.FreeGB -lt $MinimumFreeGB) {
+            $ready = $false
+            $reason = 'Insufficient free space'
+        } else {
+            $ready = $true
+            $reason = 'Ready'
+        }
+
+        [pscustomobject]@{
+            Name   = $InputObject.Name
+            Ready  = $ready
+            Reason = $reason
+        }
+    }
+}
+
+$assessments = $devices | Get-DeviceAssessment -Verbose
+$assessments
+$assessments | Where-Object Ready
+</code></pre>
+<p>Only LT-204 is ready. The function reads input properties and creates new output objects; it assigns nothing to the input objects.</p>
+<details>
+<summary>Show solution Optimized</summary>
+<p>Use the challenge's supplied input objects in the same session.</p>
+<p><strong>Device-assessment solution (Optimized):</strong></p>
+<pre><code class="language-powershell">
+function Get-DeviceAssessment {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory, ValueFromPipeline)]
+        [psobject]$InputObject,
+
+        [ValidateRange(1, 1000)]
+        [int]$MinimumFreeGB = 15
+    )
+
+    process {
+        Write-Verbose &quot;Assessing $($InputObject.Name)&quot;
+
+        $reason = switch ($true) {
+            ($InputObject.State -ne 'Online') {
+                'Offline'
+                break
+            }
+            (-not $InputObject.Updated) {
+                'Updates required'
+                break
+            }
+            ($InputObject.FreeGB -lt $MinimumFreeGB) {
+                'Insufficient free space'
+                break
+            }
+            default {
+                'Ready'
+            }
+        }
+
+        [pscustomobject]@{
+            Name   = $InputObject.Name
+            # Ready is true only if the reason is 'Ready', defaulting to false otherwise
+            Ready  = $reason -eq 'Ready'
+            Reason = $reason
+        }
+    }
+}
+
+# Create test devices
+$devices = @(
+    [pscustomobject]@{ Name = 'LT-204'; State = 'Online';  Updated = $true;  FreeGB = 24 }
+    [pscustomobject]@{ Name = 'LT-205'; State = 'Online';  Updated = $false; FreeGB = 30 }
+    [pscustomobject]@{ Name = 'DT-301'; State = 'Online';  Updated = $true;  FreeGB = 8 }
+    [pscustomobject]@{ Name = 'DT-302'; State = 'Offline'; Updated = $true;  FreeGB = 40 }
+)
+
+# Assess all devices
+$assessments = $devices | Get-DeviceAssessment -Verbose
+
+# Display all results
+$assessments
+
+# Display only ready devices
+$assessments | Where-Object Ready
+</code></pre>
+<p>The optimized version uses a <code>switch</code> statement with <code>-true</code> matching to determine the reason in one expression, reducing the number of conditional branches. This approach is more concise and scales better when adding new readiness criteria. Both versions produce identical results.</p>
+</details>
+</details>
+<h2 id="practice-and-self-check">Practice and self-check</h2>
+<ol>
+<li>What naming convention should a function use?</li>
+<li>Are explicit <code>return</code> statements always required?</li>
+<li>What does <code>[CmdletBinding()]</code> provide?</li>
+<li>Why return objects rather than formatted text?</li>
+<li>What does <code>ValueFromPipeline</code> mean?</li>
+<li>Difference between local and global scope?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Self-check answers:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Naming</td>
+<td>Approved Verb-SingularNoun.</td>
+</tr>
+<tr>
+<td><code>return</code></td>
+<td>Not always; success output is returned automatically.</td>
+</tr>
+<tr>
+<td>Cmdlet binding</td>
+<td>Common parameters and advanced-function behaviour.</td>
+</tr>
+<tr>
+<td>Objects</td>
+<td>Preserve named, typed data.</td>
+</tr>
+<tr>
+<td>Pipeline input</td>
+<td>Incoming objects can bind to the parameter.</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>Local is isolated; global is session-wide.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h2 id="submission-checklist">Submission checklist</h2>
+<ul>
+<li>Define and test all functions.</li>
+<li>Inspect syntax and parameter help.</li>
+<li>Complete the pipeline-aware device function.</li>
+<li>Demonstrate one ready result and three non-ready reasons.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>Functions package one responsibility behind a discoverable command name. Parameters define the interface, local scope protects internal state, and object output makes functions compose naturally in pipelines.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions">About functions</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced">About advanced functions</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/utility-modules/psscriptanalyzer/rules/useapprovedverbs">Approved verbs</a></li>
+</ul>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

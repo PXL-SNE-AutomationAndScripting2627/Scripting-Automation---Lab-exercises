@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Hands-on — Windows management — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">16 - Windows management</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a class="sidebar-current" href="hands-on-16-windows-management.html" aria-current="page">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; Hands-on</p>
+            <h1 id="page-title">Hands-on — Windows management</h1>
+            <p class="hero-description">16 - Windows management</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/hands-on/16-windows-management/01-windows-management">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="goal">Goal</h2>
+<p>Combine event, permission, job, and firewall information into a safe Windows management workflow.</p>
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>By the end of this lab, you can:</p>
+<ul>
+<li>discover management and security cmdlets;</li>
+<li>retrieve a focused set of recent Windows events;</li>
+<li>inspect an ACL and preview a narrowly scoped rule;</li>
+<li>manage a complete background-job lifecycle; and</li>
+<li>build a structured Windows management snapshot.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Complete <a href="hands-on-15-windows-information.html">15 — Windows information</a>.</li>
+<li>Complete <a href="powershell-automation-03-windows-management.html">Automating Windows management</a> before starting this lab.</li>
+<li>Use PowerShell on Windows.</li>
+<li>Do not change production ACLs or firewall rules.</li>
+</ul>
+<h2 id="how-to-work-in-this-lab">How to work in this lab</h2>
+<p>All system queries are read-only. The ACL activity stops at <code>-WhatIf</code>, and any files are created only in the dedicated lab folder.</p>
+<hr />
+<h2 id="part-1-prepare-and-discover">Part 1 — Prepare and discover</h2>
+<h3 id="activity-1.1-create-the-workspace">Activity 1.1 — Create the workspace</h3>
+<pre><code class="language-powershell">$labRoot = Join-Path 'C:\powershell' 'Windows-Management-Lab'
+New-Item -Path $labRoot -ItemType Directory -Force
+</code></pre>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected result:</strong> The dedicated <code>Windows-Management-Lab</code> folder exists
+under <code>C:\powershell</code>. If it already exists, inspect it rather than repeating
+setup unnecessarily.</p>
+</details>
+<h3 id="activity-1.2-discover-commands">Activity 1.2 — Discover commands</h3>
+<pre><code class="language-powershell">Get-Command -Module Microsoft.PowerShell.Management |
+    Select-Object -First 20 Name
+
+Get-Command -Module Microsoft.PowerShell.Security |
+    Select-Object Name
+</code></pre>
+<p><strong>Reflect</strong></p>
+<p>Why is command discovery preferable to memorizing every administrative command?</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answer:</strong> The queries list available
+management and security command names. Discovery helps you find the relevant
+cmdlet and then inspect its help and parameters, including commands you have
+not memorized. Available commands can vary by installation.</p>
+</details>
+<hr />
+<h2 id="part-2-query-recent-events">Part 2 — Query recent events</h2>
+<h3 id="activity-2.1-read-a-bounded-event-set">Activity 2.1 — Read a bounded event set</h3>
+<pre><code class="language-powershell">Get-WinEvent -LogName Application -MaxEvents 20 |
+    Select-Object TimeCreated, Id, LevelDisplayName, ProviderName
+</code></pre>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results:</strong> Up to 20 Application events are displayed with their
+time, ID, level, and provider. Events and counts vary with the computer and
+access permissions.</p>
+</details>
+<h3 id="activity-2.2-filter-warning-and-error-events">Activity 2.2 — Filter warning and error events</h3>
+<pre><code class="language-powershell">$startTime = (Get-Date).AddDays(-1)
+
+$recentProblems = Get-WinEvent -FilterHashtable @{
+    LogName   = 'System'
+    StartTime = $startTime
+    Level     = 2, 3
+} -ErrorAction SilentlyContinue
+
+$recentProblems |
+    Select-Object TimeCreated, Id, LevelDisplayName, ProviderName
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Why use <code>-FilterHashtable</code> instead of retrieving the full log?</li>
+<li>What do levels 2 and 3 represent?</li>
+<li>Why can the result count legitimately be zero?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong> <code>-FilterHashtable</code> restricts
+events by log, time, and level during the query instead of retrieving the
+whole log. Level 2 means error and level 3 warning. No events may match the
+last day, so zero results are possible. This example suppresses errors;
+an empty display alone does not prove that the log was queried successfully.</p>
+</details>
+<hr />
+<h2 id="part-3-inspect-and-preview-permissions">Part 3 — Inspect and preview permissions</h2>
+<h3 id="activity-3.1-inspect-the-practice-folder-acl">Activity 3.1 — Inspect the practice-folder ACL</h3>
+<pre><code class="language-powershell">$acl = Get-Acl -Path $labRoot
+$acl | Select-Object Owner, AreAccessRulesProtected
+$acl.Access |
+    Select-Object IdentityReference, FileSystemRights,
+        AccessControlType, IsInherited
+</code></pre>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results:</strong> The folder's owner and inheritance protection are
+displayed, followed by its access entries and their identities, rights,
+allow/deny types, and inherited status. The entries vary by computer.</p>
+</details>
+<h3 id="activity-3.2-build-and-preview-one-rule">Activity 3.2 — Build and preview one rule</h3>
+<pre><code class="language-powershell">$identity = [Security.Principal.WindowsIdentity]::GetCurrent().Name
+$rule = [Security.AccessControl.FileSystemAccessRule]::new(
+    $identity,
+    'ReadAndExecute',
+    'ContainerInherit,ObjectInherit',
+    'None',
+    'Allow'
+)
+
+$acl.AddAccessRule($rule)
+Set-Acl -Path $labRoot -AclObject $acl -WhatIf
+</code></pre>
+<p>Do not remove <code>-WhatIf</code> in this lab.</p>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What information does the rule contain?</li>
+<li>Why does <code>Set-Acl</code> apply a complete ACL object?</li>
+<li>What additional backup and verification would a real ACL change need?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong> The rule grants the current
+identity <code>ReadAndExecute</code>, with container and object inheritance, as an
+allow entry. <code>Set-Acl</code> applies the supplied security descriptor rather than
+only that entry, so other permissions must be preserved. The preview does
+not apply the modified ACL. A real authorized change needs a recorded or
+exported original ACL, a rollback plan, and verification of effective access.
+Do not remove <code>-WhatIf</code> here.</p>
+</details>
+<hr />
+<h2 id="part-4-manage-a-background-job">Part 4 — Manage a background job</h2>
+<h3 id="activity-4.1-start-and-monitor">Activity 4.1 — Start and monitor</h3>
+<pre><code class="language-powershell">$job = Start-Job -Name 'Lab16Snapshot' -ScriptBlock {
+    Get-CimInstance -ClassName Win32_OperatingSystem |
+        Select-Object CSName, Caption, Version, LastBootUpTime
+}
+
+Get-Job -Name 'Lab16Snapshot'
+Wait-Job -Job $job
+</code></pre>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results:</strong> <code>Start-Job</code> creates a job and returns control while it
+runs; <code>Get-Job</code> displays its state and <code>Wait-Job</code> waits for it to finish.
+Check the final state and errors as well as output in the next activity.</p>
+</details>
+<h3 id="activity-4.2-receive-keep-and-remove">Activity 4.2 — Receive, keep, and remove</h3>
+<pre><code class="language-powershell">$firstResult = Receive-Job -Job $job -Keep
+$secondResult = Receive-Job -Job $job
+
+$firstResult
+$secondResult
+
+Remove-Job -Job $job
+Get-Job -Name 'Lab16Snapshot' -ErrorAction SilentlyContinue
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Why does the prompt return immediately after <code>Start-Job</code>?</li>
+<li>What effect does <code>-Keep</code> have?</li>
+<li>Why should completed jobs be removed?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong> The job runs separately, so
+<code>Start-Job</code> returns the prompt without waiting. <code>-Keep</code> preserves cached
+output for the second receive. Both variables should contain the same OS
+result if the job succeeded; values vary by computer. Remove completed jobs
+to release session resources; the final query should find no such job.</p>
+</details>
+<hr />
+<h2 id="part-5-inspect-firewall-state">Part 5 — Inspect firewall state</h2>
+<h3 id="activity-5.1-summarize-active-rules">Activity 5.1 — Summarize active rules</h3>
+<pre><code class="language-powershell">Get-NetFirewallProfile |
+    Select-Object Name, Enabled, DefaultInboundAction, DefaultOutboundAction
+
+$enabledRules = Get-NetFirewallRule -PolicyStore ActiveStore |
+    Where-Object Enabled -eq 'True'
+
+$enabledRules |
+    Group-Object Direction, Action |
+    Sort-Object Name |
+    Select-Object Name, Count
+</code></pre>
+<p><strong>Reflect</strong></p>
+<p>Why should policy source be checked before attempting a firewall change?</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answer:</strong> The commands display firewall
+profiles and counts of enabled active rules grouped by direction and action.
+Values vary by computer. A rule can originate from Group Policy or another
+store, so a local change may be inappropriate or overridden. Do not change
+firewall rules in this lab.</p>
+</details>
+<hr />
+<h2 id="part-6-challenge-create-a-management-snapshot">Part 6 — Challenge: create a management snapshot</h2>
+<p>Filename: <code>Get-WindowsManagementSnapshot.ps1</code></p>
+<p>Create <code>Get-WindowsManagementSnapshot.ps1</code>. It must:</p>
+<ul>
+<li>use <code>[CmdletBinding()]</code>;</li>
+<li>accept <code>MaxEvents</code> from 1 through 100, defaulting to 10;</li>
+<li>accept optional <code>OutputPath</code> for JSON;</li>
+<li>return one object containing computer name, collection time, OS caption, last boot, recent System warning/error count, enabled firewall-rule count, running-service count, and the current user's name;</li>
+<li>handle an unavailable event log or firewall module without terminating the entire report; and</li>
+<li>export JSON only after building the object.</li>
+</ul>
+<p>Test:</p>
+<pre><code class="language-powershell">.\Get-WindowsManagementSnapshot.ps1 -MaxEvents 5
+
+$jsonPath = Join-Path $labRoot 'management-snapshot.json'
+.\Get-WindowsManagementSnapshot.ps1 -OutputPath $jsonPath
+Get-Content -Path $jsonPath -Raw | ConvertFrom-Json
+</code></pre>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Student requirements:</strong> Create a validated, read-only script that returns the required management properties, records event/firewall query failures, optionally writes JSON, and still outputs its object.</p>
+<p><strong>Detailed solution:</strong> Use <a href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/hands-on/solutions/16-windows-management/files/Get-WindowsManagementSnapshot.ps1"><code>Get-WindowsManagementSnapshot.ps1</code></a>. Separate <code>try</code> blocks allow unavailable event or firewall data to become explicit error properties while other fields still succeed. A valid query with no matching events is recorded as a count of <code>0</code>, not as a system failure.</p>
+<pre><code class="language-powershell">.\Get-WindowsManagementSnapshot.ps1 -MaxEvents 5
+$jsonPath = Join-Path $labRoot 'management-snapshot.json'
+.\Get-WindowsManagementSnapshot.ps1 -OutputPath $jsonPath
+Get-Content -Path $jsonPath -Raw | ConvertFrom-Json
+</code></pre>
+<details>
+<summary>Show solution Optimized</summary>
+<p>The linked script is the step-by-step version. This alternative keeps the
+queries separate so an unavailable log or firewall module is reported without
+losing the rest of the snapshot.</p>
+<pre><code class="language-powershell">[CmdletBinding()]
+param(
+    [ValidateRange(1, 100)]
+    [int]$MaxEvents = 10,
+    [string]$OutputPath
+)
+
+if (-not $IsWindows) { throw 'This script requires Windows.' }
+$os = Get-CimInstance Win32_OperatingSystem -ErrorAction Stop
+$eventError = $null
+$firewallError = $null
+
+try {
+    $eventCount = @(Get-WinEvent -FilterHashtable @{
+        LogName = 'System'; StartTime = (Get-Date).AddDays(-1); Level = 2, 3
+    } -MaxEvents $MaxEvents -ErrorAction Stop).Count
+} catch {
+    if ($_.FullyQualifiedErrorId -like 'NoMatchingEventsFound*') {
+        $eventCount = 0
+    } else {
+        $eventCount = $null
+        $eventError = $_.Exception.Message
+    }
+}
+
+try {
+    $firewallCount = @(Get-NetFirewallRule -PolicyStore ActiveStore -ErrorAction Stop |
+        Where-Object Enabled -eq 'True').Count
+} catch {
+    $firewallCount = $null
+    $firewallError = $_.Exception.Message
+}
+
+$result = [pscustomobject]@{
+    ComputerName         = $env:COMPUTERNAME
+    CollectedAt          = Get-Date
+    OperatingSystem      = $os.Caption
+    LastBoot             = $os.LastBootUpTime
+    RecentProblemCount   = $eventCount
+    EnabledFirewallRules = $firewallCount
+    RunningServiceCount  = @(Get-Service -ErrorAction Stop | Where-Object Status -eq 'Running').Count
+    CurrentUser          = [Security.Principal.WindowsIdentity]::GetCurrent().Name
+    EventQueryError      = $eventError
+    FirewallQueryError   = $firewallError
+}
+
+if ($OutputPath) {
+    $result | ConvertTo-Json | Set-Content -Path $OutputPath -ErrorAction Stop
+}
+$result
+</code></pre>
+<p>The counts and timestamps depend on the computer and collection time.</p>
+</details>
+</details>
+<h2 id="practice-and-self-check">Practice and self-check</h2>
+<ol>
+<li>Which cmdlet reads Windows event logs?</li>
+<li>Which property identifies inherited ACL entries?</li>
+<li>Which command waits for a job?</li>
+<li>Which command retrieves stored job output?</li>
+<li>Why should management reports return structured objects?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Answers:</strong></p>
+<ol>
+<li><code>Get-WinEvent</code>.</li>
+<li><code>IsInherited</code>.</li>
+<li><code>Wait-Job</code>.</li>
+<li><code>Receive-Job</code>.</li>
+<li>Objects retain named properties for filtering, testing, and export.</li>
+</ol>
+</details>
+<h2 id="submission-checklist">Submission checklist</h2>
+<ul>
+<li>Submit <code>Get-WindowsManagementSnapshot.ps1</code> and <code>management-snapshot.json</code>.</li>
+<li>Show the ACL <code>-WhatIf</code> preview; do not apply it.</li>
+<li>Demonstrate that the background job was removed.</li>
+<li>Include answers to all reflection questions.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>You used bounded event queries, inspected and safely previewed an ACL, managed a background job, summarized firewall state, and combined management data into one reusable object.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.diagnostics/get-winevent">Get-WinEvent</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_jobs">About jobs</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-acl">Set-Acl</a></li>
+</ul>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

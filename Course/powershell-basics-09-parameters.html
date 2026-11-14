@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Parameters — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">09 - Parameters</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a class="sidebar-current" href="powershell-basics-09-parameters.html" aria-current="page">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; PowerShell Basics</p>
+            <h1 id="page-title">Parameters</h1>
+            <p class="hero-description">09 - Parameters</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/course/ps_basics/05-parameters/05-ps-parameters">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>By the end of this chapter, you can:</p>
+<ul>
+<li>Distinguish parameters from the argument values supplied to them.</li>
+<li>Define named, positional, typed, array, switch, and mandatory parameters.</li>
+<li>Use default values and validation attributes.</li>
+<li>Explain where to place <code>[CmdletBinding()]</code> and what it enables.</li>
+<li>Distinguish a supplied parameter from its current value.</li>
+<li>Inspect a script's parameter syntax with <code>Get-Command</code> and <code>Get-Help</code>.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Complete the <a href="powershell-basics-07-variables-objects-and-data-types.html">variables chapter</a>.</li>
+<li>Be able to create, save, inspect, and run a small PowerShell script.</li>
+<li>PowerShell 7 and a code editor such as Visual Studio Code.</li>
+<li>Instructor-prepared writable access to <code>C:\powershell</code>.</li>
+</ul>
+<h2 id="why-parameters-matter">Why parameters matter</h2>
+<p>Parameters let you reuse a script with different inputs without editing its
+source. For example, a file report can accept a folder path instead of always
+inspecting the same hard-coded folder.</p>
+<p>A <strong>parameter</strong> is a named input declared by a command. An <strong>argument</strong> is the
+value supplied for that input. In this command, <code>Name</code> is the parameter and
+<code>explorer</code> is its argument:</p>
+<pre><code class="language-powershell">Get-Process -Name explorer
+</code></pre>
+<p>This command lists matching processes if Explorer is running. It does not start
+a process.</p>
+<p><strong>Parameter and argument</strong></p>
+<pre class="mermaid">flowchart LR
+    A["Command: Get-Process"] --> B["Parameter: -Name"]
+    B --> C["Argument: explorer"]
+    C --> D["Find matching process objects"]
+</pre>
+<p>The parameter identifies the input; the argument supplies its value.</p>
+<h2 id="prepare-the-lesson-workspace">Prepare the lesson workspace</h2>
+<p>Your instructor must prepare <code>C:\powershell</code> with writable access. Save the
+chapter's example scripts in their own folder, separate from the hands-on:</p>
+<pre><code class="language-powershell">$parametersLessonRoot = Join-Path -Path 'C:\powershell' -ChildPath 'Parameters-Lesson'
+New-Item -Path $parametersLessonRoot -ItemType Directory -Force | Out-Null
+Set-Location -LiteralPath $parametersLessonRoot
+Get-Location
+</code></pre>
+<p>The current location should be <code>C:\powershell\Parameters-Lesson</code>.
+When a section says <strong>Save as</strong>, create that file in Visual Studio Code,
+paste the complete script block, and save it. Run the following calls in the
+terminal from this folder. Replace only the file named by the section;
+keep other examples for comparison. Do not put the terminal calls in the file.</p>
+<p>If you restart the terminal, run this folder setup again. The files remain
+on disk, but session variables and the current location may differ.
+Keep the files for review; no deletion is required.</p>
+<p>The foundational sequence follows the guided lab. Sections labelled
+<strong>Advanced</strong> develop array inputs, binding control, presence checks, and
+previews after the basic examples; advanced describes depth.</p>
+<h2 id="named-and-positional-parameters">Named and positional parameters</h2>
+<p>A named argument uses a hyphen <strong>before</strong> the parameter name, followed by its
+value:</p>
+<pre><code class="language-powershell">Get-Process -Name explorer
+</code></pre>
+<p>A positional argument omits the name. PowerShell uses the parameter's defined
+position to bind the value:</p>
+<pre><code class="language-powershell">Get-Process explorer
+</code></pre>
+<p>Both commands bind <code>explorer</code> to <code>Name</code>. Named parameters make scripts easier
+to review. Positional parameters are useful for short interactive commands when
+the meaning is clear.</p>
+<p>To inspect the syntax and position of a parameter, use:</p>
+<pre><code class="language-powershell">Get-Command Get-Process -Syntax
+Get-Help Get-Process -Parameter Name
+</code></pre>
+<p><strong>Apply:</strong> <a href="hands-on-08-parameters.html#activity-11-change-a-commands-input">Activity 1.1: a named input</a> and
+<a href="hands-on-08-parameters.html#activity-81-try-a-shorter-call">Activity 8.1: positional calls</a>.</p>
+<h2 id="the-parameter-block">The parameter block</h2>
+<p>A <code>param()</code> block declares the inputs accepted by a script or function. Save
+this example as <code>Named_Parameters_Example_1.ps1</code>:</p>
+<pre><code class="language-powershell">param(
+    [string]$FirstName,
+    [string]$LastName,
+    [string]$Greeting = 'Hello'
+)
+
+Write-Output &quot;$Greeting, $FirstName $LastName!&quot;
+</code></pre>
+<p>The declaration has three parts:</p>
+<ul>
+<li>The type, such as <code>[string]</code>, describes the value expected by the parameter.</li>
+<li>The variable name, such as <code>$FirstName</code>, becomes the parameter name used by
+callers.</li>
+<li>An assignment, such as <code>= 'Hello'</code>, supplies a default value when the
+argument is omitted.</li>
+</ul>
+<p>Follow these rules:</p>
+<ul>
+<li>Place the script's <code>param()</code> block before executable statements. Comments,
+blank lines, <code>#requires</code> directives, and script attributes can precede it.</li>
+<li>Inside a function, place the block at the start of the function body, after
+any comments and function attributes.</li>
+<li>Separate parameter declarations with commas. Do not add a comma after the last
+parameter.</li>
+<li>Blank lines inside the block are allowed and can improve readability.</li>
+<li>Place <code>[Parameter(...)]</code> and validation attributes directly before the
+parameter they describe.</li>
+<li>Place <code>[CmdletBinding()]</code> <strong>before</strong> <code>param()</code>, outside its parentheses.</li>
+</ul>
+<p>After saving a parameter definition, inspect how callers can use it. Run
+<code>Get-Command .\the_script.ps1 -Syntax</code>, replacing <code>the_script.ps1</code> with your
+saved filename. For this example, run in the terminal:</p>
+<pre><code class="language-powershell">Get-Command .\Named_Parameters_Example_1.ps1 -Syntax
+</code></pre>
+<p>The syntax line is:</p>
+<pre><code class="language-text">.\Named_Parameters_Example_1.ps1 [[-FirstName] &lt;string&gt;] [[-LastName] &lt;string&gt;] [[-Greeting] &lt;string&gt;]
+</code></pre>
+<ul>
+<li><code>&lt;string&gt;</code> means supply a text value; do not type the angle brackets.</li>
+<li>The outer brackets in <code>[[-FirstName] &lt;string&gt;]</code> mean the whole input is
+optional. All three inputs are optional in this version.</li>
+<li>The inner brackets around <code>-FirstName</code> mean the name can be omitted when
+supplying the value positionally.</li>
+</ul>
+<p><code>Get-Command -Syntax</code> reads the saved parameter declarations without running
+the script body. It does not show default values such as <code>'Hello'</code>; inspect
+<code>param()</code> for those. Save and rerun the command after changing declarations.
+PowerShell may also show a resolved-path header above the syntax line.</p>
+<p>These two calls supply the same named values in different orders:</p>
+<pre><code class="language-powershell">.\Named_Parameters_Example_1.ps1 -FirstName Dominique `
+    -LastName Houbrechts -Greeting Welcome
+.\Named_Parameters_Example_1.ps1 -Greeting Welcome `
+    -LastName Houbrechts -FirstName Dominique
+</code></pre>
+<p>Each call produces:</p>
+<pre><code class="language-text">Welcome, Dominique Houbrechts!
+</code></pre>
+<p>This simple script also accepts positional values in declaration order:</p>
+<pre><code class="language-powershell">.\Named_Parameters_Example_1.ps1 Dominique Houbrechts Welcome
+</code></pre>
+<p>Later in this chapter, you will control positional binding explicitly.</p>
+<p><strong>Apply:</strong> <a href="hands-on-08-parameters.html#activity-21-prepare-your-folder">Activities 2.1–3.1: create a script and add an input</a>.</p>
+<h2 id="default-values">Default values</h2>
+<p>A default value is used when the caller omits an optional parameter. A supplied
+value replaces that default.</p>
+<p>Save as <code>DeclareParametersDefaultValue.ps1</code>:</p>
+<pre><code class="language-powershell">param(
+    [int]$Amount = 10
+)
+
+Write-Output $Amount
+</code></pre>
+<pre><code class="language-powershell">.\DeclareParametersDefaultValue.ps1
+</code></pre>
+<pre><code class="language-text">10
+</code></pre>
+<pre><code class="language-powershell">.\DeclareParametersDefaultValue.ps1 -Amount 20
+</code></pre>
+<pre><code class="language-text">20
+</code></pre>
+<p>Parameters are optional unless marked mandatory, even if they have no explicit
+default. A default assignment does not cancel <code>[Parameter(Mandatory)]</code>; avoid
+combining them for a required input.</p>
+<p><strong>Apply:</strong> <a href="hands-on-08-parameters.html#activity-32-add-a-default-value">Activity 3.2: use and override a default</a>.</p>
+<h2 id="data-types-and-arrays">Data types and arrays</h2>
+<p>A type declaration tells PowerShell which type to bind. PowerShell attempts to
+convert supplied values to that type and rejects values it cannot convert.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Purpose</th>
+<th>Example argument</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[string]</code></td>
+<td>Text</td>
+<td><code>-FirstName Dominique</code></td>
+</tr>
+<tr>
+<td><code>[int]</code></td>
+<td>Whole numbers</td>
+<td><code>-Age 25</code></td>
+</tr>
+<tr>
+<td><code>[double]</code></td>
+<td>Floating-point numbers</td>
+<td><code>-Size 2.5</code></td>
+</tr>
+<tr>
+<td><code>[bool]</code></td>
+<td>An explicit Boolean value</td>
+<td><code>-Enabled $true</code></td>
+</tr>
+<tr>
+<td><code>[datetime]</code></td>
+<td>A date and time</td>
+<td><code>-Date '2026-10-09'</code></td>
+</tr>
+<tr>
+<td><code>[string[]]</code></td>
+<td>An array of strings</td>
+<td><code>-Names 'Alex', 'Sam'</code></td>
+</tr>
+<tr>
+<td><code>[int[]]</code></td>
+<td>An array of integers</td>
+<td><code>-Numbers 2, 3, 4, 5</code></td>
+</tr>
+<tr>
+<td><code>[switch]</code></td>
+<td>An option enabled by its name</td>
+<td><code>-Capital</code></td>
+</tr>
+</tbody>
+</table>
+<p>Type conversion checks whether a value can become the required type. It does not
+check every business rule. For example, an integer type alone does not prevent a
+negative age.</p>
+<p>Save as <code>DeclareParametersDataTypes.ps1</code>:</p>
+<pre><code class="language-powershell">param(
+    [string]$FirstName,
+    [int]$Age
+)
+
+Write-Output &quot;First name: $FirstName&quot;
+Write-Output &quot;Age: $Age&quot;
+Write-Output $FirstName.GetType().Name
+Write-Output $Age.GetType().Name
+</code></pre>
+<pre><code class="language-powershell">.\DeclareParametersDataTypes.ps1 -FirstName Dominique -Age 25
+</code></pre>
+<pre><code class="language-text">First name: Dominique
+Age: 25
+String
+Int32
+</code></pre>
+<p>Passing <code>-Age twenty</code> produces a conversion error before the body runs.</p>
+<h3 id="advanced-array-parameters">Advanced: array parameters</h3>
+<p>Use a typed array when all elements should have the same type. <code>[array]</code> accepts
+mixed element types; <code>[int[]]</code> requires elements convertible to integers.</p>
+<p>Save as <code>DeclareParametersArray.ps1</code>:</p>
+<pre><code class="language-powershell">param(
+    [int[]]$Numbers = @()
+)
+
+Write-Output &quot;Total numbers are: $($Numbers.Count)&quot;
+foreach ($number in $Numbers) {
+    Write-Output $number
+}
+Write-Output $Numbers.GetType().Name
+</code></pre>
+<pre><code class="language-powershell">.\DeclareParametersArray.ps1 -Numbers 2, 3, 4, 5
+</code></pre>
+<pre><code class="language-text">Total numbers are: 4
+2
+3
+4
+5
+Int32[]
+</code></pre>
+<p>These examples are called from a PowerShell session. Passing arrays through a
+separate <code>pwsh -File</code> process involves command-line argument handling and is not
+equivalent to the calls shown here.</p>
+<p><strong>Apply:</strong> <a href="hands-on-08-parameters.html#activity-41-add-the-number-of-study-hours">Activity 4.1: integer input and conversion errors</a>.
+Array inputs extend this binding idea; the guided lab keeps scalar inputs.</p>
+<h2 id="mandatory-parameters">Mandatory parameters</h2>
+<p>A mandatory parameter requires input. In an interactive session, PowerShell
+prompts for an omitted value. When prompting is unavailable, such as with
+<code>pwsh -NonInteractive</code>, missing mandatory input produces an error.</p>
+<p><code>[Parameter(Mandatory)]</code> and <code>[Parameter(Mandatory = $true)]</code> are equivalent.
+Save this example as <code>DeclareParametersMandatory.ps1</code>:</p>
+<pre><code class="language-powershell">[CmdletBinding()]
+param(
+    [Parameter(Mandatory)]
+    [string]$Username,
+
+    [string]$FullName
+)
+
+Write-Output &quot;Username: $Username&quot;
+Write-Output &quot;Full name: $FullName&quot;
+</code></pre>
+<p>Inspect the saved definition before running it:</p>
+<pre><code class="language-powershell">Get-Command .\DeclareParametersMandatory.ps1 -Syntax
+</code></pre>
+<p>The syntax line is:</p>
+<pre><code class="language-text">.\DeclareParametersMandatory.ps1 [-Username] &lt;string&gt; [[-FullName] &lt;string&gt;] [&lt;CommonParameters&gt;]
+</code></pre>
+<p><code>[-Username] &lt;string&gt;</code> has no outer brackets around the complete input, so a
+username value is required. Only the name is optional for a positional call.
+<code>FullName</code> remains optional. <code>[&lt;CommonParameters&gt;]</code> represents built-in options
+such as <code>-Verbose</code>, enabled here by <code>[CmdletBinding()]</code>. You will use verbose
+output later in this chapter.</p>
+<pre><code class="language-powershell">.\DeclareParametersMandatory.ps1 -Username dhoubrechts -FullName 'Dominique Houbrechts'
+</code></pre>
+<pre><code class="language-text">Username: dhoubrechts
+Full name: Dominique Houbrechts
+</code></pre>
+<p>Run the following interactively and enter <code>dhoubrechts</code> when prompted:</p>
+<pre><code class="language-powershell">.\DeclareParametersMandatory.ps1
+</code></pre>
+<p>The script then reports that username and an empty full name. The prompt's
+wording can vary between PowerShell versions and hosts.</p>
+<p><strong>Apply:</strong> <a href="hands-on-08-parameters.html#activity-42-make-the-topic-mandatory">Activity 4.2: mandatory input in a terminal</a>.</p>
+<h2 id="validation">Validation</h2>
+<p>Validation attributes restrict the values accepted by a parameter before the
+script body runs. Use them to reject invalid input with a useful error.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[ValidateSet(...)]</code></td>
+<td>Allow only listed values.</td>
+</tr>
+<tr>
+<td><code>[ValidatePattern(...)]</code></td>
+<td>Require a regular expression match.</td>
+</tr>
+<tr>
+<td><code>[ValidateRange(...)]</code></td>
+<td>Require a value within an inclusive range.</td>
+</tr>
+<tr>
+<td><code>[ValidateScript({...})]</code></td>
+<td>Apply a custom test to each supplied value.</td>
+</tr>
+<tr>
+<td><code>[ValidateNotNullOrEmpty()]</code></td>
+<td>Reject null or empty input.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="an-inclusive-range">An inclusive range</h3>
+<p>Save as <code>DeclareParameterValidateRange.ps1</code>:</p>
+<pre><code class="language-powershell">param(
+    [Parameter(Mandatory)]
+    [ValidateRange(1, 100)]
+    [int]$Number
+)
+
+Write-Output $Number
+</code></pre>
+<pre><code class="language-powershell">.\DeclareParameterValidateRange.ps1 -Number 100
+</code></pre>
+<pre><code class="language-text">100
+</code></pre>
+<p><code>-Number 110</code> fails. This range includes <code>1</code> and <code>100</code>; the custom test below
+uses a different boundary rule.</p>
+<h3 id="a-fixed-set-of-values">A fixed set of values</h3>
+<p>Use a fixed set when a script supports only a few known report categories.
+Save as <code>DeclareParameterValidate.ps1</code>:</p>
+<pre><code class="language-powershell">param(
+    [ValidateSet('Backup', 'Inventory', 'Health',
+        ErrorMessage = 'Report kind {0} is not in the allowed set: {1}.')]
+    [string]$ReportKind = 'Inventory'
+)
+
+Write-Output &quot;Report kind: $ReportKind&quot;
+</code></pre>
+<pre><code class="language-powershell">.\DeclareParameterValidate.ps1
+.\DeclareParameterValidate.ps1 -ReportKind Backup
+</code></pre>
+<pre><code class="language-text">Report kind: Inventory
+Report kind: Backup
+</code></pre>
+<p><code>-ReportKind Finance</code> fails validation. <code>ValidateSet</code> is case-insensitive by
+default. In the custom error message, <code>{0}</code> is the supplied value and <code>{1}</code>
+is the allowed set. Custom <code>ErrorMessage</code> properties used in this chapter
+require PowerShell 6 or later.</p>
+<h3 id="advanced-a-regular-expression-pattern">Advanced: a regular expression pattern</h3>
+<p>A <strong>regular expression</strong> describes a text pattern. Here, <code>\A</code> and <code>\z</code>
+require the complete input, <code>[0-9]</code> represents an ASCII digit, and <code>{3}</code>
+requires three repetitions. These strict anchors also reject a trailing
+newline; <code>$</code> can match just before a final newline.</p>
+<p>Save as <code>DeclareParameterValidatePattern.ps1</code>:</p>
+<pre><code class="language-powershell">param(
+    [Parameter(Mandatory)]
+    [ValidatePattern('\ALAB-[0-9]{3}\z', ErrorMessage = '{0} must use the format LAB-001.')]
+    [string]$AssetCode
+)
+
+Write-Output $AssetCode
+</code></pre>
+<pre><code class="language-powershell">.\DeclareParameterValidatePattern.ps1 -AssetCode LAB-001
+</code></pre>
+<pre><code class="language-text">LAB-001
+</code></pre>
+<p><code>-AssetCode LAB-01</code> fails validation. This checks the format; it does not prove
+that the asset exists.</p>
+<p><code>ValidatePattern</code> is case-insensitive by default, so <code>lab-001</code> also passes
+this example. Pattern matching does not normalise the supplied text.</p>
+<h3 id="advanced-a-custom-validation-script">Advanced: a custom validation script</h3>
+<p>Within <code>ValidateScript</code>, <code>$_</code> is the value being checked. Return <code>$true</code> for
+valid input; <code>$false</code> or a thrown error rejects it. Array parameters are checked
+element by element.</p>
+<p>Save as <code>DeclareParameterValidateScript.ps1</code>:</p>
+<pre><code class="language-powershell">param(
+    [Parameter(Mandatory)]
+    [ValidateScript({ $_ -gt 0 -and $_ -lt 100 })]
+    [int]$Number
+)
+
+Write-Output $Number
+</code></pre>
+<pre><code class="language-powershell">.\DeclareParameterValidateScript.ps1 -Number 50
+</code></pre>
+<pre><code class="language-text">50
+</code></pre>
+<p><code>-Number 0</code>, <code>-Number 100</code>, and <code>-Number 110</code> fail because this rule excludes
+both boundaries.</p>
+<p>Validation attributes check supplied arguments, not default assignments. Choose
+valid defaults yourself. On an optional parameter, validation alone does not
+require the caller to provide input; add <code>Mandatory</code> when omission must be
+prevented.</p>
+<p><strong>Apply:</strong> <a href="hands-on-08-parameters.html#activity-51-allow-only-a-useful-number-of-hours">Activities 5.1–5.2: range and fixed choices</a>.
+The pattern and custom-script examples develop more detailed validation rules.</p>
+<h2 id="switch-parameters">Switch parameters</h2>
+<p>Declare an option with <code>[switch]</code>. Without an explicit default, an omitted
+switch is false. Its name alone enables it. Use <code>[bool]</code> when callers should
+supply a separate Boolean value.</p>
+<p>Save as <code>DeclareParametersSwitch.ps1</code>:</p>
+<pre><code class="language-powershell">[CmdletBinding()]
+param(
+    [Parameter(Mandatory)]
+    [string]$FirstName,
+
+    [switch]$Capital
+)
+
+if ($Capital) {
+    $FirstName = $FirstName.ToUpper()
+}
+
+Write-Output &quot;First name: $FirstName&quot;
+</code></pre>
+<pre><code class="language-powershell">.\DeclareParametersSwitch.ps1 -FirstName dominique
+</code></pre>
+<pre><code class="language-text">First name: dominique
+</code></pre>
+<pre><code class="language-powershell">.\DeclareParametersSwitch.ps1 -FirstName dominique -Capital
+</code></pre>
+<pre><code class="language-text">First name: DOMINIQUE
+</code></pre>
+<p>A caller can explicitly disable a switch using a colon:</p>
+<pre><code class="language-powershell">.\DeclareParametersSwitch.ps1 -FirstName dominique -Capital:$false
+</code></pre>
+<pre><code class="language-text">First name: dominique
+</code></pre>
+<p>Use <code>if ($Capital)</code> or <code>$Capital.IsPresent</code> to test its Boolean value.
+<code>IsPresent</code> is false for <code>-Capital:$false</code>, even though the caller supplied the
+parameter. Do not use <code>-Capital $false</code>; the separate value is treated as
+another argument.</p>
+<p><strong>Apply:</strong> <a href="hands-on-08-parameters.html#activity-61-add-a-switch">Activity 6.1: switch values, including explicit false</a>.</p>
+<h2 id="using-cmdletbinding">Using <code>[CmdletBinding()]</code></h2>
+<p>Use <code>[CmdletBinding()]</code> when a reusable script or function needs cmdlet-style
+parameter handling. A function with this attribute is an <strong>advanced function</strong>.
+A script can use the same attribute before its top-level <code>param()</code> block.</p>
+<p>Save this example as <code>Show-FolderPath.ps1</code>:</p>
+<pre><code class="language-powershell">[CmdletBinding()]
+param(
+    [string]$Path = '.'
+)
+
+Write-Verbose &quot;Resolving folder path: $Path&quot;
+Resolve-Path -LiteralPath $Path
+</code></pre>
+<p>Compare these calls:</p>
+<pre><code class="language-powershell">.\Show-FolderPath.ps1 -Path .
+.\Show-FolderPath.ps1 -Path . -Verbose
+Get-Command .\Show-FolderPath.ps1 -Syntax
+</code></pre>
+<details>
+<summary>Show solution</summary>
+<p>Both runs return the resolved path. <code>-Verbose</code> also displays the diagnostic
+message. The actual path depends on your current folder. The syntax query
+shows declared and common parameters; it does not run the script.</p>
+</details>
+<p><code>[CmdletBinding()]</code> enables common parameters, including <code>-Verbose</code>, <code>-Debug</code>,
+and <code>-ErrorAction</code>, and provides <code>$PSCmdlet</code> for advanced methods. Unknown
+parameter names and unmatched positional arguments fail during binding. Do not
+declare your own parameters with common-parameter names.</p>
+<p><code>[Parameter(...)]</code> configures one input, such as making it mandatory. It can
+also make a function advanced without <code>[CmdletBinding()]</code>. Using both makes
+their different purposes explicit.</p>
+<p><strong>Apply:</strong> <a href="hands-on-08-parameters.html#activity-71-use-cmdletbinding-and-verbose">Activity 7.1: request diagnostic output</a>.</p>
+<h2 id="explicit-positional-parameters">Explicit positional parameters</h2>
+<p>Use <code>Position</code> to define which parameter receives each unnamed argument.
+Positions start at <code>0</code>. An explicit position takes precedence over
+<code>PositionalBinding = $false</code>.</p>
+<p>Save as <code>Greet-User.ps1</code>:</p>
+<pre><code class="language-powershell">[CmdletBinding(PositionalBinding = $false)]
+param(
+    [Parameter(Position = 0, Mandatory)]
+    [string]$FirstName,
+
+    [Parameter(Position = 1, Mandatory)]
+    [string]$LastName,
+
+    [Parameter(Position = 2)]
+    [string]$Greeting = 'Hello'
+)
+
+Write-Output &quot;$Greeting, $FirstName $LastName!&quot;
+</code></pre>
+<pre><code class="language-powershell">.\Greet-User.ps1 Dominique Houbrechts Welcome
+</code></pre>
+<pre><code class="language-text">Welcome, Dominique Houbrechts!
+</code></pre>
+<p>Omitting the optional greeting uses its default:</p>
+<pre><code class="language-powershell">.\Greet-User.ps1 Dominique Houbrechts
+</code></pre>
+<pre><code class="language-text">Hello, Dominique Houbrechts!
+</code></pre>
+<p>Named arguments still work:</p>
+<pre><code class="language-powershell">.\Greet-User.ps1 -FirstName John -LastName Doe -Greeting 'Good morning'
+</code></pre>
+<pre><code class="language-text">Good morning, John Doe!
+</code></pre>
+<p><code>Mandatory</code> controls whether input is required. <code>Position</code> controls whether
+callers may omit the parameter name. <code>ParameterSetName</code> groups valid
+combinations of inputs; it does not assign a position or directly require a
+parameter name.</p>
+<p><strong>Apply:</strong> <a href="hands-on-08-parameters.html#activity-81-try-a-shorter-call">Activity 8.1: compare named and positional calls</a>.</p>
+<h2 id="advanced-unnamed-arguments-with-args">Advanced: unnamed arguments with <code>$args</code></h2>
+<p><code>$args</code> contains arguments that were not bound to declared parameters in a
+simple script or function. It is an array, and its first element has index <code>0</code>.
+Reading <code>$args[0]</code> is different from declaring a positional parameter in
+<code>param()</code>.</p>
+<p>Save this example as <code>Unnamed_Arguments_Example_1.ps1</code>:</p>
+<pre><code class="language-powershell">$argument1 = $args[0]
+$argument2 = $args[1]
+$argument3 = $args[2]
+
+Write-Host $argument1 $argument2 $argument3
+</code></pre>
+<p>Run it from the folder containing the file:</p>
+<pre><code class="language-powershell">.\Unnamed_Arguments_Example_1.ps1 one two three
+</code></pre>
+<p>Expected output:</p>
+<pre><code class="language-text">one two three
+</code></pre>
+<p>A second example, <code>Unnamed_Arguments_Example_2.ps1</code>, inspects every argument:</p>
+<pre><code class="language-powershell">Write-Output &quot;There are a total of $($args.Count) arguments&quot;
+for ($index = 0; $index -lt $args.Count; $index++) {
+    Write-Output &quot;Argument $index is $($args[$index])&quot;
+}
+</code></pre>
+<pre><code class="language-powershell">.\Unnamed_Arguments_Example_2.ps1 one two three four
+</code></pre>
+<pre><code class="language-text">There are a total of 4 arguments
+Argument 0 is one
+Argument 1 is two
+Argument 2 is three
+Argument 3 is four
+</code></pre>
+<p>For reusable scripts, prefer declared parameters. They provide meaningful names,
+types, help information, and validation. Advanced scripts and functions reject
+unmatched arguments rather than collecting them in <code>$args</code>.</p>
+<h2 id="checking-whether-a-parameter-was-supplied">Checking whether a parameter was supplied</h2>
+<p><strong>Advanced depth:</strong> distinguish binding from the resulting value.</p>
+<p>A parameter's <strong>presence</strong> and its <strong>value</strong> answer different questions. Use
+<code>$PSBoundParameters.ContainsKey('Name')</code> to check binding. Use the parameter
+variable to check its value.</p>
+<p><code>$PSBoundParameters</code> is a dictionary of parameters bound in the current script
+or function. It includes named and positional arguments, but does not include an
+optional parameter merely because it has a default value.</p>
+<p>Save as <code>CheckParameterContainsKey.ps1</code>:</p>
+<pre><code class="language-powershell">[CmdletBinding()]
+param(
+    [string]$Parameter1 = 'Default',
+    [switch]$Parameter2
+)
+
+$parameter1Supplied = $PSBoundParameters.ContainsKey('Parameter1')
+Write-Output &quot;Parameter1 supplied: $parameter1Supplied&quot;
+Write-Output &quot;Parameter1 value: $Parameter1&quot;
+$parameter2Supplied = $PSBoundParameters.ContainsKey('Parameter2')
+Write-Output &quot;Parameter2 supplied: $parameter2Supplied&quot;
+Write-Output &quot;Parameter2 enabled: $($Parameter2.IsPresent)&quot;
+</code></pre>
+<pre><code class="language-powershell">.\CheckParameterContainsKey.ps1
+</code></pre>
+<pre><code class="language-text">Parameter1 supplied: False
+Parameter1 value: Default
+Parameter2 supplied: False
+Parameter2 enabled: False
+</code></pre>
+<pre><code class="language-powershell">.\CheckParameterContainsKey.ps1 -Parameter1 Value1 -Parameter2:$false
+</code></pre>
+<pre><code class="language-text">Parameter1 supplied: True
+Parameter1 value: Value1
+Parameter2 supplied: True
+Parameter2 enabled: False
+</code></pre>
+<h3 id="why-null-and-truth-tests-are-different">Why <code>$null</code> and truth tests are different</h3>
+<p>A null comparison checks the current value, not whether the caller supplied an
+argument. An untyped parameter without a default can be null because it was
+omitted or because the caller explicitly supplied <code>$null</code>.</p>
+<p>Save as <code>CheckParameterContainsNull.ps1</code>:</p>
+<pre><code class="language-powershell">param(
+    $Parameter1
+)
+
+$parameter1Supplied = $PSBoundParameters.ContainsKey('Parameter1')
+Write-Output &quot;Parameter1 supplied: $parameter1Supplied&quot;
+Write-Output &quot;Parameter1 is null: $($null -eq $Parameter1)&quot;
+</code></pre>
+<pre><code class="language-powershell">.\CheckParameterContainsNull.ps1 -Parameter1 $null
+</code></pre>
+<pre><code class="language-text">Parameter1 supplied: True
+Parameter1 is null: True
+</code></pre>
+<p>Typed parameters have their own conversion and default behavior. For example, an
+optional <code>[int]</code> without an explicit default is <code>0</code>, and an optional <code>[switch]</code>
+is false.</p>
+<p>Likewise, <code>if ($Parameter1)</code> tests truthiness. Values such as <code>0</code>, <code>$false</code>,
+an empty string, and <code>$null</code> evaluate to false even when supplied. For switches,
+test the value to decide whether to enable the feature; use <code>ContainsKey()</code> only
+when you need to know whether the caller supplied it.</p>
+<h2 id="advanced-controlling-positional-binding">Advanced: controlling positional binding</h2>
+<p><code>[CmdletBinding()]</code> permits automatic positional binding by default. Set
+<code>PositionalBinding = $false</code> to require names unless a parameter has an explicit
+<code>Position</code> attribute:</p>
+<pre><code class="language-powershell">[CmdletBinding(PositionalBinding = $false)]
+param(
+    [string]$Greeting = 'Hello'
+)
+
+Write-Output $Greeting
+</code></pre>
+<p>If saved as <code>Show-Greeting.ps1</code>, use <code>-Greeting Welcome</code>. Passing only
+<code>Welcome</code> fails because no parameter accepts a positional value.</p>
+<h2 id="advanced-supporting-whatif-and-confirm">Advanced: supporting <code>-WhatIf</code> and <code>-Confirm</code></h2>
+<p>For scripts or functions that change state, <code>SupportsShouldProcess = $true</code> adds
+<code>-WhatIf</code> and <code>-Confirm</code>. Guard each change with <code>$PSCmdlet.ShouldProcess()</code> so
+previews and confirmations work.</p>
+<p>Paste this function into your lab session:</p>
+<pre><code class="language-powershell">function New-CourseNote {
+    [CmdletBinding(SupportsShouldProcess = $true)]
+    param(
+        [Parameter(Mandatory)]
+        [ValidateNotNullOrEmpty()]
+        [string]$Path
+    )
+
+    if ($PSCmdlet.ShouldProcess($Path, 'Create a course note')) {
+        New-Item -Path $Path -ItemType File -Value 'Course note' -ErrorAction Stop
+    }
+}
+</code></pre>
+<p>Preview it from your personal lab folder:</p>
+<pre><code class="language-powershell">New-CourseNote -Path .\course-note.txt -WhatIf
+</code></pre>
+<p>The preview describes the proposed action without creating a file.
+<code>[CmdletBinding()]</code> alone does not add these two parameters.</p>
+<h2 id="practice-and-self-check">Practice and self-check</h2>
+<p>Complete the <a href="hands-on-08-parameters.html">matching parameters hands-on</a> for the guided
+editing sequence and the independent report-request task. Its solutions stay
+collapsed until you choose to check your work.</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Numbered practice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parameter name and argument value</td>
+<td>Activity 1.1</td>
+</tr>
+<tr>
+<td>Create, save, and run a script</td>
+<td>Activities 2.1–2.2</td>
+</tr>
+<tr>
+<td>Input declaration and defaults</td>
+<td>Activities 3.1–3.2</td>
+</tr>
+<tr>
+<td>Integer conversion and mandatory input</td>
+<td>Activities 4.1–4.2</td>
+</tr>
+<tr>
+<td>Validation rules and rejected input</td>
+<td>Activities 5.1–5.2</td>
+</tr>
+<tr>
+<td>Switch values and diagnostics</td>
+<td>Activities 6.1–7.1</td>
+</tr>
+<tr>
+<td>Positional arguments</td>
+<td>Activity 8.1</td>
+</tr>
+<tr>
+<td>Combine the techniques with new requirements</td>
+<td>Activity 9.1</td>
+</tr>
+</tbody>
+</table>
+<p>Use these questions to inspect the advanced examples in this chapter:</p>
+<ol>
+<li>How does reading <code>$args[0]</code> differ from declaring
+<code>[Parameter(Position = 0)]</code>?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p><code>$args[0]</code> reads the first unbound argument in a simple script or function.
+It has no declared parameter name, type constraint, or validation attribute.
+A declared positional parameter participates in binding and can have a type,
+validation, help, and a meaningful name. It also accepts its named form.
+Advanced scripts reject unmatched arguments rather than collecting them.</p>
+</details>
+<ol>
+<li>Which values among <code>0</code>, <code>1</code>, <code>99</code>, and <code>100</code> pass the custom numeric test
+and the inclusive range? Check their respective scripts.</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th><code>ValidateScript</code>: greater than 0 and less than 100</th>
+<th><code>ValidateRange(1, 100)</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Reject</td>
+<td>Reject</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Accept</td>
+<td>Accept</td>
+</tr>
+<tr>
+<td>99</td>
+<td>Accept</td>
+<td>Accept</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Reject</td>
+<td>Accept</td>
+</tr>
+</tbody>
+</table>
+<p>The custom test excludes both 0 and 100. The range includes both 1 and 100.</p>
+</details>
+<ol>
+<li>Use <code>CheckParameterContainsKey.ps1</code> to compare an omitted input, an
+explicit default value, and an explicitly false switch.</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>Run from the folder where you saved the chapter's script:</p>
+<pre><code class="language-powershell">.\CheckParameterContainsKey.ps1
+.\CheckParameterContainsKey.ps1 -Parameter1 Default
+.\CheckParameterContainsKey.ps1 -Parameter2:$false
+</code></pre>
+<p>With no arguments, both supplied checks are <code>False</code>; <code>Parameter1</code> is
+<code>Default</code> and <code>Parameter2</code> is disabled. Supplying <code>-Parameter1 Default</code>
+makes its supplied check <code>True</code> while keeping the same value. Supplying
+<code>-Parameter2:$false</code> makes that switch's supplied check <code>True</code> while its
+enabled value remains <code>False</code>. Presence and value answer different questions.</p>
+</details>
+<ol>
+<li>Why does a null check not prove whether an argument was supplied?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>A null check inspects the current value. An untyped input can be null
+because it was omitted or because the caller supplied <code>$null</code> explicitly.
+A default can also provide a non-null value when no argument was supplied.
+Use <code>$PSBoundParameters.ContainsKey('Parameter1')</code> to check binding.</p>
+</details>
+<ol>
+<li>Why must a script guard its changes with <code>ShouldProcess()</code> after adding
+<code>SupportsShouldProcess</code>? Verify that the preview creates no file.</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p><code>SupportsShouldProcess</code> exposes <code>-WhatIf</code> and <code>-Confirm</code>. The script must
+call <code>$PSCmdlet.ShouldProcess(...)</code> and perform its mutation only when that
+call returns <code>True</code>. With <code>-WhatIf</code> it returns <code>False</code>, so the protected
+change is skipped.</p>
+<p>After defining <code>New-CourseNote</code>, use a missing path inside your lab folder:</p>
+<pre><code class="language-powershell">Test-Path -LiteralPath '.\course-note.txt'
+New-CourseNote -Path '.\course-note.txt' -WhatIf
+Test-Path -LiteralPath '.\course-note.txt'
+</code></pre>
+<p>Both checks should be <code>False</code>. If the first check is <code>True</code>, preserve that
+file and choose another new filename before previewing. A pre-existing file
+cannot prove whether the preview created anything. Do not perform an
+unguarded write after the conditional block.</p>
+</details>
+<h2 id="summary">Summary</h2>
+<p>Declare inputs in <code>param()</code> and prefer named arguments for clarity. Use types
+for conversion, validation for permitted values, defaults for optional inputs,
+and <code>Mandatory</code> for required input. Declare positions explicitly when callers
+should be able to omit names.</p>
+<p>Place <code>[CmdletBinding()]</code> before <code>param()</code> to enable cmdlet-style handling. Use
+<code>$PSBoundParameters</code> to check whether an input was supplied, and the variable's
+value to decide what the script should do.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_parameters">Microsoft Learn: about_Parameters</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_cmdletbindingattribute">Microsoft Learn: about_Functions_CmdletBindingAttribute</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_parameters">Microsoft Learn: about_Functions_Advanced_Parameters</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_automatic_variables">Microsoft Learn: about_Automatic_Variables</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_methods">Microsoft Learn: about_Functions_Advanced_Methods</a></li>
+</ul>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

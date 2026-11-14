@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Functions — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">13 - Functions</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a class="sidebar-current" href="powershell-basics-13-functions.html" aria-current="page">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; PowerShell Basics</p>
+            <h1 id="page-title">Functions</h1>
+            <p class="hero-description">13 - Functions</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/course/ps_basics/09-functions/09-ps-functions">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="learning-objectives">Learning objectives</h2>
+<ul>
+<li>Define reusable PowerShell functions with clear names and parameters.</li>
+<li>Create advanced functions using <code>[CmdletBinding()]</code>.</li>
+<li>Return pipeline-friendly objects and document function behaviour.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Complete parameters, conditions, loops, and exception handling.</li>
+</ul>
+<h2 id="references">References</h2>
+<p><a href="https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/09-functions?view=powershell-7.4">functions</a></p>
+<p><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions?view=powershell-7.3">about_functions</a></p>
+<h2 id="what-is-a-function">What is a function</h2>
+<p>In programming and scripting languages, including PowerShell, a function is a reusable, self-contained block of code that performs a specific task or set of tasks. Functions are used to organize code, promote reusability, and make the code more modular.</p>
+<p>In PowerShell, a function is defined using the function keyword followed by the function name and a set of curly braces  that enclose the code block.</p>
+<p><strong>Function overview</strong></p>
+<pre class="mermaid">flowchart LR
+    A["Call the function"] --> B["Pass input through parameters"]
+    B --> C["Run the function's code"]
+    C --> D["Output a result"]
+    D --> E["Display, store, or pipe the result"]
+</pre>
+<p>Parameters and output are optional: a function can also perform a task without
+receiving input or returning a result.</p>
+<p><strong>Syntax:</strong></p>
+<pre><code class="language-output">function [&lt;scope:&gt;]&lt;name&gt; [([type]$parameter1[,[type]$parameter2])]
+{
+  begin {&lt;statement list&gt;}
+  process {&lt;statement list&gt;}
+  end {&lt;statement list&gt;}
+  clean {&lt;statement list&gt;}
+}
+</code></pre>
+<pre><code class="language-output">function [&lt;scope:&gt;]&lt;name&gt;
+{
+  param([type]$parameter1 [,[type]$parameter2])
+  dynamicparam {&lt;statement list&gt;}
+  begin {&lt;statement list&gt;}
+  process {&lt;statement list&gt;}
+  end {&lt;statement list&gt;}
+  clean {&lt;statement list&gt;}
+}
+</code></pre>
+<p>Explanation of the syntax:</p>
+<ul>
+<li><code>function</code>: This keyword is used to define a function in PowerShell.</li>
+<li><code>&lt;scope:&gt;</code>: This is an optional scope modifier that specifies the visibility of the function. It can be <code>global</code>, <code>script</code>, or <code>local</code>. If not specified, the function is local to the current scope.</li>
+<li><code>&lt;name&gt;</code>: This is the name of the function. It should be a valid identifier and follow PowerShell naming conventions.</li>
+<li><code>param</code>: This keyword is used to define parameters for the function. Parameters allow you to pass values into the function when it is called.</li>
+<li><code>[type]</code>: This is an optional type declaration for the parameter. It specifies the expected data type of the parameter (e.g., <code>[string]</code>, <code>[int]</code>, etc.).</li>
+<li><code>begin</code>, <code>process</code>, <code>end</code>, and <code>clean</code>: These are optional script blocks that define different stages of the function's execution. The <code>begin</code> block is executed once before any input is processed, the <code>process</code> block is executed for each input object, the <code>end</code> block is executed once after all input has been processed, and the <code>clean</code> block is executed for cleanup tasks.</li>
+<li><code>&lt;statement list&gt;</code>: This represents the actual code or statements that will be executed within each block of the function.</li>
+<li><code>dynamicparam</code>: This is an optional block that allows you to define dynamic parameters for the function. Dynamic parameters are parameters that can be added or modified at runtime based on certain conditions.</li>
+<li>The function can be called by its name, and you can pass arguments to the parameters defined in the function. Functions can return values using the <code>return</code> keyword, and they can also output objects to the pipeline for further processing.</li>
+</ul>
+<p>Here's a simple example of a PowerShell function:</p>
+<p><strong>Example - Example_SayHello.ps1:</strong></p>
+<pre><code class="language-powershell">function Show-Hello {
+    Write-Host &quot;Hello, World!&quot;
+}
+</code></pre>
+<p>In this example:</p>
+<ul>
+<li>SayHello is the name of the function.</li>
+<li>The code block within the curly braces  contains the instructions or commands to be executed when the function is called.</li>
+<li>The Write-Host cmdlet is used to output the &quot;Hello, World!&quot; message to the console.</li>
+</ul>
+<p>You can call the function by simply typing its name:</p>
+<pre><code class="language-powershell">SayHello
+</code></pre>
+<p>When you run this script, it will execute the code within the SayHello function, resulting in the &quot;Hello, World!&quot; message being printed to the console.</p>
+<p><strong>Example - Example_ShowPSVersion.ps1:</strong></p>
+<pre><code class="language-powershell">function Show-PSVersion {
+    return $PSVersionTable.PSVersion
+}
+
+Write-Host &quot;PowerShell Version:&quot; (Show-PSVersion)
+</code></pre>
+<pre><code class="language-output">.\Example_ShowPSVersion.ps1
+PowerShell Version: 7.3.9
+</code></pre>
+<h2 id="why-use-functions">Why use function(s)</h2>
+<p>Using functions in programming, including PowerShell, offers several advantages, contributing to cleaner, more modular, and more maintainable code. Here are some reasons why using functions is beneficial:</p>
+<ul>
+<li><p><code>Modularity</code>: Functions allow you to break down your code into smaller, manageable pieces. Each function can focus on a specific task or functionality, making the code easier to understand and maintain.</p>
+</li>
+<li><p><code>Reusability</code>: Once you've defined a function, you can call it multiple times from different parts of your script or from other scripts. This promotes code reuse and helps avoid duplicating code.</p>
+</li>
+<li><p><code>Readability</code>: Functions provide a way to encapsulate and name specific operations or tasks. This makes your code more self-documenting, as the function name often indicates its purpose.</p>
+</li>
+<li><p><code>Parameterization</code>: Functions can accept parameters, allowing you to customize their behavior based on input values. This parameterization enhances flexibility and adaptability.</p>
+</li>
+<li><p><code>Encapsulation</code>: Functions encapsulate logic, meaning that the internal details of a function are hidden from the rest of the script. This helps prevent unintended interference or modification of variables within the function.</p>
+</li>
+<li><p><code>Testing and Debugging</code>: Functions make it easier to test and debug code. Since functions focus on specific tasks, it's simpler to isolate and address issues within a function rather than dealing with the entire script.</p>
+</li>
+<li><p><code>Code Organization</code>: Functions contribute to a more organized code structure. Instead of having a long, monolithic script, you can group related functionality into separate functions, making the codebase more structured and maintainable.</p>
+</li>
+<li><p><code>Scoping</code>: Functions have their own scope in PowerShell. Variables defined within a function are local to that function by default, reducing the risk of naming conflicts with variables in other parts of the script.</p>
+</li>
+</ul>
+<h2 id="naming">Naming</h2>
+<p>When naming functions in PowerShell (or any programming language), it's essential to choose clear, descriptive, and meaningful names that convey the purpose or action of the function. Here are some best practices for naming functions:</p>
+<ul>
+<li><p><code>Use Verb-Noun Naming Convention</code>: Follow the standard PowerShell naming convention for functions, which is Verb-Noun. Choose a verb that describes the action the function performs and a noun that describes the object or target of the action. For example: Get-Process, Start-Service, Stop-Service.</p>
+<ul>
+<li>For example: <code>&lt;ApprovedVerb&gt;-&lt;Prefix&gt;&lt;SingularNoun&gt;</code></li>
+<li>ApprovedVerbs: <code>Get-Verb | Sort-Object -Property Verb</code></li>
+</ul>
+</li>
+<li><p><code>Be Descriptive</code>: Make the function name descriptive enough to convey its purpose without needing to read the entire function body. A good function name should provide a clear idea of what the function does.</p>
+</li>
+<li><p><code>Avoid Ambiguity</code>: Avoid names that are ambiguous or could be easily confused with other functions or variables. Clarity is crucial for readability and maintainability.</p>
+</li>
+<li><p><code>Consistency</code>: Maintain consistency in naming conventions across your scripts and functions. Consistency makes the codebase more predictable and easier to understand.</p>
+</li>
+<li><p><code>Use PascalCase</code>: In PowerShell, use CamelCase for function names. Start each word with an uppercase letter, For example: Get-Process, Start-Service, Invoke-MyFunction.</p>
+</li>
+<li><p><code>Avoid Abbreviations (Unless Standard)</code>: While brevity is valuable, avoid unnecessary abbreviations in function names. Use abbreviations only if they are standard or widely recognized (e.g., Invoke-WebRequest).</p>
+</li>
+<li><p><code>Be Concise but Informative</code>: Keep function names concise while providing enough information. Aim for a balance between brevity and clarity.</p>
+</li>
+</ul>
+<p><strong>Example - Example_GetTotalFileCount:</strong></p>
+<pre><code class="language-powershell">function Get-TotalFileCount {
+    param (
+        [string]$FolderPath
+    )
+
+    $files = Get-ChildItem -Path $FolderPath -File
+    $totalCount = $files.Count
+
+    Write-Host &quot;Total number of files in $FolderPath : $totalCount&quot;
+}
+
+Get-TotalFileCount &quot;C:\powershell&quot;
+</code></pre>
+<p>or</p>
+<p><em>Example - Example_GetTotalFileCountV2:</em>_</p>
+<pre><code class="language-powershell">function Get-TotalFileCount([string]$FolderPath) {
+    $files = Get-ChildItem -Path $FolderPath -File
+    $totalCount = $files.Count
+
+    Write-Host &quot;Total number of files in $FolderPath : $totalCount&quot;
+}
+
+Get-TotalFileCount &quot;C:\powershell&quot;
+</code></pre>
+<h2 id="parameters">Parameters</h2>
+<p>Functions in PowerShell can also take parameters, allowing you to pass values into the function, and they can return values using the return keyword. Here's an example of a function with parameters:</p>
+<p><strong>How arguments reach parameters</strong></p>
+<pre class="mermaid">flowchart LR
+    A["Call: Multiply-Numbers -a 5 -b 3"] --> B["Parameters: a = 5, b = 3"]
+    B --> C["Multiply: 5 * 3"]
+    C --> D["Result: 15"]
+</pre>
+<p><strong>Example - Example_MultiplyNumbers.ps1:</strong></p>
+<pre><code class="language-powershell">function Multiply-Numbers {
+    param (
+        [int]$a,
+        [int]$b
+    )
+
+    $result = $a * $b
+    return $result
+}
+
+# Call the function and store the result in a variable
+$result = Multiply-Numbers -a 5 -b 3
+
+# Output the result
+Write-Host &quot;The result is: $result&quot;
+</code></pre>
+<pre><code class="language-Output">The result is: 15
+</code></pre>
+<p>In this example, the Multiply-Numbers function takes two parameters ($a and $b), multiplies them, and returns the result. The result is then stored in a variable and displayed in the console.</p>
+<h3 id="various-parameter-types">Various parameter types</h3>
+<ul>
+<li>Boolean:
+<ul>
+<li>Represents true or false values.</li>
+</ul>
+</li>
+<li>Supports other Datatypes like string, int, double, array, hashtable, ...</li>
+</ul>
+<pre><code class="language-powershell">function Example-Function {
+    param (
+        [bool]$IsEnabled
+    )
+    # Function body
+}
+</code></pre>
+<ul>
+<li>Switch: Used for parameters that represent a switch (on/off) or boolean flag.</li>
+</ul>
+<pre><code class="language-powershell">function Example-Function {
+    param (
+        [switch]$Force
+    )
+    # Function body
+}
+</code></pre>
+<ul>
+<li>ValidateSet: Restricts the parameter to a predefined set of values.
+powershell</li>
+</ul>
+<pre><code class="language-powershell">function Example-Function {
+    param (
+        [ValidateSet(&quot;Option1&quot;, &quot;Option2&quot;, &quot;Option3&quot;)]
+        [string]$Choice
+    )
+    # Function body
+}
+</code></pre>
+<p><strong>Example_Animal_CheckVal.ps1:</strong></p>
+<pre><code class="language-powershell">Function PetAnimalsCheckVal {
+    param(
+        [Parameter(Mandatory = $false)]
+        [ValidateSet(&quot;Bird&quot;, &quot;Dog&quot;, &quot;Cat&quot;)]
+        [String]$animal = &quot;Dog&quot;
+    )
+    
+    Write-Host &quot;$Animal is Pet Animal&quot;
+}
+    
+#PetAnimalsCheckVal -Animal Dog 
+
+try {
+    PetAnimalsCheckVal -Animal Elephant 
+}
+catch {
+    Write-Host(&quot;Animal is not a Pet Animal&quot;)
+} 
+</code></pre>
+<h2 id="type-and-assign-values-to-parameters">Type and assign values ​​to parameters</h2>
+<h3 id="mandatory-parameters">Mandatory parameters</h3>
+<p><strong>Example - Example_Start_App.ps1:</strong></p>
+<pre><code class="language-powershell">function Start-App {
+
+    Param(
+        [parameter(Mandatory = $true)][String]$AppName
+    )
+
+    $AppID = Get-StartApps | Where-Object Name -like $AppName
+    Write-host ($AppID)
+    Start-Process &quot;explorer.exe&quot; -ArgumentList (&quot;shell:AppsFolder\&quot; + $AppID.AppID)
+
+}
+
+Start-App &quot;paint&quot;
+</code></pre>
+<h3 id="default-values">Default values</h3>
+<p><strong>Example - Example_WriteUser.ps1:</strong></p>
+<pre><code class="language-powershell">function WriteUser
+{
+
+    param(
+        $user = &quot;Default&quot;,
+        $message = &quot;Message&quot;
+    )
+
+    Write-Host &quot;$user`: $message&quot;
+}
+
+WriteUser
+
+WriteUser Tom test123
+
+WriteUser Dominique &quot;Hello everybody&quot;
+</code></pre>
+<pre><code class="language-output">.\test.ps1
+Default: Message
+Tom: test123
+Dominique: Hello everybody
+</code></pre>
+<h3 id="positional-parameters">Positional Parameters</h3>
+<p><strong>Example_Positional_Param01.ps1:</strong></p>
+<pre><code class="language-powershell">function Set-Test{
+    Param(
+        $eerste,
+        $tweede
+    )
+    write-host &quot;`$eerste is $eerste&quot;
+    write-host &quot;`$tweede is $tweede&quot;
+}  
+
+Set-Test 1 2
+
+Set-Test -eerste 1 -tweede 2
+Set-Test -tweede 1 -eerste 2
+</code></pre>
+<pre><code class="language-Output"> .\test.ps1
+$eerste is 1
+$tweede is 2
+$eerste is 1
+$tweede is 2
+$eerste is 2
+$tweede is 1
+</code></pre>
+<p><strong>Example_Positional_Param02.ps1:</strong></p>
+<pre><code class="language-powershell">function Set-Test{
+    Param(
+        [parameter(position=1)]
+        $eerste,
+        [parameter(position=0)]
+        $tweede
+    )
+    write-host &quot;`$eerste is $eerste&quot;
+    write-host &quot;`$tweede is $tweede&quot;
+} 
+    
+Set-Test 1 2
+</code></pre>
+<pre><code class="language-output">.\Example_Positional_Param02.ps1
+$eerste is 2
+$tweede is 1
+</code></pre>
+<p><strong>Example_Positional_Param03.ps1:</strong></p>
+<pre><code class="language-powershell">function Test-Args{
+    $param1 = $args[0]
+    $param2 = $args[1]
+
+    Write-Host &quot;`$args[0] is $param1&quot;
+    Write-Host &quot;`$args[1] is $param2&quot;
+}
+    
+Test-args test1 test2
+</code></pre>
+<pre><code class="language-output">.\Example_Positional_Param03.ps1
+$args[0] is test1
+$args[1] is test2
+</code></pre>
+<h2 id="accept-pipeline-input">Accept pipeline input</h2>
+<p>The pipeline (<code>|</code>) sends output objects from one command to the next. To bind
+those objects directly to a function parameter, mark the parameter with
+<code>ValueFromPipeline</code> or <code>ValueFromPipelineByPropertyName</code>. A <code>process</code> block
+then runs once for each incoming object. Without <code>process</code>, the function body
+does not automatically run once per object.</p>
+<p><strong>Two ways to bind pipeline input</strong></p>
+<pre class="mermaid">flowchart LR
+    A["Incoming number: 4"] --> B["By value: Number = 4"]
+    B --> C["process: assess 4"]
+    D["Incoming object: Name = Anis, Course = Scripting"] --> E["By property name: Name = Anis"]
+    E --> F["process: greet Anis"]
+</pre>
+<p>The examples below define each function and show the corresponding output.</p>
+<h3 id="bind-the-whole-object-by-value">Bind the whole object by value</h3>
+<p><code>ValueFromPipeline</code> binds each incoming object itself to the parameter when
+its type is compatible or PowerShell can convert it. This example receives
+integers and returns an assessment object for each one:</p>
+<pre><code class="language-powershell">function Get-NumberAssessment {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory, ValueFromPipeline)]
+        [int]$Number
+    )
+
+    process {
+        [pscustomobject]@{
+            Number = $Number
+            Even   = $Number % 2 -eq 0
+            Square = $Number * $Number
+        }
+    }
+}
+
+1..4 | Get-NumberAssessment
+</code></pre>
+<pre><code class="language-text">Number  Even Square
+------  ---- ------
+     1 False      1
+     2  True      4
+     3 False      9
+     4  True     16
+</code></pre>
+<p>For each number, PowerShell binds the value to <code>$Number</code>, runs <code>process</code>, and
+outputs the resulting object. The parameter can also be supplied directly:
+<code>Get-NumberAssessment -Number 4</code> produces one object.</p>
+<h3 id="bind-a-property-by-name">Bind a property by name</h3>
+<p><code>ValueFromPipelineByPropertyName</code> looks for a property whose name matches the
+parameter name or one of its aliases. It binds that property's value, not the
+whole incoming object.</p>
+<pre><code class="language-powershell">function Get-StudentGreeting {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory, ValueFromPipelineByPropertyName)]
+        [string]$Name
+    )
+
+    process {
+        &quot;Hello, $Name!&quot;
+    }
+}
+
+$students = @(
+    [pscustomobject]@{ Name = 'Anis'; Course = 'Scripting' }
+    [pscustomobject]@{ Name = 'Jan'; Course = 'Networking' }
+)
+
+$students | Get-StudentGreeting
+</code></pre>
+<pre><code class="language-text">Hello, Anis!
+Hello, Jan!
+</code></pre>
+<p>Each object's <code>Name</code> property binds to <code>-Name</code>; <code>Course</code> is not used. If a
+property is missing or its value cannot be converted to the parameter type,
+binding can fail for that object. When both forms are available, PowerShell
+tries binding without type conversion first: by value, then by property name.
+It then tries the same order with type conversion if needed.</p>
+<h3 id="processing-stages">Processing stages</h3>
+<ul>
+<li><code>begin</code> runs once before pipeline objects are processed, for setup.</li>
+<li><code>process</code> runs once per incoming object. With a direct call, it runs once.</li>
+<li><code>end</code> runs once after processing completes, for final output or summary.</li>
+</ul>
+<p><strong>Normal processing flow</strong></p>
+<pre class="mermaid">flowchart TD
+    A["begin: setup once"] --> B{"Another input object?"}
+    B -- Yes --> C["process: handle one object"]
+    C --> B
+    B -- No --> D["end: finish once"]
+</pre>
+<p>All three blocks are optional. <code>process</code> controls when the work runs; the
+parameter attributes control how pipeline objects are bound. The
+<code>ForEach-Object { Process-Input -Name $_ }</code> example in the input redirection
+section below explicitly passes each value and therefore does not require the
+function parameter to accept pipeline input.</p>
+<h2 id="return-values">Return values</h2>
+<p><strong>Example - Example_Add_One.ps1:</strong></p>
+<pre><code class="language-powershell">function Add-One ([int]$nummer=0){
+
+    $nummer++
+    return $nummer
+}
+
+Add-One
+
+Add-One 4
+
+Add-One -nummer 1
+</code></pre>
+<pre><code class="language-Output">.\Example_Add_One.ps1
+1
+5
+2
+</code></pre>
+<p><strong>Example - Example_GetFullName.ps1:</strong></p>
+<pre><code class="language-powershell">function Get-FullName ([string] $voornaam,[string] $achternaam){
+   
+    $fullName=&quot;$voornaam $achternaam&quot;
+    return $fullName
+}
+
+Clear-Host
+
+Get-FullName Dominique Houbrechts
+$resultaat = Get-FullName -voornaam Jan -achternaam Jansen
+write-host $resultaat
+</code></pre>
+<pre><code class="language-Bash">.\Example_GetFullName.ps1
+Dominique Houbrechts
+Jan Jansen
+</code></pre>
+<h2 id="redirection">Redirection</h2>
+<p>You can use functions in combination with redirection operators to control input and output. Redirection operators allow you to send the output of a command or function to a file, variable, or another command. Here are some examples:</p>
+<h3 id="using-function-with-output-redirection">Using Function with Output Redirection</h3>
+<p><strong>Example_GetEvenNumbers.ps1:</strong></p>
+<pre><code class="language-powershell">function Get-EvenNumbers {
+    param (
+        [int]$Max
+    )
+
+    2..$Max | Where-Object { $_ % 2 -eq 0 }
+}
+
+# Redirect output to a file
+Get-EvenNumbers -Max 10 &gt; &quot;EvenNumbers.txt&quot;
+
+# Redirect output to a variable
+$evenNumbers = Get-EvenNumbers -Max 10
+Write-Host &quot;Even Numbers: $evenNumbers&quot;
+</code></pre>
+<pre><code class="language-Output">Even Numbers: 2 4 6 8 10
+</code></pre>
+<h3 id="using-function-with-input-redirection">Using Function with Input Redirection:__</h3>
+<p><strong>Example_Process-Input.ps1:</strong></p>
+<pre><code class="language-powershell">function Process-Input {
+    param (
+        [string]$Name
+    )
+
+    Write-Host &quot;Hello, $Name!&quot;
+}
+
+# Read input from a file and pass it to the function
+Get-Content &quot;Names.txt&quot; | ForEach-Object { Process-Input -Name $_ }
+</code></pre>
+<pre><code class="language-Output">Hello, Dominique!
+Hello, Anis!
+Hello, Jan!
+Hello, Luisella!
+</code></pre>
+<p><strong>Example_Start_App_InputVar.ps1</strong>:</p>
+<pre><code class="language-powershell"># Define a function named Start-App
+function Start-App {
+
+    # For each application in the pipeline input
+    # It uses the $input automatic variable to represent the pipeline input.
+    foreach ($App in $input){
+        # Start the application using Start-Process
+        Start-Process &quot;explorer.exe&quot; -ArgumentList(&quot;shell:AppsFolder\&quot; + $App.AppID)
+    }
+} 
+
+# Get a list of apps whose names match &quot;paint*&quot; using a custom cmdlet (assumed to be Get-Startapps)
+# Pipe the result to the Start-App function
+Get-Startapps -name paint* | Start-App
+</code></pre>
+<h2 id="scope">Scope</h2>
+<p>By default, all variables created in functions are local, they only exist within the function, though they are still visible if you call a second function from within the first one.​</p>
+<p>To persist a variable, so the function can be called repeatedly and the variable will retain it's last value, prepend $script: to the variable name, e.g. $script:myvar​</p>
+<p>To make a variable global prepend $global: to the variable name, e.g. $global:myvar</p>
+<p><code>Function global</code>: Get-MyProcessID declares a function named Get-MyProcessID. The global: scope modifier makes the function globally accessible.</p>
+<p><strong>Example_MyProcessID.ps1:</strong></p>
+<pre><code class="language-powershell">Function global:Get-MyProcessID {
+    Param (
+       [string]$ProcessName
+    ) #end Param
+    $processid =Get-Process -Name $ProcessName | select-object Id
+    return $processid
+}
+</code></pre>
+<pre><code class="language-powershell">.\Example_MyProcessID.ps1
+</code></pre>
+<p>Start Notepad 5 times using the range operator.</p>
+<pre><code class="language-powershell">1..5 | ForEach-Object { Start-Process &quot;notepad.exe&quot; }
+</code></pre>
+<p>The function has a global scope and can therefor be accessed outside the script.</p>
+<pre><code class="language-powershell">Get-MyProcessID notepad
+
+   Id
+   --
+ 3336
+ 8812
+11912
+13172
+20964
+</code></pre>
+<p>Stop all notepad processes</p>
+<pre><code class="language-powershell">Get-Process notepad | Stop-Process
+</code></pre>
+<p>An Advanced PowerShell function contains the [cmdletbinding()] attribute ​
+(or the Parameter attribute).</p>
+<p>This adds several capabilities such as additional parameter checking, and the ability to easily use Write-Verbose.​</p>
+<p>A function with <code>cmdletbinding</code> will throw an error if unhandled parameter values appear on the command line.</p>
+<h2 id="how-to-use-functions-in-powershell">How to use functions in PowerShell​</h2>
+<ul>
+<li>Add the function to an existing PowerShell session</li>
+<li>Put the function in the powershell profile​</li>
+<li>Put the function in a script</li>
+<li>Call from another a script​</li>
+<li>Store function in a module</li>
+</ul>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

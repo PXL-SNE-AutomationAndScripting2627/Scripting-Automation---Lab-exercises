@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Exception handling — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">12 - Exception handling</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a class="sidebar-current" href="powershell-basics-12-exception-handling.html" aria-current="page">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; PowerShell Basics</p>
+            <h1 id="page-title">Exception handling</h1>
+            <p class="hero-description">12 - Exception handling</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/course/ps_basics/08-exception-handling/08-ps-exception_handling">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="learning-objectives">Learning objectives</h2>
+<ul>
+<li>Distinguish terminating from non-terminating errors.</li>
+<li>Use <code>try</code>, <code>catch</code>, and <code>finally</code> to handle expected failures.</li>
+<li>Use <code>throw</code> to signal a failure detected by your own script.</li>
+<li>Produce useful error, warning, verbose, and information messages.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Familiarity with conditions, loops, and parameterised scripts.</li>
+</ul>
+<h2 id="why-exception-handling-matters">Why exception handling matters</h2>
+<p>A command can succeed even when its result is unsuitable for the next step.
+For example, a backup script may find that its destination is not ready.
+Error handling lets the script stop that operation and explain the problem.
+Run the new <code>throw</code> examples in a fresh PowerShell 7 session with the default
+<code>$ErrorActionPreference</code> of <code>Continue</code>.</p>
+<h2 id="references">References</h2>
+<p><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_redirection?view=powershell-7.3">about_Redirection</a></p>
+<p><a href="https://learn.microsoft.com/en-us/powershell/scripting/learn/deep-dives/everything-about-exceptions?view=powershell-7.3#basic-terminology">Everything you wanted to know about exceptions</a></p>
+<p><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_automatic_variables?view=powershell-7.3">about_Automatic_Variables</a></p>
+<p><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7.3">about_Preference_Variables</a></p>
+<h2 id="what-is-exception-handling">What is Exception handling</h2>
+<p>Exception handling in PowerShell refers to the process of dealing with errors or exceptional situations that may occur during the execution of a script or a command. When a script encounters an error, it generates an exception. Without proper handling, these exceptions can cause the script to terminate abruptly, making it challenging to diagnose and fix issues.</p>
+<p>PowerShell provides several mechanisms for exception handling:</p>
+<ul>
+<li><code>Try-Catch-Finally</code>:
+<ul>
+<li><code>Try</code>: Contains the code that might generate an exception.</li>
+<li><code>Catch</code>: Contains the code to run if a specific type of exception occurs.</li>
+<li><code>Finally</code>: Contains code that runs regardless of whether an exception occurred or not.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-powershell">try {
+    # Code that might throw an exception
+}
+catch {
+    # Code to handle the exception
+}
+finally {
+    # Code that always runs, whether an exception occurred or not
+}
+</code></pre>
+<pre><code class="language-powershell">Try {
+    4 / 2
+}
+Catch{
+    Write-Host 'Calculation error.'
+}
+finally {
+    Write-Host 'Final execution'
+}
+</code></pre>
+<ul>
+<li><p><code>throw</code>: Signals a failure detected by your own code. See
+<a href="#signal-your-own-errors-with-throw">Signal your own errors with throw</a>
+for complete examples.</p>
+</li>
+<li><p><code>Try-Catch with Specific Exception Types</code>: You can catch specific types of exceptions to handle them differently.</p>
+</li>
+</ul>
+<pre><code class="language-powershell">try {
+    # Code that might throw an exception
+}
+catch [System.IO.IOException] {
+    # Code to handle IOException
+}
+catch [System.Exception] {
+    # Code to handle other types of exceptions
+}
+</code></pre>
+<ul>
+<li><code>ErrorActionPreference</code>: Effective exception handling helps improve the robustness and reliability of PowerShell scripts by allowing them to gracefully handle unexpected situations.</li>
+</ul>
+<pre><code class="language-powershell">$ErrorActionPreference = &quot;Stop&quot;
+</code></pre>
+<h2 id="error-messages">Error messages</h2>
+<p>When you run Windows PowerShell commands, you sometimes receive error messages.
+Large on-screen error messages can be intimidating, but they contain information you can use for troubleshooting. In most cases, viewing the full message will provide a good description of why the error occurred. Errors can occur for reasons such as:</p>
+<ul>
+<li>You made a mistake while entering code.</li>
+<li>You have run a query on an object that does not exist or has an error.</li>
+<li>You tried to communicate with a computer that is offline.</li>
+</ul>
+<p>When errors occur, they are stored in the $Error array. The most recent error is always at index zero. When a new error is generated, it is inserted at $Error[0]and the index of other errors is incremented by one. It can be useful to view errors $Error when you need to review a previous error message.</p>
+<p>For example, you can view the <code>$Error</code> most recent error message.</p>
+<p><code>$Error</code> is a special automatic variable in PowerShell that contains an array of error objects that represent the most recent errors. It stores the errors that occurred during the current session, with the most recent error at index 0.</p>
+<p>You can access individual errors in the $Error array using indices. For example, $Error[0] gives you the most recent error, $Error[1] gives you the second most recent error, and so on.</p>
+<pre><code class="language-powershell">Get-Process -name test
+</code></pre>
+<p><img src="images/course__ps_basics__08-exception-handling__image-5.png" alt="Alt text" /></p>
+<pre><code class="language-powershell">#last error - most recent error
+$error[0]
+</code></pre>
+<p><img src="images/course__ps_basics__08-exception-handling__image-2.png" alt="Alt text" /></p>
+<pre><code class="language-powershell">#first error in the session 
+$error[-1]
+</code></pre>
+<p>Gets and displays the most recent error messages from the current session.</p>
+<pre><code class="language-powershell">Get-Error
+</code></pre>
+<p><img src="images/course__ps_basics__08-exception-handling__image-6.png" alt="Alt text" /></p>
+<p>Type of error:</p>
+<pre><code class="language-powershell">$Error[0].Exception.GetType().FullName
+</code></pre>
+<pre><code class="language-output">Microsoft.PowerShell.Commands.ProcessCommandException
+</code></pre>
+<p>Error info:</p>
+<pre><code class="language-powershell">$Error[0].Exception | select *
+</code></pre>
+<pre><code class="language-output">Type           : Microsoft.PowerShell.Commands.ProcessCommandException
+ProcessName    : test
+TargetSite     :
+Message        : Cannot find a process with the name &quot;test&quot;. Verify the process name and call the cmdlet again.
+Data           : {}
+InnerException :
+HelpLink       :
+Source         :
+HResult        : -2146233087
+StackTrace     :
+</code></pre>
+<p>PowerShell Message:</p>
+<pre><code class="language-powershell">$Error[0].Exception.Message
+</code></pre>
+<pre><code class="language-output">Cannot find a process with the name &quot;test&quot;. Verify the process name and call the cmdlet again.
+</code></pre>
+<h2 id="terminating-vs-non-terminating-errors">Terminating vs non-terminating errors</h2>
+<p>In PowerShell, errors are categorized into two main types: <code>terminating errors</code> and <code>non-terminating errors</code>.</p>
+<h3 id="terminating-errors">Terminating errors</h3>
+<p><code>Terminating errors</code> are more severe and will halt the script's execution unless they are caught and handled by a try/catch block.</p>
+<pre><code class="language-powershell">Try {
+    4 / 0
+    Write-Host 'Next command'
+}
+Catch{
+    Write-Host 'Calculation error.'
+}
+finally {
+    Write-Host 'Final execution'
+}
+</code></pre>
+<h3 id="non-terminating-errors">Non-Terminating errors</h3>
+<p><code>Non-terminating errors</code> are less severe and do not stop the execution of a script or command. They are often informational or warning messages that allow the script to continue running.</p>
+<p>Non-terminating errors are typically represented by objects that are sent to the error stream (stream 2). You can use the -ErrorAction parameter to control how non-terminating errors are handled.</p>
+<pre><code class="language-powershell">Try {
+    Get-ChildItem &quot;c:\dirNotExits&quot; -ErrorAction Continue
+    Write-Host 'Next command'
+}
+Catch {
+    Write-Output &quot;Directory doesn't exist&quot;
+  
+}
+</code></pre>
+<p>A non-terminating error can only be handled with a stopping error ErrorAction</p>
+<pre><code class="language-powershell">Try {
+    Get-ChildItem &quot;c:\dirNotExits&quot; -ErrorAction Stop
+    Write-Host 'Next command'
+}
+Catch {
+    Write-Output &quot;Directory doesn't exist&quot;
+  
+}
+</code></pre>
+<p><code>Conclusion:</code> It's important to note that not all cmdlets and functions generate non-terminating errors in all situations. Some cmdlets and functions may generate terminating errors in certain circumstances. The behavior depends on how the cmdlet or function is designed.</p>
+<h2 id="signal-your-own-errors-with-throw">Signal your own errors with throw</h2>
+<p>Use <code>throw</code> when your script detects a condition that prevents an operation
+from continuing correctly. The command used to inspect the condition may
+have succeeded; your code decides whether the result is acceptable.</p>
+<p>Typical reasons include an unavailable backup destination, insufficient
+free space for an operation, or a configuration that is missing required data.
+Use parameter attributes such as <code>[ValidateRange()]</code> for simple parameter
+validation; use <code>throw</code> for checks on the operation's current state.</p>
+<h3 id="stop-with-a-clear-message">Stop with a clear message</h3>
+<p><code>throw</code> creates a terminating error. With the default error preferences,
+an uncaught <code>throw</code> stops the script. It does not close your terminal.
+This single-line example deliberately raises an error; run it separately:</p>
+<pre><code class="language-powershell">throw 'The backup destination is not ready.'
+</code></pre>
+<p>PowerShell displays the supplied message as an error. Exact formatting
+depends on the host. Write a message that identifies the failed condition
+and gives enough context to investigate it.</p>
+<h3 id="throw-when-a-state-check-fails">Throw when a state check fails</h3>
+<p>This example uses a simulated readiness value; it does not start a backup
+or change files:</p>
+<pre><code class="language-powershell">$backupDestinationReady = $false
+
+try {
+    if (-not $backupDestinationReady) {
+        throw 'The backup destination is not ready.'
+    }
+
+    'Destination check passed.'
+}
+catch {
+    &quot;Backup cancelled: $($_.Exception.Message)&quot;
+}
+finally {
+    'Destination check finished.'
+}
+
+'After the destination check.'
+</code></pre>
+<p>Expected output:</p>
+<pre><code class="language-text">Backup cancelled: The backup destination is not ready.
+Destination check finished.
+After the destination check.
+</code></pre>
+<p>The <code>throw</code> skips the remaining statements in <code>try</code> and transfers control
+to <code>catch</code>. Inside <code>catch</code>, <code>$_</code> is the current error record, and
+<code>$_.Exception.Message</code> contains the message. <code>finally</code> runs afterwards.
+Because the error was handled, execution continues after the whole block.
+With <code>$backupDestinationReady = $true</code>, the success message replaces the
+catch message; <code>finally</code> and the last statement still run.</p>
+<h3 id="throw-a-specific-exception-type">Throw a specific exception type</h3>
+<p>A named exception type lets a caller distinguish this failure from others.
+<code>[System.InvalidOperationException]::new(...)</code> creates an exception object
+for an operation that cannot proceed in its current state:</p>
+<pre><code class="language-powershell">try {
+    throw [System.InvalidOperationException]::new(
+        'The backup destination is not ready.'
+    )
+}
+catch [System.InvalidOperationException] {
+    &quot;Destination problem: $($_.Exception.Message)&quot;
+}
+</code></pre>
+<p>The output is <code>Destination problem: The backup destination is not ready.</code>.
+Use a specific catch before a general catch when you need different recovery
+actions. If a catch cannot handle the problem, a bare <code>throw</code> inside it
+rethrows the current error so a caller can handle it.</p>
+<h3 id="choose-between-throw-write-error-and-erroraction">Choose between throw, Write-Error, and ErrorAction</h3>
+<table>
+<thead>
+<tr>
+<th>Technique</th>
+<th>Purpose with default error preferences</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>throw 'Message'</code></td>
+<td>Signal your own terminating failure.</td>
+</tr>
+<tr>
+<td><code>Write-Error 'Message'</code></td>
+<td>Report a non-terminating error and continue.</td>
+</tr>
+<tr>
+<td><code>-ErrorAction Stop</code></td>
+<td>Make a cmdlet's non-terminating errors catchable.</td>
+</tr>
+<tr>
+<td><code>Write-Warning 'Message'</code></td>
+<td>Display a warning while continuing.</td>
+</tr>
+</tbody>
+</table>
+<p><code>throw</code> is a language keyword, so it does not take <code>-ErrorAction</code>.
+It is already catchable without <code>-ErrorAction Stop</code>. The examples assume
+default preferences; changing <code>$ErrorActionPreference</code> to <code>SilentlyContinue</code>
+or <code>Ignore</code> can suppress propagation of <code>throw</code> errors.</p>
+<p><strong>Apply:</strong> <a href="hands-on-11-exception-handling.html#activity-31-throw-an-exception-deliberately">Activity 3.1: throw an exception deliberately</a>
+and <a href="hands-on-11-exception-handling.html#activity-32-catch-a-specific-type">Activity 3.2: catch a specific type</a>.</p>
+<h2 id="erroractionpreference">$ErrorActionPreference</h2>
+<p><code>$ErrorActionPreference</code> is a variable in PowerShell that determines how the shell responds to non-terminating errors. Non-terminating errors are those that allow the script to continue executing despite the error. This variable allows you to control whether these errors are displayed as messages, suppressed, or treated as terminating errors, which would halt the script.</p>
+<p>Here are the possible values for $ErrorActionPreference:</p>
+<ul>
+<li><code>Continue</code>: This is the default value. The script will display error messages for non-terminating errors but continue executing.</li>
+</ul>
+<pre><code class="language-powershell">$ErrorActionPreference = &quot;Continue&quot;
+Get-process -name ProcessNotExisting; Write-Host 'Next Command executed...'
+</code></pre>
+<ul>
+<li><code>SilentlyContinue</code>: This setting suppresses the error messages for non-terminating errors, and the script continues executing.</li>
+</ul>
+<pre><code class="language-powershell">$ErrorActionPreference = &quot;SilentlyContinue&quot;
+Get-process -name ProcessNotExisting; Write-Host 'Next Command executed...'
+</code></pre>
+<ul>
+<li><code>Inquire</code>: This setting prompts the user for confirmation before taking any action in response to a non-terminating error.</li>
+</ul>
+<pre><code class="language-powershell">$ErrorActionPreference = &quot;Inquire&quot;
+Get-process -name ProcessNotExisting; Write-Host 'Next Command executed...'
+</code></pre>
+<ul>
+<li><code>Ignore</code>: This setting ignores non-terminating errors and continues script execution.</li>
+</ul>
+<pre><code class="language-powershell">$ErrorActionPreference = &quot;Ignore&quot;
+Get-process -name ProcessNotExisting; Write-Host 'Next Command executed...'
+</code></pre>
+<pre><code class="language-powershell"># Default values
+$ErrorActionPreference = &quot;Continue&quot;
+
+Get-Variable -Name *preference -Exclude *confirm*,*whatif*,*progress*
+</code></pre>
+<pre><code class="language-powershell">Name                           Value
+----                           -----
+DebugPreference                SilentlyContinue
+ErrorActionPreference          Continue
+InformationPreference          SilentlyContinue
+VerbosePreference              SilentlyContinue
+WarningPreference              Continue
+</code></pre>
+<h2 id="parameter-erroraction">Parameter ErrorAction</h2>
+<p>By modifying the value of ErrorAction parameter of a cmdlet, you can tailor the standard error handling behavior of each cmdlet individually.</p>
+<pre><code class="language-powershell">Get-Process -name test -ErrorAction 
+Break             Continue          Ignore            Inquire           SilentlyContinue  Stop              Suspend
+</code></pre>
+<pre><code class="language-powershell">Get-process -name test -ErrorAction Continue; Write-Host 'Next Command executed...'
+</code></pre>
+<pre><code class="language-powershell">Get-process -name test -ErrorAction SilentlyContinue; Write-Host 'Next Command executed...'
+</code></pre>
+<pre><code class="language-powershell">Get-process -name test -ErrorAction Stop; Write-Host 'Next Command executed...'
+</code></pre>
+<pre><code class="language-powershell">Get-Process -name test -ErrorAction SilentlyContinue
+</code></pre>
+<pre><code class="language-powershell"># if a directory already exists
+New-Item c:\windows -ItemType Directory
+New-Item c:\windows -ItemType Directory -ErrorAction SilentlyContinue
+</code></pre>
+<h2 id="try-catch-finally">try, catch, finally</h2>
+<p>The try, catch, and finally blocks are used for exception handling. They provide a structured way to handle errors and respond to exceptional conditions during script execution.</p>
+<p><strong>Normal and error paths</strong></p>
+<pre class="mermaid">flowchart TD
+    A["try: run the operation"] --> B{"Terminating error?"}
+    B -- No --> D["finally: cleanup"]
+    B -- Yes --> F{"Matching catch?"}
+    F -- Yes --> C["catch: handle the error"]
+    F -- No --> D
+    C --> D
+    D --> E["Continue after handling, or propagate an unhandled error"]
+</pre>
+<p><code>finally</code> runs during normal execution and while a terminating error unwinds.
+Use <code>-ErrorAction Stop</code> when a cmdlet's non-terminating error needs to be
+caught; an unmatched terminating error still propagates.</p>
+<ul>
+<li><p><code>Try Block</code>:</p>
+<ul>
+<li>The try block contains the code that might generate an exception.</li>
+<li>If an exception occurs within the try block, PowerShell looks for a corresponding catch block to handle the exception.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-powershell">try {
+    # Code that might throw an exception
+}
+</code></pre>
+<ul>
+<li><p><code>Catch Block</code>:</p>
+<ul>
+<li>The catch block is used to catch and handle specific types of exceptions.</li>
+<li>It contains the code that should run when an exception of the specified type occurs in the corresponding try block.</li>
+<li>You can have multiple catch blocks, each handling a different type of exception.</li>
+<li>The Catch Block <strong>only works when you assign Stop to the ErrorAction</strong> with a non terminating error.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-powershell">try {
+    # Code that might throw an exception
+}
+catch {
+    # Code to handle the exception
+}
+</code></pre>
+<p>or, to catch specific exception types:</p>
+<pre><code class="language-powershell">try {
+    # Code that might throw an exception
+}
+catch [System.IO.IOException] {
+    # Code to handle IOException
+}
+catch [System.Exception] {
+    # Code to handle other types of exceptions
+}
+</code></pre>
+<ul>
+<li><p><code>Finally Block:</code></p>
+<ul>
+<li>The -finally block contains code that runs regardless of whether an exception occurred in the try block or not.</li>
+<li>It is useful for cleanup tasks or for ensuring that certain code is executed even if an exception occurs.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-powershell">try {
+    # Code that might throw an exception
+}
+catch {
+    # Code to handle the exception
+}
+finally {
+    # Code that always runs, whether an exception occurred or not
+}
+</code></pre>
+<p><strong>Example - Try_Catch_Example01.ps1:</strong></p>
+<pre><code class="language-powershell">try { 
+    Foute_Opdracht
+} catch {
+    &quot;Fout&quot;
+}
+</code></pre>
+<pre><code class="language-powershell">try {
+    Write-Host(&quot;Correcte opdracht&quot;)
+} catch {
+    &quot;Fout&quot;
+}
+</code></pre>
+<pre><code class="language-powershell">try {
+    Write-Host(&quot;Correcte opdracht&quot;)
+} catch {
+    &quot;Fout&quot;
+} finally{
+    &quot;Einde&quot;
+}
+</code></pre>
+<p><strong>example - ExampleErrActionPrefContent.ps1:</strong></p>
+<pre><code class="language-powershell"># Set the error action preference to Stop
+$ErrorActionPreference = &quot;Stop&quot;
+
+Write-Host 'Test with $ErrorActionPreference = &quot;Stop&quot;'
+Read-Host
+
+# Attempt to get the contents of a non-existent file
+try {
+    Get-Content -Path &quot;NonExistentFile.txt&quot;
+    Write-Host &quot;execution continues&quot;
+}
+catch {
+    # This block will be executed because the error action preference is set to Stop
+    Write-Host &quot;An error occurred: $_&quot;
+}
+
+# Set the error action preference back to Continue, default value
+$ErrorActionPreference = &quot;Continue&quot;
+
+Write-Host 
+Write-Host 'Test with $ErrorActionPreference = &quot;Continue&quot;'
+Read-Host
+
+# Attempt to get the contents of a non-existent file
+try {
+    Get-Content -Path &quot;NonExistentFile.txt&quot;
+    Write-Host &quot;execution continues&quot;
+}
+catch {
+    # This block will be executed because the error action preference is set to Stop
+    Write-Host &quot;An error occurred: $_&quot;
+}
+</code></pre>
+<h2 id="catch-multiple-specific-exceptions">Catch multiple, specific exceptions</h2>
+<p><strong>Example - Try_Catch_Stop_Example.ps1:</strong></p>
+<pre><code class="language-powershell">Param (
+    [string][Parameter(Mandatory)]$berekening
+)
+
+try{
+    Invoke-Expression $berekening -ErrorAction Continue
+
+    } catch [DivideByZeroException]{
+        Write-Host “Divide by zero exception”
+    } catch [System.Net.WebException],[System.Exception]{
+        Write-Host “Other exception”
+    } finally{
+        Write-Host “cleaning up ...”
+    }
+
+</code></pre>
+<p><strong>Example -  .\Try_Catch_Stop_Find_Catch.ps1:</strong></p>
+<pre><code class="language-powershell">try {
+    #Get-Content &quot;NonExistentFile.txt&quot;
+    Get-Content &quot;NonExistentFile.txt&quot; -ErrorAction Stop
+    #Get-Content &quot;NonExistentFile.txt&quot; -ErrorAction SilentlyContinue
+    Write-Host 'Next command' -ForegroundColor Green
+}
+&lt;# catch [System.Management.Automation.ItemNotFoundException]{
+    Write-Host &quot;item not found error!!!!!&quot; -ForegroundColor Blue
+}  #&gt;
+catch {
+    Write-Host &quot;Alternative block is executed.&quot; -ForegroundColor Blue
+    #Write-Host &quot;An error occurred: $_&quot;
+    #$_.Exception.Message
+    #Write-Host $error[0].Exception.Message
+    Write-Host $error[0].Exception.GetType().FullName -ForegroundColor Blue 
+}
+
+Write-Host 'And the script continues'
+</code></pre>
+<pre><code class="language-output"> .\Try_Catch_Stop_Find_Catch.ps1
+Alternative block is executed.
+System.Management.Automation.ItemNotFoundException
+And the script continues
+</code></pre>
+<p><strong>Example -  .\ExampleTerminatingError.ps1:</strong></p>
+<pre><code class="language-powershell"># example of a terminating cmdlet
+# -ErrorAction continue to display the catch error
+
+## Example of a terminating error cmdlet
+## -ErrorAction stop is not needed to catch error
+## next command not executed, because of the terminating cmdlet
+
+
+Param (
+    [string][Parameter(Mandatory)]$berekening
+)
+
+try {
+    # Terminating error cmdlet
+    # ErrorAction stop is not needed to catch the error
+    Invoke-Expression $berekening -ErrorAction Continue
+    # The next command will not be executed during a Termination error    
+    Write-Host 'Next command'
+
+}
+catch [DivideByZeroException] {
+    Write-Host “Divide by zero exception” -ForegroundColor Blue
+}
+catch [System.Net.WebException], [System.Exception] {
+    Write-Host “Other exception” -ForegroundColor Blue
+}
+catch {
+    Write-Host “Other exception” -ForegroundColor Blue
+}
+finally {
+    Write-Host “cleaning up ...”
+}
+
+Write-Host &quot;Script continues...&quot;
+</code></pre>
+<pre><code class="language-output"> .\ExampleTerminatingError.ps1 6/2
+3
+Next command
+cleaning up ...
+Script continues...
+
+</code></pre>
+<pre><code class="language-output">.\ExampleTerminatingError.ps1 6/0
+Divide by zero exception
+cleaning up ...
+Script continues...
+</code></pre>
+<p><strong>Example -  .\ExampleNonTerminatingError.ps1:</strong></p>
+<pre><code class="language-powershell">## Example of a non terminating error cmdlet
+## -ErrorAction SilentlyContinue will not catch the error, next command executed
+## -ErrorAction stop to display the catch error, next command not executed
+
+
+try {
+    Get-Item -Path &quot;C:\NonExistentFile.txt&quot; -ErrorAction SilentlyContinue
+    Write-Host 'Next command'
+}
+catch [System.Management.Automation.ItemNotFoundException] {
+    Write-Host “File does not exists” -ForegroundColor Blue
+}
+catch {
+    Write-Host “Other exception” -ForegroundColor Blue
+}
+finally {
+    Write-Host “cleaning up ...”
+}
+Write-Host &quot;Script continues...&quot;
+</code></pre>
+<pre><code class="language-output"> .\ExampleNonTerminatingError.ps1
+Next command
+cleaning up ...
+Script continues...
+</code></pre>
+<pre><code class="language-powershell">try {
+    Get-Item -Path &quot;C:\NonExistentFile.txt&quot; -ErrorAction Stop
+    Write-Host 'Next command'
+}
+catch [System.Management.Automation.ItemNotFoundException] {
+    Write-Host “File does not exists” -ForegroundColor Blue
+}
+catch {
+    Write-Host “Other exception” -ForegroundColor Blue
+}
+finally {
+    Write-Host “cleaning up ...”
+}
+Write-Host &quot;Script continues...&quot;
+</code></pre>
+<pre><code class="language-output">.\ExampleNonTerminatingError.ps1
+File does not exists
+cleaning up ...
+Script continues...
+</code></pre>
+<h2 id="parameter-exception">Parameter Exception</h2>
+<p><strong>Example - DeclareParameterValidate.ps1:</strong></p>
+<pre><code class="language-powershell">param(
+    [ValidateSet(&quot;Cow&quot;,&quot;Dog&quot;,&quot;Cat&quot;,ErrorMessage=&quot;Animal {0} is not among list&quot;)]
+    [String]$Animal = &quot;Dog&quot;
+ )
+
+Write-Output &quot;$Animal is Pet Animal&quot;
+</code></pre>
+<pre><code class="language-powershell"> .\DeclareParameterValidate.ps1 Donky
+</code></pre>
+<pre><code class="language-Output">DeclareParameterValidate.ps1: Cannot validate argument on parameter 'Animal'. Animal Donky is not among list
+</code></pre>
+<h2 id="output-preferences">Output preferences</h2>
+<pre><code class="language-powershell"># standard values - preferences
+$VerbosePreference = &quot;SilentlyContinue&quot;
+$InformationPreference = &quot;SilentlyContinue&quot;
+$DebugPreference = &quot;SilentlyContinue&quot;
+$ProgressPreference = &quot;Continue&quot;
+$WarningPreference = &quot;Continue&quot;
+
+# Write Preferences
+#These commands use the Write-Verbose cmdlet to display a status message. By default, the message is not displayed.
+#The second command uses the Verbose common parameter, which displays any verbose messages, regardless of the value of the $VerbosePreference variable.
+
+write-Verbose &quot;Detailed Message&quot;
+Write-Verbose &quot;Detailed Message&quot; -Verbose
+
+$VerbosePreference = &quot;Continue&quot;
+Write-Verbose &quot;Copying file $filename&quot;
+
+$InformationPreference = &quot;Continue&quot;
+Write-Information -MessageData &quot;Processes starting with 'P'&quot; 
+Write-Information -MessageData &quot;Processes starting with 'P'&quot; -InformationAction SilentlyContinue
+Get-Process -Name p*
+
+$message = &quot;To filter your results for PowerShell, pipe your results to the Where-Object cmdlet.&quot;
+Get-Process -Name p*
+
+Write-Information -MessageData $message -Tags &quot;Instructions&quot; -InformationAction Continue
+
+$DebugPreference = &quot;Continue&quot;
+Write-Debug &quot;Debug Message&quot; 
+Write-Debug &quot;Debug Message&quot; -Debug
+
+Write-Warning &quot;Warning Message&quot;
+Write-Error &quot;An error occurred&quot;
+</code></pre>
+<h2 id="practice-and-self-check">Practice and self-check</h2>
+<p>Work through <a href="hands-on-11-exception-handling.html#part-3-throw-and-catch-specific-failures">Part 3 of the exception-handson lab</a>.
+Activity 3.1 compares failed and passed state checks. Activity 3.2 practises
+matching a thrown exception to a specific catch. The Part 5 challenge
+combines <code>throw</code>, typed catches, result objects, and <code>finally</code>.</p>
+<h2 id="summary">Summary</h2>
+<p>Use <code>throw</code> when your code detects a condition that prevents an operation
+from proceeding. Give the error a clear message and use a specific exception
+type when callers need to distinguish failures. Handle terminating errors
+with <code>try</code> and <code>catch</code>, and use <code>finally</code> for cleanup. An error that has
+been caught does not automatically stop the rest of the script.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_throw">About throw</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_try_catch_finally">About try, catch, and finally</a></li>
+</ul>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Automating local user accounts — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">01 - Local user accounts</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a class="sidebar-current" href="powershell-automation-01-local-user-accounts.html" aria-current="page">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; PowerShell Automation</p>
+            <h1 id="page-title">Automating local user accounts</h1>
+            <p class="hero-description">01 - Local user accounts</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/course/ps_automation/01-local-user-accounts/01-local-user-accounts">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<p>Local accounts are stored on one Windows computer. They are useful for standalone systems, recovery scenarios, and tightly scoped service or lab accounts. They are different from domain accounts, which are managed centrally in Active Directory.</p>
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>By the end of this lesson, you can:</p>
+<ul>
+<li>inspect local users, groups, and group membership;</li>
+<li>create a local user with a securely entered password;</li>
+<li>add and remove local group membership;</li>
+<li>reset, disable, enable, and remove a local account; and</li>
+<li>apply safe automation practices to account-lifecycle changes.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Complete the PowerShell Basics course, including functions and modules.</li>
+<li>Use 64-bit PowerShell on Windows; <code>Microsoft.PowerShell.LocalAccounts</code> is Windows-only and is unavailable in 32-bit PowerShell on a 64-bit system.</li>
+<li>Perform changes only in an instructor-provided disposable Windows VM or Windows Sandbox.</li>
+<li>Start the terminal as an administrator for commands that change accounts or group membership.</li>
+</ul>
+<h2 id="discover-the-local-account-commands">Discover the local-account commands</h2>
+<p>The <code>Microsoft.PowerShell.LocalAccounts</code> module uses predictable Verb-Noun names.</p>
+<pre><code class="language-powershell">Get-Command -Module Microsoft.PowerShell.LocalAccounts |
+    Sort-Object Noun, Verb |
+    Select-Object Name, CommandType
+
+Get-Help Get-LocalUser -Examples
+Get-Help New-LocalUser -Full
+</code></pre>
+<p>Common commands include:</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Cmdlet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>List or find users</td>
+<td><code>Get-LocalUser</code></td>
+</tr>
+<tr>
+<td>Create a user</td>
+<td><code>New-LocalUser</code></td>
+</tr>
+<tr>
+<td>Change user properties or password</td>
+<td><code>Set-LocalUser</code></td>
+</tr>
+<tr>
+<td>Disable or enable a user</td>
+<td><code>Disable-LocalUser</code>, <code>Enable-LocalUser</code></td>
+</tr>
+<tr>
+<td>Remove a user</td>
+<td><code>Remove-LocalUser</code></td>
+</tr>
+<tr>
+<td>Inspect local groups</td>
+<td><code>Get-LocalGroup</code>, <code>Get-LocalGroupMember</code></td>
+</tr>
+<tr>
+<td>Change membership</td>
+<td><code>Add-LocalGroupMember</code>, <code>Remove-LocalGroupMember</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="inspect-users-and-groups">Inspect users and groups</h2>
+<p>Start with read-only discovery. Keep the objects structured until the end of the pipeline.</p>
+<pre><code class="language-powershell">Get-LocalUser |
+    Select-Object Name, Enabled, LastLogon, Description
+
+Get-LocalUser -Name 'Student' |
+    Select-Object *
+
+Get-LocalGroup |
+    Select-Object Name, SID, Description
+</code></pre>
+<p>Built-in group names are translated on localized Windows installations. A security identifier (SID) is stable across languages. The built-in Users group has SID <code>S-1-5-32-545</code>.</p>
+<pre><code class="language-powershell">$usersGroup = Get-LocalGroup -SID 'S-1-5-32-545'
+Get-LocalGroupMember -Group $usersGroup |
+    Select-Object Name, ObjectClass, PrincipalSource
+</code></pre>
+<h2 id="create-a-local-user-safely">Create a local user safely</h2>
+<p><strong>Lab account lifecycle</strong></p>
+<pre class="mermaid">flowchart LR
+    A["Check that the lab account is absent"] --> B["Preview and create it disabled"]
+    B --> C["Add least-privilege membership"]
+    C --> D["Enable when needed"]
+    D --> E["Disable after use"]
+    E --> F["Preview and remove the lab account"]
+</pre>
+<p>Perform changes only in the assigned disposable environment. Verify each
+state and do not reuse or remove an account you did not create.</p>
+<p>Do not put a real password in a script, command history, screenshot, or source repository. Ask for it interactively as a <code>SecureString</code>.</p>
+<pre><code class="language-powershell">$password = Read-Host -Prompt 'Enter the temporary password' -AsSecureString
+
+$newUserParameters = @{
+    Name        = 'PSLabStudent'
+    Password    = $password
+    FullName    = 'PowerShell Lab Student'
+    Description = 'Disposable account for the PowerShell automation lab'
+    Disabled    = $true
+}
+
+New-LocalUser @newUserParameters -WhatIf
+</code></pre>
+<p><code>-WhatIf</code> previews the supported operation. After reviewing the name and description, remove <code>-WhatIf</code> only in the assigned lab VM.</p>
+<p>Creating the account disabled gives the administrator time to verify properties and group membership before allowing sign-in.</p>
+<h2 id="manage-group-membership">Manage group membership</h2>
+<p>Use the least-privilege group required for the account's work. Do not add an account to Administrators merely to make a task easier.</p>
+<pre><code class="language-powershell">$account = Get-LocalUser -Name 'PSLabStudent'
+$usersGroup = Get-LocalGroup -SID 'S-1-5-32-545'
+
+Add-LocalGroupMember -Group $usersGroup -Member $account -WhatIf
+Get-LocalGroupMember -Group $usersGroup |
+    Where-Object Name -Like '*\PSLabStudent'
+</code></pre>
+<p>Pass objects where possible. This avoids mistakes caused by spelling, quoting, or localized names.</p>
+<h2 id="reset-a-password-and-control-account-state">Reset a password and control account state</h2>
+<pre><code class="language-powershell">$newPassword = Read-Host -Prompt 'Enter a new temporary password' -AsSecureString
+$account = Get-LocalUser -Name 'PSLabStudent'
+$account | Set-LocalUser -Password $newPassword -WhatIf
+
+$account | Disable-LocalUser -WhatIf
+$account | Enable-LocalUser -WhatIf
+</code></pre>
+<p>After an actual change, query the account again instead of assuming that the command succeeded.</p>
+<pre><code class="language-powershell">Get-LocalUser -Name 'PSLabStudent' |
+    Select-Object Name, Enabled, PasswordLastSet, Description
+</code></pre>
+<h2 id="remove-a-lab-account">Remove a lab account</h2>
+<p>Removal is destructive. Verify the exact object, preview, perform the removal only when authorized, and verify absence.</p>
+<pre><code class="language-powershell">$account = Get-LocalUser -Name 'PSLabStudent'
+$account | Remove-LocalUser -WhatIf
+
+Get-LocalUser -Name 'PSLabStudent' -ErrorAction SilentlyContinue
+</code></pre>
+<p>A production workflow should also record who approved the change, what group memberships were removed, and whether data ownership must be transferred.</p>
+<h2 id="design-an-idempotent-account-script">Design an idempotent account script</h2>
+<p>An idempotent script can be run repeatedly without creating duplicate objects or producing a different result after the desired state is reached.</p>
+<pre><code class="language-powershell">$name = 'PSLabStudent'
+$existingUser = Get-LocalUser -Name $name -ErrorAction SilentlyContinue
+
+if ($null -eq $existingUser) {
+    Write-Output &quot;Account $name would be created.&quot;
+} else {
+    Write-Output &quot;Account $name already exists; no duplicate is required.&quot;
+}
+</code></pre>
+<p>Reliable account automation checks current state, validates input, supports <code>-WhatIf</code>, returns useful objects, and reports failures without exposing secrets.</p>
+<h2 id="practice-and-self-check">Practice and self-check</h2>
+<ol>
+<li>What is the difference between a local account and a domain account?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>A local account is stored and managed on one computer. A domain account is
+managed centrally in Active Directory and can be used on authorized domain
+resources.</p>
+</details>
+<ol start="2">
+<li>Why is <code>Read-Host -AsSecureString</code> safer than a plain-text password literal?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>It reads the password without displaying it as ordinary text and returns a
+<code>SecureString</code>, so the password does not need to be written in the script or
+command history. It does not replace proper access control or secret handling.</p>
+</details>
+<ol start="3">
+<li>Why can a well-known SID be safer than a built-in group name?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>The SID identifies the built-in group consistently across Windows display
+languages, while the group's name can be translated.</p>
+</details>
+<ol start="4">
+<li>Which commands change an account's enabled state?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p><code>Disable-LocalUser</code> disables an account; <code>Enable-LocalUser</code> enables it. Preview
+supported changes and verify the account afterward.</p>
+</details>
+<ol start="5">
+<li>What makes an account-management script idempotent?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>It checks the current state and applies only changes needed to reach the
+desired state. Running it again does not create duplicates or change an
+already-correct state.</p>
+</details>
+<ol start="6">
+<li>Which checks should occur before removing an account?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>Confirm authorization and the exact account and computer, and ensure the
+account is the disposable one created for the lab. Check group memberships
+and data ownership, preview removal with <code>-WhatIf</code>, and plan how to verify
+that the account is absent afterward.</p>
+</details>
+<p>Apply the lesson in <a href="hands-on-14-local-user-accounts.html">Hands-on 14 — Local user accounts</a>.</p>
+<h2 id="summary">Summary</h2>
+<p>Local-account automation covers discovery, secure creation, least-privilege membership, password reset, state changes, and removal. Preview changes, use a disposable environment, avoid embedded passwords, pass objects through the pipeline, and verify the resulting state.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.localaccounts/">Microsoft.PowerShell.LocalAccounts module</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.localaccounts/get-localuser">Get-LocalUser</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.localaccounts/new-localuser">New-LocalUser</a></li>
+</ul>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

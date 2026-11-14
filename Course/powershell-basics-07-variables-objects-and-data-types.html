@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Variables, objects, and data types — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">07 - Variables, objects, and data types</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a class="sidebar-current" href="powershell-basics-07-variables-objects-and-data-types.html" aria-current="page">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; PowerShell Basics</p>
+            <h1 id="page-title">Variables, objects, and data types</h1>
+            <p class="hero-description">07 - Variables, objects, and data types</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/course/ps_basics/04-variables/04-ps-variabele_objects_datatypes">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>By the end of this chapter, you can:</p>
+<ul>
+<li>store and reuse values with descriptive variable names;</li>
+<li>inspect types and distinguish a variable from the object it references;</li>
+<li>convert text before calculations and explain type constraints;</li>
+<li>manipulate strings, arrays, and hashtables;</li>
+<li>pass named arguments with hashtable splatting;</li>
+<li>create custom objects with reusable, typed properties; and</li>
+<li>recognise automatic variables and explain the effects of scope.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Complete the <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">objects and pipelines lesson</a>.</li>
+<li>Use PowerShell 7 in Windows Terminal or Visual Studio Code.</li>
+<li>Understand properties, methods, and basic filtering and selection.</li>
+</ul>
+<h2 id="why-variables-matter">Why variables matter</h2>
+<p>A support script may inspect a print queue once, calculate its workload, and
+use the same values in several reports. Variables give those values names so
+the script can reuse them instead of repeating a query or parsing display text.</p>
+<p>Run the examples in order in a fresh PowerShell session. Most change only
+session variables. The file example uses <code>C:\powershell\Variables-Lesson</code>;
+your instructor must prepare <code>C:\powershell</code> with writable access first.
+Keep the theory examples separate from the matching lab's datasets.</p>
+<h2 id="store-and-reuse-a-value">Store and reuse a value</h2>
+<p>A <strong>variable</strong> is a name that refers to a value. Put <code>$</code> before the name when
+assigning or reading it. The assignment operator <code>=</code> stores the value; it
+does not compare two values.</p>
+<p><strong>Assignment and reuse</strong></p>
+<pre class="mermaid">flowchart LR
+    A["Value: 7"] --> B["Assign to waitingJobCount"]
+    B --> C["Read the value in a calculation"]
+    B --> D["Read the value in a report"]
+</pre>
+<p>Assigning a different value later changes what the variable refers to.</p>
+<pre><code class="language-powershell">$queueName = 'Print-A'
+$waitingJobCount = 7
+
+$queueName
+$waitingJobCount
+
+$waitingJobCount = 9
+$waitingJobCount
+</code></pre>
+<p>The displayed values are <code>Print-A</code>, <code>7</code>, and <code>9</code>. Reassignment replaces the
+value associated with the name.</p>
+<p>Use camel case, such as <code>waitingJobCount</code>, and names that describe purpose.
+Use plural names for collections, such as <code>printJobs</code>. Variable names are
+case-insensitive, but consistent spelling makes scripts easier to read.
+Do not reuse automatic names such as <code>$HOME</code>, <code>$PWD</code>, or <code>$PID</code>.</p>
+<h3 id="save-command-output">Save command output</h3>
+<p>Assignment captures the command's success-output objects:</p>
+<pre><code class="language-powershell">$inspectionTime = Get-Date
+$inspectionTime.Year
+$inspectionTime.AddMinutes(10)
+</code></pre>
+<p>The first expression reads a property; the second calls a method and returns
+a new date. Neither changes <code>$inspectionTime</code>. The actual date varies by run.</p>
+<p>An <strong>object</strong> combines data in properties with actions exposed as methods.
+A variable refers to the object; the variable name is not its data type.
+Saving output lets later commands reuse the same result. It does not save
+that result to disk or preserve it after the PowerShell session closes.
+Use an export command when persistence is needed.</p>
+<p>You can also capture cmdlet output with the <strong>subexpression operator</strong>,
+<code>$(...)</code>. It runs the enclosed statements and returns their output:</p>
+<pre><code class="language-powershell">$currentProcess = $(Get-Process -Id $PID)
+$currentProcess.ProcessName
+$currentProcess.GetType().FullName
+</code></pre>
+<p><code>$PID</code> is the current PowerShell process ID. This query returns one
+<code>System.Diagnostics.Process</code> object; its process name depends on the session.
+The variable holds the object, so you can still read its properties.
+For this simple assignment, <code>$currentProcess = Get-Process -Id $PID</code> works
+too; <code>$()</code> is optional. Inside double quotes, <code>$()</code> can insert a command's
+result into text:</p>
+<pre><code class="language-powershell">&quot;Process ID: $((Get-Process -Id $PID).Id)&quot;
+</code></pre>
+<p>The resulting message is a string containing the current process ID.</p>
+<p><code>$()</code> does not guarantee an array. The number of output objects determines
+whether the result is absent, one object, or an array. The
+<a href="#capture-zero-one-or-many-results">command-output examples below</a> compare
+this with <code>@(...)</code>.</p>
+<p><strong>Apply:</strong> <a href="hands-on-06-variables-objects-and-data-types.html#activity-11-create-and-reassign-a-variable">Activities 1.1–1.2: assignment and naming</a>.</p>
+<h2 id="inspect-and-control-types">Inspect and control types</h2>
+<p>A <strong>type</strong> describes what a value represents and which operations it supports.
+PowerShell uses .NET types. These are common examples:</p>
+<table>
+<thead>
+<tr>
+<th>PowerShell notation</th>
+<th>Short type name</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[string]</code></td>
+<td><code>String</code></td>
+<td>Text</td>
+</tr>
+<tr>
+<td><code>[int]</code></td>
+<td><code>Int32</code></td>
+<td>Whole numbers</td>
+</tr>
+<tr>
+<td><code>[double]</code></td>
+<td><code>Double</code></td>
+<td>Binary floating-point values</td>
+</tr>
+<tr>
+<td><code>[decimal]</code></td>
+<td><code>Decimal</code></td>
+<td>Decimal arithmetic</td>
+</tr>
+<tr>
+<td><code>[bool]</code></td>
+<td><code>Boolean</code></td>
+<td><code>$true</code> or <code>$false</code></td>
+</tr>
+<tr>
+<td><code>[datetime]</code></td>
+<td><code>DateTime</code></td>
+<td>Dates and times</td>
+</tr>
+<tr>
+<td><code>[object[]]</code></td>
+<td><code>Object[]</code></td>
+<td>An array of values</td>
+</tr>
+<tr>
+<td><code>[hashtable]</code></td>
+<td><code>Hashtable</code></td>
+<td>Key-value pairs</td>
+</tr>
+<tr>
+<td><code>[pscustomobject]</code></td>
+<td><code>PSCustomObject</code></td>
+<td>Named properties for a record</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dynamic-typing-and-type-constraints">Dynamic typing and type constraints</h3>
+<p>An unconstrained variable can refer to values of different types:</p>
+<pre><code class="language-powershell">$queueValue = 9
+$queueValue.GetType().Name
+
+$queueValue = 'nine'
+$queueValue.GetType().Name
+</code></pre>
+<p>The type names are <code>Int32</code> and <code>String</code>. This is <strong>dynamic typing</strong>.</p>
+<p>A declaration can instead constrain later assignments:</p>
+<pre><code class="language-powershell">[int]$copyCount = 2
+$copyCount = '4'
+$copyCount
+$copyCount.GetType().Name
+</code></pre>
+<p>PowerShell converts the supplied text to integer <code>4</code>. The variable remains
+constrained to <code>Int32</code>. Assigning text such as <code>'many'</code> would fail conversion;
+the earlier value would remain. Test such failures separately from normal
+examples.</p>
+<h3 id="convert-before-calculating">Convert before calculating</h3>
+<p>A <strong>cast</strong> converts an expression to another type:</p>
+<pre><code class="language-powershell">$copiesText = '8'
+
+$copiesText + 2
+[int]$copiesText + 2
+$copiesText.GetType().Name
+</code></pre>
+<p>The results are string <code>82</code>, integer <code>10</code>, and type name <code>String</code>. A cast on
+an expression does not permanently constrain or modify the source variable.
+The left operand influences conversion: <code>2 + '8'</code> performs numeric addition,
+while <code>'8' + 2</code> concatenates text.</p>
+<p>A type constraint and a business rule serve different purposes. <code>[int]</code>
+accepts negative integers too; <a href="powershell-basics-09-parameters.html">parameter validation</a>
+can restrict the allowed range.</p>
+<h3 id="null-and-empty-text">Null and empty text</h3>
+<p><code>$null</code> represents the absence of a value. An empty string is a string with
+zero characters. Do not call instance methods such as <code>.GetType()</code> on null.</p>
+<pre><code class="language-powershell">$missingQueue = $null
+$emptyQueue = ''
+
+$null -eq $missingQueue
+$null -eq $emptyQueue
+$emptyQueue.Length
+</code></pre>
+<p>The results are <code>True</code>, <code>False</code>, and <code>0</code>. Put <code>$null</code> on the left of equality
+tests to avoid accidentally filtering a collection instead of obtaining the
+intended Boolean comparison.</p>
+<p><strong>Apply:</strong> <a href="hands-on-06-variables-objects-and-data-types.html#activity-13-constrain-a-variables-type">Activities 1.3–2.3: constraints, conversion, and null</a>.</p>
+<h2 id="work-with-strings-as-objects">Work with strings as objects</h2>
+<p>Use single quotes for literal text. Double quotes expand variables.
+Use <code>$()</code> to evaluate an expression inside an expandable string.</p>
+<pre><code class="language-powershell">$printerName = 'Print-B'
+$queuedPages = 18
+
+'Queue $printerName has $queuedPages pages.'
+&quot;Queue $printerName has $queuedPages pages.&quot;
+&quot;After one more page: $($queuedPages + 1).&quot;
+</code></pre>
+<p>The first line retains the variable names. The others display <code>Print-B</code>,
+<code>18</code>, and calculated value <code>19</code>.</p>
+<p>A backtick followed by <code>n</code> inserts a newline inside double quotes;
+a backtick followed by <code>t</code> inserts a tab:</p>
+<pre><code class="language-powershell">&quot;Queue:`t$printerName&quot;
+&quot;Queue:`n$printerName&quot;
+</code></pre>
+<p>The first message separates label and value with a tab. The second places
+the value on a new line.</p>
+<h3 id="properties-methods-and-new-strings">Properties, methods, and new strings</h3>
+<pre><code class="language-powershell">$queueLabel = '  Print Queue  '
+$trimmedLabel = $queueLabel.Trim()
+
+$trimmedLabel.Length
+$trimmedLabel.ToUpper()
+$trimmedLabel.ToLower()
+$trimmedLabel.StartsWith('Print')
+$trimmedLabel.EndsWith('Queue')
+$trimmedLabel.Substring(0, 5)
+$trimmedLabel.Replace(' ', '-')
+$queueLabel
+</code></pre>
+<p>The length is <code>11</code>. The transformed values include <code>PRINT QUEUE</code>,
+<code>print queue</code>, <code>Print</code>, and <code>Print-Queue</code>. Both tests return <code>True</code>.</p>
+<p><code>Length</code> is a property; members followed by parentheses are method calls.
+Strings are immutable: these methods return new values. The original
+<code>$queueLabel</code> still has its surrounding spaces.</p>
+<h3 id="index-split-and-join">Index, split, and join</h3>
+<pre><code class="language-powershell">$queueCode = 'PR-42'
+$queueCode[0]
+$queueCode[-1]
+
+$queueParts = $queueCode.Split('-')
+$queueParts.Count
+$queueParts -join '/'
+</code></pre>
+<p>Indexes start at <code>0</code>. Index <code>-1</code> selects the last character. The results are
+<code>P</code>, <code>2</code>, <code>2</code> parts, and <code>PR/42</code>.</p>
+<p><strong>Apply:</strong> <a href="hands-on-06-variables-objects-and-data-types.html#activity-31-expand-variables-and-expressions">Activities 3.1–3.3: string operations</a>.</p>
+<h2 id="work-with-arrays">Work with arrays</h2>
+<p>An <strong>array</strong> stores values in an indexed order. <code>@(...)</code> collects output into
+an array, including when the pipeline returns zero or one object.</p>
+<pre><code class="language-powershell">$printQueues = @('Print-A', 'Print-B', 'Print-C')
+
+$printQueues.GetType().Name
+$printQueues.Count
+$printQueues[0]
+$printQueues[-1]
+$printQueues[1..2]
+</code></pre>
+<p>The type is <code>Object[]</code> and the count is <code>3</code>. Index <code>0</code> selects <code>Print-A</code>;
+<code>-1</code> selects <code>Print-C</code>. The slice <code>1..2</code> selects <code>Print-B</code> and <code>Print-C</code>.
+The comma form <code>$printQueues = 'Print-A', 'Print-B', 'Print-C'</code> also creates
+an array.</p>
+<p>Inside <code>@(...)</code>, commas are optional when each element is on its own line:</p>
+<pre><code class="language-powershell">$printQueues = @(
+    'Print-A'
+    'Print-B'
+    'Print-C'
+)
+</code></pre>
+<p>This creates the same three-element array. Each line outputs one value,
+which <code>@(...)</code> collects. Use commas between these values when writing them
+together on one line, as in the earlier example.</p>
+<p>For arrays, <code>Count</code> and <code>Length</code> both report the number of elements. They
+are properties: write <code>.Count</code> rather than <code>.Count()</code>. For a string,
+<code>Length</code> counts characters, while <code>Count</code> normally reports one scalar value.</p>
+<h3 id="capture-zero-one-or-many-results">Capture zero, one, or many results</h3>
+<p>A query may find different numbers of matches on different computers.
+Use <code>@(...)</code> when later code needs an array in every case.</p>
+<table>
+<thead>
+<tr>
+<th>Output objects</th>
+<th>Direct assignment or <code>$(...)</code></th>
+<th><code>@(...)</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zero</td>
+<td>No result; compares equal to <code>$null</code></td>
+<td>Empty array, count <code>0</code></td>
+</tr>
+<tr>
+<td>One</td>
+<td>The single object</td>
+<td>Array with one element, count <code>1</code></td>
+</tr>
+<tr>
+<td>Two or more</td>
+<td>Array of the output objects</td>
+<td>Array of the output objects</td>
+</tr>
+</tbody>
+</table>
+<p>Compare the two operators with a filter that cannot match: process IDs
+are never negative.</p>
+<pre><code class="language-powershell">$noProcess = $(Get-Process | Where-Object { $_.Id -lt 0 })
+$noProcesses = @(Get-Process | Where-Object { $_.Id -lt 0 })
+
+$null -eq $noProcess
+$null -eq $noProcesses
+$noProcesses.Count
+$noProcesses.GetType().Name
+</code></pre>
+<p>The results are <code>True</code>, <code>False</code>, <code>0</code>, and <code>Object[]</code>. The first query has
+no result. The second produces an actual array containing zero elements,
+just like <code>@()</code>. An empty array is therefore different from <code>$null</code>.
+Do not call <code>.GetType()</code> on the missing result; there is no object on which
+to call the method. Check an array's <code>.Count</code> to determine whether it has
+elements; a null comparison does not test whether an array is empty.</p>
+<p>For one match, <code>$(Get-Process -Id $PID)</code> returns a process object, whereas
+<code>@(Get-Process -Id $PID)</code> returns an array containing that process object.
+Use <code>$()</code> to evaluate statements and <code>@()</code> to keep a collection even when
+the query returns zero or one object.</p>
+<h3 id="replace-elements-and-extend-the-collection">Replace elements and extend the collection</h3>
+<pre><code class="language-powershell">$printQueues[1] = 'Print-D'
+$printQueues += 'Print-E'
+
+$printQueues
+$printQueues.Count
+$printQueues.IsFixedSize
+</code></pre>
+<p>The array contains <code>Print-A</code>, <code>Print-D</code>, <code>Print-C</code>, and <code>Print-E</code>.
+Its count is <code>4</code> and <code>IsFixedSize</code> is <code>True</code>.</p>
+<p>An array's size is fixed, but its elements can be replaced. It is therefore
+not correct to describe the entire array as immutable. <code>+=</code> creates a larger
+array and assigns it back to the variable. It does not grow the existing
+array in place.</p>
+<h3 id="filter-and-process-values">Filter and process values</h3>
+<pre><code class="language-powershell">$pageCounts = @(6, 14, 9, 22)
+
+$largeJobs = @($pageCounts | Where-Object { $_ -ge 10 })
+$largeJobs
+$pageCounts | Measure-Object -Average -Minimum -Maximum
+</code></pre>
+<p><code>$largeJobs</code> contains <code>14</code> and <code>22</code>. The average is <code>12.75</code>, minimum <code>6</code>,
+and maximum <code>22</code>. <code>$_</code> is the current object entering the pipeline stage.</p>
+<p>To remove selected entries from an array, filter and assign the new result:</p>
+<pre><code class="language-powershell">$printQueues = @($printQueues | Where-Object { $_ -ne 'Print-C' })
+$printQueues
+</code></pre>
+<p>The remaining names are <code>Print-A</code>, <code>Print-D</code>, and <code>Print-E</code>. Use <code>@(...)</code>
+when later code relies on an array even if the number of matches changes.</p>
+<p><strong>Apply:</strong> <a href="hands-on-06-variables-objects-and-data-types.html#activity-41-create-and-index-an-array">Activities 4.1–4.4: arrays and cmdlet results</a>.</p>
+<h2 id="work-with-hashtables">Work with hashtables</h2>
+<p>A <strong>hashtable</strong> associates keys with values. Use keys when named lookup is
+more meaningful than a numeric position.</p>
+<pre><code class="language-powershell">$queueSettings = @{
+    Name    = 'Print-A'
+    Copies  = 2
+    Duplex  = $true
+}
+
+$queueSettings['Name']
+$queueSettings.Copies
+
+$queueSettings['Location'] = 'Library'
+$queueSettings['Copies'] = 3
+$queueSettings.ContainsKey('Location')
+$queueSettings.Remove('Location')
+$queueSettings.ContainsKey('Location')
+</code></pre>
+<p>The first values are <code>Print-A</code> and <code>2</code>. The key checks return <code>True</code> and
+then <code>False</code>. <code>.Remove('Location')</code> removes the key-value pair.
+<code>Remove-Item</code> is not a method for removing a hashtable entry.</p>
+<p>Use <code>@{}</code> for an empty hashtable. Separate pairs with newlines or semicolons;
+quote keys that contain spaces. <code>.Keys</code> and <code>.Values</code> expose the entries'
+keys and values. A normal hashtable does not promise a display order.
+Use <code>[ordered]@{...}</code> when insertion order matters; that creates an ordered
+dictionary rather than a normal hashtable.</p>
+<h3 id="splat-named-arguments">Splat named arguments</h3>
+<p><strong>Splatting</strong> supplies a collection of arguments to a command. Hashtable
+splatting uses each key as a parameter name and each value as its argument.</p>
+<p>In PowerShell, $PID is an automatic variable containing the Process ID (PID) of the current PowerShell process.</p>
+<pre><code class="language-powershell">$inspectionParameters = @{
+    Id = $PID
+}
+$displayParameters = @{
+    Property = 'ProcessName', 'Id'
+}
+
+Get-Process @inspectionParameters | Select-Object @displayParameters
+</code></pre>
+<p>The output describes the current PowerShell process. Its name and ID depend on
+the session. <code>@inspectionParameters</code> supplies <code>-Id $PID</code>; the other hashtable
+supplies <code>-Property 'ProcessName', 'Id'</code>. Read a hashtable with <code>$</code>, but splat
+it with <code>@</code>. Command arguments and declaring your own inputs are different
+steps; the <a href="powershell-basics-09-parameters.html">parameters chapter</a> develops the latter.</p>
+<p><strong>Apply:</strong> <a href="hands-on-06-variables-objects-and-data-types.html#activity-51-create-and-read-key-value-pairs">Activities 5.1–5.3: keyed data and splatting</a>.</p>
+<h2 id="create-custom-objects-for-report-rows">Create custom objects for report rows</h2>
+<p>A <strong>custom object</strong> groups related values as named properties. Use
+<code>[pscustomobject]@{...}</code> to describe one record, rather than storing a report
+row as an already formatted string.</p>
+<pre><code class="language-powershell">$printJob = [pscustomobject]@{
+    Queue = 'Print-A'
+    Pages = 14
+    Held  = $false
+}
+
+$printJob.GetType().Name
+$printJob | Get-Member
+$printJob | Select-Object Queue, Pages
+</code></pre>
+<p><code>.GetType().Name</code> reports <code>PSCustomObject</code>. <code>Get-Member</code> displays the full
+type name <code>System.Management.Automation.PSCustomObject</code> and lists the
+properties. <code>Pages</code> remains numeric and <code>Held</code> remains Boolean.</p>
+<p>Use an array of custom objects for several rows:</p>
+<pre><code class="language-powershell">$printJobs = @(
+    [pscustomobject]@{ Queue = 'Print-A'; Pages = 14; Held = $false }
+    [pscustomobject]@{ Queue = 'Print-B'; Pages = 8;  Held = $true }
+    [pscustomobject]@{ Queue = 'Print-C'; Pages = 22; Held = $false }
+)
+
+$printJobs |
+    Where-Object Held -eq $false |
+    Sort-Object Pages -Descending |
+    Select-Object Queue, Pages
+</code></pre>
+<p>The output contains <code>Print-C</code> (<code>22</code> pages) then <code>Print-A</code> (<code>14</code> pages).
+Keep the objects until the final formatting stage so later commands can still
+filter, measure, or export their properties.</p>
+<p><strong>Apply:</strong> <a href="hands-on-06-variables-objects-and-data-types.html#activity-61-convert-related-values-into-an-object">Activities 6.1–6.2: custom objects</a> and
+<a href="hands-on-06-variables-objects-and-data-types.html#part-7-challenge-build-a-typed-course-summary">Part 7: build a typed course summary</a>. The lab uses a different
+scenario so you must choose and combine the techniques yourself.</p>
+<h2 id="inspect-automatic-and-environment-variables">Inspect automatic and environment variables</h2>
+<p>PowerShell maintains <strong>automatic variables</strong> for session and execution state.
+Environment variables belong to the process environment and use <code>$env:Name</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$PSVersionTable</code></td>
+<td>PowerShell version and edition information</td>
+</tr>
+<tr>
+<td><code>$PWD</code></td>
+<td>Current working location</td>
+</tr>
+<tr>
+<td><code>$HOME</code></td>
+<td>User's home directory</td>
+</tr>
+<tr>
+<td><code>$PSHOME</code></td>
+<td>PowerShell installation directory</td>
+</tr>
+<tr>
+<td><code>$PROFILE</code></td>
+<td>Profile script path information</td>
+</tr>
+<tr>
+<td><code>$PID</code></td>
+<td>Current PowerShell process ID</td>
+</tr>
+<tr>
+<td><code>$_</code> or <code>$PSItem</code></td>
+<td>Current pipeline object; the error record inside <code>catch</code></td>
+</tr>
+<tr>
+<td><code>$args</code></td>
+<td>Arguments not bound to declared parameters in a simple script or function</td>
+</tr>
+<tr>
+<td><code>$Error</code></td>
+<td>Recent error records; index <code>0</code> is the newest</td>
+</tr>
+<tr>
+<td><code>$?</code></td>
+<td>Success status of the last operation</td>
+</tr>
+<tr>
+<td><code>$LASTEXITCODE</code></td>
+<td>Exit code from the last native program, or a script that sets it</td>
+</tr>
+<tr>
+<td><code>$PSCulture</code></td>
+<td>Culture used for conventions such as date and number formatting</td>
+</tr>
+<tr>
+<td><code>$PSUICulture</code></td>
+<td>Culture used for user-interface resources</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-powershell">$PSVersionTable.PSVersion
+$PWD.Path
+$env:USERNAME
+</code></pre>
+<p>The values depend on the session and computer. You can list environment
+entries with <code>Get-ChildItem Env:</code>, but inspect only the entries needed for a
+task; environment entries can contain sensitive application settings.
+Do not overwrite automatic variables or use a user profile as a lab workspace.</p>
+<p><strong>Apply:</strong> <a href="hands-on-06-variables-objects-and-data-types.html#activity-63-inspect-automatic-and-environment-variables">Activity 6.3: automatic and environment variables</a>.</p>
+<h2 id="advanced-input-and-explicit-conversion">Advanced: input and explicit conversion</h2>
+<p>These sections extend the same concepts. Work through them after the
+foundational examples; advanced identifies depth.</p>
+<h3 id="interactive-input-and-files">Interactive input and files</h3>
+<p><code>Read-Host</code> returns text unless another mode is requested. Run this example
+interactively, enter <code>6</code> at the prompt, and inspect the conversion:</p>
+<pre><code class="language-powershell">$enteredCopies = Read-Host -Prompt 'How many copies?'
+$enteredCopies.GetType().Name
+$numericCopies = [int]$enteredCopies
+$numericCopies + 1
+</code></pre>
+<p>The type is <code>String</code> and the calculated result is <code>7</code>. Non-numeric text
+fails conversion. Validation and error handling are developed in later chapters.</p>
+<p>For a secret, use <code>Read-Host -AsSecureString</code> or <code>Get-Credential</code> as required
+by the command consuming it. Do not print or convert the secret to plaintext.</p>
+<p>A file provides another source of text. For this example, first create the
+small input in its own lesson workspace. The <code>if</code> guard runs the write only
+when <code>Test-Path</code> reports that the file is missing; <code>-not</code> reverses the test.
+The conditionals chapter develops these decisions further:</p>
+<pre><code class="language-powershell">$variablesLessonRoot = Join-Path -Path 'C:\powershell' -ChildPath 'Variables-Lesson'
+New-Item -Path $variablesLessonRoot -ItemType Directory -Force | Out-Null
+$queueNamePath = Join-Path -Path $variablesLessonRoot -ChildPath 'queue-name.txt'
+
+if (-not (Test-Path -LiteralPath $queueNamePath)) {
+    Set-Content -LiteralPath $queueNamePath -Value 'Print-A'
+}
+$queueFromFile = Get-Content -LiteralPath $queueNamePath -Raw
+$queueFromFile.Trim()
+</code></pre>
+<p>A new file produces <code>Print-A</code> after trimming the final line ending.
+An existing file is preserved; its value can differ. <code>-Raw</code> reads one string;
+without it, <code>Get-Content</code> returns one string per line. Keep the file for
+review; no deletion is required.</p>
+<h3 id="alternative-conversions">Alternative conversions</h3>
+<pre><code class="language-powershell">$convertedCopies = [Convert]::ToInt32('6')
+$convertibleText = '6' -as [int]
+$unconvertibleText = 'six' -as [int]
+
+$convertedCopies
+$convertibleText
+$null -eq $unconvertibleText
+</code></pre>
+<p>The results are <code>6</code>, <code>6</code>, and <code>True</code>. In this example, <code>-as</code> returns null
+rather than throwing when conversion fails. Check for null rather than using
+a truth test: a successfully converted <code>0</code> is also false in a condition.
+<code>.ToString()</code> converts a value to text; formatting and culture can affect that
+representation.</p>
+<h2 id="advanced-collection-growth-and-iteration">Advanced: collection growth and iteration</h2>
+<p>A <strong>foreach loop</strong> runs its body once for each item. It names the current item
+explicitly. <code>ForEach-Object</code> instead receives the current item through <code>$_</code>
+in a pipeline.</p>
+<pre><code class="language-powershell">$queueNames = @('Print-X', 'Print-Y')
+
+foreach ($queue in $queueNames) {
+    &quot;Queue: $queue&quot;
+}
+
+$queueNames | ForEach-Object { $_.ToLower() }
+</code></pre>
+<p>The loop produces <code>Queue: Print-X</code> and <code>Queue: Print-Y</code>. The pipeline produces
+<code>print-x</code> and <code>print-y</code>. An array also provides a <code>.ForEach({...})</code> method,
+which applies a script block to its elements:</p>
+<pre><code class="language-powershell">$queueNames.ForEach({ $_.ToUpper() })
+</code></pre>
+<p>This returns <code>PRINT-X</code> and <code>PRINT-Y</code>. The <a href="powershell-basics-11-loops.html">loops lesson</a> explains
+how the language loop and pipeline cmdlet differ in more detail.</p>
+<h3 id="grow-a-list-in-place">Grow a list in place</h3>
+<p>Repeated array <code>+=</code> operations copy values into new arrays. When a script
+adds many values, use a collection designed to grow:</p>
+<pre><code class="language-powershell">$queueList = [System.Collections.Generic.List[string]]::new()
+$queueList.Add('Print-X')
+$queueList.Add('Print-Y')
+$queueList.Remove('Print-X')
+$queueList
+</code></pre>
+<p><code>Remove()</code> returns <code>True</code> and the list contains <code>Print-Y</code>. The generic
+<code>List[string]</code> accepts string elements.</p>
+<p>You may also encounter the older, mixed-type <code>ArrayList</code>:</p>
+<pre><code class="language-powershell">$legacyQueues = [System.Collections.ArrayList]@('Print-X')
+[void]$legacyQueues.Add('Print-Y')
+$legacyQueues.Remove('Print-X')
+$legacyQueues
+</code></pre>
+<p>It contains <code>Print-Y</code>. <code>ArrayList.Add()</code> returns the new element's index;
+<code>[void]</code> suppresses that return value. This avoids accidentally mixing indexes
+into the intended pipeline output.</p>
+<h2 id="advanced-scope-and-shared-objects">Advanced: scope and shared objects</h2>
+<p><strong>Scope</strong> controls where a variable name can be read or assigned.
+A function normally has a child scope. It can read values from its parent;
+assigning the same variable name locally does not replace the parent's value.</p>
+<pre><code class="language-powershell">$queueStatus = 'Outside'
+
+function Get-QueueStatusExample {
+    $queueStatus = 'Inside'
+    $queueStatus
+}
+
+Get-QueueStatusExample
+$queueStatus
+</code></pre>
+<p>The results are <code>Inside</code> and <code>Outside</code>. A script also normally runs in its
+own script scope. <code>Local</code> means the current scope, <code>Script</code> identifies the
+script's scope, and <code>Global</code> identifies the session's outer scope.
+<code>Private:</code> restricts visibility to the defining scope; it is an option,
+not a separate scope introduced by PowerShell 7.</p>
+<p>Dot-sourcing runs a script in the caller's scope. Prefer passing inputs and
+returning results instead of changing global variables. See the
+<a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_scopes">scope reference</a>
+and practise function scope in
+<a href="hands-on-12-functions.html#activity-41-keep-internal-variables-local">Functions Activity 4.1</a>.</p>
+<h3 id="inspect-and-clear-your-own-variables">Inspect and clear your own variables</h3>
+<pre><code class="language-powershell">$temporaryQueueNote = 'Check paper tray'
+Get-Variable -Name temporaryQueueNote
+Clear-Variable -Name temporaryQueueNote
+$null -eq $temporaryQueueNote
+Remove-Variable -Name temporaryQueueNote
+</code></pre>
+<p><code>Clear-Variable</code> sets this variable to null; the comparison returns <code>True</code>.
+<code>Remove-Variable</code> removes the named variable. Use exact names; do not clear
+or remove every variable in a session.</p>
+<h3 id="native-program-exit-status">Native program exit status</h3>
+<p>Capture success status immediately after the operation it describes. Later
+commands can change <code>$?</code>. In PowerShell on Windows, the following native
+program deliberately returns exit code <code>5</code> without changing files:</p>
+<pre><code class="language-powershell">&amp; $env:ComSpec /c 'exit 5'
+$nativeSucceeded = $?
+$nativeExitCode = $LASTEXITCODE
+$nativeSucceeded
+$nativeExitCode
+</code></pre>
+<p>The results are <code>False</code> and <code>5</code>. <code>$?</code> is a Boolean status; <code>$LASTEXITCODE</code>
+is the numeric code from the native program. Use the latter's documented
+meaning when handling external tools.</p>
+<h3 id="a-class-defines-a-reusable-type">A class defines a reusable type</h3>
+<p>A <strong>class</strong> describes a type's properties and methods. Use <code>PSCustomObject</code>
+for straightforward report rows; a class is useful when a named type needs a
+defined structure.</p>
+<pre><code class="language-powershell">class PrintQueueRecord {
+    [string]$Name
+    [int]$WaitingJobs
+}
+
+$queueRecord = [PrintQueueRecord]::new()
+$queueRecord.Name = 'Print-Z'
+$queueRecord.WaitingJobs = 3
+$queueRecord
+</code></pre>
+<p>The record has name <code>Print-Z</code> and <code>3</code> waiting jobs. Run a class definition
+once in a fresh session when experimenting with changes to the type.</p>
+<h2 id="practice-and-self-check">Practice and self-check</h2>
+<p>Use the <a href="hands-on-06-variables-objects-and-data-types.html">matching variables hands-on</a> for guided attempts,
+reflection questions, and an independent task. Open each solution after trying.</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Numbered practice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Assignment, names, and types</td>
+<td>Activities 1.1–2.3</td>
+</tr>
+<tr>
+<td>String properties and methods</td>
+<td>Activities 3.1–3.3</td>
+</tr>
+<tr>
+<td>Arrays and stable collection shape</td>
+<td>Activities 4.1–4.4</td>
+</tr>
+<tr>
+<td>Hashtables and splatting</td>
+<td>Activities 5.1–5.3</td>
+</tr>
+<tr>
+<td>Custom objects and session information</td>
+<td>Activities 6.1–6.3</td>
+</tr>
+<tr>
+<td>Combine typed data into one reusable result</td>
+<td>Part 7 challenge</td>
+</tr>
+</tbody>
+</table>
+<p>For the advanced sections, explain why a failed <code>-as</code> conversion differs from
+integer zero, why growing a list differs from array <code>+=</code>, and why two variables
+can observe the same hashtable change. Revisit scope in Functions Activity 4.1.</p>
+<details>
+<summary>Show solution</summary>
+<p>A failed <code>-as [int]</code> conversion returns <code>$null</code>; converting <code>'0'</code> succeeds
+and returns integer <code>0</code>. Test <code>$null -eq $result</code> rather than truthiness
+when distinguishing them, because both null and zero evaluate to false.</p>
+<p>A generic list's <code>Add()</code> method grows the existing list. Array <code>+=</code> creates
+a new array containing the old elements and the added item, then assigns it
+back to the variable. Repeated array growth can require repeated copying.</p>
+<p>Assigning a hashtable to another variable copies its object reference.
+Both variables can therefore observe mutations to that one hashtable.
+Reassigning one variable to a new hashtable changes that variable's reference;
+it does not reassign the other variable.</p>
+</details>
+<h2 id="summary">Summary</h2>
+<p>Variables name values and object references. Inspect types before choosing an
+operation, convert external text deliberately, and distinguish casts from
+variable constraints. Strings return new values when transformed; array sizes
+are fixed but their elements can change. Hashtables support named lookup, while
+custom objects expose report properties that pipeline commands can reuse.</p>
+<p>Keep typed objects until display or export. Session variables are temporary;
+saving a value in a variable does not save it to a file.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-05">Variables language specification</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04">Types language specification</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_automatic_variables">Automatic variables</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/scripting/learn/deep-dives/everything-about-string-substitutions">String substitution</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_arrays">Arrays</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_operators#subexpression-operator--">Subexpression and array subexpression operators</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/scripting/learn/deep-dives/everything-about-null">Null values and empty collections</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_hash_tables">Hashtables</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/scripting/learn/deep-dives/everything-about-pscustomobject">Custom objects</a></li>
+</ul>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

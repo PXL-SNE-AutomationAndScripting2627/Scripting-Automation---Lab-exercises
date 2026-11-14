@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Hands-on — Piping, filtering, sorting, grouping, and measuring — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">03 - Piping, filtering, sorting, grouping, and measuring</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a class="sidebar-current" href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html" aria-current="page">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; Hands-on</p>
+            <h1 id="page-title">Hands-on — Piping, filtering, sorting, grouping, and measuring</h1>
+            <p class="hero-description">03 - Piping, filtering, sorting, grouping, and measuring</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/hands-on/03-piping-filtering-sorting-grouping-measuring/03-piping-filtering-sorting-grouping-measuring">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="goal">Goal</h2>
+<p>Build PowerShell pipelines that turn a collection of objects into useful information by selecting, filtering, sorting, grouping, and measuring data.</p>
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>By the end of this lab, you can:</p>
+<ul>
+<li>explain how objects move through a multi-stage pipeline;</li>
+<li>select properties and limit pipeline results;</li>
+<li>filter objects with comparison, wildcard, and logical operators;</li>
+<li>sort objects by one or more properties;</li>
+<li>group objects and interpret group counts; and</li>
+<li>measure a collection using count, sum, average, minimum, and maximum.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Complete <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">Piping, filtering, sorting, grouping, and measuring</a>
+before starting this lab.</li>
+<li>Use PowerShell 7 where available.</li>
+<li>Understand properties, <code>Get-Member</code>, <code>Select-Object</code>, and <code>Where-Object</code>.</li>
+</ul>
+<h2 id="how-to-work-in-this-lab">How to work in this lab</h2>
+<p>For every activity, complete the three steps.</p>
+<ol>
+<li><strong>Predict:</strong> write or discuss what you think will happen.</li>
+<li><strong>Run:</strong> enter the command exactly as shown.</li>
+<li><strong>Reflect:</strong> answer the questions in your own words.</li>
+</ol>
+<p>All activities are read-only. The sample data exists only in the current PowerShell session.</p>
+<p>After attempting each activity, open <strong>Show solution</strong> to check your commands,
+expected results, and explanations. The final exercise and self-check also
+have solutions. Keep the session and setup required by the activity. If you
+already changed a file or variable, compare its result rather than replaying
+the change from the solution.</p>
+<hr />
+<h2 id="part-1-prepare-and-inspect-the-data">Part 1 — Prepare and inspect the data</h2>
+<h3 id="activity-1.1-create-a-helpdesk-dataset">Activity 1.1 — Create a helpdesk dataset</h3>
+<p><strong>Predict</strong></p>
+<p>What kind of object do you expect <code>[pscustomobject]</code> to create?</p>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$tickets = @(
+    [pscustomobject]@{ Id = 101; Category = 'Account'; Priority = 2; Status = 'Open';   Minutes = 25 }
+    [pscustomobject]@{ Id = 102; Category = 'Network'; Priority = 1; Status = 'Open';   Minutes = 80 }
+    [pscustomobject]@{ Id = 103; Category = 'Device';  Priority = 3; Status = 'Closed'; Minutes = 45 }
+    [pscustomobject]@{ Id = 104; Category = 'Account'; Priority = 1; Status = 'Closed'; Minutes = 30 }
+    [pscustomobject]@{ Id = 105; Category = 'Network'; Priority = 2; Status = 'Open';   Minutes = 60 }
+    [pscustomobject]@{ Id = 106; Category = 'Device';  Priority = 2; Status = 'Closed'; Minutes = 20 }
+    [pscustomobject]@{ Id = 107; Category = 'Account'; Priority = 3; Status = 'Open';   Minutes = 15 }
+    [pscustomobject]@{ Id = 108; Category = 'Network'; Priority = 1; Status = 'Closed'; Minutes = 95 }
+)
+
+$tickets
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>How many ticket objects are in the collection?</li>
+<li>Which properties does every ticket contain?</li>
+<li>Why is structured data more useful than one long line of text?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p><code>[pscustomobject]</code> creates a structured object with named properties. The collection contains eight objects. Every ticket contains <code>Id</code>, <code>Category</code>, <code>Priority</code>, <code>Status</code>, and <code>Minutes</code>. Structured properties let later commands filter and sort values without parsing display text.</p>
+</details>
+<h3 id="activity-1.2-inspect-and-select-properties">Activity 1.2 — Inspect and select properties</h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$tickets | Get-Member
+$tickets | Select-Object Id, Category, Status
+$tickets | Select-Object -First 3 Id, Priority
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What object type does <code>Get-Member</code> report?</li>
+<li>What does <code>-First 3</code> limit: properties or objects?</li>
+<li>Does <code>Select-Object</code> change <code>$tickets</code>?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p><code>Get-Member</code> reports <code>System.Management.Automation.PSCustomObject</code>. <code>-First 3</code> limits the number of objects, while <code>Id, Priority</code> selects properties. <code>Select-Object</code> produces new output objects and leaves <code>$tickets</code> unchanged; <code>$tickets.Count</code> remains <code>8</code>.</p>
+</details>
+<hr />
+<h2 id="part-2-filter-objects">Part 2 — Filter objects</h2>
+<h3 id="activity-2.1-compare-property-values">Activity 2.1 — Compare property values</h3>
+<p><strong>Predict</strong></p>
+<p>Which ticket IDs should pass each filter?</p>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$tickets | Where-Object Status -eq 'Open'
+$tickets | Where-Object Priority -le 2
+$tickets | Where-Object Minutes -gt 60
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What do <code>-eq</code>, <code>-le</code>, and <code>-gt</code> mean?</li>
+<li>Which filter returns tickets 102 and 108?</li>
+<li>Why should numeric data such as <code>Minutes</code> be stored as numbers rather than text?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p><code>-eq</code> means equal to, <code>-le</code> means less than or equal to, and <code>-gt</code> means greater than. <code>Minutes -gt 60</code> returns IDs <code>102</code> and <code>108</code>. Numbers should be stored as numeric values so comparisons use numeric order; text values can sort or compare lexically instead.</p>
+<p><strong>Prediction results:</strong> <code>Status -eq 'Open'</code> returns <code>101</code>, <code>102</code>, <code>105</code>, and
+<code>107</code>. <code>Priority -le 2</code> returns <code>101</code>, <code>102</code>, <code>104</code>, <code>105</code>, <code>106</code>, and <code>108</code>.
+<code>Minutes -gt 60</code> returns <code>102</code> and <code>108</code>.</p>
+</details>
+<h3 id="activity-2.2-use-wildcards-and-logical-operators">Activity 2.2 — Use wildcards and logical operators</h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$tickets | Where-Object Category -like 'Net*'
+
+$tickets | Where-Object {
+    $_.Status -eq 'Open' -and $_.Priority -le 2
+}
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What does <code>*</code> represent in <code>'Net*'</code>?</li>
+<li>What does <code>$_</code> represent inside the script block?</li>
+<li>How does <code>-and</code> affect the result?</li>
+<li>Which ticket IDs meet both conditions?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p><code>*</code> represents zero or more characters, so <code>Net*</code> matches <code>Network</code>. <code>$_</code> is the current ticket entering <code>Where-Object</code>. <code>-and</code> requires both comparisons to be true. IDs <code>101</code>, <code>102</code>, and <code>105</code> meet both conditions.</p>
+</details>
+<h3 id="activity-2.3-compare-contains-and-in">Activity 2.3 — Compare <code>-contains</code> and <code>-in</code></h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">@('Account', 'Device') -contains 'Device'
+'Device' -in @('Account', 'Device')
+'Network' -notin @('Account', 'Device')
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which operator places the collection on the left?</li>
+<li>Which operator places the value on the left?</li>
+<li>What Boolean result does each expression return?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p><code>-contains</code> places the collection on the left and the searched value on the right. <code>-in</code> places the value on the left and collection on the right. All three expressions return <code>True</code>.</p>
+</details>
+<hr />
+<h2 id="part-3-sort-and-select-results">Part 3 — Sort and select results</h2>
+<h3 id="activity-3.1-sort-in-ascending-and-descending-order">Activity 3.1 — Sort in ascending and descending order</h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$tickets | Sort-Object Minutes | Select-Object Id, Minutes
+$tickets | Sort-Object Minutes -Descending | Select-Object Id, Minutes
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which ticket takes the fewest minutes?</li>
+<li>Which ticket takes the most minutes?</li>
+<li>What is the default sort direction?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p>Ticket <code>107</code> is shortest at 15 minutes. Ticket <code>108</code> is longest at 95 minutes. Ascending order is the default.</p>
+</details>
+<h3 id="activity-3.2-sort-by-more-than-one-property">Activity 3.2 — Sort by more than one property</h3>
+<p><strong>Predict</strong></p>
+<p>If two tickets have the same priority, which property should decide their order in the following command?</p>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$tickets |
+    Sort-Object Priority, Minutes |
+    Select-Object Id, Priority, Minutes
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which property is the primary sort key?</li>
+<li>Which property breaks ties?</li>
+<li>Why can multi-property sorting make a report easier to use?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p><code>Priority</code> is the primary sort key; <code>Minutes</code> orders objects that have the same priority. Multi-property sorting creates a predictable, useful order within each priority band.</p>
+</details>
+<h3 id="activity-3.3-find-the-top-three-longest-tickets">Activity 3.3 — Find the top three longest tickets</h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$tickets |
+    Sort-Object Minutes -Descending |
+    Select-Object -First 3 Id, Category, Minutes
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which ticket IDs appear?</li>
+<li>Why must <code>Sort-Object</code> come before <code>Select-Object -First 3</code>?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p>The IDs are <code>108</code>, <code>102</code>, and <code>105</code>, with 95, 80, and 60 minutes. Sorting must happen first; selecting the first three before sorting would choose the first three input tickets rather than the three longest.</p>
+</details>
+<hr />
+<h2 id="part-4-group-and-count-objects">Part 4 — Group and count objects</h2>
+<h3 id="activity-4.1-group-by-category">Activity 4.1 — Group by category</h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$tickets | Group-Object Category
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What do the <code>Count</code>, <code>Name</code>, and <code>Group</code> properties mean?</li>
+<li>How many tickets belong to each category?</li>
+<li>Does grouping remove the original objects?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p><code>Name</code> is the shared category value, <code>Count</code> is the number of matching tickets, and <code>Group</code> contains the original ticket objects. Account has three tickets, Network has three, and Device has two. Grouping preserves the objects inside each group.</p>
+</details>
+<h3 id="activity-4.2-build-a-compact-grouped-summary">Activity 4.2 — Build a compact grouped summary</h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$tickets |
+    Group-Object Status |
+    Sort-Object Count -Descending |
+    Select-Object Name, Count
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>How many tickets are open and closed?</li>
+<li>What object is being sorted after <code>Group-Object</code>?</li>
+<li>Why is <code>Name, Count</code> often more useful in a summary than the complete <code>Group</code> property?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p>There are four open and four closed tickets. After <code>Group-Object</code>, the pipeline contains <code>GroupInfo</code> objects, and <code>Sort-Object</code> sorts those by their <code>Count</code> property. A <code>Name, Count</code> summary is compact; the full <code>Group</code> collections are unnecessary when only totals are needed.</p>
+</details>
+<hr />
+<h2 id="part-5-measure-data">Part 5 — Measure data</h2>
+<h3 id="activity-5.1-count-objects">Activity 5.1 — Count objects</h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$tickets | Measure-Object
+($tickets | Measure-Object).Count
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What type of value does the second command return?</li>
+<li>Why are parentheses needed before <code>.Count</code>?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p>The first command returns a measurement object; the second returns the integer <code>8</code>. Parentheses run the pipeline first so dot notation can access the resulting object's <code>Count</code> property.</p>
+</details>
+<h3 id="activity-5.2-calculate-statistics">Activity 5.2 — Calculate statistics</h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$tickets | Measure-Object -Property Minutes -Sum -Average -Minimum -Maximum
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What are the total, average, minimum, and maximum minutes?</li>
+<li>Which property was measured?</li>
+<li>Why would a helpdesk manager use these values?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p>The measured property is <code>Minutes</code>. The result is a count of 8, sum of 370, average of 46.25, minimum of 15, and maximum of 95. A manager can use these values to understand workload, typical handling time, and unusually long tickets.</p>
+</details>
+<h3 id="activity-5.3-measure-read-only-system-data">Activity 5.3 — Measure read-only system data</h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">Get-Process |
+    Measure-Object -Property WorkingSet -Sum -Average -Maximum
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which process property is measured?</li>
+<li>Why will results differ between computers and between runs?</li>
+<li>Does this command stop or modify any process?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p>The command measures the <code>WorkingSet</code> property, which represents physical memory associated with each process. Results vary because computers run different processes and memory use changes continuously. The pipeline only gets and measures objects; it does not stop or modify processes.</p>
+</details>
+<hr />
+<h2 id="part-6-challenge-create-a-helpdesk-summary">Part 6 — Challenge: create a helpdesk summary</h2>
+<p>Filename: <code>Get-HelpdeskSummary.ps1</code></p>
+<p>Save both pipelines in this file. After completing Activity 1.1 in the same
+session, run <code>. .\Get-HelpdeskSummary.ps1</code> to use its <code>$tickets</code> collection.</p>
+<h3 id="scenario">Scenario</h3>
+<p>A helpdesk coordinator needs a read-only report of open, high-priority tickets. In this dataset, priority <code>1</code> or <code>2</code> is considered high priority.</p>
+<h3 id="your-task">Your task</h3>
+<p>Create a pipeline that:</p>
+<ol>
+<li>starts with <code>$tickets</code>;</li>
+<li>keeps tickets whose status is <code>Open</code> and priority is <code>2</code> or lower;</li>
+<li>sorts the remaining tickets by <code>Minutes</code> from highest to lowest; and</li>
+<li>displays <code>Id</code>, <code>Category</code>, <code>Priority</code>, and <code>Minutes</code>.</li>
+</ol>
+<p>Then create a second pipeline that measures the average <code>Minutes</code> for those same tickets.</p>
+<p>Explain why the order of filtering, sorting, and selecting matters.</p>
+<pre><code class="language-powershell"># Write the detailed report pipeline here.
+
+# Write the measurement pipeline here.
+</code></pre>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p>Use <code>$tickets</code> from Activity 1.1 in the same session.</p>
+<p><strong>Detailed report solution (Beginner):</strong></p>
+<pre><code class="language-powershell">$tickets |
+    Where-Object { $_.Status -eq 'Open' -and $_.Priority -le 2 } |
+    Sort-Object Minutes -Descending |
+    Select-Object Id, Category, Priority, Minutes
+</code></pre>
+<p>The expected order is ticket <code>102</code> (80), <code>105</code> (60), and <code>101</code> (25).</p>
+<p><strong>Measurement solution (Beginner):</strong></p>
+<pre><code class="language-powershell">$tickets |
+    Where-Object { $_.Status -eq 'Open' -and $_.Priority -le 2 } |
+    Measure-Object -Property Minutes -Average
+</code></pre>
+<p>The average is <code>55</code>. Filtering first ensures both pipelines operate only on relevant tickets. The detailed pipeline sorts complete ticket objects before selecting display properties; measurement uses the numeric <code>Minutes</code> property directly.</p>
+<details>
+<summary>Show solution Optimized</summary>
+<p>Use <code>$tickets</code> from Activity 1.1 in the same session.</p>
+<p><strong>Detailed report solution (Optimized):</strong></p>
+<pre><code class="language-powershell">$highPriorityOpen = { $_.Status -eq 'Open' -and $_.Priority -le 2 }
+$tickets | Where-Object $highPriorityOpen | Sort-Object Minutes -Descending | Select-Object Id, Category, Priority, Minutes
+</code></pre>
+<p><strong>Measurement solution (Optimized):</strong></p>
+<pre><code class="language-powershell">$tickets | Where-Object { $_.Status -eq 'Open' -and $_.Priority -le 2 } | Measure-Object -Property Minutes -Average
+</code></pre>
+<p>The optimized version is identical in functionality but can be condensed on single lines for interactive use. The filter condition could be stored as a script block for reuse across multiple pipelines. Both approaches produce tickets <code>102</code> (80), <code>105</code> (60), <code>101</code> (25) with average of <code>55</code>.</p>
+</details>
+</details>
+<h2 id="practice-and-self-check">Practice and self-check</h2>
+<p>Answer before running a command, then test your answer.</p>
+<ol>
+<li>Which cmdlet filters objects using a condition?</li>
+<li>Which operator means “less than or equal to”?</li>
+<li>What is the difference between <code>-contains</code> and <code>-in</code>?</li>
+<li>Which cmdlet orders objects by property values?</li>
+<li>Which cmdlet collects objects with the same property value?</li>
+<li>Which properties can <code>Measure-Object</code> calculate for numeric data?</li>
+<li>Why should formatting normally be the final stage of a pipeline?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Self-check answers:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Detailed solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Which cmdlet filters objects?</td>
+<td><code>Where-Object</code></td>
+</tr>
+<tr>
+<td>Which operator means “less than or equal to”?</td>
+<td><code>-le</code></td>
+</tr>
+<tr>
+<td>Difference between <code>-contains</code> and <code>-in</code>?</td>
+<td><code>-contains</code> has the collection on the left; <code>-in</code> has the value on the left.</td>
+</tr>
+<tr>
+<td>Which cmdlet orders objects?</td>
+<td><code>Sort-Object</code></td>
+</tr>
+<tr>
+<td>Which cmdlet collects shared property values?</td>
+<td><code>Group-Object</code></td>
+</tr>
+<tr>
+<td>Which numeric results can <code>Measure-Object</code> calculate?</td>
+<td>Count, sum, average, minimum, and maximum; standard deviation is also available when requested.</td>
+</tr>
+<tr>
+<td>Why format last?</td>
+<td>Formatting creates display instructions that are unsuitable for most later object-processing commands.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h2 id="submission-checklist">Submission checklist</h2>
+<p>Before submitting, make sure you have:</p>
+<ul>
+<li>created the <code>$tickets</code> collection;</li>
+<li>completed every prediction and reflection question;</li>
+<li>used filtering, sorting, grouping, and measuring commands;</li>
+<li>completed and explained both challenge pipelines; and</li>
+<li>confirmed that all commands are read-only.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>A PowerShell pipeline can progressively refine objects. Filter early, sort the remaining objects, select the properties needed by the consumer, and measure or group objects when a summary is required. Keeping objects in the pipeline preserves structured data for later commands.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_comparison_operators">About comparison operators</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/where-object">Where-Object</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/sort-object">Sort-Object</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/group-object">Group-Object</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/measure-object">Measure-Object</a></li>
+</ul>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Collecting Windows information — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">02 - Windows information</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a class="sidebar-current" href="powershell-automation-02-windows-information.html" aria-current="page">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; PowerShell Automation</p>
+            <h1 id="page-title">Collecting Windows information</h1>
+            <p class="hero-description">02 - Windows information</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/course/ps_automation/02-windows-information/02-windows-information">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<p>Administrators often need a consistent inventory of operating systems, hardware, storage, processes, accounts, and network adapters. PowerShell exposes this information as objects that can be filtered, combined, and exported.</p>
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>By the end of this lesson, you can:</p>
+<ul>
+<li>retrieve a consolidated Windows overview with <code>Get-ComputerInfo</code>;</li>
+<li>explain CIM classes, instances, properties, and methods;</li>
+<li>discover CIM classes and query selected instances efficiently;</li>
+<li>collect operating-system, processor, BIOS, disk, memory, process, account, and adapter data; and</li>
+<li>build one structured inventory object for reporting.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Complete the PowerShell Basics course and the local-user automation lesson.</li>
+<li>Use PowerShell on Windows; the CIM cmdlets and classes in this lesson are Windows-specific.</li>
+<li>No administrator rights are required for most read-only examples, although some properties may be restricted.</li>
+</ul>
+<h2 id="start-with-get-computerinfo">Start with <code>Get-ComputerInfo</code></h2>
+<p><code>Get-ComputerInfo</code> combines many operating-system and hardware properties into one object.</p>
+<pre><code class="language-powershell">Get-ComputerInfo |
+    Select-Object CsName, WindowsProductName, WindowsVersion,
+        OsArchitecture, CsTotalPhysicalMemory, BiosSerialNumber
+</code></pre>
+<p>It is convenient for an overview, but CIM queries give more control over which class and properties are retrieved.</p>
+<h2 id="understand-cim">Understand CIM</h2>
+<p>The Common Information Model (CIM) describes manageable hardware and software consistently:</p>
+<ul>
+<li>a <strong>namespace</strong> groups related management classes;</li>
+<li>a <strong>class</strong> describes a type of resource, such as <code>Win32_OperatingSystem</code>;</li>
+<li>an <strong>instance</strong> represents one actual resource on a computer;</li>
+<li>a <strong>property</strong> stores information about an instance; and</li>
+<li>a <strong>method</strong> represents an action supported by a class or instance.</li>
+</ul>
+<p><strong>CIM hierarchy</strong></p>
+<pre class="mermaid">flowchart LR
+    A["Namespace: groups classes"] --> B["Class: Win32_OperatingSystem"]
+    B --> C["Instance: one operating system"]
+    C --> D["Property: Caption or Version"]
+    C --> E["Method: an available action"]
+</pre>
+<p>Inspect methods before using them: unlike querying properties, a method can
+change system state.</p>
+<p>Prefer CIM cmdlets to the retired <code>Get-WmiObject</code> family. CIM cmdlets support current PowerShell and can use WS-Management for remote operations.</p>
+<h2 id="discover-classes-before-querying">Discover classes before querying</h2>
+<pre><code class="language-powershell">Get-CimClass -ClassName 'Win32_*OperatingSystem*' |
+    Select-Object CimClassName
+
+Get-CimClass -ClassName Win32_Service |
+    Select-Object -ExpandProperty CimClassMethods
+
+Get-Help Get-CimInstance -Examples
+</code></pre>
+<p>Tab completion can help with class names after <code>-ClassName</code>. Use <code>Get-CimClass</code> when you need broader discovery.</p>
+<h2 id="query-operating-system-and-hardware-classes">Query operating-system and hardware classes</h2>
+<pre><code class="language-powershell">$operatingSystem = Get-CimInstance -ClassName Win32_OperatingSystem
+$computerSystem = Get-CimInstance -ClassName Win32_ComputerSystem
+$processor = Get-CimInstance -ClassName Win32_Processor |
+    Select-Object -First 1
+$bios = Get-CimInstance -ClassName Win32_BIOS
+$baseboard = Get-CimInstance -ClassName Win32_BaseBoard |
+    Select-Object -First 1
+
+$operatingSystem |
+    Select-Object Caption, Version, OSArchitecture, LastBootUpTime
+
+$processor |
+    Select-Object Name, NumberOfCores, NumberOfLogicalProcessors
+
+$bios |
+    Select-Object Manufacturer, SMBIOSBIOSVersion, SerialNumber
+</code></pre>
+<p>Query only the classes and properties required by the report. Collecting everything is slower and makes later code harder to understand.</p>
+<h2 id="filter-at-the-cim-provider">Filter at the CIM provider</h2>
+<p><code>-Filter</code> uses WMI Query Language syntax and can reduce the amount of data returned.</p>
+<pre><code class="language-powershell">Get-CimInstance -ClassName Win32_Process -Filter &quot;Name LIKE 'P%'&quot; |
+    Select-Object Name, ProcessId, WorkingSetSize
+</code></pre>
+<p>Use <code>Where-Object</code> when filtering an existing collection or when the provider cannot express the condition. Use <code>-Filter</code> when the CIM provider can do the work before returning objects.</p>
+<h2 id="discover-cim-methods-before-using-them">Discover CIM methods before using them</h2>
+<p>Methods perform actions rather than only returning state. Inspect the class metadata and documentation before calling one.</p>
+<pre><code class="language-powershell">Get-CimClass -ClassName Win32_Service |
+    Select-Object -ExpandProperty CimClassMethods
+
+Get-CimClass -ClassName Win32_Process |
+    Select-Object -ExpandProperty CimClassMethods
+</code></pre>
+<p><code>Invoke-CimMethod</code> calls a class or instance method. A method can stop a process, change a service, or otherwise modify the computer, so do not experiment with methods on an unassigned target. Prefer a purpose-built cmdlet when it provides the same operation with clearer help and safety features.</p>
+<h2 id="inspect-disks-memory-accounts-and-adapters">Inspect disks, memory, accounts, and adapters</h2>
+<pre><code class="language-powershell">Get-CimInstance -ClassName Win32_LogicalDisk -Filter 'DriveType = 3' |
+    Select-Object DeviceID, VolumeName,
+        @{ Name = 'SizeGB'; Expression = { [math]::Round($_.Size / 1GB, 2) } },
+        @{ Name = 'FreeGB'; Expression = { [math]::Round($_.FreeSpace / 1GB, 2) } }
+
+Get-CimInstance -ClassName Win32_PhysicalMemory |
+    Select-Object BankLabel, Manufacturer, Capacity, Speed
+
+Get-CimInstance -ClassName Win32_UserAccount -Filter 'LocalAccount = True' |
+    Select-Object Name, Disabled, SID
+
+Get-CimInstance -ClassName Win32_NetworkAdapter |
+    Where-Object PhysicalAdapter |
+    Select-Object Name, MACAddress, NetEnabled
+
+Get-CimInstance -ClassName Win32_VideoController |
+    Select-Object Name, DriverVersion, AdapterRAM
+
+Get-PnpDevice -PresentOnly |
+    Group-Object Class |
+    Sort-Object Count -Descending |
+    Select-Object Name, Count
+</code></pre>
+<p>For normal disk and network administration, prefer purpose-built cmdlets such as <code>Get-Volume</code>, <code>Get-Disk</code>, and <code>Get-NetIPConfiguration</code>. CIM remains valuable for consistent inventory and classes that have no simpler command.</p>
+<h2 id="avoid-win32_product-for-software-inventory">Avoid <code>Win32_Product</code> for software inventory</h2>
+<p>A query against <code>Win32_Product</code> can be slow and can trigger Windows Installer consistency checks. Do not use it as a general software inventory mechanism. If installed-software data is required, use an approved inventory system or read the appropriate uninstall registry locations with clear 32-bit and 64-bit handling.</p>
+<h2 id="build-one-inventory-object">Build one inventory object</h2>
+<pre><code class="language-powershell">$inventory = [pscustomobject]@{
+    ComputerName    = $computerSystem.Name
+    Manufacturer    = $computerSystem.Manufacturer
+    Model           = $computerSystem.Model
+    OperatingSystem = $operatingSystem.Caption
+    Version         = $operatingSystem.Version
+    LastBoot        = $operatingSystem.LastBootUpTime
+    Processor       = $processor.Name
+    MemoryGB        = [math]::Round($computerSystem.TotalPhysicalMemory / 1GB, 2)
+    SerialNumber    = $bios.SerialNumber
+}
+
+$inventory
+$inventory | Export-Csv -Path '.\computer-inventory.csv' -NoTypeInformation
+</code></pre>
+<p>Returning a <code>PSCustomObject</code> makes the result easy to sort, compare, export, and test.</p>
+<h2 id="practice-and-self-check">Practice and self-check</h2>
+<ol>
+<li>What is the difference between a CIM class and a CIM instance?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>A class describes a type of resource and its properties and methods. An
+instance represents an actual resource described by that class.</p>
+</details>
+<ol start="2">
+<li>When is <code>Get-ComputerInfo</code> more convenient than several CIM queries?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>Use it for a quick, consolidated overview when its available properties meet
+your needs. Targeted CIM queries give more control over the data collected.</p>
+</details>
+<ol start="3">
+<li>Why can <code>-Filter</code> be more efficient than <code>Where-Object</code>?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p><code>-Filter</code> lets the CIM provider select matching instances before returning
+them, reducing the data transferred and processed locally. <code>Where-Object</code>
+filters objects after they have been returned.</p>
+</details>
+<ol start="4">
+<li>Which class reports operating-system information?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p><code>Win32_OperatingSystem</code> reports information such as the caption, version,
+architecture, and last boot time.</p>
+</details>
+<ol start="5">
+<li>Why should <code>Win32_Product</code> be avoided for routine inventory?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>Querying it can be slow and can trigger Windows Installer consistency checks.
+Use an approved inventory system or appropriate uninstall registry locations.</p>
+</details>
+<ol start="6">
+<li>Why should an inventory script return objects before formatting?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>Objects retain named properties for filtering, sorting, testing, and export.
+Format them only at the display stage so those properties remain usable.</p>
+</details>
+<p>Apply the lesson in <a href="hands-on-15-windows-information.html">Hands-on 15 — Windows information</a>.</p>
+<h2 id="summary">Summary</h2>
+<p>Use <code>Get-ComputerInfo</code> for a quick overview and CIM for targeted, discoverable Windows inventory. Query only required data, filter near the provider, prefer purpose-built cmdlets where available, and combine results into structured objects.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/cimcmdlets/get-ciminstance">Get-CimInstance</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/scripting/samples/getting-wmi-objects--get-ciminstance-">Getting WMI objects with Get-CimInstance</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/scripting/samples/collecting-information-about-computers">Collecting information about computers</a></li>
+</ul>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

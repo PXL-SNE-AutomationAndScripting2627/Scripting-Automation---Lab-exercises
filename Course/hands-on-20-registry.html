@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Hands-on — Registry — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">20 - Registry</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a class="sidebar-current" href="hands-on-20-registry.html" aria-current="page">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; Hands-on</p>
+            <h1 id="page-title">Hands-on — Registry</h1>
+            <p class="hero-description">20 - Registry</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/hands-on/20-registry/01-registry">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="goal">Goal</h2>
+<p>Create, inspect, update, rename, and remove values only inside a dedicated current-user registry key.</p>
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>By the end of this lab, you can:</p>
+<ul>
+<li>navigate Registry provider drives;</li>
+<li>distinguish keys from values;</li>
+<li>preview and verify registry operations;</li>
+<li>enumerate non-provider properties; and</li>
+<li>build reversible registry preference automation.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Complete <a href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/hands-on/19-networking/01-networking">19 — Networking</a>.</li>
+<li>Complete <a href="powershell-automation-07-registry.html">Automating the Windows registry</a> before starting this lab.</li>
+<li>Use PowerShell on Windows.</li>
+<li>Use only <code>HKCU:\Software\PowerShellCourse\RegistryLab</code> for modifications.</li>
+</ul>
+<h2 id="how-to-work-in-this-lab">How to work in this lab</h2>
+<p>Inspect the exact path before each modification, run <code>-WhatIf</code> first, and verify afterward. Never replace the lab path with an operating-system or policy key.</p>
+<hr />
+<h2 id="part-1-inspect-the-provider">Part 1 — Inspect the provider</h2>
+<h3 id="activity-1.1-discover-drives-and-commands">Activity 1.1 — Discover drives and commands</h3>
+<pre><code class="language-powershell">Get-PSProvider -PSProvider Registry
+Get-PSDrive -PSProvider Registry
+Get-Command -Noun Item, ItemProperty |
+    Select-Object Name
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which hives do <code>HKCU:</code> and <code>HKLM:</code> expose?</li>
+<li>Why are registry values managed as item properties?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong> The Registry provider, its
+drives, and the available item commands are listed. <code>HKCU:</code> exposes
+<code>HKEY_CURRENT_USER</code>; <code>HKLM:</code> exposes <code>HKEY_LOCAL_MACHINE</code>. The provider maps
+keys to items and their values to item properties.</p>
+</details>
+<h3 id="activity-1.2-navigate-without-changing-permanently">Activity 1.2 — Navigate without changing permanently</h3>
+<pre><code class="language-powershell">Push-Location 'HKCU:\Software'
+Get-Location
+Get-ChildItem | Select-Object -First 10 PSChildName
+Pop-Location
+Get-Location
+</code></pre>
+<p><strong>Reflect</strong></p>
+<p>Why are <code>Push-Location</code> and <code>Pop-Location</code> useful in scripts?</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answer:</strong> The first location is
+<code>HKCU:\Software</code>; the displayed child keys vary. <code>Pop-Location</code> restores the
+previous location saved by <code>Push-Location</code>, so temporary navigation does not
+leave the session in a different location.</p>
+</details>
+<hr />
+<h2 id="part-2-create-the-isolated-key">Part 2 — Create the isolated key</h2>
+<h3 id="activity-2.1-validate-and-preview">Activity 2.1 — Validate and preview</h3>
+<pre><code class="language-powershell">$labKey = 'HKCU:\Software\PowerShellCourse\RegistryLab'
+$expectedKey = 'HKCU:\Software\PowerShellCourse\RegistryLab'
+
+if ($labKey -ne $expectedKey) {
+    throw 'The lab key does not match the approved path.'
+}
+
+New-Item -Path $labKey -Force -WhatIf
+</code></pre>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected result:</strong> If the path matches the approved lab key, <code>-WhatIf</code>
+describes creating it without applying the operation. A different path
+causes the explicit error. Do not substitute a system or policy key.</p>
+</details>
+<h3 id="activity-2.2-create-and-verify">Activity 2.2 — Create and verify</h3>
+<pre><code class="language-powershell">New-Item -Path $labKey -Force
+Test-Path -Path $labKey
+Get-Item -Path $labKey | Select-Object Name, Property
+</code></pre>
+<p><strong>Reflect</strong></p>
+<p>What does <code>-Force</code> do when the parent keys are missing or the target already exists?</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected result and reflection answer:</strong> <code>Test-Path</code> returns <code>True</code> and
+<code>Get-Item</code> shows the lab key. <code>-Force</code> creates missing parent keys and
+returns the target when it already exists. Compare an already-created key
+instead of repeating a completed change.</p>
+</details>
+<hr />
+<h2 id="part-3-manage-registry-values">Part 3 — Manage registry values</h2>
+<h3 id="activity-3.1-create-two-typed-values">Activity 3.1 — Create two typed values</h3>
+<pre><code class="language-powershell">New-ItemProperty -Path $labKey -Name 'CourseMode' `
+    -PropertyType String -Value 'Practice' -WhatIf
+New-ItemProperty -Path $labKey -Name 'CourseMode' `
+    -PropertyType String -Value 'Practice'
+
+New-ItemProperty -Path $labKey -Name 'AttemptCount' `
+    -PropertyType DWord -Value 1 -WhatIf
+New-ItemProperty -Path $labKey -Name 'AttemptCount' `
+    -PropertyType DWord -Value 1
+</code></pre>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results:</strong> The previews describe the operations without changing
+the registry. After the approved commands, the lab key has <code>CourseMode</code> as a
+string containing <code>Practice</code> and <code>AttemptCount</code> as a DWORD containing <code>1</code>.
+Use Activity 3.2 to verify; do not repeat already completed creation.</p>
+</details>
+<h3 id="activity-3.2-read-values">Activity 3.2 — Read values</h3>
+<pre><code class="language-powershell">Get-ItemProperty -Path $labKey |
+    Select-Object CourseMode, AttemptCount
+
+Get-ItemPropertyValue -Path $labKey -Name 'CourseMode'
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What .NET type is returned for <code>AttemptCount</code>?</li>
+<li>When is <code>Get-ItemPropertyValue</code> more convenient?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong> The selected values are
+<code>Practice</code> and <code>1</code>; <code>AttemptCount</code> is returned as <code>System.Int32</code>. Use
+<code>Get-ItemPropertyValue</code> when you need the value itself rather than an object
+containing several properties.</p>
+</details>
+<h3 id="activity-3.3-update-and-rename">Activity 3.3 — Update and rename</h3>
+<pre><code class="language-powershell">Set-ItemProperty -Path $labKey -Name 'CourseMode' -Value 'Assessment' -WhatIf
+Set-ItemProperty -Path $labKey -Name 'CourseMode' -Value 'Assessment'
+
+Rename-ItemProperty -Path $labKey -Name 'AttemptCount' -NewName 'RunCount' -WhatIf
+Rename-ItemProperty -Path $labKey -Name 'AttemptCount' -NewName 'RunCount'
+
+Get-ItemProperty -Path $labKey | Select-Object CourseMode, RunCount
+</code></pre>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results:</strong> After the previews and approved changes, the final
+query shows <code>CourseMode</code> as <code>Assessment</code> and <code>RunCount</code> as <code>1</code>. The former
+<code>AttemptCount</code> value has been renamed. Compare the current values rather
+than repeating a completed rename.</p>
+</details>
+<hr />
+<h2 id="part-4-enumerate-and-find-values">Part 4 — Enumerate and find values</h2>
+<h3 id="activity-4.1-exclude-provider-metadata">Activity 4.1 — Exclude provider metadata</h3>
+<pre><code class="language-powershell">$properties = Get-ItemProperty -Path $labKey
+$properties.PSObject.Properties |
+    Where-Object Name -NotLike 'PS*' |
+    Select-Object Name, Value, TypeNameOfValue
+</code></pre>
+<p><strong>Reflect</strong></p>
+<p>Why are properties whose names start with <code>PS</code> excluded?</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answer:</strong> The output includes the lab
+values and their types while excluding provider metadata such as <code>PSPath</code>.
+The filter is a shortcut for this lab: a real registry value whose name
+starts with <code>PS</code> would also be excluded.</p>
+</details>
+<hr />
+<h2 id="part-5-challenge-build-reversible-preference-automation">Part 5 — Challenge: build reversible preference automation</h2>
+<p>Filename: <code>Set-CourseRegistryPreference.ps1</code></p>
+<p>Create <code>Set-CourseRegistryPreference.ps1</code>. It must:</p>
+<ul>
+<li>use <code>[CmdletBinding(SupportsShouldProcess)]</code>;</li>
+<li>accept <code>Action</code> with <code>Status</code>, <code>Apply</code>, or <code>Cleanup</code>;</li>
+<li>use only the exact lab key;</li>
+<li>create or update <code>CourseMode</code> as <code>String</code> and <code>RunCount</code> as <code>DWord</code> during <code>Apply</code>;</li>
+<li>accept validated <code>Mode</code> values <code>Practice</code> or <code>Assessment</code>;</li>
+<li>accept <code>RunCount</code> from 0 through 100;</li>
+<li>return a structured object describing the current state;</li>
+<li>support <code>-WhatIf</code> for <code>Apply</code> and <code>Cleanup</code>; and</li>
+<li>treat a missing key as a valid clean state during cleanup.</li>
+</ul>
+<p>Test:</p>
+<pre><code class="language-powershell">.\Set-CourseRegistryPreference.ps1 -Action Status
+.\Set-CourseRegistryPreference.ps1 -Action Apply -Mode Assessment -RunCount 2 -WhatIf
+.\Set-CourseRegistryPreference.ps1 -Action Apply -Mode Assessment -RunCount 2
+.\Set-CourseRegistryPreference.ps1 -Action Cleanup -WhatIf
+</code></pre>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Student requirements:</strong> Build <code>Set-CourseRegistryPreference.ps1</code> with validated Status, Apply, and Cleanup actions; exact-path protection; typed values; structured state; <code>-WhatIf</code>; and idempotent cleanup.</p>
+<p><strong>Detailed solution:</strong> Use <a href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/hands-on/solutions/20-registry/files/Set-CourseRegistryPreference.ps1"><code>Set-CourseRegistryPreference.ps1</code></a>. It hard-codes and rechecks the safe path, uses <code>ShouldProcess</code> for mutations, and always returns the same state shape.</p>
+<pre><code class="language-powershell">.\Set-CourseRegistryPreference.ps1 -Action Status
+.\Set-CourseRegistryPreference.ps1 -Action Apply -Mode Assessment -RunCount 2 -WhatIf
+.\Set-CourseRegistryPreference.ps1 -Action Apply -Mode Assessment -RunCount 2
+.\Set-CourseRegistryPreference.ps1 -Action Cleanup -WhatIf
+</code></pre>
+<p><strong>Question:</strong> Which safeguards prevent broader deletion?</p>
+<p><strong>Detailed answer:</strong> The path is a constant under HKCU, compared with the exact approved string, contains no wildcard, is previewed, and is checked for absence after removal.</p>
+<details>
+<summary>Show solution Optimized</summary>
+<p>The linked script is the step-by-step version. This alternative uses a single
+state query after the action. It changes only the specified lab key.</p>
+<pre><code class="language-powershell">[CmdletBinding(SupportsShouldProcess)]
+param(
+    [Parameter(Mandatory)]
+    [ValidateSet('Status', 'Apply', 'Cleanup')]
+    [string]$Action,
+    [ValidateSet('Practice', 'Assessment')]
+    [string]$Mode = 'Practice',
+    [ValidateRange(0, 100)]
+    [int]$RunCount = 0
+)
+
+if (-not $IsWindows) { throw 'This script requires Windows.' }
+$labKey = 'HKCU:\Software\PowerShellCourse\RegistryLab'
+
+if ($Action -eq 'Apply' -and
+    $PSCmdlet.ShouldProcess($labKey, &quot;Apply CourseMode=$Mode and RunCount=$RunCount&quot;)) {
+    if (-not (Test-Path -LiteralPath $labKey)) {
+        New-Item -Path $labKey -Force -ErrorAction Stop | Out-Null
+    }
+    New-ItemProperty -Path $labKey -Name 'CourseMode' -PropertyType String `
+        -Value $Mode -Force -ErrorAction Stop | Out-Null
+    New-ItemProperty -Path $labKey -Name 'RunCount' -PropertyType DWord `
+        -Value $RunCount -Force -ErrorAction Stop | Out-Null
+} elseif ($Action -eq 'Cleanup' -and (Test-Path -LiteralPath $labKey) -and
+    $PSCmdlet.ShouldProcess($labKey, 'Remove the dedicated registry lab key')) {
+    Remove-Item -LiteralPath $labKey -Recurse -ErrorAction Stop
+}
+
+$exists = Test-Path -LiteralPath $labKey
+$values = if ($exists) { Get-ItemProperty -LiteralPath $labKey -ErrorAction Stop }
+[pscustomobject]@{
+    Path       = $labKey
+    Exists     = $exists
+    CourseMode = if ($values) { $values.CourseMode } else { $null }
+    RunCount   = if ($values) { $values.RunCount } else { $null }
+}
+</code></pre>
+<p>Status reflects the actual current state; <code>-WhatIf</code> does not apply the proposed
+changes.</p>
+</details>
+</details>
+<hr />
+<h2 id="part-6-clean-up-and-verify">Part 6 — Clean up and verify</h2>
+<h3 id="activity-6.1-remove-only-the-lab-key">Activity 6.1 — Remove only the lab key</h3>
+<pre><code class="language-powershell">if ($labKey -ne 'HKCU:\Software\PowerShellCourse\RegistryLab') {
+    throw 'Refusing to remove an unexpected path.'
+}
+
+Remove-Item -Path $labKey -Recurse -WhatIf
+Remove-Item -Path $labKey -Recurse
+Test-Path -Path $labKey
+</code></pre>
+<p>The final result must be <code>False</code>.</p>
+<p><strong>Reflect</strong></p>
+<p>Which safeguards prevent a broader registry deletion?</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected result and reflection answer:</strong> The exact approved path is checked
+before the preview and removal; no wildcard is used. Delete only the
+dedicated lab key, and verify afterward that <code>Test-Path</code> returns <code>False</code>.
+If cleanup was already completed, verify absence instead of repeating it.</p>
+</details>
+<h2 id="practice-and-self-check">Practice and self-check</h2>
+<ol>
+<li>Which cmdlet creates a registry key?</li>
+<li>Which cmdlet creates a registry value?</li>
+<li>Which type stores a 32-bit integer?</li>
+<li>Which parameter previews registry changes?</li>
+<li>What proves cleanup succeeded?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Answers:</strong></p>
+<ol>
+<li><code>New-Item</code>.</li>
+<li><code>New-ItemProperty</code>.</li>
+<li><code>DWord</code>.</li>
+<li><code>-WhatIf</code>.</li>
+<li><code>Test-Path</code> returns <code>False</code> for the exact lab key after removal.</li>
+</ol>
+</details>
+<h2 id="submission-checklist">Submission checklist</h2>
+<ul>
+<li>Submit <code>Set-CourseRegistryPreference.ps1</code>.</li>
+<li>Show Apply and Cleanup previews.</li>
+<li>Demonstrate typed value output and final cleanup.</li>
+<li>Include answers to all reflection questions.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>You navigated the Registry provider, worked with keys and typed values, previewed every change, filtered provider metadata, built reversible automation, and removed only the isolated lab key.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_registry_provider">About the Registry provider</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/scripting/samples/working-with-registry-entries">Working with registry entries</a></li>
+</ul>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

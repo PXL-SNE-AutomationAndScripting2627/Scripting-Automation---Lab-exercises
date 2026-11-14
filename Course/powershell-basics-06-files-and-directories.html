@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Managing files and directories with PowerShell — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">06 - Files and directories</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a class="sidebar-current" href="powershell-basics-06-files-and-directories.html" aria-current="page">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; PowerShell Basics</p>
+            <h1 id="page-title">Managing files and directories with PowerShell</h1>
+            <p class="hero-description">06 - Files and directories</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/course/ps_basics/03-output_format_files_directories/031-ps-file_and_folder_management">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="why-this-matters">Why this matters</h2>
+<p>A support technician needs to inspect a log, keep the original, and move a
+working copy into a report folder. PowerShell makes these steps repeatable:
+you can select the right files, inspect their contents, preview a change,
+and verify its result.</p>
+<p><strong>Safe file workflow</strong></p>
+<pre class="mermaid">flowchart LR
+    A["Identify the exact source and destination"] --> B["Inspect the source"]
+    B --> C["Preview the change with WhatIf"]
+    C --> D["Apply only the intended change"]
+    D --> E["Verify files and contents"]
+</pre>
+<p>This lesson explains the commands behind that workflow. The dedicated
+<a href="hands-on-04b-files-and-directories.html">04b — Files and directories hands-on</a> provides guided practice and an
+independent handover challenge. Complete it after the combined
+<a href="hands-on-04-output-formatting-files-and-directories.html">output, formatting, files, and directories lab</a>.</p>
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>After this lesson and the matching lab activities, you can:</p>
+<ul>
+<li>build a path and explain the current working directory;</li>
+<li>distinguish a file object from a directory object;</li>
+<li>create, list, and inspect practice files and folders;</li>
+<li>read, replace, append, and search text content;</li>
+<li>copy, move, rename, and remove a specific practice file;</li>
+<li>preview supported changes with <code>-WhatIf</code> and verify the resulting state;</li>
+<li>search subdirectories and filter by timestamps and attributes; and</li>
+<li>explain folder-copy behaviour and preview batch operations.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>PowerShell 7 on Windows and a terminal.</li>
+<li>Familiarity with strings, pipelines, and <code>Select-Object</code>.</li>
+<li>An instructor-prepared, writable <code>C:\powershell</code> folder. Routine lesson
+commands do not need elevation once that access is ready.</li>
+</ul>
+<p>A variable such as <code>$sourceLog</code> stores a value for reuse. <code>=</code> assigns that value,
+and <code>$sourceLog</code> retrieves it. A dot accesses a property, as in <code>$file.Name</code>.
+The examples introduce these uses before relying on them.</p>
+<h2 id="how-to-use-this-lesson-with-the-hands-on">How to use this lesson with the hands-on</h2>
+<p>Start with the foundations, then complete the advanced material. Predict each
+example's result, run it, and inspect what changed. Keep the same PowerShell
+session open: later examples reuse its variables and files. If you restart,
+repeat the earlier examples in order.</p>
+<p>The lesson uses its own <code>PowerShell-Files-Lesson</code> folder. The hands-on has a
+separate workspace and its own setup. Follow the lab's instructions when you
+switch to it.</p>
+<table>
+<thead>
+<tr>
+<th>Lesson material</th>
+<th>Apply it in hands-on 04b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Paths and creating folders</td>
+<td>Part 1 and Activity 2.1</td>
+</tr>
+<tr>
+<td>Writing, inspecting, and searching text</td>
+<td>Activities 1.2 and 2.2</td>
+</tr>
+<tr>
+<td>Copying, editing, moving, and renaming</td>
+<td>Activities 3.1 and 3.2</td>
+</tr>
+<tr>
+<td>Removing an exact temporary file</td>
+<td>Activity 3.3</td>
+</tr>
+<tr>
+<td>Recursion, timestamps, and sizes</td>
+<td>Advanced Activity 4.1</td>
+</tr>
+<tr>
+<td>Hidden attributes</td>
+<td>Advanced Activity 4.2</td>
+</tr>
+<tr>
+<td>Folder layouts and batch previews</td>
+<td>Advanced Activity 4.3</td>
+</tr>
+<tr>
+<td>Verified handover with an inventory</td>
+<td>Part 5, independent challenge</td>
+</tr>
+</tbody>
+</table>
+<p>The challenge also uses CSV from the
+<a href="powershell-basics-05-output-formatting-and-export.html">output, formatting, and export lesson</a>.</p>
+<p>All sections are required. <strong>Advanced material</strong> marks greater complexity;
+complete it after the foundations and include it in your preparation and review.</p>
+<h2 id="foundations">Foundations</h2>
+<h3 id="prepare-a-small-working-example">Prepare a small working example</h3>
+<p>Use a dedicated folder so that every change has a known target. The following
+commands create the lesson folder and three subfolders.</p>
+<p><code>Join-Path</code> builds a path from a parent and a child name. <code>C:\powershell</code> is
+the course practice base. <code>New-Item</code> creates an item; <code>-ItemType Directory</code>
+requests a folder. <code>Out-Null</code> suppresses the returned object.</p>
+<pre><code class="language-powershell">$fileLessonRoot = Join-Path -Path 'C:\powershell' -ChildPath 'PowerShell-Files-Lesson'
+$dataFolder = Join-Path -Path $fileLessonRoot -ChildPath 'data'
+$archiveFolder = Join-Path -Path $fileLessonRoot -ChildPath 'archive'
+$reportFolder = Join-Path -Path $fileLessonRoot -ChildPath 'reports'
+
+New-Item -Path $fileLessonRoot -ItemType Directory -Force | Out-Null
+New-Item -Path $dataFolder -ItemType Directory -Force | Out-Null
+New-Item -Path $archiveFolder -ItemType Directory -Force | Out-Null
+New-Item -Path $reportFolder -ItemType Directory -Force | Out-Null
+
+Get-ChildItem -LiteralPath $fileLessonRoot -Directory |
+    Select-Object Name
+</code></pre>
+<p>Expected folder names:</p>
+<pre><code class="language-text">archive
+data
+reports
+</code></pre>
+<p>For a directory, <code>-Force</code> allows reuse of an existing folder. It does not empty
+that folder. Use these commands only with the lesson paths above. When you
+repeat the lesson, its writing examples replace the named sample files.</p>
+<p><strong>Inspect:</strong> Find the three folders in File Explorer. Which variable contains
+each full path?</p>
+<details>
+<summary>Show solution</summary>
+<p><code>$dataFolder</code> contains <code>C:\powershell\PowerShell-Files-Lesson\data</code>,
+<code>$archiveFolder</code> contains <code>C:\powershell\PowerShell-Files-Lesson\archive</code>,
+and <code>$reportFolder</code> contains <code>C:\powershell\PowerShell-Files-Lesson\reports</code>.
+All three are children of <code>$fileLessonRoot</code>. Enter a variable's name in the
+terminal to display its stored path.</p>
+</details>
+<h3 id="understand-paths-and-the-working-directory">Understand paths and the working directory</h3>
+<p>An <strong>absolute path</strong> identifies a location from its drive or root. A <strong>relative
+path</strong> is interpreted from the current working directory. For example,
+<code>.\data</code> means the <code>data</code> folder below the current directory.</p>
+<pre><code class="language-powershell">Set-Location -LiteralPath $fileLessonRoot
+Get-Location
+(Get-Location).Path
+Test-Path -LiteralPath '.\data' -PathType Container
+</code></pre>
+<p><code>Set-Location</code> changes location and normally prints nothing. <code>Get-Location</code>
+returns a location object; <code>.Path</code> retrieves its path as text. The final command
+returns <code>True</code> because the setup created the directory.</p>
+<p><code>-PathType Container</code> checks for a directory. <code>-PathType Leaf</code> checks for a
+file in the FileSystem provider.</p>
+<p>Prefer <code>-LiteralPath</code> when you already have an exact path: characters such as
+brackets are treated literally. Use <code>-Path</code> when you intentionally need a
+wildcard pattern and the command supports one. Quote paths containing spaces.</p>
+<p><strong>Inspect:</strong> Explain why <code>.\data</code> might identify a different location after
+another <code>Set-Location</code> command.</p>
+<details>
+<summary>Show solution</summary>
+<p><code>.\data</code> starts from the current working directory. After <code>Set-Location</code>,
+the same text refers to a child of the new location. <code>$dataFolder</code> holds the
+absolute lesson path and continues to identify the original directory.</p>
+</details>
+<h3 id="create-and-inspect-a-file">Create and inspect a file</h3>
+<p><code>New-Item -ItemType File</code> creates an empty file. This example uses <code>-Force</code> to
+reset only the lesson's named sample file if it already exists.</p>
+<pre><code class="language-powershell">$sourceLog = Join-Path -Path $dataFolder -ChildPath 'support.log'
+New-Item -Path $sourceLog -ItemType File -Force | Out-Null
+
+Get-Item -LiteralPath $sourceLog |
+    Select-Object Name, Length
+
+Test-Path -LiteralPath $sourceLog -PathType Leaf
+</code></pre>
+<p>The file is named <code>support.log</code>, its initial <code>Length</code> is <code>0</code> bytes, and
+<code>Test-Path</code> returns <code>True</code>.</p>
+<p><code>Get-Item</code> returns the item at a path. <code>Get-ChildItem</code> returns the items inside
+a directory. Both return objects that other commands can inspect.</p>
+<pre><code class="language-powershell">(Get-Item -LiteralPath $sourceLog).GetType().FullName
+(Get-Item -LiteralPath $dataFolder).GetType().FullName
+
+Get-Item -LiteralPath $sourceLog |
+    Get-Member -MemberType Properties
+</code></pre>
+<p>The first two results are:</p>
+<pre><code class="language-text">System.IO.FileInfo
+System.IO.DirectoryInfo
+</code></pre>
+<p><code>GetType()</code> identifies an object's type. File objects have properties such as
+<code>Name</code>, <code>FullName</code>, <code>Length</code>, <code>CreationTime</code>, and <code>LastWriteTime</code>. Directory
+objects share several of those properties but do not have a file's <code>Length</code>;
+they have properties such as <code>Parent</code> instead.</p>
+<p><strong>Inspect:</strong> Which command would you use to inspect the folder itself? Which
+would you use to list the files inside it?</p>
+<details>
+<summary>Show solution</summary>
+<pre><code class="language-powershell">Get-Item -LiteralPath $dataFolder
+Get-ChildItem -LiteralPath $dataFolder -File
+</code></pre>
+<p><code>Get-Item</code> returns the directory object. <code>Get-ChildItem -File</code> returns its
+direct file children; add <code>-Recurse</code> when the task includes subdirectories.</p>
+</details>
+<h3 id="write-read-append-and-search-text">Write, read, append, and search text</h3>
+<p><code>Set-Content</code> writes text to a file, replacing existing content. <code>Add-Content</code>
+appends text. <code>Get-Content</code> reads the text back.</p>
+<pre><code class="language-powershell">Set-Content -LiteralPath $sourceLog -Value 'INFO: Support check started.'
+Add-Content -LiteralPath $sourceLog -Value 'ERROR: Sample connection failure.'
+
+$notesPath = Join-Path -Path $dataFolder -ChildPath 'notes.txt'
+Set-Content -LiteralPath $notesPath -Value 'Practice notes.'
+
+Get-Content -LiteralPath $sourceLog
+</code></pre>
+<p>Expected log content:</p>
+<pre><code class="language-text">INFO: Support check started.
+ERROR: Sample connection failure.
+</code></pre>
+<p><code>Get-Content</code> normally returns one string per line. <code>-Raw</code> returns the whole
+file as one string, useful when later processing requires the complete text.</p>
+<p>To find relevant lines, use <code>Select-String</code>. Its <code>-Pattern</code> parameter uses a
+regular expression; the literal word <code>ERROR</code> is sufficient here.</p>
+<pre><code class="language-powershell">Select-String -LiteralPath $sourceLog -Pattern 'ERROR' |
+    Select-Object FileName, LineNumber, Line
+</code></pre>
+<p>The match is in <code>support.log</code> on line <code>2</code>, inside
+<code>C:\powershell\PowerShell-Files-Lesson\data</code>.</p>
+<p><strong>Inspect:</strong> What would happen to the two log lines if you used <code>Set-Content</code>
+again instead of <code>Add-Content</code>?</p>
+<details>
+<summary>Show solution</summary>
+<p><code>Set-Content</code> would replace the existing contents with the supplied new
+value. The earlier lines would be lost unless supplied again. <code>Add-Content</code>
+keeps the existing lines and appends the new line.</p>
+</details>
+<p><strong>Apply:</strong> Complete <a href="hands-on-04b-files-and-directories.html#activity-12-create-the-supplied-input-files">Activities 1.2 and 2.2 of hands-on 04b</a>
+for guided practice with text files.</p>
+<h3 id="list-and-select-files">List and select files</h3>
+<p>Use <code>-File</code> for files and <code>-Directory</code> for folders. <code>-Filter</code> selects names
+with a filesystem wildcard. A wildcard such as <code>*.log</code> selects log filenames;
+it does not search their contents.</p>
+<pre><code class="language-powershell">Get-ChildItem -LiteralPath $dataFolder -File |
+    Select-Object Name, Length, LastWriteTime
+
+Get-ChildItem -LiteralPath $dataFolder -File -Filter '*.log' |
+    Select-Object Name
+</code></pre>
+<p>The first command lists <code>notes.txt</code> and <code>support.log</code>. The second selects only
+<code>support.log</code> in the sample workspace. Lengths and timestamps depend on the
+file contents and when you ran the examples.</p>
+<p>Filter by name during retrieval when possible. Use <code>Where-Object</code> later when
+you need to test an object property, such as its size or modification time.</p>
+<p><strong>Inspect:</strong> Which command would you change to select <code>*.txt</code> instead? Why
+would that not find the word <code>ERROR</code> inside a log?</p>
+<details>
+<summary>Show solution</summary>
+<pre><code class="language-powershell">Get-ChildItem -LiteralPath $dataFolder -File -Filter '*.txt' |
+    Select-Object Name
+</code></pre>
+<p>Change <code>Get-ChildItem</code>'s filename filter from <code>*.log</code> to <code>*.txt</code>.
+This selects <code>notes.txt</code> in the sample folder. A filename filter does not
+read file contents. Use <code>Select-String -LiteralPath $sourceLog -Pattern 'ERROR'</code>
+to search for that text inside the log.</p>
+</details>
+<h3 id="preview-a-change-then-copy-and-verify">Preview a change, then copy and verify</h3>
+<p>Copying keeps the source and creates a separate destination file. Build the
+destination explicitly so you can see its complete name.</p>
+<pre><code class="language-powershell">$logCopyPath = Join-Path -Path $archiveFolder -ChildPath 'support-copy.log'
+
+$sourceLog
+$logCopyPath
+Copy-Item -LiteralPath $sourceLog -Destination $logCopyPath -WhatIf
+</code></pre>
+<p><code>-WhatIf</code> describes the proposed copy without performing it. For a fresh
+workspace, the destination does not exist yet. On a repeat run, an older copy
+might already be present, so existence alone cannot prove that a preview made
+a new copy.</p>
+<p>After inspecting the paths, run the copy and check its result:</p>
+<pre><code class="language-powershell">Copy-Item -LiteralPath $sourceLog -Destination $logCopyPath
+
+Test-Path -LiteralPath $sourceLog -PathType Leaf
+Test-Path -LiteralPath $logCopyPath -PathType Leaf
+Get-FileHash -LiteralPath $sourceLog, $logCopyPath |
+    Select-Object Path, Hash
+</code></pre>
+<p>Both existence checks return <code>True</code>. The hashes match because the two files
+have the same contents. A <strong>hash</strong> is a value calculated from a file's bytes;
+it helps compare the copy with the source.</p>
+<p><strong>Apply:</strong> Use the same preview, perform, and verify pattern in
+<a href="hands-on-04b-files-and-directories.html#activity-31-preview-a-copy-and-edit-only-the-copy">Activity 3.1 of hands-on 04b</a>.</p>
+<h3 id="move-and-rename-a-working-copy">Move and rename a working copy</h3>
+<p>Moving changes a file's location. Renaming changes its name within a directory.
+The original <code>support.log</code> remains available because this example moves its
+copy.</p>
+<pre><code class="language-powershell">$movedLogPath = Join-Path -Path $reportFolder -ChildPath 'support-copy.log'
+
+Move-Item -LiteralPath $logCopyPath -Destination $movedLogPath -WhatIf
+Move-Item -LiteralPath $logCopyPath -Destination $movedLogPath
+
+Test-Path -LiteralPath $logCopyPath
+Test-Path -LiteralPath $movedLogPath -PathType Leaf
+</code></pre>
+<p>The checks return <code>False</code> and <code>True</code>, respectively.</p>
+<pre><code class="language-powershell">Rename-Item -LiteralPath $movedLogPath -NewName 'support-reviewed.log' -WhatIf
+Rename-Item -LiteralPath $movedLogPath -NewName 'support-reviewed.log'
+
+$reviewedLogPath = Join-Path -Path $reportFolder -ChildPath 'support-reviewed.log'
+Get-Item -LiteralPath $reviewedLogPath |
+    Select-Object Name, DirectoryName
+</code></pre>
+<p><code>-NewName</code> receives the new name, not a destination path. Use <code>Move-Item</code>
+when you want to change the parent directory.</p>
+<p><strong>Inspect:</strong> Which path disappears after the move? Which file still contains
+the original log?</p>
+<details>
+<summary>Show solution</summary>
+<p><code>$logCopyPath</code>, the former <code>archive\support-copy.log</code>, disappears.
+Immediately after the move the copy is at <code>$movedLogPath</code>; after the rename
+it is at <code>$reviewedLogPath</code>. The original <code>$sourceLog</code>,
+<code>data\support.log</code>, remains unchanged throughout.</p>
+</details>
+<p><strong>Apply:</strong> Complete <a href="hands-on-04b-files-and-directories.html#activity-32-move-and-rename-the-prepared-configuration">Activity 3.2 of hands-on 04b</a> before attempting
+its independent handover challenge.</p>
+<h3 id="remove-a-specific-practice-file">Remove a specific practice file</h3>
+<p>Removal deletes the targeted item. Preview the exact file you intend to remove,
+perform the change, and check the result.</p>
+<pre><code class="language-powershell">Remove-Item -LiteralPath $reviewedLogPath -WhatIf
+Test-Path -LiteralPath $reviewedLogPath -PathType Leaf
+</code></pre>
+<p>The file still exists after the preview, so the check returns <code>True</code>.</p>
+<pre><code class="language-powershell">Remove-Item -LiteralPath $reviewedLogPath
+Test-Path -LiteralPath $reviewedLogPath
+Test-Path -LiteralPath $sourceLog -PathType Leaf
+</code></pre>
+<p>The removed copy returns <code>False</code>; the original log returns <code>True</code>. This
+example targets one known practice file. A wildcard would select a wider set
+of items, which requires separate inspection.</p>
+<h3 id="foundation-checkpoint">Foundation checkpoint</h3>
+<p>Before moving on, explain:</p>
+<ol>
+<li>Why does the working directory matter for a relative path?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>A relative path is resolved from the current working directory. Changing
+that directory can make the same relative text identify a different item.</p>
+</details>
+<ol start="2">
+<li>How do <code>Get-Item</code> and <code>Get-ChildItem</code> differ?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p><code>Get-Item</code> returns the item at the named path. <code>Get-ChildItem</code> enumerates
+children of a directory, and <code>-Recurse</code> extends that enumeration below it.</p>
+</details>
+<ol start="3">
+<li>When would you choose <code>Set-Content</code> rather than <code>Add-Content</code>?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>Use <code>Set-Content</code> to create or deliberately replace the complete contents.
+Use <code>Add-Content</code> when existing content must remain and new text belongs after it.</p>
+</details>
+<ol start="4">
+<li>What is the difference between selecting log filenames and searching log text?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p><code>Get-ChildItem -Filter '*.log'</code> selects file objects by name.
+<code>Select-String</code> reads text and returns matching lines. Choose the files,
+then search their contents.</p>
+</details>
+<ol start="5">
+<li>What changes after a copy, a move, a rename, and a removal?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>A copy creates a separate destination while keeping the source. A move
+relocates an item. A rename changes its name. Removal deletes the selected
+item. Copying, moving, and renaming normally preserve file contents.</p>
+</details>
+<ol start="6">
+<li>Why should verification follow a state-changing command?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>A command being accepted does not prove the intended final state. Check
+exact paths, contents, and hashes as appropriate to detect a wrong
+destination, an unexpected overwrite, or an incomplete operation.</p>
+</details>
+<p>You now have the foundations for the linked lab activities. Continue with the
+advanced material to complete this topic.</p>
+<h2 id="advanced-material">Advanced material</h2>
+<p>Complete all the sections below. They extend the foundational commands with
+searches through subfolders, date and attribute filters, folder copying, and
+batch operations. Explain each example's behaviour as well as running it.</p>
+<p>The examples reuse the lesson setup, including <code>$dataFolder</code> and
+<code>$sourceLog</code>. Complete the foundations first, or recreate their setup in a
+new session. None of these examples uses the hands-on's workspace.</p>
+<h3 id="search-through-subdirectories">Search through subdirectories</h3>
+<p><code>-Recurse</code> searches below the supplied directory. Keep the starting path
+limited to the folder relevant to the task.</p>
+<pre><code class="language-powershell">Get-ChildItem -LiteralPath $fileLessonRoot -File -Filter '*.log' -Recurse |
+    Select-Object FullName, Length
+</code></pre>
+<p>The core example leaves the original <code>support.log</code> in <code>data</code>. Any additional
+files you created can change the result. <code>FullName</code> makes nested locations
+visible without relying on the default display layout.</p>
+<h3 id="include-or-exclude-multiple-filename-patterns">Include or exclude multiple filename patterns</h3>
+<p><code>-Filter</code> accepts one filter string. <code>-Include</code> and <code>-Exclude</code> can express
+multiple wildcard patterns. The following <code>-Path</code> deliberately ends in <code>*</code>
+to enumerate the directory's contents.</p>
+<pre><code class="language-powershell">$dataContents = Join-Path -Path $dataFolder -ChildPath '*'
+
+Get-ChildItem -Path $dataContents -File -Include '*.log', '*.txt' -Exclude 'old-*' |
+    Select-Object Name
+</code></pre>
+<p>With the core sample files, the result contains <code>notes.txt</code> and <code>support.log</code>.
+<code>-Include</code> and <code>-Exclude</code> are applied after enumeration; a single extension
+filter is usually clearer with <code>-Filter</code>.</p>
+<h3 id="filter-timestamps-without-turning-dates-into-text">Filter timestamps without turning dates into text</h3>
+<p><code>CreationTime</code> records creation, <code>LastWriteTime</code> records the latest write,
+and <code>LastAccessTime</code> records access information. These properties are date
+objects, not formatted strings.</p>
+<pre><code class="language-powershell">Get-Item -LiteralPath $sourceLog |
+    Select-Object Name, CreationTime, LastWriteTime, LastAccessTime
+
+$cutoff = [datetime]'2026-10-01'
+Get-ChildItem -LiteralPath $dataFolder -File |
+    Where-Object { $_.LastWriteTime -gt $cutoff } |
+    Select-Object Name, LastWriteTime
+</code></pre>
+<p><code>[datetime]</code> converts the quoted value to a date object. Use an unambiguous
+year-month-day value such as <code>2026-10-01</code>; avoid ambiguous inputs such as
+<code>01/10/2026</code>. Results depend on the sample files' timestamps.</p>
+<p>Add a time, such as <code>[datetime]'2026-10-01 09:30:00'</code>, when the comparison
+requires it. Use <code>CreationTime</code> instead of <code>LastWriteTime</code> only when creation
+is the fact you want to test.</p>
+<p>Format the date after filtering when presenting it to a person:</p>
+<pre><code class="language-powershell">Get-ChildItem -LiteralPath $dataFolder -File |
+    Select-Object Name,
+        @{Name = 'ModifiedDate'; Expression = { $_.LastWriteTime.ToString('dd/MM/yy') }}
+</code></pre>
+<p>The calculated property labels the display column. <code>ToString('dd/MM/yy')</code>
+produces text for display. <code>Get-Date -Format</code> also returns text; keep date
+objects for date comparisons.</p>
+<h3 id="inspect-hidden-files-and-attribute-expressions">Inspect hidden files and attribute expressions</h3>
+<p>File attributes describe characteristics such as hidden, system, or read-only.
+A file can have several attributes at once. <code>-Force</code> includes hidden and system
+items during listing, but does not grant access that your account lacks.</p>
+<p>The lesson's <code>$dataFolder</code> may contain no hidden files. To see existing examples
+on Windows 11, inspect the Windows drive and Windows directory instead.
+These are read-only, top-level listings; they require no changes to the files
+or to File Explorer settings.</p>
+<h4 id="show-existing-windows-11-items">Show existing Windows 11 items</h4>
+<p><code>$env:SystemDrive</code> identifies the Windows drive, usually <code>C:</code>.
+Appending <code>\</code> produces its root path. <code>$env:windir</code> identifies the Windows
+directory, usually <code>C:\Windows</code>.</p>
+<pre><code class="language-powershell">$systemDriveRoot = $env:SystemDrive + '\'
+
+Get-ChildItem -LiteralPath $systemDriveRoot -Force |
+    Sort-Object Name |
+    Select-Object Name, Attributes
+</code></pre>
+<p>The <code>Attributes</code> column makes hidden and system items visible even when the
+console's default display does not show every attribute.</p>
+<p>Common Windows 11 examples include:</p>
+<table>
+<thead>
+<tr>
+<th>Location</th>
+<th>Typical attributes</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>C:\ProgramData</code></td>
+<td>Hidden, Directory</td>
+<td>Shared application data folder</td>
+</tr>
+<tr>
+<td><code>C:\$Recycle.Bin</code></td>
+<td>Hidden, System, Directory</td>
+<td>Recycle Bin folder</td>
+</tr>
+<tr>
+<td><code>C:\pagefile.sys</code></td>
+<td>Hidden, System, Archive</td>
+<td>Paging file, when configured here</td>
+</tr>
+<tr>
+<td><code>C:\swapfile.sys</code></td>
+<td>Hidden, System, Archive</td>
+<td>Windows swap file, when present</td>
+</tr>
+<tr>
+<td><code>C:\hiberfil.sys</code></td>
+<td>Hidden, System, Archive</td>
+<td>Hibernation file, when enabled</td>
+</tr>
+</tbody>
+</table>
+<p>Use the actual paths printed on your system if Windows is on another drive.
+The list, file locations, and additional attributes vary by configuration.
+A missing <code>hiberfil.sys</code> does not mean the query failed.</p>
+<p><strong>Inspect:</strong> Use <code>Attributes</code> to distinguish directories from files in your
+output. Which of the common examples are directories?</p>
+<details>
+<summary>Show solution</summary>
+<p><code>ProgramData</code> and <code>$Recycle.Bin</code> have the <code>Directory</code> attribute.
+<code>pagefile.sys</code>, <code>swapfile.sys</code>, and <code>hiberfil.sys</code> are files when present.
+Hidden and System are independent flags; neither tells you whether the item
+is a directory. Use <code>-File</code> or <code>-Directory</code> to select that kind of item.</p>
+</details>
+<h4 id="show-only-hidden-files-or-only-system-files">Show only hidden files or only system files</h4>
+<p>Add <code>-File</code> to exclude directories. Compare the attributes returned by these
+three queries:</p>
+<pre><code class="language-powershell">Get-ChildItem -LiteralPath $systemDriveRoot -File -Hidden -Force |
+    Sort-Object Name |
+    Select-Object Name, Attributes
+
+Get-ChildItem -LiteralPath $systemDriveRoot -File -System -Force |
+    Sort-Object Name |
+    Select-Object Name, Attributes
+
+Get-ChildItem -LiteralPath $env:windir -File -System -Force |
+    Sort-Object Name |
+    Select-Object Name, Attributes
+</code></pre>
+<p>The first two queries commonly include <code>pagefile.sys</code> and <code>swapfile.sys</code>.
+They can appear in both lists because they have both attributes.
+The Windows-directory query can show <code>bootstat.dat</code> with System and Archive
+attributes, without Hidden. An empty selection is valid when no matching files
+exist in that particular location. Inspect the actual <code>Attributes</code> column.</p>
+<p>The <code>.sys</code> filename extension does not set the System attribute. The filter
+checks the stored attribute, rather than the file's extension.</p>
+<h4 id="compare-attribute-expressions">Compare attribute expressions</h4>
+<p>Attribute expressions use <code>!</code> for NOT, <code>+</code> for AND, and <code>,</code> for OR.
+Keep an expression in quotes, with no spaces around <code>!</code> or <code>+</code>.
+See the <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-childitem#-attributes">Get-ChildItem attribute reference</a>.</p>
+<p>The comma below supplies two search locations. Each query lists their direct
+children; <code>FullName</code> distinguishes files from the two directories.</p>
+<pre><code class="language-powershell">$attributeLocations = $systemDriveRoot, $env:windir
+
+Get-ChildItem -LiteralPath $attributeLocations -File -Force -Attributes 'Hidden,System' |
+    Sort-Object FullName |
+    Select-Object FullName, Attributes
+
+Get-ChildItem -LiteralPath $attributeLocations -File -Force -Attributes 'Hidden+System' |
+    Sort-Object FullName |
+    Select-Object FullName, Attributes
+</code></pre>
+<p><code>'Hidden,System'</code> selects files with Hidden <strong>or</strong> System, including files with
+both. <code>'Hidden+System'</code> requires <strong>both</strong> attributes on the same file.</p>
+<p><strong>Inspect:</strong> Why can <code>bootstat.dat</code> appear in the OR selection but be absent
+from the AND selection?</p>
+<details>
+<summary>Show solution</summary>
+<p>When <code>bootstat.dat</code> has System but not Hidden, it satisfies <code>Hidden,System</code>
+through its System attribute. It fails <code>Hidden+System</code> because the Hidden
+attribute is missing. A file such as <code>pagefile.sys</code> with both flags satisfies
+both expressions. If your machine assigns different attributes, its result
+follows those actual flags.</p>
+</details>
+<p>Use NOT when you want to exclude an attribute:</p>
+<pre><code class="language-powershell">Get-ChildItem -LiteralPath $systemDriveRoot -Force -Attributes '!Directory+!System' |
+    Sort-Object Name |
+    Select-Object Name, Attributes
+</code></pre>
+<p>This excludes directories <strong>and</strong> system items. Hidden files without System
+can still appear because <code>-Force</code> includes them. Prefer <code>-File</code>, <code>-Directory</code>,
+<code>-Hidden</code>, or <code>-System</code> when one simple switch expresses the requirement.</p>
+<h3 id="understand-recursive-folder-copying">Understand recursive folder copying</h3>
+<p>Copying a folder and copying its contents are different requests. An existing
+destination folder can become the parent of the source folder. To compare
+these requests, create two separate destination folders and use previews.</p>
+<pre><code class="language-powershell">$folderCopyTarget = Join-Path -Path $fileLessonRoot -ChildPath 'folder-copy'
+$contentsCopyTarget = Join-Path -Path $fileLessonRoot -ChildPath 'contents-copy'
+$dataContents = Join-Path -Path $dataFolder -ChildPath '*'
+
+New-Item -Path $folderCopyTarget -ItemType Directory -Force | Out-Null
+New-Item -Path $contentsCopyTarget -ItemType Directory -Force | Out-Null
+
+Copy-Item -LiteralPath $dataFolder -Destination $folderCopyTarget -Recurse -WhatIf
+Copy-Item -Path $dataContents -Destination $contentsCopyTarget -Recurse -WhatIf
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-Path</td>
+<td>Interprets wildcard characters such as *, ?, and [abc].</td>
+</tr>
+<tr>
+<td>-LiteralPath</td>
+<td>Treats the entire path exactly as written. Wildcard characters have no special meaning.</td>
+</tr>
+</tbody>
+</table>
+<p>The first request copies <code>data</code> as a folder under <code>folder-copy</code>. The second
+copies the items inside <code>data</code> into <code>contents-copy</code> without that extra
+<code>data</code> level. <code>$dataContents</code> deliberately uses a wildcard to select those
+contents.</p>
+<p>The previews do not copy files. Check whether the destination already exists
+and decide whether it should contain the source folder or just its contents.
+Deleting a destination first is not required to make that choice.
+<code>-Force</code> is not a general permission bypass and does not replace checking
+possible overwrites.</p>
+<h3 id="preview-batch-creation-and-renaming">Preview batch creation and renaming</h3>
+<p>A batch operation repeats a command for multiple items. These examples use
+<code>ForEach-Object</code>. The pattern needed here is introduced below; the loops
+lesson develops it further.</p>
+<p><code>1..3</code> generates the numbers from one to three. The pipeline passes each number
+to the script block, where <code>$_</code> is the current value.</p>
+<pre><code class="language-powershell">1..3 | ForEach-Object {
+    $sampleName = 'sample-{0}.txt' -f $_
+    New-Item -Path $dataFolder -Name $sampleName -ItemType File -WhatIf
+}
+</code></pre>
+<p>These are previews: no sample files are created. The <code>-f</code> operator inserts
+the number into the <code>{0}</code> placeholder.</p>
+<p>To rename an existing selection, first enumerate its exact members and then
+preview the new names:</p>
+<pre><code class="language-powershell">Get-ChildItem -LiteralPath $dataFolder -File -Filter '*.txt' |
+    ForEach-Object {
+        Rename-Item -LiteralPath $_.FullName -NewName ('reviewed_' + $_.Name) -WhatIf
+    }
+</code></pre>
+<p>Here, <code>$_</code> represents a file object instead of a number. <code>.FullName</code> identifies
+the source, while <code>.Name</code> supplies its current filename.</p>
+<p>Other advanced naming rules include:</p>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Naming idea</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Replace text in a name</td>
+<td>Use <code>-replace</code> for a precisely tested regex.</td>
+</tr>
+<tr>
+<td>Add a date</td>
+<td>Combine <code>BaseName</code>, a <code>Get-Date -Format 'yyyyMMdd'</code> value, and <code>Extension</code>.</td>
+</tr>
+<tr>
+<td>Add a sequence number</td>
+<td>Use a counter and keep the original extension.</td>
+</tr>
+</tbody>
+</table>
+<p>Changing a filename extension does not convert the file's content. Always check
+for duplicate destination names before performing a batch rename.</p>
+<h3 id="advanced-read-only-practice">Advanced read-only practice</h3>
+<p>Complete these tasks to apply the advanced file-selection concepts. They
+complement the separate hands-on scenario.</p>
+<ul>
+<li>List the lesson's files with their names and creation dates, newest first.</li>
+</ul>
+<details>
+<summary>Show solution</summary>
+<pre><code class="language-powershell">Get-ChildItem -LiteralPath $dataFolder -File |
+    Sort-Object CreationTime -Descending |
+    Select-Object Name, CreationTime
+</code></pre>
+<p>The lesson files are <code>notes.txt</code> and <code>support.log</code>. Their order depends on
+actual creation times; a reused file can have an earlier creation date.
+Adding <code>-Recurse</code> also includes files below any subdirectories.</p>
+</details>
+<ul>
+<li>List its directories with names and modification times, sorted by name.</li>
+</ul>
+<details>
+<summary>Show solution</summary>
+<pre><code class="language-powershell">Get-ChildItem -LiteralPath $fileLessonRoot -Directory |
+    Sort-Object Name |
+    Select-Object Name, LastWriteTime
+</code></pre>
+<p>This lists the lesson root's immediate directories alphabetically, including
+<code>archive</code>, <code>data</code>, and <code>reports</code>. Advanced examples also create <code>folder-copy</code>
+and <code>contents-copy</code>. Modification times vary. Add <code>-Recurse</code> to include
+nested directories.</p>
+</details>
+<ul>
+<li>Use <code>Measure-Object -Property Length</code> with <code>-Minimum</code>, <code>-Maximum</code>,
+<code>-Average</code>, and <code>-Sum</code> to inspect file sizes. Keep byte values numeric;
+convert them to KB or MB when presenting a report.</li>
+</ul>
+<details>
+<summary>Show solution</summary>
+<pre><code class="language-powershell">Get-ChildItem -LiteralPath $dataFolder -File |
+    Measure-Object -Property Length -Minimum -Maximum -Average -Sum
+</code></pre>
+<p><code>Count</code> is the number of measured files; the other properties describe their
+numeric byte lengths. Exact sizes depend on content and encoding. Add
+<code>-Recurse</code> to include nested files, which can change every statistic.
+Divide a byte value by <code>1KB</code> or <code>1MB</code> only when presenting the result.</p>
+</details>
+<ul>
+<li>Search for <code>*.docx</code> below a folder containing only your assigned practice
+documents. Filter on <code>CreationTime</code> after <code>[datetime]'2026-10-01'</code>, sort
+oldest first, and display names, dates, and sizes. An empty result is valid.</li>
+</ul>
+<details>
+<summary>Show solution</summary>
+<p>For a safe check using the lesson's own practice directory:</p>
+<pre><code class="language-powershell">Get-ChildItem -LiteralPath $dataFolder -File -Filter '*.docx' -Recurse |
+    Where-Object { $_.CreationTime -gt [datetime]'2026-10-01' } |
+    Sort-Object CreationTime |
+    Select-Object Name, CreationTime, Length
+</code></pre>
+<p>The supplied lesson creates no Word documents, so this check is empty unless
+assigned practice documents were added. Use the instructor-assigned document
+folder when provided. <code>-gt</code> excludes the cutoff itself. Keep both sides as
+date values. Without <code>-Recurse</code>, nested documents are excluded.</p>
+</details>
+<p>Predict which commands and properties each task needs before running it.
+Explain how the answer changes when you include subdirectories.</p>
+<details>
+<summary>Show solution</summary>
+<p>Use <code>Get-ChildItem</code> for retrieval, <code>CreationTime</code> or <code>LastWriteTime</code> for
+timestamps, <code>Length</code> for file bytes, <code>Where-Object</code> for property tests,
+<code>Sort-Object</code> for ordering, and <code>Measure-Object</code> for statistics.</p>
+<p><code>-Recurse</code> expands the selection below the starting folder. It can add
+files and directories, change counts and size statistics, and introduce
+duplicate names. Display <code>FullName</code> when the location must be unambiguous.
+If there are no matching nested items, the results stay the same.</p>
+</details>
+<h2 id="practice-and-self-check">Practice and self-check</h2>
+<p>The guided exercises and independent task are in <a href="hands-on-04b-files-and-directories.html">hands-on 04b</a>.
+Use this sequence with the lesson's explanations:</p>
+<ol>
+<li>Complete Parts 1 and 2 to create inputs, resolve paths, inspect objects,
+and search text.</li>
+<li>Complete Part 3 to preview changes, preserve an original, verify hashes,
+and remove one exact temporary file.</li>
+<li>Complete Advanced Part 4 to apply recursion, typed timestamp filters,
+size measurements, hidden attributes, and batch previews.</li>
+<li>Attempt Part 5 independently: deliver the folder and create a CSV inventory.</li>
+<li>Use the lab's reflection questions and self-check to explain your results.</li>
+</ol>
+<p>For a short transfer check, describe how you would preserve an original log
+while preparing a reviewed copy in another folder. Name the commands, explain
+what you would preview, and state what you would verify.</p>
+<details>
+<summary>Show solution</summary>
+<p>Build exact source and destination paths with <code>Join-Path</code>. Record the
+original's <code>Get-FileHash</code> value, preview <code>Copy-Item -WhatIf</code>, then copy and
+verify that the hashes match. Edit only the copy with <code>Add-Content</code> or a
+deliberate <code>Set-Content</code> replacement. Preview any <code>Move-Item</code> or <code>Rename-Item</code>
+before performing it. Check the final path and edited contents, and confirm
+that the original still exists with its original hash.</p>
+</details>
+<h2 id="summary">Summary</h2>
+<p><code>Join-Path</code> builds paths, <code>Get-Location</code> explains relative paths, and
+<code>Test-Path</code> checks what exists. <code>Get-Item</code> inspects an item;
+<code>Get-ChildItem</code> lists and filters a directory's contents. Use <code>Set-Content</code>,
+<code>Add-Content</code>, and <code>Get-Content</code> to work with text.</p>
+<p><code>Copy-Item</code> keeps the source, <code>Move-Item</code> changes its location,
+<code>Rename-Item</code> changes its name, and <code>Remove-Item</code> deletes the selected item.
+Build exact targets, preview supported changes with <code>-WhatIf</code>, and inspect
+the resulting state.</p>
+<p>Advanced file management adds recursion, timestamp and attribute selection,
+folder-copy choices, and batch operations. These are required parts of the
+topic: choose a starting path and selection rules that fit the task, and
+verify what the command will act on.</p>
+<h2 id="clean-up-the-lesson-demonstration">Clean up the lesson demonstration</h2>
+<p>Keep the files until you finish all foundational and advanced sections.
+The earlier workflow already removed the reviewed copy. These commands remove
+the two remaining sample files. The comma supplies two exact paths.</p>
+<pre><code class="language-powershell">Remove-Item -LiteralPath $sourceLog, $notesPath -WhatIf
+</code></pre>
+<p>Check the preview paths. Then run the narrowly scoped cleanup:</p>
+<pre><code class="language-powershell">Remove-Item -LiteralPath $sourceLog, $notesPath
+
+Test-Path -LiteralPath $sourceLog
+Test-Path -LiteralPath $notesPath
+</code></pre>
+<p>Both checks return <code>False</code>. The practice folders remain available. Do not
+remove the hands-on's separate files as part of this lesson's cleanup.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/powershell/scripting/samples/working-with-files-and-folders">Working with files and folders</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/scripting/samples/manipulating-items-directly?view=powershell-7.2">Manipulating items directly</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-childitem">Get-ChildItem</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/copy-item">Copy-Item</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/set-content">Set-Content</a></li>
+<li><a href="https://www.spguides.com/powershell-copy-item/">Copy-Item examples from SPGuides</a></li>
+</ul>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

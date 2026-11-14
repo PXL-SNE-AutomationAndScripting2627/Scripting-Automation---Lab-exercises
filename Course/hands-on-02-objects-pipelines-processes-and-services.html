@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Hands-on — Objects, pipelines, processes, and services — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">02 - Objects, pipelines, processes, and services</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a class="sidebar-current" href="hands-on-02-objects-pipelines-processes-and-services.html" aria-current="page">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; Hands-on</p>
+            <h1 id="page-title">Hands-on — Objects, pipelines, processes, and services</h1>
+            <p class="hero-description">02 - Objects, pipelines, processes, and services</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/hands-on/02-objects-pipelines-processes-services/02-objects-pipelines-processes-services">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="goal">Goal</h2>
+<p>Explore how PowerShell returns objects, how a pipeline passes those objects between commands, and how to inspect processes and services without changing the computer.</p>
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>By the end of this lab, you can:</p>
+<ul>
+<li>distinguish an object, a property, and a method;</li>
+<li>use <code>Get-Member</code> to inspect an object's members;</li>
+<li>select and filter objects in a pipeline; and</li>
+<li>query your own process and Windows services safely.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Complete <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">Objects, pipelines, processes, and services</a>
+before starting this lab.</li>
+<li>Complete <a href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/course/ps_basics/01-intro_objects_help/windows_processes">Windows processes</a>
+before starting this lab.</li>
+<li>Complete 01 — Intro, Cmdlets, help, and commands</li>
+<li>Use PowerShell 7 where available.</li>
+<li>Work only with the read-only commands shown in this lab. Do not start, stop, or restart a process or service.</li>
+</ul>
+<h2 id="how-to-work-in-this-lab">How to work in this lab</h2>
+<p>For every activity, complete the three steps.</p>
+<ol>
+<li><strong>Predict:</strong> write or discuss what you think will happen.</li>
+<li><strong>Run:</strong> enter the command exactly as shown.</li>
+<li><strong>Reflect:</strong> answer the questions in your own words.</li>
+</ol>
+<p>After attempting each activity, open <strong>Show solution</strong> to check your commands,
+expected results, and explanations. The final exercise and self-check also
+have solutions. Keep the session and setup required by the activity. If you
+already changed a file or variable, compare its result rather than replaying
+the change from the solution.</p>
+<hr />
+<h2 id="part-1-objects-properties-and-methods">Part 1 — Objects, properties, and methods</h2>
+<h3 id="activity-1.1-inspect-an-object">Activity 1.1 — Inspect an object</h3>
+<p><strong>Predict</strong></p>
+<p>Does <code>Get-Date</code> return only text, or does it return an object with data and actions?</p>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">Get-Date | Get-Member
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What type is shown near the top of the output?</li>
+<li>Find one property and one method.</li>
+<li>In your own words, what is the difference between a property and a method?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p><code>Get-Date</code> returns a <code>System.DateTime</code> object. Properties include <code>DayOfWeek</code>, <code>Year</code>, and <code>Date</code>. Methods include <code>ToShortDateString()</code> and <code>AddDays()</code>. A property is data held by an object; a method is an action that the object can perform.</p>
+</details>
+<h3 id="activity-1.2-read-a-property-with-dot-notation">Activity 1.2 — Read a property with dot notation</h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$today = Get-Date
+$today.DayOfWeek
+$today.ToShortDateString()
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which line reads a property?</li>
+<li>Which line calls a method? How can you recognise it?</li>
+<li>Why might storing the date in <code>$today</code> be useful?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p><code>$today.DayOfWeek</code> reads a property. <code>$today.ToShortDateString()</code> calls a method; parentheses identify a method call. Storing the value in <code>$today</code> lets a script reuse the same date object instead of collecting a new value repeatedly.</p>
+</details>
+<h3 id="activity-1.3-select-only-the-data-you-need">Activity 1.3 — Select only the data you need</h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">Get-Date | Select-Object DateTime, DayOfWeek, Year
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which properties are shown?</li>
+<li>Does <code>Select-Object</code> change the original date object? Explain your answer.</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p>The selected output has <code>DateTime</code>, <code>DayOfWeek</code>, and <code>Year</code>. <code>Select-Object</code>
+creates new objects containing the requested properties; it does not modify
+the original <code>DateTime</code> object. The selected objects omit other date members,
+so keep the original object when later commands need them.</p>
+</details>
+<hr />
+<h2 id="part-2-follow-objects-through-a-pipeline">Part 2 — Follow objects through a pipeline</h2>
+<h3 id="activity-2.1-start-with-simple-values">Activity 2.1 — Start with simple values</h3>
+<p><strong>Predict</strong></p>
+<p>What do you expect each command to send to the next command in the pipeline?</p>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">1..5 | Measure-Object
+1..5 | Where-Object { $_ -gt 3 }
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What does <code>Measure-Object</code> report?</li>
+<li>Which values pass through the <code>Where-Object</code> filter?</li>
+<li>What does <code>$_</code> represent inside the braces?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p><code>Measure-Object</code> reports a count of five values. The filter passes <code>4</code> and <code>5</code>. Inside the braces, <code>$_</code> is the current pipeline object, so each number is compared with <code>3</code> in turn.</p>
+</details>
+<h3 id="activity-2.2-use-a-pipeline-with-process-objects">Activity 2.2 — Use a pipeline with process objects</h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">Get-Process -Id $PID | Select-Object ProcessName, Id, CPU, WorkingSet
+</code></pre>
+<p><code>$PID</code> is the identifier of the current PowerShell process, so this command does not require you to choose another process.</p>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which process is displayed?</li>
+<li>Which property could identify this exact process?</li>
+<li>Why is <code>ProcessName</code> alone not always enough to identify a process?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p>This displays the current PowerShell host process, normally named <code>pwsh</code> or <code>powershell</code>. <code>Id</code> identifies that particular running process. Several process instances can share the same <code>ProcessName</code>, so use <code>Id</code> when an exact instance matters.</p>
+<p>The process ID is <code>$PID</code>. Its CPU time and memory use vary as the process runs.</p>
+</details>
+<h3 id="activity-2.3-filter-before-selecting">Activity 2.3 — Filter before selecting</h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">Get-Process |
+    Where-Object ProcessName -like 'p*' |
+    Select-Object -First 5 ProcessName, Id
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>In what order do the three pipeline commands run?</li>
+<li>What does the wildcard <code>*</code> mean in <code>'p*'</code>?</li>
+<li>Why is it useful to filter before selecting or exporting data?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p><code>Get-Process</code> produces process objects, <code>Where-Object</code> keeps those whose names begin with <code>p</code>, and <code>Select-Object</code> keeps the first five and shows two properties. <code>*</code> matches zero or more characters. Filtering early reduces the number of objects that later stages must process or export.</p>
+</details>
+<hr />
+<h2 id="part-3-processes-and-services">Part 3 — Processes and services</h2>
+<h3 id="activity-3.1-compare-a-process-and-a-service">Activity 3.1 — Compare a process and a service</h3>
+<p><strong>Predict and discuss</strong></p>
+<p>Which statement best describes a service?</p>
+<ul>
+<li>A. A document saved on disk.</li>
+<li>B. A background component that can run without a signed-in user.</li>
+<li>C. A replacement name for every process.</li>
+</ul>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">Get-Process -Id $PID | Get-Member
+Get-Service | Select-Object -First 1 | Get-Member
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What object type is returned by <code>Get-Process</code>?</li>
+<li>What object type is returned by <code>Get-Service</code>?</li>
+<li>Give one reason or example that a service might be running when no user is signed in.</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p>The process is normally a <code>System.Diagnostics.Process</code> object. <code>Get-Service</code> returns <code>System.ServiceProcess.ServiceController</code> objects. The correct statement is <strong>B</strong>: a service is a background component that can run without a signed-in user, for example to provide networking, logging, or time synchronisation.</p>
+</details>
+<h3 id="activity-3.2-query-services-safely">Activity 3.2 — Query services safely</h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">Get-Service |
+    Where-Object Status -eq 'Running' |
+    Select-Object -First 10 Name, DisplayName, Status
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What does <code>Status -eq 'Running'</code> test?</li>
+<li>Why are both <code>Name</code> and <code>DisplayName</code> useful?</li>
+<li>Does this command make any change to a service? How do you know?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p><code>Status -eq 'Running'</code> keeps only service objects whose <code>Status</code> property equals <code>Running</code>. <code>Name</code> is a stable service identifier used by commands; <code>DisplayName</code> is a human-friendly name. All commands begin with <code>Get</code>, <code>Where</code>, or <code>Select</code>, so this pipeline reads and presents data without changing a service.</p>
+</details>
+<h3 id="activity-3.3-find-out-what-a-command-accepts">Activity 3.3 — Find out what a command accepts</h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">(Get-Command Get-Service).Parameters[&quot;Name&quot;].Attributes
+(Get-Command Get-Process).Parameters[&quot;Name&quot;].Attributes
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Does the <code>Name</code> parameter of each command accept pipeline input? Record what the help shows.</li>
+<li>Why should you check help before assuming that a pipeline will work?</li>
+</ol>
+<p>Normally you can use <code>Get-Help Get-Service -Parameter Name</code> and <code>Get-Help Get-Process -Parameter Name</code> to check the help for each command. But the help information is not always up to date, so the <code>Get-Command</code> approach is more reliable.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Pipeline-binding answers:</strong></p>
+<p>Inspect the installed commands' <code>ParameterAttribute</code> records. For <code>Name</code>,
+<code>Get-Service</code> accepts pipeline input by value and by property name.
+<code>Get-Process</code> accepts it by property name, not by value. The metadata shows
+<code>ValueFromPipeline</code> and <code>ValueFromPipelineByPropertyName</code> separately.</p>
+<p>Commands with similarly named parameters can have different binding rules.
+Use help to understand their meaning and installed command metadata to check
+their capabilities; do not assume that a string pipeline works for both.</p>
+</details>
+<hr />
+<h2 id="part-4-challenge-build-a-safe-status-view">Part 4 — Challenge: build a safe status view</h2>
+<p>Filename: <code>Get-ProcessStatus.ps1</code></p>
+<p>Save the pipeline in your lab folder and run <code>.\Get-ProcessStatus.ps1</code>.</p>
+<h3 id="scenario">Scenario</h3>
+<p>An instructor wants a quick, read-only view of the PowerShell process that runs the lab. The view should show the process name, its identifier, and its current CPU time.</p>
+<h3 id="your-task">Your task</h3>
+<p>Write a one-line pipeline that:</p>
+<ol>
+<li>starts with the current PowerShell process using <code>$PID</code>;</li>
+<li>selects <code>ProcessName</code>, <code>Id</code>, and <code>CPU</code>; and</li>
+<li>does not start, stop, or modify any process.</li>
+</ol>
+<p>Then explain what every pipeline stage does and why the command is safe.</p>
+<p><strong>Suggested starting point</strong></p>
+<pre><code class="language-powershell"># Write your pipeline here.
+</code></pre>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Status-view solution (Beginner):</strong></p>
+<p><strong>One valid solution:</strong></p>
+<pre><code class="language-powershell">Get-Process -Id $PID | Select-Object ProcessName, Id, CPU
+</code></pre>
+<p><code>Get-Process -Id $PID</code> retrieves only the current PowerShell process. The pipe passes that process object to <code>Select-Object</code>, which displays the requested properties. Neither command changes the process, so the pipeline is safe to run in this lab.</p>
+<p>The process is the current PowerShell host. Its ID, CPU time, and process name
+depend on the running session.</p>
+<details>
+<summary>Show solution Optimized</summary>
+<p><strong>Status-view solution (Optimized):</strong></p>
+<pre><code class="language-powershell">Get-Process -Id $PID -OutVariable psProcess | Select-Object ProcessName, Id, CPU
+$psProcess
+</code></pre>
+<p>Or, using a more compact approach:</p>
+<pre><code class="language-powershell">Get-Process -Id $PID | Select-Object -Property ProcessName, Id, CPU
+</code></pre>
+<p>The optimized version stores the process object in <code>-OutVariable</code> for reuse, or uses the explicit <code>-Property</code> parameter name for clarity. Both maintain the same pipeline flow and safety: no modifications occur. The one-liner remains the most direct solution.</p>
+</details>
+</details>
+<h2 id="practice-and-self-check">Practice and self-check</h2>
+<p>Answer before running a command, then test your answer.</p>
+<ol>
+<li>Which cmdlet shows an object's properties and methods?</li>
+<li>What is the difference between <code>$today.DayOfWeek</code> and <code>$today.ToShortDateString()</code>?</li>
+<li>What does <code>$_</code> mean inside <code>Where-Object</code>?</li>
+<li>Which property uniquely identifies a running process during its lifetime?</li>
+<li>What is the difference between a process and a service?</li>
+<li>Why is a read-only query safer than <code>Stop-Process</code> or <code>Stop-Service</code> in a beginner lab?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Self-check answers:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Detailed solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Which cmdlet shows an object's properties and methods?</td>
+<td><code>Get-Member</code></td>
+</tr>
+<tr>
+<td>Difference between <code>$today.DayOfWeek</code> and <code>$today.ToShortDateString()</code>?</td>
+<td>The first reads a property; the second calls a method.</td>
+</tr>
+<tr>
+<td>What does <code>$_</code> mean in <code>Where-Object</code>?</td>
+<td>The current object entering that pipeline stage.</td>
+</tr>
+<tr>
+<td>Which property uniquely identifies a process during its lifetime?</td>
+<td><code>Id</code></td>
+</tr>
+<tr>
+<td>Difference between a process and a service?</td>
+<td>A process is a running program instance; a service is a managed background component that can run without a signed-in user.</td>
+</tr>
+<tr>
+<td>Why are read-only queries safer here?</td>
+<td>They inspect data without stopping, starting, or otherwise disrupting a process or service.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h2 id="summary">Summary</h2>
+<p>PowerShell sends objects through the pipeline, not just formatted text. Use <code>Get-Member</code> to inspect objects, select the properties you need, and filter data before presenting it. Processes and services can be queried safely; changing them requires a separate, deliberate decision.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_pipelines">Understanding the PowerShell pipeline</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-member">Get-Member</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-service">Get-Service</a></li>
+</ul>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

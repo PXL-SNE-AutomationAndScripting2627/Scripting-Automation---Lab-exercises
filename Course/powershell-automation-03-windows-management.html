@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Automating Windows management — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">03 - Windows management</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a class="sidebar-current" href="powershell-automation-03-windows-management.html" aria-current="page">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; PowerShell Automation</p>
+            <h1 id="page-title">Automating Windows management</h1>
+            <p class="hero-description">03 - Windows management</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/course/ps_automation/03-windows-management/03-windows-management">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<p>Windows management combines purpose-built cmdlets, security descriptors, event logs, background jobs, and firewall information. The safest workflow is to discover current state, make a narrowly scoped change, and verify the result.</p>
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>By the end of this lesson, you can:</p>
+<ul>
+<li>discover commands in the Windows management and security modules;</li>
+<li>inspect computer information and recent Windows events;</li>
+<li>read and safely modify an access control list in a practice folder;</li>
+<li>start, monitor, receive, and remove a background job; and</li>
+<li>inspect Windows Firewall rules without changing them.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Complete the PowerShell Basics course and the Windows information lesson.</li>
+<li>Use Windows PowerShell or PowerShell 7 on Windows.</li>
+<li>Use a disposable practice folder for permission changes.</li>
+<li>Run read-only examples first; use administrator rights only when an assigned task requires them.</li>
+</ul>
+<h2 id="discover-management-commands">Discover management commands</h2>
+<pre><code class="language-powershell">Get-Command -Module Microsoft.PowerShell.Management |
+    Sort-Object Noun, Verb |
+    Select-Object -First 25 Name
+
+Get-Command -Module Microsoft.PowerShell.Security |
+    Select-Object Name
+</code></pre>
+<p>Prefer a purpose-built cmdlet when one exists. It usually provides clearer parameters, help, validation, and object output than directly calling a low-level method.</p>
+<h2 id="collect-computer-and-event-information">Collect computer and event information</h2>
+<pre><code class="language-powershell">Get-ComputerInfo |
+    Select-Object CsName, WindowsProductName, WindowsVersion, OsLastBootUpTime
+
+Get-WinEvent -LogName Application -MaxEvents 20 |
+    Select-Object TimeCreated, Id, LevelDisplayName, ProviderName, Message
+</code></pre>
+<p><code>Get-WinEvent</code> returns event objects. Filter before formatting, and avoid collecting an unlimited event log when a focused query is enough.</p>
+<pre><code class="language-powershell">$startTime = (Get-Date).AddDays(-1)
+
+Get-WinEvent -FilterHashtable @{
+    LogName   = 'System'
+    StartTime = $startTime
+    Level     = 2, 3
+} -ErrorAction SilentlyContinue |
+    Select-Object TimeCreated, Id, LevelDisplayName, ProviderName
+</code></pre>
+<h2 id="understand-access-control-lists">Understand access control lists</h2>
+<p>An access control list (ACL) contains access control entries. Each entry connects an identity to rights, an allow or deny type, and inheritance settings.</p>
+<pre><code class="language-powershell">$practiceFolder = Join-Path 'C:\powershell' 'Windows-Management-Lab'
+New-Item -Path $practiceFolder -ItemType Directory -Force
+
+$acl = Get-Acl -Path $practiceFolder
+$acl | Select-Object Owner, AreAccessRulesProtected
+$acl.Access |
+    Select-Object IdentityReference, FileSystemRights,
+        AccessControlType, IsInherited
+</code></pre>
+<p>Do not copy an ACL from an unrelated folder without understanding inherited and explicit entries.</p>
+<h2 id="add-a-rule-only-in-a-practice-folder">Add a rule only in a practice folder</h2>
+<p>The following example grants the current Windows identity read access to the dedicated folder. It first checks whether the equivalent rule already exists.</p>
+<pre><code class="language-powershell">$identity = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
+$acl = Get-Acl -Path $practiceFolder
+
+$ruleExists = $acl.Access | Where-Object {
+    $_.IdentityReference -eq $identity -and
+    $_.FileSystemRights -band [System.Security.AccessControl.FileSystemRights]::ReadAndExecute -and
+    $_.AccessControlType -eq 'Allow'
+}
+
+if (-not $ruleExists) {
+    $rule = [System.Security.AccessControl.FileSystemAccessRule]::new(
+        $identity,
+        'ReadAndExecute',
+        'ContainerInherit,ObjectInherit',
+        'None',
+        'Allow'
+    )
+
+    $acl.AddAccessRule($rule)
+    Set-Acl -Path $practiceFolder -AclObject $acl -WhatIf
+}
+</code></pre>
+<p><code>Set-Acl -WhatIf</code> previews applying the complete modified security descriptor. In a real change, export or record the original ACL and verify the effective result afterward.</p>
+<h2 id="run-background-jobs">Run background jobs</h2>
+<p>A background job returns the prompt while work continues in another process. The job object represents the work; its output is retrieved separately.</p>
+<p><strong>Background job lifecycle</strong></p>
+<pre class="mermaid">flowchart LR
+    A["Start-Job"] --> B["Wait-Job: wait for completion"]
+    B --> C["Receive-Job: retrieve output"]
+    C --> D["Remove-Job: release the job"]
+</pre>
+<p>Inspect the job state and errors as well as its output; completion does not
+necessarily mean the work succeeded.</p>
+<pre><code class="language-powershell">$job = Start-Job -Name 'ComputerSnapshot' -ScriptBlock {
+    Get-CimInstance -ClassName Win32_OperatingSystem |
+        Select-Object CSName, Caption, Version, LastBootUpTime
+}
+
+Get-Job -Name 'ComputerSnapshot'
+Wait-Job -Job $job
+$result = Receive-Job -Job $job -Keep
+$result
+Remove-Job -Job $job
+</code></pre>
+<p><code>Receive-Job</code> normally removes received output from the job's result cache. Use <code>-Keep</code> only when you intentionally need to receive the same stored data again. Remove completed jobs when they are no longer needed.</p>
+<p>Objects returned from process-based or remote jobs are serialized copies. Methods may be unavailable even though properties remain useful.</p>
+<h2 id="inspect-windows-firewall">Inspect Windows Firewall</h2>
+<pre><code class="language-powershell">Get-NetFirewallProfile |
+    Select-Object Name, Enabled, DefaultInboundAction, DefaultOutboundAction
+
+Get-NetFirewallRule -PolicyStore ActiveStore |
+    Where-Object Enabled -eq 'True' |
+    Group-Object Direction, Action |
+    Sort-Object Name |
+    Select-Object Name, Count
+</code></pre>
+<p>Firewall rule names, display names, and groups can be localized or managed by policy. Inspect <code>PolicyStoreSourceType</code> before assuming that a local change is appropriate. Make changes only through an approved change process.</p>
+<h2 id="practice-and-self-check">Practice and self-check</h2>
+<ol>
+<li>Why should you prefer a purpose-built cmdlet to a low-level CIM method?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>A purpose-built cmdlet generally provides clearer parameters, help, validation,
+and object output. Check its documentation and safety features before use.</p>
+</details>
+<ol start="2">
+<li>Why is a filtered event query better than retrieving an entire log?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>It limits the result to relevant events, such as a time range or severity,
+reducing the amount of data to retrieve and review.</p>
+</details>
+<ol start="3">
+<li>What information is stored in an access control entry?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>An entry identifies a user or group, its rights, whether access is allowed or
+denied, and inheritance settings.</p>
+</details>
+<ol start="4">
+<li>Why must <code>Set-Acl</code> receive the complete ACL object?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p><code>Set-Acl</code> applies the supplied security descriptor to the target, rather than
+adding only one isolated entry. Read and modify the existing ACL carefully so
+you do not unintentionally replace other permissions.</p>
+</details>
+<ol start="5">
+<li>Which commands manage the lifecycle of a background job?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>Use <code>Start-Job</code> to start it, <code>Get-Job</code> to inspect it, <code>Wait-Job</code> to wait,
+<code>Receive-Job</code> to retrieve output, and <code>Remove-Job</code> to remove it. Inspect the
+job state and errors as well as the output.</p>
+</details>
+<ol start="6">
+<li>Why might a firewall rule resist a local change?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>The active rule may be supplied or enforced by Group Policy or another policy
+store rather than locally managed. Inspect its policy source and use the
+approved change process.</p>
+</details>
+<p>Apply the lesson in <a href="hands-on-16-windows-management.html">Hands-on 16 — Windows management</a>.</p>
+<h2 id="summary">Summary</h2>
+<p>Windows management automation starts with discovery and narrow queries. Treat ACLs as complete security descriptors, manage the full job lifecycle, keep firewall work read-only unless specifically authorized, and verify every change.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/">Microsoft.PowerShell.Management module</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-acl">Set-Acl</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_jobs">About jobs</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/netsecurity/get-netfirewallrule">Get-NetFirewallRule</a></li>
+</ul>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

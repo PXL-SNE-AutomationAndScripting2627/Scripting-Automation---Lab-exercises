@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Hands-on — Conditionals — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">09 - Conditionals</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a class="sidebar-current" href="hands-on-09-conditionals.html" aria-current="page">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; Hands-on</p>
+            <h1 id="page-title">Hands-on — Conditionals</h1>
+            <p class="hero-description">09 - Conditionals</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/hands-on/09-conditionals/01-conditionals">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="goal">Goal</h2>
+<p>Make PowerShell choose an appropriate action by testing values, types, paths, and combinations of conditions.</p>
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>By the end of this lab, you can:</p>
+<ul>
+<li>use <code>if</code>, <code>elseif</code>, and <code>else</code> branches;</li>
+<li>combine comparisons with <code>-and</code>, <code>-or</code>, and <code>-not</code>;</li>
+<li>distinguish <code>$null</code>, empty text, and valid values;</li>
+<li>use <code>Test-Path</code> in a decision; and</li>
+<li>use <code>switch</code> for clear multi-value classification.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Complete the variables and parameters hands-on labs.</li>
+<li>Complete the <a href="powershell-basics-10-conditionals.html">conditionals lesson</a> before starting this lab.</li>
+<li>Understand Boolean values, object properties, and simple pipeline commands.</li>
+</ul>
+<h2 id="environment-and-safety-requirements">Environment and safety requirements</h2>
+<p>Use PowerShell 7 on your Windows lab computer. Your instructor must first
+prepare <code>C:\powershell</code> with writable access. This lab only inspects paths and
+changes session variables and does not change system settings. Save the
+challenge script in your lab folder.
+Administrator rights are not required. Keep the same terminal open. If it is
+restarted, recreate an activity's values before using them in a later step.</p>
+<h2 id="how-to-work-in-this-lab">How to work in this lab</h2>
+<p>Predict which branch runs, execute the code, and explain why.</p>
+<p>After attempting each activity, open <strong>Show solution</strong> to check your commands,
+expected results, and explanations. The final exercise and self-check also
+have solutions. Keep the session and setup required by the activity. If you
+already changed a file or variable, compare its result rather than replaying
+the change from the solution.</p>
+<hr />
+<h2 id="part-1-make-basic-decisions">Part 1 — Make basic decisions</h2>
+<p>Review: <a href="powershell-basics-10-conditionals.html#start-with-a-comparison-and-one-decision">First-match decisions</a>.</p>
+<h3 id="activity-1.1-use-if-and-else">Activity 1.1 — Use <code>if</code> and <code>else</code></h3>
+<p><strong>Predict</strong></p>
+<p>Which message should appear for the supplied Boolean value?</p>
+<pre><code class="language-powershell">$serviceAvailable = $true
+
+if ($serviceAvailable) {
+    'Service is available.'
+} else {
+    'Service is unavailable.'
+}
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which branch runs?</li>
+<li>What type must the condition produce?</li>
+<li>What changes when the value becomes <code>$false</code>?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Record the selected message for both Boolean inputs.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p>The first branch runs for <code>$true</code>; the <code>else</code> branch runs for <code>$false</code>. Conditions are interpreted as Boolean values.</p>
+<p>The supplied value displays <code>Service is available.</code>. With <code>$false</code>, it
+displays <code>Service is unavailable.</code>.</p>
+</details>
+<h3 id="activity-1.2-use-elseif">Activity 1.2 — Use <code>elseif</code></h3>
+<p><strong>Predict</strong></p>
+<p>Which threshold should match first, and what happens at the boundary values?</p>
+<pre><code class="language-powershell">$score = 78
+
+if ($score -ge 85) {
+    $result = 'Distinction'
+} elseif ($score -ge 50) {
+    $result = 'Pass'
+} else {
+    $result = 'Fail'
+}
+
+$result
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which branch runs?</li>
+<li>Why is the <code>50</code> test placed after the <code>85</code> test?</li>
+<li>What result should scores <code>92</code>, <code>50</code>, and <code>49</code> receive?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Verify the supplied score and the three requested boundary examples.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p>Score <code>78</code> is <code>Pass</code>. The higher threshold comes first so scores 85 and above are not captured by the broader pass range. Scores <code>92</code>, <code>50</code>, and <code>49</code> produce <code>Distinction</code>, <code>Pass</code>, and <code>Fail</code>.</p>
+<p>The supplied score displays <code>Pass</code>.</p>
+</details>
+<h3 id="activity-1.3-understand-first-match-behaviour">Activity 1.3 — Understand first-match behaviour</h3>
+<p><strong>Predict</strong></p>
+<p>Will a matching higher threshold allow the later branch to run too?</p>
+<p>In Activity 1.2, replace the first assignment with <code>$score = 90</code>, then run
+that complete block again. Do not reset the value to <code>78</code> before the test.</p>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Are later branches tested after one condition is true?</li>
+<li>Why should the most specific range usually appear first?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Rerun after changing the assignment; explain why later branches are skipped.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Score-change solution:</strong></p>
+<p>Keep the <code>if</code> statement from Activity 1.2, but replace its first assignment
+with <code>$score = 90</code> before rerunning it. Do not reset it to <code>78</code>.</p>
+<pre><code class="language-powershell">$score = 90
+
+if ($score -ge 85) {
+    $result = 'Distinction'
+} elseif ($score -ge 50) {
+    $result = 'Pass'
+} else {
+    $result = 'Fail'
+}
+
+$result
+</code></pre>
+<p>The result is <code>Distinction</code>. Once a branch matches, later branches are
+skipped. Put the more specific <code>85</code> threshold before <code>50</code>, or the broader
+pass test would catch a score of <code>90</code> first.</p>
+</details>
+<hr />
+<h2 id="part-2-combine-conditions">Part 2 — Combine conditions</h2>
+<p>Review: <a href="powershell-basics-10-conditionals.html#combine-conditions">Combine conditions</a>.</p>
+<h3 id="activity-2.1-require-both-conditions">Activity 2.1 — Require both conditions</h3>
+<p><strong>Predict</strong></p>
+<p>Which message appears if exactly one of the two required checks fails?</p>
+<pre><code class="language-powershell">$diskFreeGB = 18
+$backupCurrent = $true
+
+if ($diskFreeGB -ge 15 -and $backupCurrent) {
+    'System passes both checks.'
+} else {
+    'One or more checks failed.'
+}
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What does <code>-and</code> require?</li>
+<li>What happens if <code>$diskFreeGB</code> becomes <code>10</code>?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Show the outcome when both checks pass and when one fails.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p><code>-and</code> requires both operands to be true. With 10 GB free, the <code>else</code> branch runs.</p>
+<p>The supplied values display <code>System passes both checks.</code>. At <code>10</code> GB,
+the message becomes <code>One or more checks failed.</code>.</p>
+</details>
+<h3 id="activity-2.2-accept-either-condition">Activity 2.2 — Accept either condition</h3>
+<p><strong>Predict</strong></p>
+<p>Which combinations make the access condition true?</p>
+<pre><code class="language-powershell">$role = 'Student'
+$isTemporaryAdmin = $false
+
+if ($role -eq 'Instructor' -or $isTemporaryAdmin) {
+    'Access condition is met.'
+} else {
+    'Access condition is not met.'
+}
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What does <code>-or</code> require?</li>
+<li>Which two changes could make the first branch run?</li>
+<li>Why does meeting a condition not itself grant real-world authorisation?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Explain both ways the first branch can run and the limits of this test.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p><code>-or</code> needs at least one true operand. Changing the role to <code>Instructor</code> or the switch value to <code>$true</code> meets the code condition, but real authorisation must still come from policy and permissions.</p>
+<p>The supplied values display <code>Access condition is not met.</code>.</p>
+</details>
+<h3 id="activity-2.3-negate-a-condition">Activity 2.3 — Negate a condition</h3>
+<p><strong>Predict</strong></p>
+<p>What is the condition's value after negating the supplied Boolean?</p>
+<pre><code class="language-powershell">$maintenanceMode = $false
+
+if (-not $maintenanceMode) {
+    'Normal processing can continue.'
+}
+</code></pre>
+<p><strong>Reflect</strong></p>
+<p>Explain what <code>-not</code> does and rewrite the test using <code>!</code>.</p>
+<p><strong>Checkpoint:</strong> Write the equivalent negation and explain the resulting condition.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Negation solution:</strong></p>
+<p>Using the existing <code>$maintenanceMode = $false</code>, the equivalent test is:</p>
+<pre><code class="language-powershell">if (!$maintenanceMode) {
+    'Normal processing can continue.'
+}
+</code></pre>
+<p>The message appears because <code>!</code> and <code>-not</code> both reverse the false Boolean
+value to true.</p>
+</details>
+<hr />
+<h2 id="part-3-test-missing-values-and-paths">Part 3 — Test missing values and paths</h2>
+<p>Review: <a href="powershell-basics-10-conditionals.html#distinguish-missing-values-from-valid-false-values">Null and path checks</a>.</p>
+<h3 id="activity-3.1-compare-null-and-empty-text">Activity 3.1 — Compare null and empty text</h3>
+<p><strong>Predict</strong></p>
+<p>Which values count as missing, empty, or lacking useful text?</p>
+<pre><code class="language-powershell">$missingName = $null
+$emptyName = ''
+$notEmptyName = 'Alex'
+
+if ($null -eq $missingName) { 'missingName is null.' }
+if ($null -eq $emptyName) { 'emptyName is null.' } else { 'emptyName is not null.' }
+if ($emptyName -eq '') { 'emptyName is empty.' } else { 'emptyName is not empty.' }
+if ($notEmptyName -eq '') { 'notEmptyName is empty.' } else { 'notEmptyName is not empty.' }
+if ([string]::IsNullOrWhiteSpace($emptyName)) { 'emptyName has no useful text.' }
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which variable is <code>$null</code>?</li>
+<li>Why can <code>IsNullOrWhiteSpace()</code> be more useful for text validation?</li>
+<li>Why is <code>$null</code> commonly placed on the left of a comparison?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Distinguish null, empty, and whitespace text and justify the null comparison.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p>Only <code>$missingName</code> is null. Empty text is a real zero-length string. <code>IsNullOrWhiteSpace()</code> catches null, empty, and whitespace-only strings. Placing <code>$null</code> on the left avoids collection-comparison surprises.</p>
+<p>The displayed lines are <code>missingName is null.</code>, <code>emptyName is not null.</code>,
+<code>emptyName is empty.</code>, <code>notEmptyName is not empty.</code>, and
+<code>emptyName has no useful text.</code>.</p>
+</details>
+<h3 id="activity-3.2-decide-with-test-path">Activity 3.2 — Decide with <code>Test-Path</code></h3>
+<p><strong>Predict</strong></p>
+<p>Which path checks should succeed after the instructor prepares the course base?</p>
+<pre><code class="language-powershell">$knownPath = 'C:\powershell'
+$unknownPath = Join-Path -Path $knownPath -ChildPath 'Conditionals-Lab-Missing-12345'
+
+if (Test-Path -Path $knownPath -PathType Container) {
+    'The known path is a directory.'
+}
+
+if (-not (Test-Path -Path $unknownPath)) {
+    'The unknown path does not exist.'
+}
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What Boolean does <code>Test-Path</code> return for each path?</li>
+<li>What does <code>-PathType Container</code> verify?</li>
+<li>Why test a path before a file operation?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Record both existence checks and identify what Container requires.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p>The known path returns <code>True</code> and is a container. The unlikely path returns <code>False</code>. Testing first prevents accidental work against an incorrect target.</p>
+<p><code>-PathType Container</code> requires a directory rather than a file. The
+missing-path result assumes that the deliberately unlikely child does not exist;
+record the actual result instead if it is present.</p>
+</details>
+<hr />
+<h2 id="part-4-classify-values-with-switch">Part 4 — Classify values with <code>switch</code></h2>
+<p>Review: <a href="powershell-basics-10-conditionals.html#match-named-cases-with-switch">Named switch cases</a>.</p>
+<h3 id="activity-4.1-use-exact-switch-cases">Activity 4.1 — Use exact switch cases</h3>
+<p><strong>Predict</strong></p>
+<p>Which named case should match, and when would the fallback run?</p>
+<pre><code class="language-powershell">$priority = 'High'
+
+switch ($priority) {
+    'Low'    { 'Respond within five working days.' }
+    'Medium' { 'Respond within two working days.' }
+    'High'   { 'Respond within four hours.' }
+    default  { 'Unknown priority.' }
+}
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which case runs?</li>
+<li>What is the purpose of <code>default</code>?</li>
+<li>When is <code>switch</code> clearer than many <code>elseif</code> branches?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Explain the matched case, fallback behaviour, and why switch fits the task.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p>The <code>High</code> case runs. <code>default</code> handles every unrecognised value. <code>switch</code> is clear when one value is compared with several cases.</p>
+<p>For <code>High</code>, the message is <code>Respond within four hours.</code>.</p>
+</details>
+<h3 id="activity-4.2-use-wildcard-switch-cases">Activity 4.2 — Use wildcard switch cases</h3>
+<p><strong>Predict</strong></p>
+<p>Will the pattern be interpreted as literal text or as a wildcard?</p>
+<pre><code class="language-powershell">$deviceName = 'LT-204'
+
+switch -Wildcard ($deviceName) {
+    'LT-*' { 'Laptop' }
+    'DT-*' { 'Desktop' }
+    'SRV-*' { 'Server' }
+    default { 'Unknown device type' }
+}
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which pattern matches?</li>
+<li>What does <code>-Wildcard</code> change?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Record the matching pattern and explain the effect of -Wildcard.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p><code>LT-*</code> matches and returns <code>Laptop</code>. <code>-Wildcard</code> interprets each case as a wildcard pattern.</p>
+</details>
+<hr />
+<h2 id="part-5-challenge-classify-device-readiness">Part 5 — Challenge: classify device readiness</h2>
+<p>Filename: <code>Get-DeviceReadiness.ps1</code></p>
+<p>Save the supplied data and your challenge commands in this file. Run
+<code>. .\Get-DeviceReadiness.ps1</code> in your lab session.</p>
+<p>Use:</p>
+<pre><code class="language-powershell">$devices = @(
+    [pscustomobject]@{ Name = 'LT-204'; FreeGB = 24; Updated = $true;  State = 'Online'  }
+    [pscustomobject]@{ Name = 'LT-205'; FreeGB = 8;  Updated = $true;  State = 'Online'  }
+    [pscustomobject]@{ Name = 'DT-301'; FreeGB = 40; Updated = $false; State = 'Online'  }
+    [pscustomobject]@{ Name = 'DT-302'; FreeGB = 30; Updated = $true;  State = 'Offline' }
+)
+</code></pre>
+<p>For each device, create a result object with <code>Name</code> and <code>Readiness</code>:</p>
+<ul>
+<li><code>Ready</code> when online, updated, and at least 15 GB is free;</li>
+<li><code>Attention</code> when online but any other readiness check fails;</li>
+<li><code>Unavailable</code> when offline; and</li>
+<li><code>Unknown</code> for any other state.</li>
+</ul>
+<p>A <code>foreach</code> loop runs its body once for each input device. The loop variable
+<code>$device</code> holds the current object; output one custom object per iteration.
+Use the collection iteration reference in the variables lesson if needed.
+Start with this structure and write the decisions yourself:</p>
+<pre><code class="language-powershell">$readinessResults = foreach ($device in $devices) {
+    # Decide the readiness for this device.
+    # Output an object with Name and Readiness.
+}
+</code></pre>
+<p>Use <code>foreach</code>, <code>if/else</code>, and a nested or separate <code>switch</code>. Explain the order
+of your checks.</p>
+<p><strong>Success criteria:</strong> Return one object per input in the original order. Check
+offline state before the two online checks. The unknown-state rule must also
+work, even though the supplied dataset contains only online and offline devices.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p>Use the challenge's supplied input objects in the same session.</p>
+<p><strong>Readiness classification solution:</strong></p>
+<pre><code class="language-powershell">foreach ($device in $devices) {
+
+    if ($device.State -eq 'Offline') {
+        $readiness = 'Unavailable'
+    }
+    elseif ($device.State -eq 'Online' -and $device.Updated -and $device.FreeGB -ge 15) {
+        $readiness = 'Ready'
+    }
+    elseif ($device.State -eq 'Online') {
+        $readiness = 'Attention'
+    }
+    else {
+        $readiness = 'Unknown'
+    }
+
+    [PSCustomObject]@{
+        Name      = $device.Name
+        Readiness = $readiness
+    }
+}
+</code></pre>
+<details>
+<summary>Show solution Optimized</summary>
+<p>Use the challenge's supplied input objects in the same session.</p>
+<p><strong>Readiness classification solution:</strong></p>
+<pre><code class="language-powershell">$readinessResults = foreach ($device in $devices) {
+    $readiness = switch ($device.State) {
+        'Offline' { 'Unavailable' }
+        'Online' {
+            if ($device.Updated -and $device.FreeGB -ge 15) {
+                'Ready'
+            } else {
+                'Attention'
+            }
+        }
+        default { 'Unknown' }
+    }
+
+    [pscustomobject]@{
+        Name      = $device.Name
+        Readiness = $readiness
+    }
+}
+
+$readinessResults
+</code></pre>
+<p>Expected results are <code>Ready</code>, <code>Attention</code>, <code>Attention</code>, and <code>Unavailable</code>. State is checked first because offline devices cannot be ready; online devices then receive the two readiness checks.</p>
+</details>
+<p>Wat is the difference between the two solutions? The first uses <code>if/elseif/else</code> statements to classify readiness, while the second uses a <code>switch</code> statement for the state check and an <code>if</code> statement for the online readiness checks. Both produce the same output but demonstrate different approaches to decision-making in PowerShell.</p>
+<h2 id="practice-and-self-check">Practice and self-check</h2>
+<ol>
+<li>What type must an <code>if</code> condition represent?</li>
+<li>When does <code>elseif</code> run?</li>
+<li>Difference between <code>-and</code> and <code>-or</code>?</li>
+<li>What does <code>-not</code> do?</li>
+<li>Why distinguish <code>$null</code> from empty text?</li>
+<li>What is <code>default</code> in a <code>switch</code>?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Self-check answers:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>If condition</td>
+<td>A Boolean/truth value.</td>
+</tr>
+<tr>
+<td><code>elseif</code></td>
+<td>Runs when earlier conditions were false and its own is true.</td>
+</tr>
+<tr>
+<td><code>-and</code> / <code>-or</code></td>
+<td>Both true versus at least one true.</td>
+</tr>
+<tr>
+<td><code>-not</code></td>
+<td>Reverses truth.</td>
+</tr>
+<tr>
+<td>Null versus empty</td>
+<td>Absence differs from a present zero-length string.</td>
+</tr>
+<tr>
+<td><code>default</code></td>
+<td>Fallback for unmatched cases.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h2 id="submission-checklist">Submission checklist</h2>
+<ul>
+<li>Complete all reflections.</li>
+<li>Demonstrate <code>if</code>, <code>elseif</code>, <code>else</code>, logical operators, <code>Test-Path</code>, and <code>switch</code>.</li>
+<li>Produce four correctly classified challenge objects.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>Conditionals turn Boolean tests into controlled branches. Order specific checks carefully, combine conditions explicitly, and include fallback handling for missing or unexpected values.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_if">About if</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_switch">About switch</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_logical_operators">About logical operators</a></li>
+</ul>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

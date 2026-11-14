@@ -6,6 +6,7 @@
     <header class="docs-header"><a class="docs-brand" href="../index.html"><span class="brand-mark" aria-hidden="true">PXL</span><span>PowerShell-oefening</span></a><nav class="docs-global-nav" aria-label="Hoofdnavigatie"><a href="../index.html">Oefeningen</a><a href="index.html">Overzicht</a><a class="answers-nav-link" href="answers.html" aria-current="page">Opdrachten</a><a href="scripts.html">Scripts</a></nav></header>
     <div class="docs-breadcrumb"><div class="docs-breadcrumb-inner"><a href="../index.html">Start</a><span class="breadcrumb-separator" aria-hidden="true">/</span><a href="index.html">Oefening 04</a><span class="breadcrumb-separator" aria-hidden="true">/</span><span aria-current="page">Opdrachten</span></div></div>
     <div class="docs-layout"><aside class="docs-sidebar" aria-label="Paginanavigatie"><p class="sidebar-heading">Uitgebreide oefening 04</p><a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
         <a href="index.html">Overzicht</a>
         <p class="sidebar-group-label">Projectpagina's</p>
         <a class="sidebar-current" href="answers.html" aria-current="page">Opdrachten</a>
@@ -32,16 +33,16 @@
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             <b>Maak de map <i>output</i> aan</b><br>
-            New-Item -Path .\output -ItemType Directory<br>
+            <code>New-Item -Path .\output -ItemType Directory</code><br>
             <br>
             <b>Stap 1: Uitvoer van <code>Get-Process</code> naar een bestand</b><br>
-            Get-Process | Out-File .\output\processInfo.txt<br>
+            <code>Get-Process | Out-File .\output\processInfo.txt</code><br>
             <br>
             <b>Stap 2: Inhoud van het bestand tonen</b><br>
-            Get-Content .\output\processInfo.txt<br>
+            <code>Get-Content .\output\processInfo.txt</code><br>
             <br>
-            <b>Stap 3: Inhoud van het bestand per pagina tonen met <code>more</code></b><br>
-            Get-Content .\output\processInfo.txt | more<br>
+            <b>Stap 3: Inhoud van het bestand per pagina tonen</b><br>
+            <code>Get-Content .\output\processInfo.txt | more</code><br>
         </div>
 
           <h3 id="1-2-windows-bestanden-als-html">1.2 Windows-bestanden als HTML</h3>
@@ -54,18 +55,13 @@
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             <b>Stap 1: Inhoud van <i>C:\Windows</i> opvragen</b><br>
-            Get-ChildItem -Path C:\Windows<br>
+            <code>Get-ChildItem -Path C:\Windows</code><br>
             <br>
             <b>Stap 2: Omzetten naar HTML en bewaren</b><br>
-            Get-ChildItem -Path C:\Windows | ConvertTo-Html | Out-File .\output\WinFiles.html<br>
-            <br>
-            <b><i>Alternatief voor Stap 2: Maak een overzichtelijker bestand met <code>Select-Object</code></b><br>
-            Get-ChildItem -Path C:\Windows |<br>
-            Select-Object Name, Length, LastWriteTime |<br>
-            ConvertTo-Html | Out-File .\output\WinFiles.html</i><br>
+            <code>Get-ChildItem -Path C:\Windows | ConvertTo-Html | Out-File .\output\WinFiles.html</code><br>
             <br>
             <b>Stap 3: Openen met het standaardprogramma</b><br>
-            Invoke-Item .\output\WinFiles.html<br>
+            <code>Invoke-Item .\output\WinFiles.html</code><br>
         </div>
 
           <h3 id="1-3-windows-bestanden-als-csv-en-clixml">1.3 Windows-bestanden als CSV en CLIXML</h3>
@@ -78,9 +74,13 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            <code>Get-ChildItem C:\Windows | Export-Csv .\output\WinFiles.csv</code><br>
+            <code>Get-ChildItem C:\Windows | Export-Clixml .\output\WinFiles.xml</code><br>
+            <code>Import-Clixml .\output\WinFiles.xml | Select-Object Name, Extension, Length, LastAccessTime</code><br>
+            <br>
+            <b>Waarom is <code>CLIXML</code> geschikter dan gewone tekst?</b><br>
+            <code>CLIXML</code> bewaart niet alleen de tekst, maar ook de PowerShell-objecten: hun eigenschappen, waarden en datatypes. Daardoor kun je ze later weer importeren als echte objecten en daarna opnieuw filteren, sorteren en selecteren. Gewone tekst (<code>Out-File</code>) bewaart alleen de weergegeven tekst, niet het objectmodel. Bij <code>Get-Content</code> lees je dan alleen regels in, zonder objecteigenschappen en zonder de mogelijkheid om nog als objecten te werken.<br>
         </div>
-
 
           <h3 id="1-4-paden-testen">1.4 Paden testen</h3>
           <ol>
@@ -92,7 +92,9 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            <code>New-Item -Path 'C:\pxl_is_the_best' -ItemType Directory -Force</code><br>
+            <code>Test-Path 'C:\pxl_is_the_best'</code> → <code>True</code><br>
+            <code>Test-Path '.\output\WinFiles.xml'</code> → <code>True</code><br>
         </div>
           
           <h2 id="2-bestanden-en-mappen-kopiëren">2. Bestanden en mappen kopi&#235;ren</h2>
@@ -107,7 +109,9 @@
           
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            <code>New-Item -Path 'C:\pxl_source' -ItemType Directory -Force</code><br>
+            <code>1..50 | ForEach-Object { New-Item -Path "C:\pxl_source\File_$_.txt" -ItemType File -Force }</code><br>
+            <code>(Get-ChildItem 'C:\pxl_source').Count</code> → <code>50</code><br>
         </div>
           
           <h3 id="2-2-kopieergedrag-onderzoeken">2.2 Kopieergedrag onderzoeken</h3>
@@ -125,7 +129,15 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            <ol>
+              <li><code>New-Item -Path 'C:\pxl_destination' -ItemType Directory -Force</code> en dan <code>Copy-Item -Path 'C:\pxl_source\*' -Destination 'C:\pxl_destination'</code>. Zonder <code>-Recurse</code> kopieert PowerShell alleen de bestanden in de bronmap, niet de map zelf.</li>
+              <li><code>Remove-Item 'C:\pxl_destination' -Recurse -Force</code>; daarna <code>Copy-Item -Path 'C:\pxl_source\File_1.txt' -Destination 'C:\pxl_destination'</code>. Omdat de doelnaam niet bestaat, maakt PowerShell een <strong>bestand</strong> met die naam, geen map.</li>
+              <li>Na opnieuw verwijderen: <code>Copy-Item -Path 'C:\pxl_source\*' -Destination 'C:\pxl_destination'</code> zonder de map eerst te maken. Als het doel niet bestaat, toont PowerShell het als een nieuwe map en kopieert de bestanden er direct in.</li>
+              <li>Als het doel al bestaat, wordt hetzelfde commando opnieuw uitgevoerd, maar PowerShell ziet dat dezelfde bestanden al aanwezig zijn; zonder <code>-Force</code> kan het een overwrite-vraag geven of de bestanden overslaan.</li>
+              <li><code>New-Item -Path 'C:\pxl_destination' -ItemType Directory -Force</code> en daarna <code>Copy-Item -Path 'C:\pxl_source\*' -Destination 'C:\pxl_destination'</code>. Nu worden de bestanden rechtstreeks in de doelmap geplaatst, zonder een submap <code>pxl_source</code>.</li>
+              <li><code>Remove-Item 'C:\pxl_destination' -Recurse -Force</code> en daarna <code>Copy-Item -Path 'C:\pxl_source' -Destination 'C:\pxl_destination' -Recurse</code>. Nu kopieert PowerShell de bronmap met inhoud naar het doel, inclusief de submap <code>pxl_source</code>.</li>
+              <li><code>New-Item -Path 'C:\pxl_final' -ItemType Directory -Force</code> en daarna <code>Move-Item -Path 'C:\pxl_destination' -Destination 'C:\pxl_final'</code>. De hele map, inclusief inhoud, verhuist naar <code>C:\pxl_final</code>.</li>
+            </ol>
         </div>
 
           <h3 id="2-3-opruimen">2.3 Opruimen</h3>
@@ -140,7 +152,10 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            <code>$labPaths = @('C:\pxl_source','C:\pxl_destination','C:\pxl_final','C:\pxl_is_the_best')</code><br>
+            <code>$labPaths | ForEach-Object { Test-Path $_ }</code> → controleer welke paden bestaan<br>
+            <code>Remove-Item -Path $labPaths -Recurse -Force -ErrorAction SilentlyContinue</code><br>
+            <code>$labPaths | ForEach-Object { Test-Path $_ }</code> → alle waarden moeten <code>False</code> zijn<br>
         </div>
             
           <h2 id="3-script-applicaties-starten-en-stoppen">3. Script: applicaties starten en stoppen</h2>
@@ -153,7 +168,8 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            <code>@('notepad','calc') | Invoke-Item</code><br>
+            <code>Get-Process -Name notepad,calc | Stop-Process -Force</code><br>
         </div>
 
           <h3 id="3-2-startstopprogsv1-ps1">3.2 <code>StartStopProgsV1.ps1</code></h3>
@@ -164,7 +180,21 @@ $stop_Apps  = $null # vervang door de gevonden processen</code></pre>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            <pre><code>$start_Apps = @(
+    (Get-Command notepad).Source
+    (Get-Command calc).Source
+)
+$stop_Apps = Get-Process -Name notepad,calc
+
+Write-Host 'Starten...' -ForegroundColor Green
+$start_Apps | ForEach-Object {
+    Start-Process $_
+    Write-Host "Gestart: $_" -ForegroundColor Green
+}
+
+Write-Host 'Stoppen...' -ForegroundColor Yellow
+$stop_Apps | Stop-Process -Force
+Write-Host 'Stoppen voltooid.' -ForegroundColor Red</code></pre>
         </div>
 
           <h3 id="3-3-startstopprogsv2-ps1">3.3 <code>StartStopProgsV2.ps1</code></h3>
@@ -178,7 +208,21 @@ $app_02 = &#39;calc&#39;</code></pre>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            <pre><code>$app_01 = 'notepad'
+$app_02 = 'calc'
+
+$start_Apps = @(
+    (Get-ChildItem "$env:SystemRoot\System32" -Filter "$app_01.exe" -File).FullName
+    (Get-ChildItem "$env:SystemRoot\System32" -Filter "$app_02.exe" -File).FullName
+)
+
+$stop_Apps = Get-Process -Name $app_01,$app_02
+
+Write-Host 'Starten...' -ForegroundColor Green
+$start_Apps | ForEach-Object { Start-Process $_ }
+
+Write-Host 'Stoppen...' -ForegroundColor Yellow
+$stop_Apps | Stop-Process -Force</code></pre>
         </div>
 
           <h2 id="4-command-prompt-en-powershell-vergelijken">4. Command Prompt en PowerShell vergelijken</h2>
@@ -193,7 +237,12 @@ $app_02 = &#39;calc&#39;</code></pre>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            <ol>
+              <li><code>ipconfig /all</code> werkt in beide; <code>dir /s</code> werkt in <code>cmd.exe</code> en is een DOS-commando, maar in PowerShell is <code>dir</code> een alias voor <code>Get-ChildItem</code>.</li>
+              <li>Niet helemaal: in PowerShell verwijst <code>dir</code> naar <code>Get-ChildItem</code>, in <code>cmd.exe</code> naar de ingebouwde maplijst. <code>ipconfig</code> is in beide omgevingen een extern programma.</li>
+              <li>Gebruik <code>Get-Command dir</code> en <code>Get-Command ipconfig</code>. In PowerShell zie je TypeName/CommandType en de eigenlijke cmdlet of executable.</li>
+              <li><code>/s</code> in <code>cmd.exe</code> betekent: recursief door submappen. In PowerShell is het equivalent <code>-Recurse</code>. Omdat de syntaxis van switches verschilt, kan dezelfde parameternaam een verschillend effect hebben.</li>
+            </ol>
         </div>
 
           <h2 id="5-geschiedenis-en-transcript">5. Geschiedenis en transcript</h2>
@@ -209,7 +258,16 @@ $app_02 = &#39;calc&#39;</code></pre>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            <code>Get-History</code> toont de opdrachten die in de huidige PowerShell-sessie zijn uitgevoerd, met onder meer ID, opdrachtregel en starttijd.<br>
+            Praktisch voorbeeld: <code>Get-History | Select-Object Id,CommandLine -Last 5</code>.<br>
+            <br>
+            <code>Start-Transcript -Path .\output\transcript001.txt -NoClobber</code><br>
+            <code>Get-Location</code><br>
+            <code>Get-ChildItem .</code><br>
+            <code>Stop-Transcript</code><br>
+            <code>Get-Content .\output\transcript001.txt</code><br>
+            <br>
+            Het transcript registreert de opgegeven commands en de bijbehorende output in een tekstbestand, zodat je de sessie later kunt controleren of teruglezen.
         </div>
 
           <h2 id="6-script-mapinformatie">6. Script: mapinformatie</h2>
@@ -225,7 +283,23 @@ $app_02 = &#39;calc&#39;</code></pre>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            <pre><code>$myFolder = $env:USERPROFILE
+$files = Get-ChildItem -Path $myFolder -Recurse -File -ErrorAction SilentlyContinue
+$folderCount = (Get-ChildItem -Path $myFolder -Recurse -Directory -ErrorAction SilentlyContinue).Count
+$largestMB = [math]::Round(($files | Measure-Object -Property Length -Maximum).Maximum / 1MB, 2)
+$avgMB = [math]::Round((($files | Measure-Object -Property Length -Sum).Sum / 1MB) / $files.Count, 2)
+$totalMB = [math]::Round(($files | Measure-Object -Property Length -Sum).Sum / 1MB, 2)
+
+[PSCustomObject]@{
+    Folder = $myFolder
+    FileCount = $files.Count
+    LargestFileMB = $largestMB
+    AverageFileMB = $avgMB
+    TotalSizeMB = $totalMB
+    SubfolderCount = $folderCount
+}</code></pre>
+            <br>
+            <code>-ErrorAction SilentlyContinue</code> is hier passend, omdat sommige onderliggende folders in Windows beveiligd of ontoegankelijk kunnen zijn. Daardoor worden geen vervelende foutmeldingen getoond en blijft de samenvatting overzichtelijk.
         </div>
 
           <h3 id="6-2-resultaten-in-variabelen">6.2 Resultaten in variabelen</h3>
@@ -236,7 +310,19 @@ $app_02 = &#39;calc&#39;</code></pre>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            
+            <pre><code>$fileCount = $files.Count
+$largestMB = [math]::Round(($files | Measure-Object -Property Length -Maximum).Maximum / 1MB, 2)
+$avgMB = [math]::Round((($files | Measure-Object -Property Length -Sum).Sum / 1MB) / $fileCount, 2)
+$totalMB = [math]::Round(($files | Measure-Object -Property Length -Sum).Sum / 1MB, 2)
+$subFolderCount = (Get-ChildItem -Path $myFolder -Recurse -Directory -ErrorAction SilentlyContinue).Count
+
+Write-Host "Aantal bestanden: $fileCount" -ForegroundColor Cyan
+Write-Host "Grootste bestand: $largestMB MB" -ForegroundColor Yellow
+Write-Host "Gemiddelde bestandsgrootte: $avgMB MB" -ForegroundColor Green
+Write-Host "Totale grootte: $totalMB MB" -ForegroundColor Magenta
+Write-Host "Aantal submappen: $subFolderCount" -ForegroundColor DarkYellow
+
+Get-Help ./scripts/ShowFolderInfo.ps1 -Full</code></pre>
         </div>
 
           <h2 id="eindcontrole">Eindcontrole</h2>

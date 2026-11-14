@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Hands-on — Variables, objects, and data types — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">06 - Variables, objects, and data types</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a class="sidebar-current" href="hands-on-06-variables-objects-and-data-types.html" aria-current="page">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; Hands-on</p>
+            <h1 id="page-title">Hands-on — Variables, objects, and data types</h1>
+            <p class="hero-description">06 - Variables, objects, and data types</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/hands-on/06-variables-objects-data-types/01-variables-objects-data-types">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="goal">Goal</h2>
+<p>Store values in well-named variables, inspect and convert data types, work with
+collections, and combine related values into structured PowerShell objects.</p>
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>By the end of this lab, you can:</p>
+<ul>
+<li>assign and reassign variables using descriptive names;</li>
+<li>inspect a value's type with <code>GetType()</code>;</li>
+<li>explain dynamic typing and type-constrained variables;</li>
+<li>cast values deliberately before calculations;</li>
+<li>manipulate strings, arrays, and hashtables;</li>
+<li>use a hashtable for parameter splatting;</li>
+<li>create and query <code>PSCustomObject</code> instances; and</li>
+<li>recognise common automatic and environment variables.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Complete the <a href="powershell-basics-07-variables-objects-and-data-types.html">variables lesson</a> before starting this lab.</li>
+<li>Understand object properties and basic pipeline commands.</li>
+<li>Use PowerShell 7 on your Windows lab computer.</li>
+</ul>
+<h2 id="environment-and-safety-requirements">Environment and safety requirements</h2>
+<p>Use PowerShell 7 and the approved course setup on your Windows lab computer.
+Administrator rights are not required. These commands inspect values or change
+variables in the current session; they do not modify system settings or files.</p>
+<h2 id="how-to-work-in-this-lab">How to work in this lab</h2>
+<p>For every activity, complete the three steps.</p>
+<ol>
+<li><strong>Predict:</strong> write or discuss what you think will happen.</li>
+<li><strong>Run:</strong> enter the command exactly as shown.</li>
+<li><strong>Reflect:</strong> explain the result in your own words.</li>
+</ol>
+<p>Start in a fresh PowerShell 7 session to avoid earlier type constraints.
+Run the activities in order in the same PowerShell session. Some activities
+reuse variables created earlier. Activity 4.2 requires Activity 4.1's array; Activity 5.2 requires Activity
+5.1's hashtable. If you restart the terminal, recreate the relevant part's
+values before continuing. Do not assign values to automatic variables such as <code>$HOME</code>.</p>
+<p>Keeping data in variables and objects lets later commands reuse it without
+parsing formatted text.</p>
+<p>After attempting each activity, open <strong>Show solution</strong> to check your commands,
+expected results, and explanations. The final exercise and self-check also
+have solutions. Keep the session and setup required by the activity. If you
+already changed a file or variable, compare its result rather than replaying
+the change from the solution.</p>
+<hr />
+<h2 id="part-1-assign-values-and-inspect-types">Part 1 — Assign values and inspect types</h2>
+<p>Review: <a href="powershell-basics-07-variables-objects-and-data-types.html#store-and-reuse-a-value">Store and reuse a value</a>.</p>
+<h3 id="activity-1.1-create-and-reassign-a-variable">Activity 1.1 — Create and reassign a variable</h3>
+<p><strong>Predict:</strong></p>
+<p>Can the type stored in an unconstrained PowerShell variable change?</p>
+<p><strong>Run:</strong></p>
+<pre><code class="language-powershell">$ticketCount = 12
+$ticketCount
+$ticketCount.GetType().Name
+
+$ticketCount = 'twelve'
+$ticketCount
+$ticketCount.GetType().Name
+</code></pre>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>What type is stored after the first assignment?</li>
+<li>What type is stored after reassignment?</li>
+<li>What does this demonstrate about PowerShell's dynamic typing?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Record both values and their short type names; explain the reassignment.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<p>The prediction is yes: an unconstrained variable can refer to values of
+another type after reassignment.</p>
+<ol>
+<li>The first assignment stores an <code>Int32</code> value, <code>12</code>.</li>
+<li>The reassignment stores a <code>String</code>, <code>twelve</code>.</li>
+<li>This illustrates dynamic typing: the variable is not constrained to one type.</li>
+</ol>
+<p>The displayed sequence is <code>12</code>, <code>Int32</code>, <code>twelve</code>, <code>String</code>.</p>
+</details>
+<h3 id="activity-1.2-use-descriptive-names">Activity 1.2 — Use descriptive names</h3>
+<p><strong>Predict</strong></p>
+<p>Which variable name will still explain the value's purpose later in a script?</p>
+<p><strong>Run:</strong></p>
+<pre><code class="language-powershell">$n = 24
+$openTicketCount = 24
+
+&quot;n contains $n&quot;
+&quot;openTicketCount contains $openTicketCount&quot;
+</code></pre>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>Which variable communicates its purpose more clearly?</li>
+<li>Why do descriptive variable names help when a script becomes longer?</li>
+<li>What naming style is used by <code>$openTicketCount</code>?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Explain the naming style and choose the name that states what is counted.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<ol>
+<li><code>$openTicketCount</code> states what is counted; <code>$n</code> does not.</li>
+<li>Descriptive names help readers understand later statements and calculations.</li>
+<li><code>openTicketCount</code> uses camel case: an initial lowercase word followed by
+words beginning with uppercase letters.</li>
+</ol>
+<p>The messages are <code>n contains 24</code> and <code>openTicketCount contains 24</code>.</p>
+</details>
+<h3 id="activity-1.3-constrain-a-variables-type">Activity 1.3 — Constrain a variable's type</h3>
+<p><strong>Predict</strong></p>
+<p>Will assigning the text '15' change the constrained variable's type?</p>
+<p><strong>Run:</strong></p>
+<pre><code class="language-powershell">[int]$deviceCount = 10
+$deviceCount.GetType().Name
+
+$deviceCount = '15'
+$deviceCount
+$deviceCount.GetType().Name
+</code></pre>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>What type does <code>$deviceCount</code> keep?</li>
+<li>What happened when the string <code>'15'</code> was assigned?</li>
+<li>When can a type constraint make a script safer?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Show the retained type and explain conversion during assignment.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<ol>
+<li>The constrained variable keeps the <code>Int32</code> type.</li>
+<li>PowerShell converts <code>'15'</code> to integer <code>15</code> before assigning it.</li>
+<li>A type constraint rejects values that cannot convert to the required type.</li>
+</ol>
+<p>The displayed sequence is <code>Int32</code>, <code>15</code>, <code>Int32</code>. A cast used only on an
+expression, such as <code>[int]$textNumber</code>, converts that value without permanently
+constraining <code>$textNumber</code> itself.</p>
+</details>
+<hr />
+<h2 id="part-2-cast-values-deliberately">Part 2 — Cast values deliberately</h2>
+<p>Review: <a href="powershell-basics-07-variables-objects-and-data-types.html#inspect-and-control-types">Inspect and control types</a>.</p>
+<h3 id="activity-2.1-compare-string-and-numeric-addition">Activity 2.1 — Compare string and numeric addition</h3>
+<p><strong>Predict:</strong></p>
+<p>Will both expressions below produce the number <code>15</code>?</p>
+<p><strong>Run:</strong></p>
+<pre><code class="language-powershell">$textNumber = '10'
+
+$textNumber + 5
+[int]$textNumber + 5
+</code></pre>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>What does the first expression return?</li>
+<li>What does the cast <code>[int]</code> change?</li>
+<li>Why is explicit conversion important for user or file input?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Distinguish the string result from the numeric result without changing the source.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<p>The first expression returns string <code>105</code> because the left operand is a string
+and <code>5</code> is concatenated. The second returns integer <code>15</code>; <code>[int]</code> converts the
+input before addition. External input is often text, so scripts must convert it
+before numeric work.</p>
+</details>
+<h3 id="activity-2.2-inspect-common-scalar-types">Activity 2.2 — Inspect common scalar types</h3>
+<p><strong>Predict</strong></p>
+<p>Which values are text, whole numbers, fractional numbers, or Boolean values?</p>
+<p><strong>Run:</strong></p>
+<pre><code class="language-powershell">$courseName = 'Automation and Scripting'
+$credits = 6
+$averageScore = 82.5
+$isActive = $true
+
+$courseName.GetType().Name
+$credits.GetType().Name
+$averageScore.GetType().Name
+$isActive.GetType().Name
+</code></pre>
+<p><strong>Reflect:</strong></p>
+<p>Match each variable to <code>String</code>, <code>Int32</code>, <code>Double</code>, or <code>Boolean</code>.</p>
+<p><strong>Checkpoint:</strong> Match each variable to its actual short type name.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<p><code>$courseName</code> is <code>String</code>, <code>$credits</code> is <code>Int32</code>, <code>$averageScore</code> is <code>Double</code>,
+and <code>$isActive</code> is <code>Boolean</code>.</p>
+</details>
+<h3 id="activity-2.3-compare-null-and-empty-values">Activity 2.3 — Compare null and empty values</h3>
+<p><strong>Predict</strong></p>
+<p>Will null and empty text produce the same comparison results?</p>
+<p><strong>Run:</strong></p>
+<pre><code class="language-powershell">$missingValue = $null
+$emptyText = ''
+
+$null -eq $missingValue
+$null -eq $emptyText
+$emptyText.Length
+</code></pre>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>What does <code>$null</code> represent?</li>
+<li>Is an empty string the same as <code>$null</code>?</li>
+<li>What is the length of the empty string?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Explain null, an existing empty string, and when a method call is valid.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<p>The results are <code>True</code>, <code>False</code>, and <code>0</code>. <code>$null</code> represents the absence of a
+value. An empty string exists as a string object but contains zero characters.</p>
+</details>
+<hr />
+<h2 id="part-3-work-with-strings-as-objects">Part 3 — Work with strings as objects</h2>
+<p>Review: <a href="powershell-basics-07-variables-objects-and-data-types.html#work-with-strings-as-objects">Work with strings as objects</a>.</p>
+<h3 id="activity-3.1-expand-variables-and-expressions">Activity 3.1 — Expand variables and expressions</h3>
+<p><strong>Predict</strong></p>
+<p>Which messages will contain literal variable names, values, or a calculation?</p>
+<p><strong>Run:</strong></p>
+<pre><code class="language-powershell">$studentName = 'Morgan'
+$score = 84
+
+'Student $studentName scored $score.'
+&quot;Student $studentName scored $score.&quot;
+&quot;Next target: $($score + 1).&quot;
+</code></pre>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>Which string displays variable names literally?</li>
+<li>Which string expands the values?</li>
+<li>Why is <code>$()</code> required for <code>$score + 1</code> inside the string?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Identify literal text, variable expansion, and expression evaluation.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<p>Single quotes preserve variable names literally. Double quotes expand them to
+<code>Morgan</code> and <code>84</code>. <code>$()</code> evaluates the complete addition expression, producing
+<code>Next target: 85.</code></p>
+</details>
+<h3 id="activity-3.2-use-string-properties-and-methods">Activity 3.2 — Use string properties and methods</h3>
+<p><strong>Predict</strong></p>
+<p>Which operations return new strings, and which member reports a property?</p>
+<p><strong>Run:</strong></p>
+<pre><code class="language-powershell">$moduleName = 'PowerShell Basics'
+
+$moduleName.Length
+$moduleName.ToUpper()
+$moduleName.StartsWith('Power')
+$moduleName.Replace(' ', '-')
+</code></pre>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>Which member is a property?</li>
+<li>Which members are methods?</li>
+<li>Does <code>Replace()</code> modify <code>$moduleName</code>, or return a new string?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Identify the property and methods; verify the original string is unchanged.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<p><code>Length</code> is a property. <code>ToUpper()</code>, <code>StartsWith()</code>, and <code>Replace()</code> are
+methods. Strings are immutable; <code>Replace()</code> returns <code>PowerShell-Basics</code> but
+leaves <code>$moduleName</code> unchanged.</p>
+<p>The returned values are <code>17</code>, <code>POWERSHELL BASICS</code>, <code>True</code>, and
+<code>PowerShell-Basics</code>. <code>$moduleName</code> remains <code>PowerShell Basics</code>.</p>
+</details>
+<h3 id="activity-3.3-index-split-and-join-strings">Activity 3.3 — Index, split, and join strings</h3>
+<p><strong>Predict</strong></p>
+<p>Which characters and collection elements will the indexes select?</p>
+<p><strong>Run:</strong></p>
+<pre><code class="language-powershell">$deviceName = 'LT-204'
+$deviceName[0]
+$deviceName[-1]
+
+$deviceParts = $deviceName.Split('-')
+$deviceParts
+$deviceParts -join ':'
+</code></pre>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>What are the first and last characters?</li>
+<li>How many elements are stored in <code>$deviceParts</code>?</li>
+<li>What string does <code>-join</code> produce?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Record the indexed characters, split count, and joined value.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<p>The first character is <code>L</code> and the last is <code>4</code>. Splitting produces two elements,
+<code>LT</code> and <code>204</code>. Joining produces <code>LT:204</code>.</p>
+</details>
+<hr />
+<h2 id="part-4-work-with-arrays">Part 4 — Work with arrays</h2>
+<p>Review: <a href="powershell-basics-07-variables-objects-and-data-types.html#work-with-arrays">Work with arrays</a>.</p>
+<h3 id="activity-4.1-create-and-index-an-array">Activity 4.1 — Create and index an array</h3>
+<p><strong>Predict</strong></p>
+<p>What count and element values will the array inspections return?</p>
+<p><strong>Run:</strong></p>
+<pre><code class="language-powershell">$students = @('Alex', 'Morgan', 'Sam', 'Taylor')
+
+$students.GetType().Name
+$students.Count
+$students[0]
+$students[-1]
+$students[1..2]
+</code></pre>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>What type is the collection?</li>
+<li>At which number does array indexing begin?</li>
+<li>What does index <code>-1</code> select?</li>
+<li>Which values are returned by the slice <code>1..2</code>?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Record the collection type, count, first and last elements, and slice.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<p>The type is <code>Object[]</code> and the count is four. Indexing begins at <code>0</code>; <code>-1</code>
+selects the last element. Slice <code>1..2</code> returns <code>Morgan</code> and <code>Sam</code>.</p>
+</details>
+<h3 id="activity-4.2-update-and-extend-an-array">Activity 4.2 — Update and extend an array</h3>
+<p><strong>Predict</strong></p>
+<p>Will updating one element and using += leave the original count unchanged?</p>
+<p><strong>Run:</strong></p>
+<pre><code class="language-powershell">$students[1] = 'Jordan'
+$students += 'Casey'
+
+$students
+$students.Count
+$students.IsFixedSize
+</code></pre>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>Which original value was replaced?</li>
+<li>How many elements are now present?</li>
+<li>If an array has a fixed size, how can <code>+=</code> appear to add an item?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Verify the updated element and count; explain why fixed size still applies.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<p><code>Morgan</code> is replaced by <code>Jordan</code>, the count becomes five, and <code>IsFixedSize</code> is
+<code>True</code>. <code>+=</code> creates a new, larger array containing the earlier values plus the
+new item and assigns that new array back to <code>$students</code>.</p>
+</details>
+<h3 id="activity-4.3-process-array-values">Activity 4.3 — Process array values</h3>
+<p><strong>Predict</strong></p>
+<p>Which scores will pass the filter, and what should the statistics measure?</p>
+<p><strong>Run:</strong></p>
+<pre><code class="language-powershell">$scores = @(72, 88, 91, 65, 84)
+
+$scores | Where-Object { $_ -ge 80 }
+$scores | Measure-Object -Average -Minimum -Maximum
+</code></pre>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>Which scores pass the filter?</li>
+<li>What are the average, minimum, and maximum?</li>
+<li>What does <code>$_</code> represent?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Record the filtered scores and statistics and identify the current object.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<p>Scores <code>88</code>, <code>91</code>, and <code>84</code> pass. The average is <code>80</code>, minimum <code>65</code>, and maximum
+<code>91</code>. <code>$_</code> is the current score entering the filter.</p>
+</details>
+<h3 id="activity-4.4-store-cmdlet-results-in-an-array">Activity 4.4 — Store cmdlet results in an array</h3>
+<p>Collect the running processes so you can count them and inspect one result
+without running the query again. <code>Get-Process</code> returns process objects;
+<code>@(...)</code> collects those objects into an array. Run this example directly in
+the terminal; it does not depend on earlier activity variables.</p>
+<p><strong>Predict</strong></p>
+<p>Will <code>$runningProcesses</code> contain process names as strings or process objects?</p>
+<p><strong>Run:</strong></p>
+<pre><code class="language-powershell">$runningProcesses = @(Get-Process)
+
+$runningProcesses.GetType().Name
+$runningProcesses.Count
+$runningProcesses[0].GetType().FullName
+$runningProcesses[0] | Select-Object -Property ProcessName, Id
+</code></pre>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>What type does the array report, and how many elements does it contain?</li>
+<li>What type is the first element, and which properties do you display?</li>
+<li>Why can another student's process count differ from yours?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Confirm the array type, record its count, and display the
+first process's name and ID.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<p>The prediction is that the array contains process objects, not just names.</p>
+<ol>
+<li>The array type is <code>Object[]</code>. Its count is the number of process objects
+returned when <code>Get-Process</code> ran.</li>
+<li>The first element is a <code>System.Diagnostics.Process</code> object. The final
+command displays its <code>ProcessName</code> and <code>Id</code> properties.</li>
+<li>Computers run different applications and background processes. Processes
+also start and stop, so counts can differ between students and runs.</li>
+</ol>
+<p><code>@(...)</code> keeps the result as an array even if a query returns only one
+object or no objects. The process name, ID, and count depend on the computer.</p>
+</details>
+<hr />
+<h2 id="part-5-work-with-hashtables">Part 5 — Work with hashtables</h2>
+<p>Review: <a href="powershell-basics-07-variables-objects-and-data-types.html#work-with-hashtables">Work with hashtables</a>.</p>
+<h3 id="activity-5.1-create-and-read-key-value-pairs">Activity 5.1 — Create and read key-value pairs</h3>
+<p><strong>Predict</strong></p>
+<p>Will keyed lookup depend on the order in which the keys are displayed?</p>
+<p><strong>Run:</strong></p>
+<pre><code class="language-powershell">$device = @{
+    Name     = 'LT-204'
+    Type     = 'Laptop'
+    MemoryGB = 16
+    Ready    = $true
+}
+
+$device.GetType().Name
+$device['Name']
+$device.MemoryGB
+$device.Keys
+</code></pre>
+<p>A normal hashtable does not guarantee the display order of its keys.</p>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>What type is <code>$device</code>?</li>
+<li>Show two ways to access a value.</li>
+<li>What do the keys represent?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Use both lookup styles and explain why key display order is not a test.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<p><code>$device</code> is a <code>Hashtable</code>. Values can be accessed with a key index such as
+<code>$device['Name']</code> or dot notation such as <code>$device.MemoryGB</code>. Keys name the
+associated values.</p>
+<p>The key display order is not guaranteed for a normal hashtable. Assess the
+key names and associated values, not one exact ordering.</p>
+</details>
+<h3 id="activity-5.2-add-update-and-check-entries">Activity 5.2 — Add, update, and check entries</h3>
+<p><strong>Predict</strong></p>
+<p>Which key checks should succeed after adding and updating entries?</p>
+<p><strong>Run:</strong></p>
+<pre><code class="language-powershell">$device['Location'] = 'Lab A'
+$device['MemoryGB'] = 32
+
+$device.ContainsKey('Location')
+$device.ContainsKey('Owner')
+$device
+</code></pre>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>Which entry was added?</li>
+<li>Which entry was updated?</li>
+<li>What Boolean values do the two key checks return?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Verify the added key, changed value, and both membership checks.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<p><code>Location</code> is added and <code>MemoryGB</code> is updated from 16 to 32. The key checks
+return <code>True</code> and <code>False</code>.</p>
+</details>
+<h3 id="activity-5.3-use-a-hashtable-for-splatting">Activity 5.3 — Use a hashtable for splatting</h3>
+<p><strong>Predict</strong></p>
+<p>Which date components does the hashtable supply to the command?</p>
+<p><strong>Run:</strong></p>
+<pre><code class="language-powershell">$dateParameters = @{
+    Year  = 2026
+    Month = 9
+    Day   = 21
+}
+
+$courseStart = Get-Date @dateParameters
+$courseStart
+$courseStart.GetType().Name
+</code></pre>
+<p>The call sets the year, month, and day. Time components that you did not
+specify come from the current time. The display format depends on the host
+and culture.</p>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>How do the hashtable keys relate to <code>Get-Date</code> parameters?</li>
+<li>What does <code>@dateParameters</code> do in the command call?</li>
+<li>Why can splatting improve readability?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Identify the named arguments and distinguish supplied date parts from defaults.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<p>The keys match the <code>-Year</code>, <code>-Month</code>, and <code>-Day</code> parameter names.
+<code>@dateParameters</code> splats the pairs into the command as named arguments. The
+result is a <code>DateTime</code> for 21 September 2026. Splatting separates data from the
+command and makes long calls easier to read and edit.</p>
+<p>Only the calendar date is fixed. Unspecified time components come from the
+current time, and the display format varies with the host and culture.</p>
+</details>
+<hr />
+<h2 id="part-6-create-custom-objects">Part 6 — Create custom objects</h2>
+<p>Review: <a href="powershell-basics-07-variables-objects-and-data-types.html#create-custom-objects-for-report-rows">Create custom objects and inspect session values</a>.</p>
+<h3 id="activity-6.1-convert-related-values-into-an-object">Activity 6.1 — Convert related values into an object</h3>
+<p><strong>Predict</strong></p>
+<p>Will the related values appear as keys or as an object's named properties?</p>
+<p><strong>Run:</strong></p>
+<pre><code class="language-powershell">$deviceObject = [pscustomobject]@{
+    Name     = 'LT-204'
+    Type     = 'Laptop'
+    MemoryGB = 32
+    Ready    = $true
+}
+
+$deviceObject
+$deviceObject.GetType().Name
+$deviceObject | Get-Member
+</code></pre>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>What short type name does <code>GetType().Name</code> report?</li>
+<li>How does the displayed custom object differ from the hashtable display?</li>
+<li>Why are custom objects useful in a pipeline?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Record short and full type names and identify the typed report properties.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<ol>
+<li><code>.GetType().Name</code> reports <code>PSCustomObject</code>. <code>Get-Member</code> displays the full
+type name <code>System.Management.Automation.PSCustomObject</code>.</li>
+<li>The hashtable normally displays keys and values. The custom object displays
+named properties as columns in this example; table spacing varies by host.</li>
+<li>Pipeline commands can select, filter, sort, measure, and export its
+properties.</li>
+</ol>
+<p>The object has <code>Name = LT-204</code>, <code>Type = Laptop</code>, <code>MemoryGB = 32</code>, and
+<code>Ready = True</code>. <code>Get-Member</code> lists these properties as <code>NoteProperty</code> members.</p>
+</details>
+<h3 id="activity-6.2-create-a-collection-of-custom-objects">Activity 6.2 — Create a collection of custom objects</h3>
+<p><strong>Predict</strong></p>
+<p>Which ready devices should remain, and what determines their display order?</p>
+<p><strong>Run:</strong></p>
+<pre><code class="language-powershell">$devices = @(
+    [pscustomobject]@{
+        Name = 'LT-204'; Type = 'Laptop'; MemoryGB = 32; Ready = $true
+    }
+    [pscustomobject]@{
+        Name = 'LT-205'; Type = 'Laptop'; MemoryGB = 16; Ready = $false
+    }
+    [pscustomobject]@{
+        Name = 'DT-301'; Type = 'Desktop'; MemoryGB = 32; Ready = $true
+    }
+)
+
+$devices |
+    Where-Object Ready -eq $true |
+    Sort-Object Name |
+    Select-Object Name, Type, MemoryGB
+</code></pre>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>Which devices pass the filter?</li>
+<li>Why is filtering by <code>Ready</code> reliable when it contains Boolean values?</li>
+<li>Which property could be measured numerically?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Verify the selected rows and explain why Boolean properties support decisions.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<p><code>DT-301</code> and <code>LT-204</code> pass and appear in name order. Boolean values avoid
+ambiguous text such as <code>Yes</code>, <code>yes</code>, or <code>Y</code>. <code>MemoryGB</code> can be measured
+numerically.</p>
+</details>
+<h3 id="activity-6.3-inspect-automatic-and-environment-variables">Activity 6.3 — Inspect automatic and environment variables</h3>
+<p><strong>Predict</strong></p>
+<p>Which displayed values belong to PowerShell, and which come from Windows?</p>
+<p><strong>Run:</strong></p>
+<pre><code class="language-powershell">$PWD
+$HOME
+$PSVersionTable.PSVersion
+$env:USERNAME
+</code></pre>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>Which variables are maintained automatically by PowerShell?</li>
+<li>Which variable reads an operating-system environment value?</li>
+<li>Why should scripts avoid overwriting automatic variables?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Identify the source of each value without overwriting automatic variables.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<p><code>$PWD</code>, <code>$HOME</code>, and <code>$PSVersionTable</code> are automatic PowerShell variables.
+<code>$env:USERNAME</code> reads the <code>USERNAME</code> environment variable. Automatic variables
+describe session state; overwriting them can make commands or later explanations
+misleading.</p>
+</details>
+<hr />
+<h2 id="part-7-challenge-build-a-typed-course-summary">Part 7 — Challenge: build a typed course summary</h2>
+<p>Filename: <code>Get-CourseSummary.ps1</code></p>
+<p>Save the supplied data and your challenge commands in this file. Run
+<code>. .\Get-CourseSummary.ps1</code> in your lab session.</p>
+<h3 id="scenario">Scenario</h3>
+<p>An instructor wants a reusable object that summarises a course and its submitted
+results.</p>
+<h3 id="your-task">Your task</h3>
+<p>Create the following data:</p>
+<pre><code class="language-powershell">$courseInfo = @{
+    Name    = 'Automation and Scripting'
+    Credits = 6
+    Active  = $true
+}
+
+$results = @(
+    [pscustomobject]@{ Student = 'Alex';   Score = 82; Submitted = $true  }
+    [pscustomobject]@{ Student = 'Morgan'; Score = 74; Submitted = $false }
+    [pscustomobject]@{ Student = 'Sam';    Score = 91; Submitted = $true  }
+)
+</code></pre>
+<p>Use <code>@(...)</code> around the filtered pipeline to keep submitted results as an
+array, even if only one result matches.</p>
+<p>Then:</p>
+<ol>
+<li>verify that <code>Credits</code> and every <code>Score</code> are numeric;</li>
+<li>select only submitted results;</li>
+<li>calculate the average submitted score;</li>
+<li>create <code>$courseSummary</code> as a <code>PSCustomObject</code> with <code>Course</code>, <code>Credits</code>,
+<code>Active</code>, <code>StudentCount</code>, <code>SubmittedCount</code>, and <code>AverageScore</code>;</li>
+<li>display the summary and inspect its members; and</li>
+<li>explain why a custom object is more reusable than one formatted text line.</li>
+</ol>
+<p><strong>Success criteria:</strong> The summary contains the six requested properties.
+Counts are calculated from the supplied collection, numeric and Boolean
+values retain their types, and the average uses only submitted results.</p>
+<pre><code class="language-powershell"># Select submitted results here.
+
+# Calculate the average here.
+
+# Create the summary object here.
+</code></pre>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Course-summary solution (Beginner):</strong></p>
+<pre><code class="language-powershell">$courseInfo = @{
+    Name    = 'Automation and Scripting'
+    Credits = 6
+    Active  = $true
+}
+
+$results = @(
+    [pscustomobject]@{ Student = 'Alex'; Score = 82; Submitted = $true }
+    [pscustomobject]@{ Student = 'Morgan'; Score = 74; Submitted = $false }
+    [pscustomobject]@{ Student = 'Sam'; Score = 91; Submitted = $true }
+)
+
+$submittedResults = @($results | Where-Object Submitted -eq $true)
+$averageSubmittedScore = (
+    $submittedResults | Measure-Object -Property Score -Average
+).Average
+
+$courseSummary = [pscustomobject]@{
+    Course         = $courseInfo.Name
+    Credits        = $courseInfo.Credits
+    Active         = $courseInfo.Active
+    StudentCount   = $results.Count
+    SubmittedCount = $submittedResults.Count
+    AverageScore   = $averageSubmittedScore
+}
+
+$courseSummary
+$courseInfo.Credits.GetType().Name
+$results.Score | ForEach-Object { $_.GetType().Name }
+$courseSummary | Get-Member
+</code></pre>
+<p>The custom object keeps each value as a named property, so it can be inspected, filtered, sorted, or exported instead of being trapped in one formatted text line.</p>
+<p>Expected summary: <code>Course = Automation and Scripting</code>, <code>Credits = 6</code>,
+<code>Active = True</code>, <code>StudentCount = 3</code>, <code>SubmittedCount = 2</code>, and
+<code>AverageScore = 86.5</code>. Alex and Sam are submitted. Credits and input scores
+report <code>Int32</code>; the calculated average is <code>Double</code>.</p>
+<details>
+<summary>Show solution Optimized</summary>
+<p><strong>Course-summary solution (Optimized):</strong></p>
+<pre><code class="language-powershell">$courseInfo = @{
+    Name    = 'Automation and Scripting'
+    Credits = 6
+    Active  = $true
+}
+
+$results = @(
+    [pscustomobject]@{ Student = 'Alex'; Score = 82; Submitted = $true }
+    [pscustomobject]@{ Student = 'Morgan'; Score = 74; Submitted = $false }
+    [pscustomobject]@{ Student = 'Sam'; Score = 91; Submitted = $true }
+)
+
+$submittedResults = @($results | Where-Object Submitted)
+$statsSubmitted = $submittedResults | Measure-Object -Property Score -Average
+
+$courseSummary = [pscustomobject][ordered]@{
+    Course         = $courseInfo.Name
+    Credits        = $courseInfo.Credits
+    Active         = $courseInfo.Active
+    StudentCount   = $results.Count
+    SubmittedCount = $submittedResults.Count
+    AverageScore   = $statsSubmitted.Average
+}
+
+$courseSummary
+@($courseInfo.Credits, $results.Score) | ForEach-Object { $_.GetType().Name }
+</code></pre>
+<p>The optimized version combines the filtering condition to just <code>Submitted</code> since it's a Boolean property, uses <code>[ordered]</code> to preserve property display order, and assigns the measurement result directly rather than accessing a nested property. Both versions produce the same summary with identical property values and types.</p>
+</details>
+</details>
+<h2 id="practice-and-self-check">Practice and self-check</h2>
+<ol>
+<li>Which method reveals a value's .NET type?</li>
+<li>What is dynamic typing?</li>
+<li>What does <code>[int]</code> do before a value or variable?</li>
+<li>Is <code>$null</code> the same as an empty string?</li>
+<li>Which index selects the first array element? Which selects the last?</li>
+<li>What is the difference between an array and a hashtable?</li>
+<li>What does splatting do?</li>
+<li>Why use <code>PSCustomObject</code> for report rows?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Self-check answers:</strong></p>
+<ol>
+<li>Call <code>.GetType()</code>, or <code>.GetType().Name</code> for the short type name. Do not call
+a method on <code>$null</code>; check whether a value exists first.</li>
+<li>An unconstrained variable can reference values of different types after
+reassignment.</li>
+<li>A cast such as <code>[int]'10'</code> converts a value. A declaration such as
+<code>[int]$count = 10</code> also constrains later assignments to that variable.</li>
+<li>No. <code>$null</code> is absence of a value; an empty string is a string of length
+zero.</li>
+<li><code>0</code> selects the first element; <code>-1</code> selects the last.</li>
+<li>Arrays store ordered, indexed values. Hashtables map keys to values.</li>
+<li>In this lab, a hashtable's keys and values supply named command arguments
+when used as <code>@dateParameters</code>.</li>
+<li>Custom objects expose named properties that pipeline and export commands
+can process directly while retaining their data types.</li>
+</ol>
+</details>
+<h2 id="submission-checklist">Submission checklist</h2>
+<ul>
+<li>Complete every prediction and reflection question.</li>
+<li>Inspect scalar, array, hashtable, and custom-object types.</li>
+<li>Demonstrate deliberate string-to-integer casting.</li>
+<li>Use splatting once.</li>
+<li>Complete and explain the typed course-summary challenge.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>Variables give names to values and object references. PowerShell usually
+determines types dynamically, while casts and type constraints let a script
+require specific data. Arrays store ordered values, hashtables store key-value
+pairs, and <code>PSCustomObject</code> combines named properties into pipeline-friendly
+records.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_variables">About variables</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_type_conversion">About type conversion</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_arrays">About arrays</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_hash_tables">About hash tables</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/scripting/learn/deep-dives/everything-about-pscustomobject">Everything you wanted to know about PSCustomObject</a></li>
+</ul>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Hands-on — Exception handling — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">11 - Exception handling</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a class="sidebar-current" href="hands-on-11-exception-handling.html" aria-current="page">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; Hands-on</p>
+            <h1 id="page-title">Hands-on — Exception handling</h1>
+            <p class="hero-description">11 - Exception handling</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/hands-on/11-exception-handling/01-exception-handling">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="goal">Goal</h2>
+<p>Handle expected failures without hiding useful diagnostics or leaving a script in an unclear state.</p>
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>By the end of this lab, you can:</p>
+<ul>
+<li>distinguish terminating and non-terminating errors;</li>
+<li>make a cmdlet error catchable with <code>-ErrorAction Stop</code>;</li>
+<li>use <code>try</code>, <code>catch</code>, and <code>finally</code>;</li>
+<li>inspect the current error record and exception;</li>
+<li>throw a clear exception for invalid state; and</li>
+<li>return consistent success and failure result objects.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Complete <a href="powershell-basics-12-exception-handling.html">Exception handling</a>
+before starting this lab.</li>
+<li>Complete <a href="hands-on-10-loops.html">10 — Loops</a>.</li>
+<li>Understand conditions, parameters, and object output.</li>
+</ul>
+<h2 id="how-to-work-in-this-lab">How to work in this lab</h2>
+<p>The lab deliberately causes controlled errors. Run one activity at a time and read every error message.</p>
+<p>After attempting each activity, open <strong>Show solution</strong> to check your commands,
+expected results, and explanations. The final exercise and self-check also
+have solutions. Keep the session and setup required by the activity. If you
+already changed a file or variable, compare its result rather than replaying
+the change from the solution.</p>
+<hr />
+<h2 id="part-1-observe-powershell-errors">Part 1 — Observe PowerShell errors</h2>
+<h3 id="activity-1.1-inspect-a-non-terminating-error">Activity 1.1 — Inspect a non-terminating error</h3>
+<pre><code class="language-powershell">$missingPath = Join-Path $HOME 'definitely-missing-course-file-12345.txt'
+Get-Item -Path $missingPath -ErrorAction Continue
+'Execution continued.'
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Is an error displayed?</li>
+<li>Does the next statement run?</li>
+<li>Why is this described as non-terminating behaviour?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p><code>Get-Item</code> displays an error but <code>Execution continued.</code> still appears. The cmdlet emitted a non-terminating error and continued the statement sequence.</p>
+</details>
+<h3 id="activity-1.2-inspect-the-error-record">Activity 1.2 — Inspect the error record</h3>
+<pre><code class="language-powershell">$Error[0].Exception.Message
+$Error[0].Exception.GetType().FullName
+$Error[0].CategoryInfo.Category
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What does index zero represent?</li>
+<li>Which property contains a readable message?</li>
+<li>Why is structured error information more useful than matching display text?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p><code>$Error[0]</code> is the most recent session error. <code>Exception.Message</code> is readable; the exception type and category support structured troubleshooting.</p>
+</details>
+<hr />
+<h2 id="part-2-catch-errors">Part 2 — Catch errors</h2>
+<h3 id="activity-2.1-compare-continue-and-stop">Activity 2.1 — Compare <code>Continue</code> and <code>Stop</code></h3>
+<pre><code class="language-powershell">try {
+    Get-Item -Path $missingPath -ErrorAction Continue
+    'Try block continued after Continue.'
+} catch {
+    'Catch block ran.'
+}
+</code></pre>
+<p>Then:</p>
+<pre><code class="language-powershell">try {
+    Get-Item -Path $missingPath -ErrorAction Stop
+    'This line should not run.'
+} catch {
+    'Catch block handled the missing path.'
+}
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which version enters <code>catch</code>?</li>
+<li>Why does <code>-ErrorAction Stop</code> matter for many cmdlets?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p><code>Continue</code> does not enter <code>catch</code>; <code>Stop</code> converts the cmdlet's non-terminating error into a terminating one that <code>catch</code> handles.</p>
+</details>
+<h3 id="activity-2.2-inspect_in-a-catch-block">Activity 2.2 — Inspect <code>$_</code> in a catch block</h3>
+<pre><code class="language-powershell">try {
+    Get-Item -Path $missingPath -ErrorAction Stop
+} catch {
+    [pscustomobject]@{
+        Message       = $_.Exception.Message
+        ExceptionType = $_.Exception.GetType().FullName
+        Category      = $_.CategoryInfo.Category
+        Target        = $_.TargetObject
+    }
+}
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What does <code>$_</code> represent inside <code>catch</code>?</li>
+<li>Which properties would help a support technician?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p>Inside <code>catch</code>, <code>$_</code> is the current <code>ErrorRecord</code>. Message, exception type, category, target, position, and invocation information can assist diagnosis.</p>
+</details>
+<h3 id="activity-2.3-use-finally">Activity 2.3 — Use <code>finally</code></h3>
+<pre><code class="language-powershell">$cleanupRan = $false
+
+try {
+    Get-Item -Path $missingPath -ErrorAction Stop
+} catch {
+    'The error was handled.'
+} finally {
+    $cleanupRan = $true
+    'Finally ran.'
+}
+
+$cleanupRan
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Does <code>finally</code> run after an error?</li>
+<li>Would it also run after a successful <code>try</code>?</li>
+<li>Name one suitable cleanup task.</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p><code>finally</code> runs after failure and after success. It is suitable for closing resources, restoring preference values, or recording completion.</p>
+<p>The supplied example displays <code>The error was handled.</code>, <code>Finally ran.</code>,
+and <code>True</code> for <code>$cleanupRan</code>.</p>
+</details>
+<hr />
+<h2 id="part-3-throw-and-catch-specific-failures">Part 3 — Throw and catch specific failures</h2>
+<h3 id="activity-3.1-throw-an-exception-deliberately">Activity 3.1 — Throw an exception deliberately</h3>
+<p>An installation needs at least 10 GB of free space. Use a simulated value
+to practise rejecting an unsuitable state without changing your computer.
+Review <a href="powershell-basics-12-exception-handling.html#signal-your-own-errors-with-throw">when to use throw</a>.
+Run this example in the terminal with default error preferences. It does
+not depend on earlier activity variables.</p>
+<p><strong>Predict:</strong> Will the success message run when only 4 GB is available?</p>
+<p><strong>Run:</strong></p>
+<pre><code class="language-powershell">$freeSpaceGB = 4
+
+try {
+    if ($freeSpaceGB -lt 10) {
+        throw &quot;Insufficient free space: $freeSpaceGB GB.&quot;
+    }
+
+    'Enough space is available.'
+} catch {
+    &quot;Validation failed: $($_.Exception.Message)&quot;
+}
+
+'Space check finished.'
+</code></pre>
+<p>Change <code>$freeSpaceGB = 4</code> to <code>$freeSpaceGB = 20</code> and rerun the whole block.</p>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Why is <code>throw</code> useful here?</li>
+<li>Does the success line run?</li>
+<li>What changes when you use 20 GB instead of 4 GB?</li>
+<li>Why does <code>throw</code> work with <code>catch</code> without <code>-ErrorAction Stop</code>?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Compare both runs. Confirm that the success message is
+skipped for 4 GB, shown for 20 GB, and followed by <code>Space check finished.</code>
+in both cases.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p>The prediction is that the success message is skipped for 4 GB.</p>
+<ol>
+<li><code>throw</code> signals that the installation cannot proceed with the available
+space. No cmdlet needs to fail for your script to detect this problem.</li>
+<li>With 4 GB, execution jumps to <code>catch</code>, skipping the success message.</li>
+<li>With 20 GB, the condition is false, so <code>throw</code> is not reached. The success
+message runs and <code>catch</code> is skipped.</li>
+<li><code>throw</code> already creates a terminating error. <code>-ErrorAction Stop</code> is used
+to make a cmdlet's non-terminating error catchable.</li>
+</ol>
+<p><strong>Expected output with 4 GB:</strong></p>
+<pre><code class="language-text">Validation failed: Insufficient free space: 4 GB.
+Space check finished.
+</code></pre>
+<p><strong>Expected output with 20 GB:</strong></p>
+<pre><code class="language-text">Enough space is available.
+Space check finished.
+</code></pre>
+<p>The final statement runs in both cases because the failed check is handled
+by <code>catch</code>. This activity changes only the simulated session variable.</p>
+</details>
+<h3 id="activity-3.2-catch-a-specific-type">Activity 3.2 — Catch a specific type</h3>
+<pre><code class="language-powershell">try {
+    throw [System.ArgumentException]::new('The supplied value is invalid.')
+} catch [System.ArgumentException] {
+    'An argument problem was handled.'
+} catch {
+    'A different problem was handled.'
+}
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which catch block runs?</li>
+<li>Why place specific catch blocks before a general catch?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p>The <code>ArgumentException</code> catch runs. Specific catches must appear first so they are not swallowed by a broader handler.</p>
+<p>The output is <code>An argument problem was handled.</code>.</p>
+</details>
+<hr />
+<h2 id="part-4-communicate-diagnostic-information">Part 4 — Communicate diagnostic information</h2>
+<h3 id="activity-4.1-use-warning-and-verbose-streams">Activity 4.1 — Use warning and verbose streams</h3>
+<pre><code class="language-powershell">Write-Warning 'This operation needs review.'
+Write-Verbose 'Detailed diagnostic information.'
+Write-Verbose 'Detailed diagnostic information.' -Verbose
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which messages are visible by default?</li>
+<li>What does <code>-Verbose</code> change?</li>
+<li>Why is verbose output preferable to unconditional diagnostic text?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p>Warnings display by default. Verbose messages are hidden unless requested with <code>-Verbose</code> or preference configuration. Optional diagnostics keep normal output clean.</p>
+<p>With default stream preferences, the warning and the final explicit verbose
+message appear. The middle <code>Write-Verbose</code> call is hidden.</p>
+</details>
+<h3 id="activity-4.2-capture-an-error-without-using-the-global-error-list">Activity 4.2 — Capture an error without using the global error list</h3>
+<pre><code class="language-powershell">Get-Item -Path $missingPath -ErrorAction SilentlyContinue -ErrorVariable localError
+
+$localError[0].Exception.Message
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What does <code>-ErrorVariable</code> capture?</li>
+<li>Why can a dedicated variable be clearer than <code>$Error[0]</code>?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and reflection answers:</strong></p>
+<p><code>-ErrorVariable</code> stores error records from that command in <code>localError</code>. This avoids depending on whatever error happens to be newest globally.</p>
+</details>
+<hr />
+<h2 id="part-5-challenge-produce-consistent-calculation-results">Part 5 — Challenge: produce consistent calculation results</h2>
+<p>Filename: <code>Get-CalculationResults.ps1</code></p>
+<p>Save the supplied data and your challenge commands in this file. Run
+<code>. .\Get-CalculationResults.ps1</code> in your lab session.</p>
+<p>Use:</p>
+<pre><code class="language-powershell">$calculations = @(
+    [pscustomobject]@{ Dividend = 10; Divisor = 2 }
+    [pscustomobject]@{ Dividend = 9;  Divisor = 0 }
+    [pscustomobject]@{ Dividend = 8;  Divisor = 4 }
+)
+</code></pre>
+<p>Process every item with <code>foreach</code>, <code>try</code>, <code>catch</code>, and <code>finally</code>:</p>
+<ul>
+<li>if the divisor is zero, throw a <code>System.DivideByZeroException</code>;</li>
+<li>successful result objects contain <code>Dividend</code>, <code>Divisor</code>, <code>Success = $true</code>, <code>Result</code>, and a null <code>Error</code>;</li>
+<li>failure objects contain the same properties, with <code>Success = $false</code>, a null <code>Result</code>, and the exception message;</li>
+<li>increment <code>$attemptCount</code> in <code>finally</code>; and</li>
+<li>display all result objects and the final attempt count.</li>
+</ul>
+<p>Explain why returning the same property structure for success and failure is useful.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p>Use the challenge's supplied input objects in the same session.</p>
+<p><strong>Calculation-results solution (Beginner):</strong></p>
+<pre><code class="language-powershell">$calculations = @(
+    [pscustomobject]@{ Dividend = 10; Divisor = 2 }
+    [pscustomobject]@{ Dividend = 9;  Divisor = 0 }
+    [pscustomobject]@{ Dividend = 8;  Divisor = 4 }
+)
+
+$attemptCount = 0
+$calculationResults = @()
+
+foreach ($calculation in $calculations) {
+
+    try {
+        if ($calculation.Divisor -eq 0) {
+            throw [System.DivideByZeroException]::new(&quot;Cannot divide by zero&quot;)
+        }
+
+        $result = $calculation.Dividend / $calculation.Divisor
+
+        $calculationResults += [pscustomobject]@{
+            Dividend = $calculation.Dividend
+            Divisor  = $calculation.Divisor
+            Success  = $true
+            Result   = $result
+            Error    = $null
+        }
+    }
+    catch {
+        $calculationResults += [pscustomobject]@{
+            Dividend = $calculation.Dividend
+            Divisor  = $calculation.Divisor
+            Success  = $false
+            Result   = $null
+            Error    = $_.Exception.Message
+        }
+    }
+    finally {
+        $attemptCount++
+    }
+}
+
+$calculationResults | Format-Table -AutoSize
+Write-Host &quot;Total attempts: $attemptCount&quot;
+</code></pre>
+<p>Results are <code>5</code>, failure, and <code>2</code>; attempt count is <code>3</code>. A consistent schema lets later commands filter by <code>Success</code>, select common properties, and export one table without special cases.</p>
+<details>
+<summary>Show solution Optimized</summary>
+<p>Use the challenge's supplied input objects in the same session.</p>
+<p><strong>Calculation-results solution (Optimized):</strong></p>
+<pre><code class="language-powershell">
+$calculations = @(
+    [pscustomobject]@{ Dividend = 10; Divisor = 2 }
+    [pscustomobject]@{ Dividend = 9;  Divisor = 0 }
+    [pscustomobject]@{ Dividend = 8;  Divisor = 4 }
+)
+
+$calculationResults = @()
+$attemptCount = 0
+
+foreach ($calculation in $calculations) {
+    try {
+        $result = $null
+        $errorMessage = $null
+        $success = $false
+
+        if ($calculation.Divisor -eq 0) {
+            throw [System.DivideByZeroException]::new('Divisor cannot be zero.')
+        }
+
+        $result = $calculation.Dividend / $calculation.Divisor
+        $success = $true
+    }
+    catch [System.DivideByZeroException] {
+        $errorMessage = $_.Exception.Message
+    }
+    finally {
+        $attemptCount++
+
+        $calculationResults += [pscustomobject]@{
+            Dividend = $calculation.Dividend
+            Divisor  = $calculation.Divisor
+            Success  = $success
+            Result   = $result
+            Error    = $errorMessage
+        }
+    }
+}
+
+$calculationResults
+$attemptCount
+</code></pre>
+<p>The optimized version separates the result object creation into the <code>finally</code> block, ensuring consistent property initialization regardless of the code path. This reduces code duplication while maintaining the same reliable output structure. Both versions produce identical results.</p>
+</details>
+</details>
+<h2 id="practice-and-self-check">Practice and self-check</h2>
+<ol>
+<li>Difference between terminating and non-terminating errors?</li>
+<li>What does <code>-ErrorAction Stop</code> do?</li>
+<li>What does <code>$_</code> represent in <code>catch</code>?</li>
+<li>When does <code>finally</code> run?</li>
+<li>What does <code>throw</code> do?</li>
+<li>Why catch specific exceptions before a general exception?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Self-check answers:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Error behaviours</td>
+<td>Terminating stops current execution path; non-terminating reports and continues.</td>
+</tr>
+<tr>
+<td><code>-ErrorAction Stop</code></td>
+<td>Makes applicable cmdlet errors terminating for the call.</td>
+</tr>
+<tr>
+<td><code>$_</code> in catch</td>
+<td>Current <code>ErrorRecord</code>.</td>
+</tr>
+<tr>
+<td><code>finally</code></td>
+<td>Runs whether <code>try</code> succeeds or fails.</td>
+</tr>
+<tr>
+<td><code>throw</code></td>
+<td>Creates/signals a terminating error.</td>
+</tr>
+<tr>
+<td>Catch order</td>
+<td>Specific handling must precede general fallback.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h2 id="submission-checklist">Submission checklist</h2>
+<ul>
+<li>Observe and explain both error behaviours.</li>
+<li>Inspect a structured error record.</li>
+<li>Demonstrate <code>try</code>, <code>catch</code>, <code>finally</code>, <code>throw</code>, and verbose output.</li>
+<li>Complete three consistent challenge result objects and attempt count 3.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>Good exception handling converts expected failures into explicit, useful outcomes. Catch only errors you can handle, preserve diagnostic information, and use <code>finally</code> for work that must always occur.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_try_catch_finally">About try, catch, and finally</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_preference_variables">About preference variables</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/scripting/learn/deep-dives/everything-about-exceptions">Everything you wanted to know about exceptions</a></li>
+</ul>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

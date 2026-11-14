@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Hands-on — Parameters, step by step — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">08 - Parameters</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a class="sidebar-current" href="hands-on-08-parameters.html" aria-current="page">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; Hands-on</p>
+            <h1 id="page-title">Hands-on — Parameters, step by step</h1>
+            <p class="hero-description">08 - Parameters</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/hands-on/08-parameters/01-parameters">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="goal">Goal</h2>
+<p>Build a small script one step at a time. Then use what you learned to write
+another script yourself.</p>
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>By the end of this lab, you can:</p>
+<ul>
+<li>Pass a value to a named parameter.</li>
+<li>Add parameters and default values to a script.</li>
+<li>Inspect a saved script's parameter syntax with <code>Get-Command -Syntax</code>.</li>
+<li>Use string, integer, mandatory, and switch parameters.</li>
+<li>Restrict input with <code>ValidateRange</code> and <code>ValidateSet</code>.</li>
+<li>Explain <code>[CmdletBinding()]</code> and try <code>-Verbose</code>.</li>
+<li>Recognise positional arguments.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Complete the introduction and variables hands-on labs.</li>
+<li>Complete the <a href="powershell-basics-09-parameters.html">parameters lesson</a> before starting this lab.</li>
+<li>Be able to create, save, inspect, and run a .ps1 file.</li>
+</ul>
+<h2 id="environment-and-safety-requirements">Environment and safety requirements</h2>
+<p>Use PowerShell 7 and Visual Studio Code on your Windows lab computer. Your
+instructor must prepare <code>C:\powershell</code> with writable access before the lab.
+Routine lab commands do not need elevation once that access is ready. The
+scripts display messages and do not change system settings.</p>
+<h2 id="how-to-work-in-this-lab">How to work in this lab</h2>
+<p>Use two places:</p>
+<ul>
+<li><strong>Editor:</strong> change the contents of your <code>.ps1</code> file in Visual Studio Code.</li>
+<li><strong>Terminal:</strong> run the commands shown under <strong>Run</strong> in PowerShell.</li>
+</ul>
+<p>Follow this cycle: <strong>predict → save → run → inspect → explain</strong>.</p>
+<p>When a step says <strong>Replace the script</strong>, replace the entire file with the
+shown version. Each version keeps earlier features and adds the next one.
+Do not put the <strong>Run</strong> commands in the script file.</p>
+<p>Keep the same terminal open. Save with <strong>Ctrl+S</strong> after each change. Work
+through the parts in order; the final exercise uses the features you practised.</p>
+<p>After attempting each activity, open <strong>Show solution</strong> to check your commands,
+expected results, and explanations. The final exercise and self-check also
+have solutions. Keep the session and setup required by the activity. If you
+already changed a file or variable, compare its result rather than replaying
+the change from the solution.</p>
+<h2 id="part-1-try-a-parameter-you-already-have">Part 1 — Try a parameter you already have</h2>
+<p>Review: <a href="powershell-basics-09-parameters.html#why-parameters-matter">Parameter names and argument values</a>.</p>
+<h3 id="activity-1.1-change-a-commands-input">Activity 1.1 — Change a command's input</h3>
+<p><strong>Predict</strong></p>
+<p>Which output will contain only a formatted date, and which input controls it?</p>
+<p>A <strong>parameter</strong> is a named input. An <strong>argument</strong> is the value you give it.
+Parameters let you change a command's behaviour without rewriting the command.</p>
+<p><strong>Run</strong> these commands in the terminal:</p>
+<pre><code class="language-powershell">Get-Date
+Get-Date -Format 'yyyy-MM-dd'
+</code></pre>
+<p><code>Format</code> chooses how the date is displayed. <code>yyyy-MM-dd</code> means year, month,
+and day. The displayed date depends on when you run the command.</p>
+<p><strong>Check your understanding:</strong></p>
+<ol>
+<li>Which part of the second command is the parameter name?</li>
+<li>Which part is the argument value?</li>
+<li>How does the second output differ from the first?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Identify the parameter, its argument, and the date display difference.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<ol>
+<li><code>Format</code> is the parameter name, written as <code>-Format</code> in the call.</li>
+<li><code>'yyyy-MM-dd'</code> is its argument value.</li>
+<li>The second call displays only the date in year-month-day order. The first
+normally includes a time and uses the host's default display format.</li>
+</ol>
+<p>The calendar date changes with the day of execution. The first display also
+varies with the computer's culture and current time.</p>
+</details>
+<h2 id="part-2-create-and-run-a-tiny-script">Part 2 — Create and run a tiny script</h2>
+<p>Review: <a href="powershell-basics-09-parameters.html#prepare-the-lesson-workspace">Workspace and script structure</a>.</p>
+<h3 id="activity-2.1-prepare-your-folder">Activity 2.1 — Prepare your folder</h3>
+<p><strong>Predict</strong></p>
+<p>Where should the script be saved so the terminal can run it with a relative path?</p>
+<p><strong>Run</strong> these commands in the terminal, one line at a time:</p>
+<pre><code class="language-powershell">$parameterLab = Join-Path -Path 'C:\powershell' -ChildPath 'PowerShell-Parameters-Lab'
+New-Item -Path $parameterLab -ItemType Directory -Force
+Set-Location -LiteralPath $parameterLab
+Get-Location
+</code></pre>
+<p>Check that your current folder ends in <code>PowerShell-Parameters-Lab</code>.
+<code>Join-Path</code> builds a file or folder path below the course practice folder,
+<code>C:\powershell</code>. <code>Set-Location</code> changes the terminal's current folder.</p>
+<p>Open the script in the editor:</p>
+<pre><code class="language-powershell">code .\New-StudyMessage.ps1
+</code></pre>
+<p>If <code>code</code> is unavailable, open Visual Studio Code manually. Create a file and
+save it as <code>New-StudyMessage.ps1</code> inside your lab folder. Check that the file
+extension is <code>.ps1</code>, not <code>.ps1.txt</code>.</p>
+<p><strong>Check your understanding:</strong></p>
+<ol>
+<li>Where will you save the script?</li>
+<li>Which command changes the terminal's current folder?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Confirm the lab folder and choose the exact .ps1 filename before editing.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<ol>
+<li>Save <code>New-StudyMessage.ps1</code> in
+<code>C:\powershell\PowerShell-Parameters-Lab</code>.</li>
+<li><code>Set-Location -LiteralPath $parameterLab</code> changes the current folder.</li>
+</ol>
+<p>If the terminal is restarted, run the folder setup again. If the editor's
+<code>code</code> command is unavailable, opening and saving the file manually is enough.
+To check the saved filename, use:</p>
+<pre><code class="language-powershell">Get-Item -LiteralPath .\New-StudyMessage.ps1
+</code></pre>
+</details>
+<h3 id="activity-2.2-run-the-first-version">Activity 2.2 — Run the first version</h3>
+<p><strong>Predict</strong></p>
+<p>Will changing a saved fixed message require editing the script?</p>
+<p><strong>Editor:</strong> add this line and save the file:</p>
+<pre><code class="language-powershell">Write-Output 'Study topic: PowerShell'
+</code></pre>
+<p><strong>Run</strong> in the terminal:</p>
+<pre><code class="language-powershell">.\New-StudyMessage.ps1
+</code></pre>
+<p><code>.\</code> means the current folder. PowerShell uses it to locate your script.
+<code>Write-Output</code> displays the message produced by this simple script.</p>
+<p><strong>Check your understanding:</strong></p>
+<ol>
+<li>What message does the script display?</li>
+<li>Change <code>PowerShell</code> to <code>Windows</code>, save, and run again. What changes?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Save and rerun after the edit; connect the changed output to the saved content.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<ol>
+<li>The first version displays <code>Study topic: PowerShell</code>.</li>
+<li>After editing and saving, it displays <code>Study topic: Windows</code>.</li>
+</ol>
+<p>A different message requires editing this first version because its topic is
+hard-coded. This motivates replacing the fixed text with an input.</p>
+</details>
+<h2 id="part-3-make-the-topic-an-input">Part 3 — Make the topic an input</h2>
+<p>Review: <a href="powershell-basics-09-parameters.html#the-parameter-block">The parameter block and defaults</a>.</p>
+<h3 id="activity-3.1-add-your-first-parameter">Activity 3.1 — Add your first parameter</h3>
+<p>Editing the file every time you want a different topic is inconvenient.
+A parameter lets you supply the topic when you run the script.</p>
+<p><strong>Replace the script</strong> with this version and save:</p>
+<pre><code class="language-powershell">param(
+    [string]$Topic
+)
+
+Write-Output &quot;Study topic: $Topic&quot;
+</code></pre>
+<p><code>param()</code> declares the script's inputs. It belongs before executable
+statements. <code>[string]</code> means the input is text. <code>$Topic</code> stores the supplied
+value inside the script.</p>
+<p><strong>Predict</strong> the two messages, then <strong>Run</strong>:</p>
+<pre><code class="language-powershell">.\New-StudyMessage.ps1 -Topic 'PowerShell'
+.\New-StudyMessage.ps1 -Topic 'Windows services'
+</code></pre>
+<p>Use quotes around a value containing spaces. Put a hyphen before the parameter
+name when calling the script; use <code>$</code> before the variable name inside it.</p>
+<p>Inspect the saved parameter definition without running the script body:</p>
+<pre><code class="language-powershell">Get-Command .\New-StudyMessage.ps1 -Syntax
+</code></pre>
+<p>Read the syntax line using the lesson's
+<a href="powershell-basics-09-parameters.html#the-parameter-block">parameter block explanation</a>.
+Save and rerun this command whenever you change the script's parameters.</p>
+<p><strong>Check your understanding:</strong></p>
+<ol>
+<li>What is the parameter called?</li>
+<li>Why are quotes useful around <code>'Windows services'</code>?</li>
+<li>Did you need to edit the script between these two calls?</li>
+<li>What syntax line is shown? What do <code>&lt;string&gt;</code> and the outer brackets mean?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Run both supplied topics and inspect the saved parameter syntax.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<ol>
+<li><p>The parameter is <code>Topic</code>; the script uses the variable <code>$Topic</code>.</p>
+</li>
+<li><p>Quotes keep <code>Windows services</code> together as one text argument.</p>
+</li>
+<li><p>No edit is needed between calls. Each caller supplies the new topic.</p>
+</li>
+<li><p>The syntax line is:</p>
+<pre><code class="language-text">.\New-StudyMessage.ps1 [[-Topic] &lt;string&gt;]
+</code></pre>
+<p><code>&lt;string&gt;</code> means a text value. The outer brackets make the complete input
+optional; the inner brackets mean the parameter name can be omitted for a
+positional call. A resolved-path header may also appear. This command shows
+syntax without producing the script's study message.</p>
+</li>
+</ol>
+<p>Expected output, one line per call:</p>
+<pre><code class="language-text">Study topic: PowerShell
+Study topic: Windows services
+</code></pre>
+<p>The parameter block belongs before executable statements. Comments, blank
+lines, directives, and script attributes may precede it.</p>
+</details>
+<h3 id="activity-3.2-add-a-default-value">Activity 3.2 — Add a default value</h3>
+<p>A <strong>default</strong> is a value used when you leave out an optional argument.</p>
+<p><strong>Replace the script</strong> with this version and save:</p>
+<pre><code class="language-powershell">param(
+    [string]$Topic = 'PowerShell'
+)
+
+Write-Output &quot;Study topic: $Topic&quot;
+</code></pre>
+<p>Only the declaration of <code>$Topic</code> has changed.</p>
+<p><strong>Predict</strong>, then <strong>Run</strong>:</p>
+<pre><code class="language-powershell">.\New-StudyMessage.ps1
+.\New-StudyMessage.ps1 -Topic 'Networking'
+</code></pre>
+<p><strong>Check your understanding:</strong></p>
+<ol>
+<li>Which topic is used when you leave out <code>-Topic</code>?</li>
+<li>Does a supplied topic replace the default?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Demonstrate the omitted input and a supplied replacement for the default.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<ol>
+<li>The omitted input uses the default topic <code>PowerShell</code>.</li>
+<li>A supplied topic overrides the default, producing <code>Study topic: Networking</code>.</li>
+</ol>
+<p>The first call produces <code>Study topic: PowerShell</code>. No required parameter has
+been introduced yet, so omitting the topic does not prompt.</p>
+</details>
+<h2 id="part-4-add-a-number-and-require-a-topic">Part 4 — Add a number and require a topic</h2>
+<p>Review: <a href="powershell-basics-09-parameters.html#data-types-and-arrays">Typed and mandatory inputs</a>.</p>
+<h3 id="activity-4.1-add-the-number-of-study-hours">Activity 4.1 — Add the number of study hours</h3>
+<p>Add a second input so you can change the study time. <code>[int]</code> means a whole
+number. Separate parameter declarations with a comma.</p>
+<p><strong>Replace the script</strong> with this version and save:</p>
+<pre><code class="language-powershell">param(
+    [string]$Topic = 'PowerShell',
+    [int]$Hours = 2
+)
+
+Write-Output &quot;Study topic: $Topic&quot;
+Write-Output &quot;Hours: $Hours&quot;
+</code></pre>
+<p><strong>Predict</strong>, then <strong>Run</strong> each call separately:</p>
+<pre><code class="language-powershell">.\New-StudyMessage.ps1 -Topic 'Files'
+.\New-StudyMessage.ps1 -Topic 'Files' -Hours 4
+.\New-StudyMessage.ps1 -Topic 'Files' -Hours 'many'
+</code></pre>
+<p>The last call intentionally uses invalid input. An error here is part of the
+exercise. Read which parameter it names, then continue.</p>
+<p><strong>Check your understanding:</strong></p>
+<ol>
+<li>Which hours value is used by the first call?</li>
+<li>What changes when you supply <code>-Hours 4</code>?</li>
+<li>Why can <code>'many'</code> not be used for this parameter?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Compare default and supplied hours, then identify the deliberate conversion error.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<ol>
+<li>The first call uses the default <code>Hours = 2</code>.</li>
+<li>The second call displays <code>Hours: 4</code> instead.</li>
+<li><code>'many'</code> cannot be converted to an integer. Binding fails before the script
+writes a message.</li>
+</ol>
+<p>First call:</p>
+<pre><code class="language-text">Study topic: Files
+Hours: 2
+</code></pre>
+<p>Second call:</p>
+<pre><code class="language-text">Study topic: Files
+Hours: 4
+</code></pre>
+<p>The third call reports an argument conversion error naming <code>Hours</code>. Exact
+error wording can vary with PowerShell version and language.</p>
+</details>
+<h3 id="activity-4.2-make-the-topic-mandatory">Activity 4.2 — Make the topic mandatory</h3>
+<p><strong>Predict</strong></p>
+<p>What should PowerShell do when you omit the now-required topic?</p>
+<p><strong>Mandatory</strong> means required. Require a topic so a caller must choose one.
+Remove its default and add <code>[Parameter(Mandatory)]</code> above it.</p>
+<p><strong>Replace the script</strong> with this version and save:</p>
+<pre><code class="language-powershell">param(
+    [Parameter(Mandatory)]
+    [string]$Topic,
+
+    [int]$Hours = 2
+)
+
+Write-Output &quot;Study topic: $Topic&quot;
+Write-Output &quot;Hours: $Hours&quot;
+</code></pre>
+<p><strong>Run</strong> in the terminal:</p>
+<pre><code class="language-powershell">.\New-StudyMessage.ps1 -Topic 'Files'
+.\New-StudyMessage.ps1
+</code></pre>
+<p>For the second call, type <code>Practice</code> when PowerShell asks for <code>Topic</code>, then
+press Enter. This prompt is expected in an interactive terminal. Supply the
+value explicitly when a script must run unattended.</p>
+<p>After saving this mandatory version, inspect its syntax again:</p>
+<pre><code class="language-powershell">Get-Command .\New-StudyMessage.ps1 -Syntax
+</code></pre>
+<p><strong>Check your understanding:</strong></p>
+<ol>
+<li>Which line makes the topic required?</li>
+<li>What happens if you leave out the required topic in this terminal?</li>
+<li>How does the syntax now distinguish required <code>Topic</code> from optional <code>Hours</code>?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Record an explicit topic and the expected interactive prompt; leave policy unchanged.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<ol>
+<li><p><code>[Parameter(Mandatory)]</code> makes <code>Topic</code> required.</p>
+</li>
+<li><p>Omitting it in an interactive terminal produces a prompt. After entering
+<code>Practice</code>, the script displays that topic and the default two hours.</p>
+</li>
+<li><p>The syntax line is:</p>
+<pre><code class="language-text">.\New-StudyMessage.ps1 [-Topic] &lt;string&gt; [[-Hours] &lt;int&gt;] [&lt;CommonParameters&gt;]
+</code></pre>
+<p><code>Topic</code> has no outer brackets around its complete input, so its value is
+required. <code>Hours</code> has outer brackets and is optional; <code>&lt;int&gt;</code> indicates a
+whole-number value. <code>[&lt;CommonParameters&gt;]</code> represents built-in options such
+as <code>-Verbose</code>; <code>[Parameter(Mandatory)]</code> also enables advanced handling.</p>
+</li>
+</ol>
+<p>The first call displays the <code>Files</code> topic with <code>Hours: 2</code>. The second produces:</p>
+<pre><code class="language-text">Study topic: Practice
+Hours: 2
+</code></pre>
+<p>The prompt's wording varies by host.</p>
+</details>
+<h2 id="part-5-check-the-input">Part 5 — Check the input</h2>
+<p>Review: <a href="powershell-basics-09-parameters.html#validation">Validation rules</a>.</p>
+<h3 id="activity-5.1-allow-only-a-useful-number-of-hours">Activity 5.1 — Allow only a useful number of hours</h3>
+<p><strong>Predict</strong></p>
+<p>Which calls should pass the range rule, including its two boundary values?</p>
+<p>A number such as <code>99</code> is a valid integer but not a useful study time for this
+script. <strong>Validation</strong> checks whether a supplied value follows a rule.</p>
+<p><strong>Replace the script</strong> with this version and save:</p>
+<pre><code class="language-powershell">param(
+    [Parameter(Mandatory)]
+    [string]$Topic,
+
+    [ValidateRange(1, 10)]
+    [int]$Hours = 2
+)
+
+Write-Output &quot;Study topic: $Topic&quot;
+Write-Output &quot;Hours: $Hours&quot;
+</code></pre>
+<p><code>ValidateRange(1, 10)</code> allows values from <code>1</code> through <code>10</code>, including both ends.</p>
+<p><strong>Run</strong> each call separately:</p>
+<pre><code class="language-powershell">.\New-StudyMessage.ps1 -Topic 'Files' -Hours 3
+.\New-StudyMessage.ps1 -Topic 'Files' -Hours 99
+</code></pre>
+<p>Now try <code>-Hours 1</code> and <code>-Hours 10</code> yourself.</p>
+<p><strong>Check your understanding:</strong></p>
+<ol>
+<li>Which attribute checks the number of hours?</li>
+<li>Why is <code>99</code> rejected even though it is a number?</li>
+<li>Are <code>1</code> and <code>10</code> accepted?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Verify accepted boundaries and explain why the out-of-range integer fails.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<ol>
+<li><code>[ValidateRange(1, 10)]</code> checks the permitted range.</li>
+<li><code>99</code> can be converted to an integer, but it is outside that range.</li>
+<li><code>1</code> and <code>10</code> both work because the range is inclusive.</li>
+</ol>
+<p>The valid supplied call displays:</p>
+<pre><code class="language-text">Study topic: Files
+Hours: 3
+</code></pre>
+<p>The <code>99</code> call reports a validation error naming <code>Hours</code> and returns no study
+message. To test the two boundaries, run:</p>
+<pre><code class="language-powershell">.\New-StudyMessage.ps1 -Topic 'Files' -Hours 1
+.\New-StudyMessage.ps1 -Topic 'Files' -Hours 10
+</code></pre>
+<p>Expect <code>Hours: 1</code> and <code>Hours: 10</code>, respectively.</p>
+</details>
+<h3 id="activity-5.2-offer-a-small-list-of-choices">Activity 5.2 — Offer a small list of choices</h3>
+<p><strong>Predict</strong></p>
+<p>Which priorities should be accepted, and what happens when one is omitted?</p>
+<p>Add a priority. <code>ValidateSet</code> limits input to a listed set of values.</p>
+<p><strong>Replace the script</strong> with this version and save:</p>
+<pre><code class="language-powershell">param(
+    [Parameter(Mandatory)]
+    [string]$Topic,
+
+    [ValidateRange(1, 10)]
+    [int]$Hours = 2,
+
+    [ValidateSet('Low', 'Medium', 'High')]
+    [string]$Priority = 'Medium'
+)
+
+Write-Output &quot;Study topic: $Topic&quot;
+Write-Output &quot;Hours: $Hours&quot;
+Write-Output &quot;Priority: $Priority&quot;
+</code></pre>
+<p><strong>Run</strong> each call separately:</p>
+<pre><code class="language-powershell">.\New-StudyMessage.ps1 -Topic 'Files'
+.\New-StudyMessage.ps1 -Topic 'Files' -Priority High
+.\New-StudyMessage.ps1 -Topic 'Files' -Priority Urgent
+</code></pre>
+<p><strong>Check your understanding:</strong></p>
+<ol>
+<li>What is the default priority?</li>
+<li>Which three priority values are allowed?</li>
+<li>Why is <code>Urgent</code> rejected?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Record the default, an allowed replacement, and the rejected priority.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<ol>
+<li>The default priority is <code>Medium</code>.</li>
+<li>Allowed values are <code>Low</code>, <code>Medium</code>, and <code>High</code>.</li>
+<li><code>Urgent</code> is outside the set, so parameter validation rejects it.</li>
+</ol>
+<p>The first call displays:</p>
+<pre><code class="language-text">Study topic: Files
+Hours: 2
+Priority: Medium
+</code></pre>
+<p>The second displays the same topic and hours with <code>Priority: High</code>. The third
+reports a validation error naming <code>Priority</code> and returns no study message.</p>
+</details>
+<h2 id="part-6-turn-an-option-on-or-off">Part 6 — Turn an option on or off</h2>
+<p>Review: <a href="powershell-basics-09-parameters.html#switch-parameters">Switch values</a>.</p>
+<h3 id="activity-6.1-add-a-switch">Activity 6.1 — Add a switch</h3>
+<p>A <strong>switch</strong> is an on/off option. Add <code>-Detailed</code> to request an extra message.
+A switch does not need a separate value after its name.</p>
+<p><strong>Replace the script</strong> with this version and save:</p>
+<pre><code class="language-powershell">param(
+    [Parameter(Mandatory)]
+    [string]$Topic,
+
+    [ValidateRange(1, 10)]
+    [int]$Hours = 2,
+
+    [ValidateSet('Low', 'Medium', 'High')]
+    [string]$Priority = 'Medium',
+
+    [switch]$Detailed
+)
+
+Write-Output &quot;Study topic: $Topic&quot;
+Write-Output &quot;Hours: $Hours&quot;
+Write-Output &quot;Priority: $Priority&quot;
+
+if ($Detailed) {
+    Write-Output &quot;Plan: Study $Topic for $Hours hour(s).&quot;
+}
+</code></pre>
+<p><code>if ($Detailed)</code> runs the statements inside its braces only when the switch
+is true. You will practise <code>if</code> in more detail in the next lab.</p>
+<p><strong>Predict</strong> which calls show the extra plan, then <strong>Run</strong>:</p>
+<pre><code class="language-powershell">.\New-StudyMessage.ps1 -Topic 'Files'
+.\New-StudyMessage.ps1 -Topic 'Files' -Detailed
+.\New-StudyMessage.ps1 -Topic 'Files' -Detailed:$false
+</code></pre>
+<p>The colon in <code>-Detailed:$false</code> explicitly turns the option off. A supplied
+switch can therefore be false. Test its value when deciding what to do.</p>
+<p><strong>Check your understanding:</strong></p>
+<ol>
+<li>Which call enables the extra message?</li>
+<li>Does leaving out <code>-Detailed</code> enable it?</li>
+<li>Does <code>-Detailed:$false</code> enable it?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Compare absent, enabled, and explicitly false switch values.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<ol>
+<li>The second call, with <code>-Detailed</code>, enables the extra plan.</li>
+<li>Leaving out the switch leaves it false, so no plan is displayed.</li>
+<li><code>-Detailed:$false</code> supplies a false switch value, so no plan is displayed.</li>
+</ol>
+<p>All three calls display the topic, hours, and priority. Only the second also
+adds:</p>
+<pre><code class="language-text">Plan: Study Files for 2 hour(s).
+</code></pre>
+<p>The condition tests the switch's value. Being supplied is different from being
+true.</p>
+</details>
+<h2 id="part-7-add-optional-diagnostic-output">Part 7 — Add optional diagnostic output</h2>
+<p>Review: <a href="powershell-basics-09-parameters.html#using-cmdletbinding">Cmdlet binding and verbose output</a>.</p>
+<h3 id="activity-7.1-use-cmdletbinding-and-verbose">Activity 7.1 — Use <code>[CmdletBinding()]</code> and <code>-Verbose</code></h3>
+<p>A <strong>diagnostic message</strong> explains what a script is doing. <code>Write-Verbose</code>
+lets a caller request that message without changing the normal output.</p>
+<p><code>[CmdletBinding()]</code> explicitly marks the script for cmdlet-style handling.
+It provides common parameters such as <code>-Verbose</code>. Place it before <code>param()</code>.
+The earlier <code>[Parameter()]</code> attribute also enables advanced handling; using
+<code>[CmdletBinding()]</code> makes that intention clear at the top of the script.</p>
+<p><strong>Replace the script</strong> with this version and save:</p>
+<pre><code class="language-powershell">[CmdletBinding()]
+param(
+    [Parameter(Mandatory)]
+    [string]$Topic,
+
+    [ValidateRange(1, 10)]
+    [int]$Hours = 2,
+
+    [ValidateSet('Low', 'Medium', 'High')]
+    [string]$Priority = 'Medium',
+
+    [switch]$Detailed
+)
+
+Write-Verbose 'Preparing the study message'
+
+Write-Output &quot;Study topic: $Topic&quot;
+Write-Output &quot;Hours: $Hours&quot;
+Write-Output &quot;Priority: $Priority&quot;
+
+if ($Detailed) {
+    Write-Output &quot;Plan: Study $Topic for $Hours hour(s).&quot;
+}
+</code></pre>
+<p><strong>Predict</strong> the difference, then <strong>Run</strong>:</p>
+<pre><code class="language-powershell">.\New-StudyMessage.ps1 -Topic 'Files'
+.\New-StudyMessage.ps1 -Topic 'Files' -Verbose
+</code></pre>
+<p>You do not need to declare a custom <code>Verbose</code> parameter.</p>
+<p><strong>Check your understanding:</strong></p>
+<ol>
+<li>Where is <code>[CmdletBinding()]</code> placed?</li>
+<li>Which call displays the diagnostic message?</li>
+<li>Does <code>-Verbose</code> change the topic or number of hours?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Keep normal output separate from the requested diagnostic message.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<ol>
+<li><code>[CmdletBinding()]</code> is immediately before <code>param()</code>, outside its parentheses.</li>
+<li>The call with <code>-Verbose</code> displays <code>Preparing the study message</code> as a
+diagnostic message. Both calls retain the same normal output.</li>
+<li><code>-Verbose</code> does not change the topic or hours.</li>
+</ol>
+<p>Verbose output is normally hidden. If a student has changed the session's
+<code>$VerbosePreference</code>, both calls may show the message; use a fresh default
+session when demonstrating the difference. <code>[Parameter()]</code> already enables
+advanced handling, so the added attribute makes it explicit rather than
+introducing a previously unavailable custom <code>Verbose</code> input.</p>
+</details>
+<h2 id="part-8-recognise-positional-arguments">Part 8 — Recognise positional arguments</h2>
+<p>Review: <a href="powershell-basics-09-parameters.html#explicit-positional-parameters">Explicit positions</a>.</p>
+<h3 id="activity-8.1-try-a-shorter-call">Activity 8.1 — Try a shorter call</h3>
+<p>A <strong>positional argument</strong> leaves out the parameter name. Its position decides
+which input receives the value. Prefer names when they make a call clearer.</p>
+<p><strong>Replace the script</strong> with this version and save:</p>
+<pre><code class="language-powershell">[CmdletBinding()]
+param(
+    [Parameter(Mandatory, Position = 0)]
+    [string]$Topic,
+
+    [Parameter(Position = 1)]
+    [ValidateRange(1, 10)]
+    [int]$Hours = 2,
+
+    [ValidateSet('Low', 'Medium', 'High')]
+    [string]$Priority = 'Medium',
+
+    [switch]$Detailed
+)
+
+Write-Verbose 'Preparing the study message'
+
+Write-Output &quot;Study topic: $Topic&quot;
+Write-Output &quot;Hours: $Hours&quot;
+Write-Output &quot;Priority: $Priority&quot;
+
+if ($Detailed) {
+    Write-Output &quot;Plan: Study $Topic for $Hours hour(s).&quot;
+}
+</code></pre>
+<p>The new <code>Position</code> values explicitly define <code>Topic</code> as position <code>0</code> and
+<code>Hours</code> as position <code>1</code>. Positions count from zero.</p>
+<p><strong>Predict</strong>, then <strong>Run</strong>:</p>
+<pre><code class="language-powershell">.\New-StudyMessage.ps1 -Topic 'Files' -Hours 3
+.\New-StudyMessage.ps1 'Files' 3
+</code></pre>
+<p><strong>Check your understanding:</strong></p>
+<ol>
+<li>Which parameter receives <code>'Files'</code> in the shorter call?</li>
+<li>Which parameter receives <code>3</code>?</li>
+<li>Which call is easier for a new reader to understand, and why?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Show equivalent named and positional calls and identify both input positions.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Solution and explanation:</strong></p>
+<ol>
+<li><code>Files</code> binds to <code>Topic</code> at position <code>0</code>.</li>
+<li><code>3</code> binds to <code>Hours</code> at position <code>1</code>.</li>
+<li>Prefer the named call for a new reader because it states each input's
+purpose. A justified preference for short interactive calls is acceptable.</li>
+</ol>
+<p>Both calls display:</p>
+<pre><code class="language-text">Study topic: Files
+Hours: 3
+Priority: Medium
+</code></pre>
+<p>The final guided version is also included in
+<a href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/hands-on/solutions/08-parameters/files/New-StudyMessage.ps1">New-StudyMessage.ps1</a>.</p>
+</details>
+<h2 id="practice-and-self-check">Practice and self-check</h2>
+<p>Before the final exercise, explain these ideas in your own words:</p>
+<ol>
+<li>What is the difference between a parameter and its argument?</li>
+<li>What happens when an optional input has a default value?</li>
+<li>What is the difference between <code>[int]</code> and <code>ValidateRange</code>?</li>
+<li>How do you enable a switch?</li>
+<li>What does <code>-Verbose</code> help you inspect?</li>
+</ol>
+<p>If one answer is unclear, repeat the matching guided activity before continuing.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Self-check answers:</strong></p>
+<ol>
+<li>A parameter is a declared input; an argument is a value supplied to it.</li>
+<li>The default is used when that optional argument is omitted. A supplied
+value replaces the default.</li>
+<li><code>[int]</code> requires a value convertible to an integer. <code>ValidateRange</code> checks
+whether the converted value is within the allowed inclusive range.</li>
+<li>Supply the switch's name, such as <code>-Detailed</code>.</li>
+<li>Verbose output shows optional diagnostic messages about the script's work.</li>
+</ol>
+</details>
+<h2 id="part-9-final-exercise-a-report-request">Part 9 — Final exercise: a report request</h2>
+<p>Filename: <code>New-ReportRequest.ps1</code></p>
+<h3 id="activity-9.1-build-your-own-script">Activity 9.1 — Build your own script</h3>
+<p><strong>Predict</strong></p>
+<p>Which test calls should display a request, and which should fail before output?</p>
+<p>You have built one script with guidance. Now create a different script using
+the same techniques. A report request describes what a report should contain.
+Your script only displays that request; it does not create a report file.</p>
+<h4 id="step-1-create-the-file">Step 1 — Create the file</h4>
+<p>In your lab folder, create and save <code>New-ReportRequest.ps1</code>:</p>
+<pre><code class="language-powershell">code .\New-ReportRequest.ps1
+</code></pre>
+<p>You can also create the file manually in Visual Studio Code.</p>
+<h4 id="step-2-add-the-inputs">Step 2 — Add the inputs</h4>
+<p>Put <code>[CmdletBinding()]</code> before <code>param()</code>. Use this checklist:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Name</code></td>
+<td><code>[string]</code></td>
+<td>Mandatory; no default.</td>
+</tr>
+<tr>
+<td><code>Top</code></td>
+<td><code>[int]</code></td>
+<td>Default <code>5</code>; allow <code>1</code> through <code>20</code>.</td>
+</tr>
+<tr>
+<td><code>Format</code></td>
+<td><code>[string]</code></td>
+<td>Default <code>Table</code>; allow <code>Table</code>, <code>Csv</code>, <code>Json</code>.</td>
+</tr>
+<tr>
+<td><code>IncludeDetails</code></td>
+<td><code>[switch]</code></td>
+<td>Request an extra message when true.</td>
+</tr>
+</tbody>
+</table>
+<p>Use the guided script to remember how each feature is written. Choose named
+arguments for the test calls; you do not need to define explicit positions.</p>
+<h4 id="step-3-display-the-request">Step 3 — Display the request</h4>
+<p>Use <code>Write-Output</code> to display the report name, <code>Top</code>, and <code>Format</code>. Add an
+<code>if</code> block that displays an extra message only when <code>IncludeDetails</code> is true.
+Save your script.</p>
+<h4 id="step-4-test-it">Step 4 — Test it</h4>
+<p>Predict the result first. Then run each call separately:</p>
+<pre><code class="language-powershell">.\New-ReportRequest.ps1 -Name Inventory
+.\New-ReportRequest.ps1 -Name Services -Top 10 -Format Json -IncludeDetails
+.\New-ReportRequest.ps1 -Name Inventory -Top 50
+.\New-ReportRequest.ps1 -Name Inventory -Format Xml
+.\New-ReportRequest.ps1 -Name Inventory -IncludeDetails:$false
+</code></pre>
+<p><strong>Check your understanding:</strong></p>
+<ol>
+<li>Which default values are used by the first call?</li>
+<li>What changes in the second call?</li>
+<li>Why is the third call rejected?</li>
+<li>Why is the fourth call rejected?</li>
+<li>Should the fifth call display the extra message? Explain.</li>
+</ol>
+<p><strong>Checkpoint:</strong> Save your own script and record predictions, output, and explanations for all five calls.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p>Save this implementation as <code>New-ReportRequest.ps1</code> in your parameters lab
+folder before running the five test calls above.</p>
+<p><strong>Report-request solution:</strong></p>
+<pre><code class="language-powershell">[CmdletBinding()]
+param(
+    [Parameter(Mandatory)]
+    [string]$Name,
+
+    [ValidateRange(1, 20)]
+    [int]$Top = 5,
+
+    [ValidateSet('Table', 'Csv', 'Json')]
+    [string]$Format = 'Table',
+
+    [switch]$IncludeDetails
+)
+
+Write-Output &quot;Report name: $Name&quot;
+Write-Output &quot;Top: $Top&quot;
+Write-Output &quot;Format: $Format&quot;
+
+if ($IncludeDetails) {
+    Write-Output 'Extra details requested.'
+}
+</code></pre>
+<ol>
+<li>The first call uses <code>Top = 5</code> and <code>Format = Table</code>; the switch defaults to false, so there is no extra message.</li>
+<li>The second call selects <code>Services</code>, <code>Top = 10</code>, and <code>Format = Json</code>, and enables the extra-details message.</li>
+<li><code>50</code> is outside the permitted inclusive range <code>1</code> through <code>20</code>.</li>
+<li><code>Xml</code> is not in the allowed set <code>Table</code>, <code>Csv</code>, <code>Json</code>.</li>
+<li>The fifth call should not display the extra message because the switch's value is explicitly false.</li>
+</ol>
+<p>The first call displays <code>Report name: Inventory</code>, <code>Top: 5</code>, and <code>Format: Table</code>. The second displays <code>Report name: Services</code>, <code>Top: 10</code>, <code>Format: Json</code>, and <code>Extra details requested.</code> Calls three and four report validation errors without producing request text; the fifth produces the same three normal lines as the first.</p>
+<details>
+<summary>Show solution Optimized</summary>
+<p>The same validation and switch behavior can be kept while grouping the output
+lines. Save this alternative as <code>New-ReportRequest.ps1</code>.</p>
+<pre><code class="language-powershell">[CmdletBinding()]
+param(
+    [Parameter(Mandatory)]
+    [string]$Name,
+
+    [ValidateRange(1, 20)]
+    [int]$Top = 5,
+
+    [ValidateSet('Table', 'Csv', 'Json')]
+    [string]$Format = 'Table',
+
+    [switch]$IncludeDetails
+)
+
+@(
+    &quot;Report name: $Name&quot;
+    &quot;Top: $Top&quot;
+    &quot;Format: $Format&quot;
+    if ($IncludeDetails) {
+        'Extra details requested.'
+    }
+) | Write-Output
+</code></pre>
+</details>
+</details>
+<h2 id="submission-checklist">Submission checklist</h2>
+<ul>
+<li>Submit the final <code>New-StudyMessage.ps1</code> and your <code>New-ReportRequest.ps1</code>.</li>
+<li>Include your answers to the short questions.</li>
+<li>Record predictions and results for all five final exercise calls.</li>
+<li>Show that valid calls work and invalid input is rejected.</li>
+</ul>
+<h2 id="cleanup">Cleanup</h2>
+<p>Keep your files until they have been assessed. Afterwards, preview removal of
+only the two scripts. These commands also work in a new PowerShell session:</p>
+<pre><code class="language-powershell">$parameterLab = Join-Path -Path 'C:\powershell' -ChildPath 'PowerShell-Parameters-Lab'
+$studyScript = Join-Path $parameterLab 'New-StudyMessage.ps1'
+$reportScript = Join-Path $parameterLab 'New-ReportRequest.ps1'
+Remove-Item -LiteralPath $studyScript, $reportScript -WhatIf
+</code></pre>
+<p>Check the exact paths in the preview. Remove <code>-WhatIf</code> only when you are ready
+to delete those files. Keep the folder and any other files.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Cleanup verification answers:</strong></p>
+<p>The preview should name only <code>New-StudyMessage.ps1</code> and
+<code>New-ReportRequest.ps1</code> in your parameters lab folder. <code>-WhatIf</code> leaves both
+files in place. Keep them until assessment is complete. If you later perform
+the approved cleanup, use those exact paths and keep all other files.</p>
+</details>
+<h2 id="summary">Summary</h2>
+<p>Start with a small script and add one feature at a time. Parameters let the
+caller supply input. Defaults provide optional values, mandatory parameters
+require input, validation checks values, and switches control options.
+<code>[CmdletBinding()]</code> makes cmdlet-style handling explicit, including common
+parameters such as <code>-Verbose</code>.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="powershell-basics-09-parameters.html">Parameters chapter</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions">About functions and parameters</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_parameters">About parameter declarations</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_cmdletbindingattribute">About CmdletBinding</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_automatic_variables">About automatic variables</a></li>
+</ul>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

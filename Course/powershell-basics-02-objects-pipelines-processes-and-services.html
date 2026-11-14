@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Objects, Pipelines, Processes and Services — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">02 - Objects, pipelines, processes, and services</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a class="sidebar-current" href="powershell-basics-02-objects-pipelines-processes-and-services.html" aria-current="page">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; PowerShell Basics</p>
+            <h1 id="page-title">Objects, Pipelines, Processes and Services</h1>
+            <p class="hero-description">02 - Objects, pipelines, processes, and services</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/course/ps_basics/01-intro_objects_help/011-ps-Objects_memory_pipelines">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="learning-objectives">Learning objectives</h2>
+<ul>
+<li>Explain the difference between an object, its properties, and its methods.</li>
+<li>Send objects through a pipeline and inspect their members.</li>
+<li>Query Windows processes and services using object properties.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Familiarity with <code>Get-Command</code> and <code>Get-Help</code>.</li>
+</ul>
+<h2 id="objects-and-data-types">Objects and Data Types</h2>
+<h3 id="general">General</h3>
+<p>In computer science and programming, an object is a fundamental concept that represents a real-world entity or a data structure that combines data (attributes) and methods (functions or procedures) to operate on that data. Objects are instances of classes, which serve as blueprints or templates for creating objects with specific attributes and behaviors. This is known as object-oriented programming (OOP).</p>
+<p><strong>Class and object overview</strong></p>
+<pre class="mermaid">flowchart LR
+    A["Class: Car blueprint"] --> B["Object: one car"]
+    B --> C["Properties: color and model"]
+    B --> D["Methods: actions such as start"]
+</pre>
+<p>Different objects can come from the same class and have different property
+values. Not every object exposes the same properties or methods.</p>
+<p>Key concepts related to objects in programming include:</p>
+<ul>
+<li><p><code>Class</code>: A class is a blueprint or template that defines the structure and behavior of objects. It specifies the attributes (properties) and methods that objects of that class will have.</p>
+<ul>
+<li><strong>Example:</strong> A class called <code>Car</code> may have attributes like <code>color</code>, <code>make</code>, and <code>model</code>, and methods like <code>start()</code>, <code>stop()</code>, and <code>accelerate()</code>.</li>
+</ul>
+</li>
+<li><p><code>Object</code>: An object is an instance of a class, created from the class definition. It encapsulates data and methods, allowing for encapsulation, modularity, and reusability in code.</p>
+<ul>
+<li><strong>Example:</strong> If you have a class called <code>Car</code>, you can create multiple objects (instances) of that class, such as <code>myCar</code>, <code>yourCar</code>, etc., each with its own unique attributes and behaviors.</li>
+</ul>
+</li>
+<li><p><code>Attributes/Properties</code>: Attributes, also known as properties or fields, are the data members of an object. They represent the object's characteristics or state.</p>
+<ul>
+<li><strong>Example:</strong> In a class representing a car, attributes might include <code>color</code>, <code>make</code>, and <code>model</code>.</li>
+</ul>
+</li>
+<li><p><code>Methods</code>: Methods are functions or procedures defined in a class that operate on the object's data (attributes). They represent the object's behavior.</p>
+<ul>
+<li><strong>Example:</strong> In a class representing a car, methods might include <code>start()</code>, <code>stop()</code>, and <code>accelerate()</code>.</li>
+</ul>
+</li>
+<li><p><code>Encapsulation</code>: Encapsulation is the principle of bundling data (attributes) and the methods that operate on that data within a single unit (an object). It restricts access to the internal details of an object and provides a clear interface for interacting with it.</p>
+<ul>
+<li><strong>Example:</strong> In a class representing a car, the attributes might include <code>color</code>, <code>make</code>, and <code>model</code>, while the methods could include <code>start()</code>, <code>stop()</code>, and <code>accelerate()</code>. The internal implementation of these methods is hidden from the user, who interacts with the car object through its public interface.</li>
+</ul>
+</li>
+<li><p><code>Inheritance</code>: Inheritance allows one class to inherit the attributes and methods of another class. It promotes code reuse and hierarchy among classes.</p>
+<ul>
+<li><strong>Example:</strong> If you have a class called <code>Vehicle</code>, you can create a subclass called <code>Car</code> that inherits the attributes and methods of the <code>Vehicle</code> class, while also adding its own unique attributes and methods.</li>
+</ul>
+</li>
+<li><p><code>Polymorphism</code>: Polymorphism allows objects of different classes to be treated as objects of a common base class. This enables more flexible and dynamic programming.</p>
+<ul>
+<li><strong>Example:</strong> If you have a base class called <code>Vehicle</code>, you can create different subclasses like <code>Car</code>, <code>Truck</code>, and <code>Motorcycle</code>, each with their own unique characteristics, but they can all be treated as <code>Vehicle</code> without knowing their specific types.</li>
+</ul>
+</li>
+</ul>
+<h3 id="objects-vs-data-type">Objects vs Data Type</h3>
+<p>Objects and data types are related concepts in programming, but they serve different purposes and have distinct characteristics:</p>
+<p><strong>Data Type:</strong></p>
+<ul>
+<li><p><code>Definition</code>:</p>
+<ul>
+<li>A data type defines the type of data that a variable can hold. It specifies the format of data and the operations that can be performed on that data.</li>
+</ul>
+</li>
+<li><p><code>Examples</code>:</p>
+<ul>
+<li>Common data types include integers, floating-point numbers, strings, characters, and booleans.</li>
+</ul>
+</li>
+<li><p><code>Usage</code>:</p>
+<ul>
+<li>Data types are used to declare variables and specify the type of data they can store. They define the range of values and the operations that can be performed on the data.</li>
+</ul>
+</li>
+<li><p><code>Static</code>:</p>
+<ul>
+<li>Data types are often static, meaning that the type of a variable is determined at compile-time and remains constant throughout the variable's lifetime.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Object:</strong></p>
+<ul>
+<li><p><code>Definition</code>:</p>
+<ul>
+<li>An object is an instance of a class in object-oriented programming (OOP). It encapsulates both data (attributes or properties) and methods (functions or behavior) that operate on that data.</li>
+</ul>
+</li>
+<li><p><code>Examples</code>:</p>
+<ul>
+<li>In OOP, objects can represent real-world entities or abstract concepts.</li>
+<li>For example, a &quot;Car&quot; object may have properties like &quot;color&quot; and &quot;speed&quot; and methods like &quot;accelerate&quot; and &quot;brake.&quot;</li>
+</ul>
+</li>
+<li><p><code>Usage</code>:</p>
+<ul>
+<li>Objects are used to model and represent entities, combining data and behavior. They are instantiated from classes and interact with other objects to perform tasks.</li>
+</ul>
+</li>
+<li><p><code>Dynamic</code>:</p>
+<ul>
+<li>Objects are dynamic; their properties and methods can change during runtime. They are created and destroyed as needed, and their behavior can be modified through inheritance and polymorphism.</li>
+</ul>
+</li>
+</ul>
+<p>The key difference between data types and objects is that data types define the format and range of data that a variable can hold, while objects combine both data and behavior and represent instances of classes in object-oriented programming. Data types are used for individual pieces of data, while objects are used for modeling complex entities or systems by encapsulating data and behavior together.</p>
+<h3 id="objects-in-powershell">Objects in PowerShell</h3>
+<p>Objects are a <code>core concept in both general programming and PowerShell</code>. They enable the representation of real-world entities, data modeling, and encapsulation of data and behavior. <code>Understanding how objects work in PowerShell is essential</code> for effective scripting and automation, as PowerShell is built around the concept of manipulating objects in a pipeline-oriented manner.</p>
+<p>Some key aspects:</p>
+<ul>
+<li><p><code>Pipeline and Object Output</code>: PowerShell cmdlets typically produce objects as output, which can be passed through the pipeline. The pipeline allows you to chain cmdlets together to manipulate objects. This is a fundamental feature of PowerShell's scripting style.</p>
+<ul>
+<li><p><strong>Example:</strong> When you run a cmdlet like <code>Get-Process</code>, it returns a collection of process object instances, each representing a running process on the system. You can then pipe these objects to other cmdlets for further processing.</p>
+<pre><code class="language-powershell">Get-Process
+</code></pre>
+<pre><code class="language-output">Handles  NPM(K)  PM(K)   CPU(s)   Id  ProcessName
+-------  ------  -----   ------   --  -----------
+450      25  65000     8.42  3420 chrome
+320      18  42000     2.31  5812 code
+</code></pre>
+<blockquote>
+<p>Each row represents one object instance representing a running process.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><code>Properties and Methods</code>: Objects in PowerShell often have properties (data) and methods (functions). You can access and manipulate these properties and methods to perform tasks.</p>
+<ul>
+<li><p><strong>Example:</strong> You can access the properties of a process object to retrieve information about it, such as its name, ID, and memory usage. You can also call methods on objects to perform actions, such as stopping a process.</p>
+<pre><code class="language-powershell">$process = Get-Process -Name &quot;notepad&quot;
+$process.Id          # Accessing the Id property
+$process.Kill()      # Calling the Kill method to stop the process
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p><code>Get-Member</code>: The Get-Member cmdlet is used to inspect the properties and methods of objects. It helps you understand the structure and capabilities of objects in PowerShell.</p>
+</li>
+<li><p><code>Dot Notation</code>: You can access object properties and methods using dot notation. For example, $object.Property accesses a property of an object, and $object.Method() invokes a method.</p>
+</li>
+<li><p><code>Custom Objects</code>: PowerShell allows you to create custom objects using New-Object or by defining custom classes. This flexibility is useful for creating structured data and custom tools.</p>
+</li>
+<li><p><code>Object Serialization</code>: PowerShell supports object serialization, allowing you to convert objects to different formats, such as XML or JSON, for storage or transmission.</p>
+</li>
+</ul>
+<h2 id="pipelines">Pipelines</h2>
+<p><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_pipelines?view=powershell-7.3">Get-Help about_Pipelines</a></p>
+<p>In PowerShell, the pipe (|) is a fundamental and powerful feature that enables you to pass the output of one cmdlet or command as input to another, creating a &quot;pipeline.&quot; This concept of pipelining is central to how you perform complex tasks, process data, and achieve automation in PowerShell. Here's an explanation of the use of pipelines in PowerShell:</p>
+<p>Chaining Commands: The pipe allows you to chain multiple commands together in a single line, passing the output of one command to the next. For example:</p>
+<pre><code class="language-powershell">Get-Process | Select-Object Name
+</code></pre>
+<pre><code class="language-powershell">&quot;Hello&quot;,&quot;World&quot; | Select-Object
+</code></pre>
+<pre><code class="language-output">Hello
+World
+</code></pre>
+<h2 id="select-object">Select-Object</h2>
+<p><a href="https://learn.microsoft.com/nl-nl/powershell/module/microsoft.powershell.utility/select-object?view=powershell-7.3&amp;WT.mc_id=ps-gethelp">Get-Help select-Object -online</a></p>
+<p>The Select-Object cmdlet in PowerShell is used to filter and transform the properties of objects in a collection. It allows you to select specific properties from the input objects and create new custom objects that include only the selected properties.</p>
+<pre><code class="language-powershell">Get-Process | Select-Object -Property ProcessName, Id, WS
+</code></pre>
+<h2 id="processes-and-services">Processes and Services</h2>
+<ul>
+<li><p>A process is an instance of a particular executable (.exe program file) running.</p>
+</li>
+<li><p>A service (daemon) is a process which runs in the background.</p>
+<ul>
+<li>managed by a Service Controller, eg Services and Controller app, services.exe</li>
+<li>can be configured to start when Windows starts and run in the background as long as Windows is running</li>
+<li>can be started manually or by an event.</li>
+<li>run in the context of three user accounts: System, Network Service, and Local Service.</li>
+<li>also work when a user is not logged in</li>
+</ul>
+</li>
+</ul>
+<h2 id="getstartstop-service">Get/Start/Stop-Service</h2>
+<p>Information of the W32Time service in GUI environment</p>
+<pre><code class="language-powershell">Get-Command Get-Service -Syntax
+</code></pre>
+<p><strong>Methods and Properties 'w32Ttime':</strong></p>
+<p>Windows -&gt; Ctrl + Shift  + Esc or TaskMgr -&gt; Tab Services -&gt; search W32Time
+Windows -&gt; Win + R -&gt; services.msc -&gt; search W32Time</p>
+<p><img src="images/course__ps_basics__01-intro_objects_help__image-4.png" alt="alt text" /></p>
+<p><a href="https://www.digitalcitizen.life/ways-access-services-windows/">9 ways to open Services in Windows</a></p>
+<p><img src="images/course__ps_basics__01-intro_objects_help__image.png" alt="Alt text" /></p>
+<p>This object is a &quot;ServiceController&quot; for the W32Time service. Maintains date and time synchronization on all clients and servers in the Windows network.</p>
+<p>Overview of all properties and methods of the object</p>
+<p><img src="images/course__ps_basics__01-intro_objects_help__image-1.png" alt="Alt text" /></p>
+<p>Get some Properties of the object</p>
+<p><img src="images/course__ps_basics__01-intro_objects_help__image-3.png" alt="Alt text" /></p>
+<p>Call a method of an object.</p>
+<p><img src="images/course__ps_basics__01-intro_objects_help__image-2.png" alt="Alt text" /></p>
+<p><strong>show all properties of w32Time:</strong></p>
+<pre><code class="language-powershell">Get-Service w32time | Select-Object *
+</code></pre>
+<p><strong>show a selection of properties of w32Time:</strong></p>
+<pre><code class="language-powershell">Get-Service w32time | Select-Object -Property ServiceName, DisplayName, Status, Name, BinaryPathName,  StartType
+</code></pre>
+<p><strong>show one properties of w32Time:</strong></p>
+<pre><code class="language-powershell">(Get-Service -Name w32time).DisplayName
+</code></pre>
+<p><strong>show data type of the object:</strong></p>
+<pre><code class="language-powershell">Get-Service w32time | Get-Member -MemberType Property
+</code></pre>
+<p>you can use the method GetType() to get the data type of the object:</p>
+<pre><code class="language-powershell">(Get-Service -Name w32time).GetType()
+</code></pre>
+<p>output:</p>
+<pre><code class="language-output">IsPublic IsSerial Name                                     BaseType
+-------- -------- ----                                     --------
+True     False    ServiceController                        System.ComponentModel.Component
+</code></pre>
+<p>The method  <code>GetType()</code> is a method of the <code>System.Object</code> class, which is the base class for all .NET objects. It returns the runtime type of the current instance, allowing you to determine the specific type of an object at runtime.</p>
+<p>The service name is <code>w32time</code>; its display name is <code>Windows Time</code>. Compare the two parameter types:</p>
+<pre><code class="language-powershell">Get-Service -Name &quot;w32time&quot;
+Get-Service -DisplayName &quot;Windows Time&quot;
+</code></pre>
+<p><strong>shows all the methods of the service:</strong></p>
+<pre><code class="language-powershell">Get-Service -Name w32time | Get-Member -MemberType Method
+</code></pre>
+<p><strong>stop service - Admin rights:</strong></p>
+<pre><code class="language-powershell">(Get-Service -Name w32time).Stop() 
+</code></pre>
+<pre><code class="language-powershell">Get-Service -Name w32time | Stop-Service
+</code></pre>
+<p>Check the status of the service - stop</p>
+<details>
+<summary>Show solution</summary>
+<pre><code class="language-powershell">Get-Service -Name w32time | Select-Object DisplayName, Status
+</code></pre>
+<p>After a successful stop operation, the Windows Time service's status is
+<code>Stopped</code>. The display name is <code>Windows Time</code>. If the change failed or the
+system subsequently changed the service, inspect the actual status and error
+instead of assuming success. Use only the assigned disposable lab system.</p>
+</details>
+<p><strong>start service - Admin rights:</strong></p>
+<pre><code class="language-powershell">(Get-Service -Name w32time).Start() 
+</code></pre>
+<pre><code class="language-powershell">Get-Service -Name w32time | Start-Service
+</code></pre>
+<p>Check the status of the service - start</p>
+<details>
+<summary>Show solution</summary>
+<pre><code class="language-powershell">Get-Service -Name w32time | Select-Object DisplayName, Status
+</code></pre>
+<p>After a successful start operation, the Windows Time service's status is
+<code>Running</code>. The display name is <code>Windows Time</code>. If the change failed or the
+system subsequently changed the service, inspect the actual status and error
+instead of assuming success. Use only the assigned disposable lab system.</p>
+</details>
+<p><strong>Spooler Service Example:</strong></p>
+<pre><code class="language-powershell">Get-Service -Name spooler
+Stop-Service -Name spooler
+Start-Service -Name spooler
+</code></pre>
+<p>What property is needed to stop a specific service?</p>
+<details>
+<summary>Show solution</summary>
+<p>Use the service object's <code>Name</code> property, such as <code>w32time</code>.
+<code>Stop-Service -Name</code> accepts the service name; <code>DisplayName</code> is its separate,
+human-readable label. You can also pass a service object through the pipeline.
+Stopping a service requires appropriate rights and an assigned lab system;
+no stop command is needed to answer this question.</p>
+</details>
+<h2 id="getstartstop-process">Get/Start/Stop-Process</h2>
+<pre><code class="language-powershell">Get-Command *process*
+</code></pre>
+<pre><code class="language-powershell">Get-Command  -verb start -noun process
+</code></pre>
+<pre><code class="language-powershell">Get-Command  -verb stop -noun process
+</code></pre>
+<p>What property is needed to stop a specific process?</p>
+<details>
+<summary>Show solution</summary>
+<p>Use the process object's <code>Id</code> with <code>Stop-Process -Id</code> to identify one
+particular running process. A <code>Name</code> can match several processes, so it
+does not necessarily identify a single instance. A process ID can be reused
+after a process exits; inspect the intended current process before acting.</p>
+</details>
+```powershell
+Get-Command Stop-Process -Syntax
+```
+<p><a href="https://learn.microsoft.com/nl-nl/powershell/module/microsoft.powershell.management/get-process?view=powershell-7.3&amp;WT.mc_id=ps-gethelp">Get-Help Get-Process -online</a></p>
+<pre><code class="language-powershell">help Start-Process
+</code></pre>
+<p><strong>Open Notepad multiple times:</strong></p>
+<p>Run the following commands and observe how your Windows and Notepad versions handle the launches; they may open separate windows, tabs, or processes.</p>
+<pre><code class="language-powershell">Start-Process notepad
+Start-Process notepad
+Start-Process notepad
+Start-Process notepad
+</code></pre>
+<details>
+<summary>Show solution</summary>
+<p>Four launch requests do not guarantee four processes. Notepad versions
+and settings can open tabs or reuse an existing process. Compare the
+visible windows or tabs with a read-only process query:</p>
+<pre><code class="language-powershell">Get-Process -Name notepad -ErrorAction SilentlyContinue |
+    Select-Object Name, Id
+</code></pre>
+<p>Different IDs identify different process instances. The actual count varies;
+it cannot be inferred from the number of windows or tabs alone.</p>
+</details>
+<p><strong>Close all notepad processes:</strong></p>
+<pre><code class="language-powershell">Get-Process notepad | Stop-Process
+</code></pre>
+<h2 id="question">Question</h2>
+<p>Execute the following commands and explain?</p>
+<pre><code class="language-powershell"> &quot;WinRM&quot; | get-service
+</code></pre>
+<details>
+<summary>Show solution</summary>
+<p>A service-name string binds to <code>Get-Service -Name</code> by value, so
+<code>'WinRM' | Get-Service</code> returns the WinRM service when it exists.
+Its status varies with the computer.</p>
+<p><code>Get-Process -Name</code> accepts pipeline input by property name, not a bare
+string by value. <code>'winlogon' | Get-Process</code> therefore reports a binding
+error; it does not select that process. Use <code>Get-Process -Name winlogon</code>
+or supply objects with a suitable <code>Name</code> property.</p>
+<p>Inspect the metadata and compare the second pipeline:</p>
+<pre><code class="language-powershell">(Get-Command Get-Service).Parameters['Name'].Attributes
+(Get-Command Get-Process).Parameters['Name'].Attributes
+'winlogon' | Get-Process
+</code></pre>
+<p>In the parameter attributes, <code>ValueFromPipeline</code> is enabled for the
+service-name input, whereas <code>ValueFromPipelineByPropertyName</code> is enabled
+for the process-name input. Binding rules belong to individual parameters,
+not to pipelines in general.</p>
+</details>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Automating Windows networking — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">06 - Networking</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a class="sidebar-current" href="powershell-automation-06-networking.html" aria-current="page">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; PowerShell Automation</p>
+            <h1 id="page-title">Automating Windows networking</h1>
+            <p class="hero-description">06 - Networking</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/course/ps_automation/06-networking/06-networking">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<p>Windows networking cmdlets expose IP addresses, interfaces, routes, DNS client settings, connectivity tests, and firewall rules as objects. These commands are useful for both diagnostics and controlled configuration.</p>
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>By the end of this lesson, you can:</p>
+<ul>
+<li>discover commands in the NetTCPIP, DnsClient, and NetSecurity modules;</li>
+<li>inspect interfaces, addresses, gateways, routes, DNS clients, and firewall profiles;</li>
+<li>test ICMP and TCP connectivity with structured results;</li>
+<li>explain the parameters required for a static IP configuration; and</li>
+<li>build a read-only network-readiness report.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Complete the PowerShell Basics course and the Windows information lesson.</li>
+<li>Use Windows with the networking modules available.</li>
+<li>Do not change IP, DNS, route, or firewall settings unless the instructor provides an isolated VM and exact values.</li>
+</ul>
+<h2 id="discover-networking-commands">Discover networking commands</h2>
+<pre><code class="language-powershell">Get-Command -Module NetTCPIP |
+    Sort-Object Noun, Verb |
+    Select-Object Name
+
+Get-Command -Module DnsClient -Noun '*DnsClient*' |
+    Select-Object Name
+
+Get-Command -Module NetSecurity -Noun '*NetFirewall*' |
+    Select-Object Name
+</code></pre>
+<p>The noun often reveals the resource: <code>NetIPAddress</code>, <code>NetIPInterface</code>, <code>NetRoute</code>, <code>DnsClient</code>, or <code>NetFirewallRule</code>.</p>
+<h2 id="inspect-ip-configuration">Inspect IP configuration</h2>
+<pre><code class="language-powershell">Get-NetIPConfiguration |
+    Select-Object InterfaceAlias, InterfaceIndex, IPv4Address,
+        IPv4DefaultGateway, DNSServer
+
+Get-NetIPAddress -AddressFamily IPv4 |
+    Where-Object AddressState -eq 'Preferred' |
+    Select-Object InterfaceAlias, InterfaceIndex, IPAddress,
+        PrefixLength, PrefixOrigin, AddressState
+
+Get-NetIPInterface -AddressFamily IPv4 |
+    Select-Object InterfaceAlias, InterfaceIndex, ConnectionState, Dhcp, InterfaceMetric
+</code></pre>
+<p>Interface aliases can change and may be localized. An interface index is useful for selecting the exact adapter during one configuration workflow, but it can also change after hardware or operating-system changes. Discover immediately before modifying.</p>
+<h2 id="understand-static-ip-parameters">Understand static IP parameters</h2>
+<p>A static IPv4 configuration normally needs:</p>
+<ul>
+<li>the exact interface alias or index;</li>
+<li>a unique IPv4 address;</li>
+<li>a prefix length, such as <code>24</code> for <code>255.255.255.0</code>;</li>
+<li>a default gateway in a reachable subnet; and</li>
+<li>one or more DNS server addresses.</li>
+</ul>
+<p>Preview only with instructor-provided values:</p>
+<pre><code class="language-powershell">New-NetIPAddress `
+    -InterfaceAlias 'Ethernet' `
+    -IPAddress '192.0.2.20' `
+    -PrefixLength 24 `
+    -DefaultGateway '192.0.2.1' `
+    -WhatIf
+
+Set-DnsClientServerAddress `
+    -InterfaceAlias 'Ethernet' `
+    -ServerAddresses '192.0.2.53', '192.0.2.54' `
+    -WhatIf
+</code></pre>
+<p>The <code>192.0.2.0/24</code> network is documentation space and is not a usable lab configuration unless the instructor has deliberately built that isolated network. A wrong network change can disconnect the machine.</p>
+<h2 id="inspect-the-routing-table">Inspect the routing table</h2>
+<pre><code class="language-powershell">Get-NetRoute -AddressFamily IPv4 |
+    Sort-Object DestinationPrefix, RouteMetric |
+    Select-Object DestinationPrefix, NextHop, InterfaceAlias, RouteMetric
+
+Find-NetRoute -RemoteIPAddress '1.1.1.1' |
+    Select-Object IPAddress, InterfaceAlias, NextHop, RouteMetric
+</code></pre>
+<p>A route describes which interface and next hop Windows selects for a destination. Lower effective metrics are generally preferred among otherwise applicable routes.</p>
+<h2 id="inspect-dns-client-configuration">Inspect DNS client configuration</h2>
+<pre><code class="language-powershell">Get-DnsClient |
+    Select-Object InterfaceAlias, ConnectionSpecificSuffix,
+        RegisterThisConnectionsAddress
+
+Get-DnsClientServerAddress -AddressFamily IPv4 |
+    Select-Object InterfaceAlias, ServerAddresses
+
+Resolve-DnsName -Name 'learn.microsoft.com' -Type A
+</code></pre>
+<p>DNS name resolution can fail even when basic IP connectivity succeeds, so test them separately.</p>
+<h2 id="test-connectivity">Test connectivity</h2>
+<p><strong>Separate diagnostic questions</strong></p>
+<pre class="mermaid">flowchart LR
+    A["Target name or address"] --> B["DNS: can the name be resolved?"]
+    A --> C["ICMP: does the host answer a ping?"]
+    A --> D["TCP: is the selected port reachable?"]
+</pre>
+<p>These tests answer different questions. A blocked ping does not prove that a
+TCP service is unavailable, and a DNS failure does not prove an IP address is
+unreachable.</p>
+<pre><code class="language-powershell">Test-NetConnection -ComputerName 'learn.microsoft.com'
+
+Test-NetConnection -ComputerName 'learn.microsoft.com' -Port 443 |
+    Select-Object ComputerName, RemoteAddress, RemotePort, TcpTestSucceeded
+</code></pre>
+<p>An ICMP failure does not prove the host is unavailable because firewalls may block echo requests. A TCP test checks one service port and is often more relevant.</p>
+<h2 id="inspect-firewall-configuration">Inspect firewall configuration</h2>
+<pre><code class="language-powershell">Get-NetFirewallProfile |
+    Select-Object Name, Enabled, DefaultInboundAction, DefaultOutboundAction
+
+Get-NetFirewallRule -PolicyStore ActiveStore |
+    Where-Object Enabled -eq 'True' |
+    Select-Object -First 20 DisplayName, Direction, Action, Profile,
+        PolicyStoreSourceType
+</code></pre>
+<p>Firewall ports and addresses are stored in associated filter objects.</p>
+<pre><code class="language-powershell">Get-NetFirewallRule -DisplayName 'Windows Remote Management*' |
+    Get-NetFirewallPortFilter |
+    Select-Object Protocol, LocalPort, RemotePort
+</code></pre>
+<h2 id="practice-and-self-check">Practice and self-check</h2>
+<ol>
+<li>Which modules manage TCP/IP, DNS clients, and firewall rules?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p><code>NetTCPIP</code> provides TCP/IP commands, <code>DnsClient</code> provides DNS client
+commands, and <code>NetSecurity</code> provides firewall commands.</p>
+</details>
+<ol start="2">
+<li>Why should an interface be rediscovered immediately before a change?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>Aliases and interface indexes can change. Rediscovering and checking the
+adapter helps ensure that the change targets the intended interface.</p>
+</details>
+<ol start="3">
+<li>What does prefix length <code>24</code> represent?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>For IPv4, <code>/24</code> means the first 24 bits identify the network prefix. Its
+subnet mask is <code>255.255.255.0</code>.</p>
+</details>
+<ol start="4">
+<li>What information does a default route provide?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>A default route describes where to send traffic when no more specific route
+matches, including the selected interface and usually a next-hop gateway.</p>
+</details>
+<ol start="5">
+<li>Why should DNS and TCP connectivity be tested separately?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>DNS tests whether a name resolves; TCP tests whether a particular port is
+reachable. One can succeed while the other fails, so separate results help
+identify the problem.</p>
+</details>
+<ol start="6">
+<li>Why might the active firewall policy differ from locally stored rules?</li>
+</ol>
+<details>
+<summary>Show solution</summary>
+<p>The active policy can include rules from other sources, such as Group Policy,
+in addition to local rules. Inspect the policy source rather than assuming
+that every active rule is locally managed.</p>
+</details>
+<p>Apply the lesson in <a href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/hands-on/19-networking/01-networking">Hands-on 19 — Networking</a>.</p>
+<h2 id="summary">Summary</h2>
+<p>Windows networking modules provide structured discovery and diagnostics for interfaces, addresses, routes, DNS, connectivity, and firewall state. Query first, select exact targets, preview supported changes, and never alter connectivity without an approved rollback path.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/nettcpip/">NetTCPIP module</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/nettcpip/test-netconnection">Test-NetConnection</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/dnsclient/get-dnsclient">Get-DnsClient</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/netsecurity/">NetSecurity module</a></li>
+</ul>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

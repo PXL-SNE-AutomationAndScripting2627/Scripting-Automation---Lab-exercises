@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Loops — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">11 - Loops</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a class="sidebar-current" href="powershell-basics-11-loops.html" aria-current="page">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; PowerShell Basics</p>
+            <h1 id="page-title">Loops</h1>
+            <p class="hero-description">11 - Loops</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/course/ps_basics/07-loops/07-ps-Loops">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="learning-objectives">Learning objectives</h2>
+<ul>
+<li>Select an appropriate <code>foreach</code>, <code>for</code>, <code>while</code>, or <code>do</code> loop.</li>
+<li>Iterate over collections without losing object information.</li>
+<li>Avoid common loop-control and performance mistakes.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Familiarity with conditions and collections.</li>
+</ul>
+<h2 id="additional-prerequisite-reference">Additional prerequisite reference</h2>
+<p><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_comparison_operators?view=powershell-7.4">about_Comparison_Operators</a></p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://powershellmagazine.com/2014/10/22/foreach-and-where-magic-methods/">foreach-and-where-magic-methods</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/06-flow-control?view=powershell-7.4">Flow control</a></li>
+</ul>
+<h2 id="what-are-loops">What are loops?</h2>
+<div style="width: 200px; max-width: 100%;">
+<p><a href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/course/ps_basics/07-loops/image-1.png"><img src="images/course__ps_basics__07-loops__image-1.png" alt="Loop diagram: overview" /></a></p>
+</div>
+<p>Select an image to open it at full size. Close the image tab or use Back to
+return to the lesson.</p>
+<p>In PowerShell, loops are control structures that allow you to repeatedly execute a block of code as long as a certain condition is true or for a specified number of iterations. PowerShell provides several types of loops, including:</p>
+<ul>
+<li><code>For Loop</code>:
+The for loop is used to iterate a specific number of times. It has a counter variable that is initialized, tested for a condition, and incremented or decremented in each iteration.</li>
+</ul>
+<pre><code class="language-powershell">for ($i=1; $i -le 5; $i++) {
+    Write-Host &quot;Iteration $i&quot;
+}
+</code></pre>
+<ul>
+<li><code>While Loop</code>:
+The while loop executes a block of code as long as a specified condition is true.</li>
+</ul>
+<pre><code class="language-powershell">$counter = 1
+while ($counter -le 5) {
+    Write-Host &quot;Iteration $counter&quot;
+    $counter++
+}
+</code></pre>
+<ul>
+<li><code>Do-While Loop</code>:
+Similar to the while loop, but it tests the condition after executing the block of code, ensuring that the block of code is executed at least once.</li>
+</ul>
+<pre><code class="language-powershell">$counter = 1
+do {
+    Write-Host &quot;Iteration $counter&quot;
+    $counter++
+} while ($counter -le 5)
+</code></pre>
+<ul>
+<li><code>ForEach-Object Loop</code>:
+The ForEach-Object cmdlet is often used in a pipeline to iterate over a collection of items.</li>
+</ul>
+<pre><code class="language-powershell">1..5 | ForEach-Object {
+    Write-Host &quot;Iteration $_&quot;
+}
+</code></pre>
+<p>In this example, 1..5 creates an array of numbers from 1 to 5, and ForEach-Object processes each number in the pipeline.</p>
+<ul>
+<li><code>Foreach Loop</code>:
+The foreach loop is used to iterate over elements in an array or collection.</li>
+</ul>
+<pre><code class="language-powershell">$numbers = 1, 2, 3, 4, 5
+foreach ($number in $numbers) {
+    Write-Host &quot;Number: $number&quot;
+}
+</code></pre>
+<p>These loop constructs provide flexibility in controlling the flow of your PowerShell scripts, allowing you to repeat a set of instructions based on specific conditions or for a defined number of iterations.</p>
+<h2 id="for-loop">For Loop</h2>
+<pre><code class="language-powershell">Get-Help about_for
+</code></pre>
+<div style="width: 420px; max-width: 100%;">
+<p><a href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/course/ps_basics/07-loops/image-2.png"><img src="images/course__ps_basics__07-loops__image-2.png" alt="Loop diagram: for loop" /></a></p>
+</div>
+<p><strong>Syntax:</strong></p>
+<pre><code class="language-powershell">for (&lt;initializer&gt;; &lt;condition&gt;; &lt;iterator&gt;) {
+    # Code to be executed in each iteration
+}
+</code></pre>
+<ul>
+<li><code>Initializer</code>: Initializes a counter variable or any variable that controls the loop.</li>
+<li><code>Condition</code>: Specifies the condition that must be true for the loop to continue executing.</li>
+<li><code>Iterator</code>: Defines how the counter variable is updated after each iteration.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-powershell">for ($i = 1; $i -le 5; $i++) {
+    Write-Host &quot;Iteration $i&quot;
+}
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-Output">Iteration 1
+Iteration 2
+Iteration 3
+Iteration 4
+Iteration 5
+</code></pre>
+<p>Explanation:</p>
+<ul>
+<li><code>Initializer ($i = 1)</code>: Initializes the counter variable $i to 1 before the loop starts.</li>
+<li><code>Condition ($i -le 5)</code>: Specifies that the loop should continue as long as the value of $i is less than or equal to 5.</li>
+<li><code>Iterator ($i++)</code>: Increments the value of $i by 1 after each iteration.</li>
+<li><code>Code Block</code>: The block of code inside the curly braces  is executed in each iteration of the loop. In this case, it prints the current iteration number using Write-Host.</li>
+</ul>
+<p>In each iteration, the counter variable <code>$i</code> is incremented, and the loop continues until the condition
+<code>($i -le 5)</code> becomes false.</p>
+<p><strong>Example 1 - for_loop_01.ps1:</strong></p>
+<pre><code class="language-powershell">for ($i = 1; $i -lt 5; $i++) {
+    Write-Output &quot;Sleeping for $i seconds&quot;
+    Start-Sleep -Seconds $i
+}
+</code></pre>
+<p><strong>Example 2 - :</strong></p>
+<pre><code class="language-powershell">$fruit = @('apple','pear','banana','lemon','lime','mango')
+# -le means less or equal to
+For ($i = 0; $i -le $fruit.length; $i++) {
+    Write-Host $fruit[$i];    
+}
+</code></pre>
+<h2 id="while-loop">While Loop</h2>
+<pre><code class="language-powershell">about_While
+</code></pre>
+<div style="width: 420px; max-width: 100%;">
+<p><a href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/course/ps_basics/07-loops/image-3.png"><img src="images/course__ps_basics__07-loops__image-3.png" alt="Loop diagram: while loop" /></a></p>
+</div>
+<p><strong>Syntax:</strong></p>
+<pre><code class="language-powershell">while (&lt;condition&gt;) {
+# Code to be executed as long as the condition is true
+}
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code class="language-powershell">$counter = 1
+while ($counter -le 5) {
+    Write-Host &quot;Iteration $counter&quot;
+    $counter++
+}
+</code></pre>
+<pre><code class="language-output">Iteration 1
+Iteration 2
+Iteration 3
+Iteration 4
+Iteration 5
+</code></pre>
+<p>Explanation:</p>
+<ul>
+<li><code>Initialization ($counter = 1)</code>: Initializes a counter variable $counter to 1 before the loop starts.</li>
+<li><code>Condition ($counter -le 5)</code>: Specifies that the loop should continue as long as the value of $counter is less than or equal to 5.</li>
+<li><code>Code Block</code>: The block of code inside the curly braces  is executed as long as the condition is true. In this case, it prints the current iteration number using Write-Host and increments the counter variable.</li>
+<li><code>Increment ($counter++)</code>: Increments the value of $counter by 1 after each iteration.</li>
+</ul>
+<p>In each iteration, the condition ($counter -le 5) is checked. As long as the condition is true, the code block is executed, and the counter is incremented. The loop continues until the condition becomes false.</p>
+<h2 id="do-while-loop">Do-While Loop</h2>
+<p><strong>Compare when the condition is checked</strong></p>
+<pre class="mermaid">flowchart LR
+    A["while: check condition"] --> B["Run body if true"]
+    C["do-while: run body first"] --> D["Check condition to continue"]
+</pre>
+<p>The <code>while</code> body can run zero times; the <code>do-while</code> body runs at least once.
+Both loops repeat until their continuation condition is false.</p>
+<pre><code class="language-powershell">about_While
+</code></pre>
+<p>A Do-While loop is a variant of the While loop, and the main difference is that the script block is executed before the condition is checked. This means that even if the start condition is false, <code>the script block will be executed at least once</code>.</p>
+<div style="width: 420px; max-width: 100%;">
+<p><a href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/course/ps_basics/07-loops/image-4.png"><img src="images/course__ps_basics__07-loops__image-4.png" alt="Loop diagram: do-while loop" /></a></p>
+</div>
+<pre><code class="language-powershell">$counter = 1
+do {
+    Write-Host &quot;Iteration $counter&quot;
+    $counter++
+} while ($counter -le 5)
+</code></pre>
+<pre><code class="language-output">Iteration 1
+Iteration 2
+Iteration 3
+Iteration 4
+Iteration 5
+</code></pre>
+<ul>
+<li><code>Initialization ($counter = 1)</code>: Initializes a counter variable $counter to 1 before the loop starts.</li>
+<li><code>Code Block</code>: The block of code inside the curly braces  is executed at least once. In this case, it prints the current iteration number using Write-Host and increments the counter variable.</li>
+<li><code>Increment ($counter++)</code>: Increments the value of $counter by 1 after each iteration.</li>
+<li><code>Condition ($counter -le 5)</code>: After the code block is executed, the condition is checked. If the condition is true, the loop continues; otherwise, it exits.</li>
+</ul>
+<p>In this example, the loop executes the code block at least once, even if the condition ($counter -le 5) is false initially. This can be useful when you want to <code>ensure that a certain piece of code runs before checking the exit condition</code>.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-powershell">$i = 15;
+Do {
+    Write-host &quot;Do While $i is less then 15&quot;;
+    $i++;
+}
+While ($i -lt 10)
+</code></pre>
+<pre><code class="language-powershell">$i = 15;
+while ($i -lt 10) {
+    Write-host &quot;While $i is less then 15&quot;;
+    $i++;
+}
+</code></pre>
+<h2 id="do-until-loop">Do-Until Loop</h2>
+<p>Do Until is pretty much the same as Do While in PowerShell. The only difference is the condition where they run on.</p>
+<ul>
+<li><code>Do While</code> keeps running as long as the condition is true. When the condition is false it will stop.</li>
+<li><code>Do Until</code> keeps running as long as the condition is false. When the condition becomes true it will stop.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-powershell">Do {
+    Write-Host &quot;Computer offline&quot;
+    Start-Sleep 5
+}
+Until (Test-Connection -ComputerName 'LaptopPXL' -Quiet -Count 1)
+Write-Host &quot;Computer online&quot;
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code class="language-powershell">do {
+        $notepad = Get-Process Notepad -ErrorAction SilentlyContinue
+        Start-Process Notepad.exe
+        Write-Host &quot;Starting Notepad, current count is: $($notepad.Count + 1)&quot;
+        $notepad = Get-Process Notepad
+   } until ($notepad.Count -eq 5)
+</code></pre>
+<h2 id="foreach-loop">ForEach loop</h2>
+<p><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_foreach?view=powershell-7.4">about_Foreach</a></p>
+<p><strong>Syntax:</strong></p>
+<pre><code class="language-powershell">foreach ($item in $collection) {
+    # Code to be executed for each $item in $collection
+}
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code class="language-powershell">$numbers = @(1, 2, 3, 4, 5)
+foreach ($number in $numbers) {
+    Write-Host &quot;Number: $number&quot;
+}
+</code></pre>
+<pre><code class="language-output">Number: 1
+Number: 2
+Number: 3
+Number: 4
+Number: 5
+</code></pre>
+<ul>
+<li><code>Array Initialization ($numbers = 1, 2, 3, 4, 5)</code>: Initializes an array of numbers.</li>
+<li><code>foreach Loop Syntax</code>: The loop iterates over each element in the $numbers array.</li>
+<li><code>Variable ($number)</code>: The variable $number is used to represent each element of the array in each iteration.</li>
+<li><code>Code Block</code>: The block of code inside the curly braces  is executed for each element in the array. In this case, it prints the current number using Write-Host.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-powershell">$ComputerNamen = 'WinServer01', 'WinClient-01', 'WinClient-02', 'WinClient-03'
+$Teller = 1
+foreach ($ComputerNaam in $ComputerNamen) {
+    Write-Output &quot;Computernaam $Teller`: $ComputerNaam&quot;
+    $Teller = $Teller + 1
+}
+</code></pre>
+<pre><code class="language-output">Computernaam 1: WinServer01
+Computernaam 2: WinClient-01
+Computernaam 3: WinClient-02
+Computernaam 4: WinClient-03
+</code></pre>
+<h2 id="foreach-object-loop">ForEach-Object Loop</h2>
+<p><strong>Syntax:</strong></p>
+<pre><code class="language-powershell">&lt;collection&gt; | ForEach-Object {
+    # Script block to be executed for each item in the collection
+    # $_ represents the current item in the iteration
+}
+</code></pre>
+<p>ForEach-Object cmdlet that can be used in a pipeline to iterate over a collection:</p>
+<pre><code class="language-powershell">1..5 | ForEach-Object {
+    Write-Host &quot;Number: $_&quot;
+}
+</code></pre>
+<p>1..5 creates an array of numbers from 1 to 5, and ForEach-Object processes each number in the pipeline. The $_ represents the current object in the pipeline.</p>
+<p><strong>example:</strong></p>
+<pre><code class="language-powershell">$numbers = 1, 2, 3, 4, 5
+
+$numbers | ForEach-Object {
+    $doubled = $_ * 2
+    Write-Host &quot;Original: $_, Doubled: $doubled&quot;
+}
+</code></pre>
+<p><strong>example:</strong></p>
+<pre><code class="language-powershell">Get-Content -Path C:\tmp\subdomains.txt | ForEach-Object {
+    Write-Host &quot;Processing line: $_&quot;
+    # Add your processing logic here
+}
+</code></pre>
+<h3 id="foreach-and">ForEach and %</h3>
+<p>ForEach-Object has two shorthands that you can use, ForEach and %. The place where you use ForEach determines which version of the two is used.</p>
+<pre><code class="language-powershell">$fruits = @('apple', 'pear', 'banana', 'lemon', 'lime', 'mango')
+# Foreach - Loads all the fruits in the memory and process it
+# Takes 21,4553 miliseconds
+Foreach ($fruit in $fruits) {
+    Write-Host $fruit;
+}
+
+#Shorthand for foreach
+# Takes 14,3926 miliseconds
+$fruits.foreach( {
+        Write-Host $_;
+}) 
+
+# ForEach-Object 
+# Takes 7,8812 miliseconds
+$fruits | ForEach-Object { Write-Host $_ }
+
+# Shorthand for ForEach-Object
+# Takes 7.3507 miliseconds
+$fruits | ForEach { Write-Host $_ }
+
+# Also a Shorthand for ForEach-Object
+# Takes 7,2982 miliseconds
+$fruits | % { Write-Host $_ }
+</code></pre>
+<h3 id="foreach-faster">Foreach faster</h3>
+<p>If we take a large data set, with 300.000 records for example, then we can see that foreach can be a lot faster than ForEach-Object. Only the memory consumption would be a bit higher of foreach.</p>
+<pre><code class="language-powershell">$items = 0..300000
+# Takes 180 ms to complete
+(Measure-Command { foreach ($i in $items) { $i } }).TotalMilliseconds
+# Takes 1300 ms to complete
+(Measure-Command { $items | ForEach-Object { $_ } }).TotalMilliseconds
+# Takes 850 ms to complete
+(Measure-Command { $items.ForEach({ $i })}).TotalMilliseconds
+</code></pre>
+<h2 id="foreach-object-script-blocks">ForEach-Object Script Blocks</h2>
+<p>ForEach-Object allows you to use script blocks which can be really useful when you need to log the process or clean up when the script is completed.</p>
+<pre><code class="language-powershell">$path = &quot;C:\temp&quot;
+$totalSize = 0
+
+Get-ChildItem $path | ForEach-Object -Begin {
+    Write-Host &quot;Processing folder $path&quot;
+} -Process {
+    $totalSize += ($_.length / 1kb)
+} -End {
+    Write-host $totalSize &quot;Kb&quot;
+}
+</code></pre>
+<h2 id="break-continue-statements">Break, continue statements</h2>
+<p>Break and continue are control-flow statements used within loops to alter the normal flow of execution.</p>
+<h3 id="break-statement">break Statement</h3>
+<p>The break statement is used to exit a loop prematurely. When encountered, it immediately terminates the loop, and the program control moves to the next statement after the loop.</p>
+<pre><code class="language-powershell">$numbers = 1..10
+
+foreach ($number in $numbers) {
+    if ($number -eq 5) {
+        Write-Host &quot;Breaking at $number&quot;
+        break
+    }
+    Write-Host &quot;Current number: $number&quot;
+}
+Write-Host &quot;Loop finished&quot;
+</code></pre>
+<pre><code class="language-output">Current number: 1
+Current number: 2
+Current number: 3
+Current number: 4
+Breaking at 5
+</code></pre>
+<h3 id="continue-statement">continue Statement</h3>
+<p>The continue statement is used to skip the rest of the code inside a loop for the current iteration and move on to the next iteration.</p>
+<pre><code class="language-powershell">for ($i = 1; $i -le 5; $i++) {
+    if ($i -eq 3) {
+        Write-Host &quot;Skipping iteration $i&quot;
+        continue
+    }
+    Write-Host &quot;Processing iteration $i&quot;
+}
+Write-Host &quot;Loop finished&quot;
+</code></pre>
+<pre><code class="language-output">Processing iteration 1
+Processing iteration 2
+Skipping iteration 3
+Processing iteration 4
+Processing iteration 5
+Loop finished
+</code></pre>
+<h2 id="read-csv-file">Read CSV file</h2>
+<p>The first line of the.csv file contains the titles of the fields.</p>
+<p><a href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/course/ps_basics/07-loops/demo/users_small.csv">users_small.csv</a></p>
+<ul>
+<li>Read the csvfile in.\users_small.csv and assign the entire set of rows to the variable $Users</li>
+</ul>
+<details>
+<summary>Show solution</summary>
+<p>Save the linked <code>users_small.csv</code> in your current practice folder first.</p>
+<pre><code class="language-powershell">$Users = Import-Csv -LiteralPath '.\users_small.csv' -Delimiter ';'
+$Users
+</code></pre>
+<p>The supplied file is semicolon-delimited. Each data row becomes an object
+with <code>GivenName</code> and <code>Surname</code> string properties. Using the default comma
+delimiter would treat the semicolon-separated header as one property.</p>
+</details>
+<ul>
+<li>What are the properties of $Users? =&gt; what are the field names from the.csv file?</li>
+</ul>
+<details>
+<summary>Show solution</summary>
+<pre><code class="language-powershell">$Users | Get-Member -MemberType NoteProperty
+</code></pre>
+<p>The supplied CSV's field names become <code>GivenName</code> and <code>Surname</code> properties.
+The CSV's first line supplies those names; subsequent rows supply their
+values. If only one combined header appears, check <code>-Delimiter ';'</code>.</p>
+</details>
+<ul>
+<li>Specify a separator other than comma</li>
+</ul>
+<details>
+<summary>Show solution</summary>
+<pre><code class="language-powershell">$users = Import-Csv -LiteralPath '.\users_small.csv' -Delimiter ';'
+foreach ($user in $users) {
+    $givenName = $user.GivenName
+    $surname = $user.Surname
+    Write-Output ('{0} has surname {1}' -f $givenName, $surname)
+}
+</code></pre>
+<p><code>-Delimiter ';'</code> matches the supplied file. Each iteration handles one row.
+For example, the row for Alex Janssens produces <code>Alex has surname Janssens</code>.
+A different file needs its own actual separator; changing the parameter does
+not rewrite the file.</p>
+</details>
+<ul>
+<li><p>Foreach allows you to scroll through the list of objects you get back from Import-Csv</p>
+</li>
+<li><p>Each object corresponds to a row from the CSV file</p>
+</li>
+<li><p>You can select the correct field by using the field name from the CSV header</p>
+</li>
+</ul>
+<h2 id="read-xlsx-file">Read xlsx file</h2>
+<p><a href="https://github.com/dfinke/ImportExcel">Import Excel</a></p>
+<p>Create a <code>users.xlsx</code> workbook with a worksheet named <code>Blad1</code> and columns <code>GivenName</code> and <code>Surname</code>, then use it with the following example.</p>
+<details>
+<summary>Show solution</summary>
+<p>Create a blank workbook in Excel, rename its worksheet to <code>Blad1</code>, and
+put <code>GivenName</code> in cell A1 and <code>Surname</code> in B1. Add practice records below
+the headers, such as <code>Alex</code> and <code>Janssens</code> in row 2. Save it as <code>users.xlsx</code>
+in your current course practice folder. The import example needs that exact
+filename, worksheet name, and header row.</p>
+</details>
+<div style="width: 320px; max-width: 100%;">
+<p><a href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/course/ps_basics/07-loops/image/07-ps-Loops/1700344527648.png"><img src="images/course__ps_basics__07-loops__image__07-ps-Loops__1700344527648.png" alt="Loop diagram: spreadsheet preview" /></a></p>
+</div>
+<p><strong>Import module:</strong></p>
+<pre><code class="language-powershell">Install-Module -Name ImportExcel -scope AllUsers
+</code></pre>
+<pre><code class="language-powershell">Get-Module -ListAvailable ImportExcel | Format-List
+</code></pre>
+<pre><code class="language-powershell">$users = Import-Excel -path .\users.xlsx -WorksheetName 'Blad1'
+$users | Get-Member
+$users
+</code></pre>
+<ul>
+<li>Read the rows of the worksheet 'Blad1' from <code>.\users.xlsx</code> and place them in <code>$users</code>.</li>
+</ul>
+<details>
+<summary>Show solution</summary>
+<p>After preparing the workbook and loading the ImportExcel module:</p>
+<pre><code class="language-powershell">$users = Import-Excel -Path '.\users.xlsx' -WorksheetName 'Blad1'
+</code></pre>
+<p>The file and worksheet must match the earlier setup: <code>users.xlsx</code> and
+<code>Blad1</code>. Each data row becomes an object whose properties come from the
+header row. <code>Sheet1</code> or <code>names.xlsx</code> would select a different resource.</p>
+</details>
+<ul>
+<li>See which properties are available for the Excel rows that are in the variable $users What can you use?</li>
+</ul>
+<details>
+<summary>Show solution</summary>
+<pre><code class="language-powershell">$users | Get-Member -MemberType Properties
+</code></pre>
+<p><code>Get-Member</code> inspects the imported row objects. With the required header
+row, the available data properties include <code>GivenName</code> and <code>Surname</code>.
+An empty worksheet produces no row objects to inspect.</p>
+</details>
+<ul>
+<li>On the console, show the First Name property of all excel rows in the variable $users</li>
+</ul>
+<details>
+<summary>Show solution</summary>
+<pre><code class="language-powershell">$users.GivenName
+</code></pre>
+<p>Dot notation retrieves the <code>GivenName</code> values from the imported rows and
+displays each value. Use the actual header name <code>GivenName</code>, rather than
+an assumed property named <code>FirstName</code>. Values depend on the workbook.</p>
+</details>
+<h2 id="read-xml-file">Read xml file</h2>
+<p><a href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/course/ps_basics/07-loops/demo/personen.xml">personen.xml</a></p>
+<p><a href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/course/ps_basics/07-loops/demo/Import_xml_example01.ps1">import_xml_example01.ps1</a></p>
+<pre><code class="language-powershell">$users = [xml](Get-Content &quot;.\personen.xml&quot;)
+$users = $users.SelectNodes(&quot;//people//person&quot;)
+
+foreach ($user in $users){
+    $id = $user.id
+    $naam = $user.name
+    $age = $user.age
+    
+    Write-Host (&quot;id:{0}`nnaam:{1}`nage:{2}`n&quot; -f $id,$naam,$age)
+}
+</code></pre>
+<pre><code></code></pre>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

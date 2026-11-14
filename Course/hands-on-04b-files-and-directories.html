@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Hands-on 04b — Files and directories — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">04b - Files and directories</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a class="sidebar-current" href="hands-on-04b-files-and-directories.html" aria-current="page">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; Hands-on</p>
+            <h1 id="page-title">Hands-on 04b — Files and directories</h1>
+            <p class="hero-description">04b - Files and directories</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/hands-on/04b-files-and-directories/01-files-and-directories">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="goal">Goal</h2>
+<p>Prepare a classroom workstation handover while preserving source files.
+Build paths, inspect files, work on a copy, and verify the delivered folder.</p>
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>After completing this lab, you can:</p>
+<ul>
+<li>resolve absolute, relative, wildcard, and literal paths;</li>
+<li>create directories and inspect or search text files;</li>
+<li>preview, copy, edit, move, rename, and remove exact practice files;</li>
+<li>verify preservation and changes with file hashes;</li>
+<li>search recursively and filter timestamps, sizes, and hidden attributes;</li>
+<li>predict folder-copy layouts and batch rename targets; and</li>
+<li>deliver a verified folder with a reusable CSV inventory.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Complete the <a href="powershell-basics-06-files-and-directories.html">Files and directories lesson</a>,
+including its advanced sections, before starting this lab.</li>
+<li>Complete the <a href="powershell-basics-05-output-formatting-and-export.html">output, formatting, and export lesson</a>
+and <a href="hands-on-04-output-formatting-files-and-directories.html">hands-on 04</a>.</li>
+<li>Understand object properties, basic pipelines, filtering, and sorting.</li>
+</ul>
+<p>Use the lessons for command explanations. This lab applies those concepts
+to a separate scenario and dataset.</p>
+<h2 id="environment-and-safety-requirements">Environment and safety requirements</h2>
+<p>Use PowerShell 7 on Windows with Visual Studio Code or Windows Terminal.
+Your instructor must first prepare <code>C:\powershell</code> with writable access.
+The commands then run with a normal user account.</p>
+<p>Work only in a new <code>C:\powershell\File-Directory-Lab</code> folder. Preserve any
+existing attempt and choose a different child name. Inspect every preview's
+source and destination. The only deletion is the exact temporary file created
+in Activity 1.2. Keep the completed handover and sources for assessment.</p>
+<h2 id="how-to-work-in-this-lab">How to work in this lab</h2>
+<p>Complete Parts 1 to 5 in order, including <strong>Advanced</strong> Part 4. All activities
+are required. Allow approximately 140–180 minutes, with a break after Part 3.</p>
+<p>Follow <strong>predict → run → inspect → explain</strong>. Commands under <strong>Run</strong> supply
+setup or a starting example; write the missing task commands yourself.
+Use the same PowerShell session throughout: later parts reuse earlier path
+and hash variables. If the session closes, start a new attempt with a new
+root and complete the activities in order.</p>
+<p>After attempting each task, open <strong>Show solution</strong> to compare commands,
+results, and explanations. Run supplied setup once. If you already made a
+file change, inspect the result instead of replaying it from the solution.</p>
+<h2 id="files-you-will-create">Files you will create</h2>
+<p>No downloads or starter files are needed.</p>
+<table>
+<thead>
+<tr>
+<th>Location below the root</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>source\client[lab].ini</code></td>
+<td>Original two-line configuration</td>
+</tr>
+<tr>
+<td><code>source\handover-notes.txt</code></td>
+<td>Original handover instructions</td>
+</tr>
+<tr>
+<td><code>source\branch-02\room-b.txt</code></td>
+<td>Nested room note</td>
+</tr>
+<tr>
+<td><code>draft\build-check.tmp</code></td>
+<td>Temporary file, deleted in Activity 3.3</td>
+</tr>
+<tr>
+<td><code>draft\client.ini</code></td>
+<td>Edited copy, moved in Activity 3.2</td>
+</tr>
+<tr>
+<td><code>source\review-marker.txt</code></td>
+<td>Controlled hidden file in Activity 4.2</td>
+</tr>
+<tr>
+<td><code>copy-preview\folder-case</code> and <code>copy-preview\contents-case</code></td>
+<td>Empty preview destinations</td>
+</tr>
+<tr>
+<td><code>handover\classroom-client.ini</code></td>
+<td>Delivered three-line configuration</td>
+</tr>
+<tr>
+<td><code>handover\instructions.txt</code></td>
+<td>Copied instructions</td>
+</tr>
+<tr>
+<td><code>handover\branch-02\room-b.txt</code></td>
+<td>Copied room note</td>
+</tr>
+<tr>
+<td><code>handover\handover-files.csv</code></td>
+<td>Three-row payload inventory</td>
+</tr>
+</tbody>
+</table>
+<h2 id="part-1-prepare-the-handover-workspace">Part 1 — Prepare the handover workspace</h2>
+<h3 id="activity-1.1-choose-and-create-a-fresh-workspace">Activity 1.1 — Choose and create a fresh workspace</h3>
+<p>A separate workspace makes every source and destination easy to check.
+<code>Join-Path</code> combines a parent path and a child name. A variable beginning
+with <code>$</code> keeps that path for reuse.</p>
+<p><strong>Predict:</strong> should an unused workspace return <code>True</code> or <code>False</code>?</p>
+<p><strong>Run:</strong></p>
+<pre><code class="language-powershell">$labRoot = Join-Path -Path 'C:\powershell' -ChildPath 'File-Directory-Lab'
+$labRoot
+Test-Path -LiteralPath $labRoot
+</code></pre>
+<p>If the result is <code>True</code>, preserve that folder and choose a new child name
+before continuing. Do not reuse an earlier attempt.</p>
+<p><strong>Tasks:</strong></p>
+<ol>
+<li>Create the root and three folders named <code>source</code>, <code>draft</code>, and <code>handover</code>.</li>
+<li>Store their paths in <code>$sourceFolder</code>, <code>$draftFolder</code>, and <code>$handoverFolder</code>.</li>
+<li>List the root's directories, sorted by name.</li>
+</ol>
+<p><strong>Reflect:</strong> why keep source files separate from edited copies?</p>
+<p><strong>Checkpoint:</strong> the root contains exactly the three empty folders.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Workspace solution:</strong></p>
+<pre><code class="language-powershell">$sourceFolder = Join-Path -Path $labRoot -ChildPath 'source'
+$draftFolder = Join-Path -Path $labRoot -ChildPath 'draft'
+$handoverFolder = Join-Path -Path $labRoot -ChildPath 'handover'
+
+New-Item -Path $labRoot -ItemType Directory -ErrorAction Stop | Out-Null
+New-Item -Path $sourceFolder -ItemType Directory | Out-Null
+New-Item -Path $draftFolder -ItemType Directory | Out-Null
+New-Item -Path $handoverFolder -ItemType Directory | Out-Null
+
+Get-ChildItem -LiteralPath $labRoot -Directory |
+    Sort-Object Name |
+    Select-Object Name
+</code></pre>
+<p>An unused root returns <code>False</code>. The directory names are <code>draft</code>, <code>handover</code>,
+and <code>source</code>. Separate locations help preserve original inputs while you
+edit and deliver copies. The instructor prepares the writable base folder;
+these commands create only your new workspace.</p>
+</details>
+<h3 id="activity-1.2-create-the-supplied-input-files">Activity 1.2 — Create the supplied input files</h3>
+<p>The handover contains a client configuration, instructions, and a room note.
+Square brackets in the source filename are deliberate.</p>
+<p><strong>Predict:</strong> will <code>Set-Content</code> create a missing file inside an existing folder?</p>
+<p><strong>Run once:</strong></p>
+<pre><code class="language-powershell">$branchFolder = Join-Path -Path $sourceFolder -ChildPath 'branch-02'
+$settingsPath = Join-Path -Path $sourceFolder -ChildPath 'client[lab].ini'
+$readmePath = Join-Path -Path $sourceFolder -ChildPath 'handover-notes.txt'
+$branchNotePath = Join-Path -Path $branchFolder -ChildPath 'room-b.txt'
+$scratchPath = Join-Path -Path $draftFolder -ChildPath 'build-check.tmp'
+
+New-Item -Path $branchFolder -ItemType Directory | Out-Null
+Set-Content -LiteralPath $settingsPath -Value 'Mode=Training', 'Server=training.example.invalid'
+Set-Content -LiteralPath $readmePath -Value 'Check the classroom client before handover.'
+Set-Content -LiteralPath $branchNotePath -Value 'Use the teaching VLAN.'
+New-Item -Path $scratchPath -ItemType File | Out-Null
+Set-Content -LiteralPath $scratchPath -Value 'TEMPORARY HANDOVER BUILD NOTE'
+</code></pre>
+<p><code>Set-Content</code> writes the supplied lines, replacing existing content.
+The comma supplies two strings for the configuration. <code>New-Item</code> with
+<code>-ItemType File</code> creates an empty file before the final command fills it.</p>
+<p><strong>Tasks:</strong> read the configuration and the room note with <code>Get-Content</code>.
+Explain why running this setup again after editing a file could lose work.</p>
+<p><strong>Checkpoint:</strong> the source has three files, including one in <code>branch-02</code>;
+the draft has one temporary file.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Input inspection solution:</strong></p>
+<pre><code class="language-powershell">Get-Content -LiteralPath $settingsPath
+Get-Content -LiteralPath $branchNotePath
+</code></pre>
+<p>The configuration contains <code>Mode=Training</code> and
+<code>Server=training.example.invalid</code> on separate lines. The room note is
+<code>Use the teaching VLAN.</code>. <code>Set-Content</code> creates a missing file when its
+parent exists; it overwrites an existing file's contents. Replaying setup
+could therefore replace later edits. Do not replay the supplied setup
+when checking this answer.</p>
+</details>
+<h2 id="part-2-inspect-paths-items-and-content">Part 2 — Inspect paths, items, and content</h2>
+<h3 id="activity-2.1-resolve-paths-and-preserve-literal-names">Activity 2.1 — Resolve paths and preserve literal names</h3>
+<p>An absolute path identifies a location independently of the current folder.
+A relative path such as <code>.\branch-02</code> starts from your current location.
+<code>-LiteralPath</code> treats characters such as <code>[</code> and <code>]</code> as part of the name.</p>
+<p><strong>Predict:</strong> will <code>-Path</code> and <code>-LiteralPath</code> find the same configuration here?</p>
+<p><strong>Run:</strong></p>
+<pre><code class="language-powershell">Set-Location -LiteralPath $sourceFolder
+Get-Location
+Test-Path -LiteralPath '.\branch-02' -PathType Container
+Test-Path -LiteralPath $settingsPath -PathType Leaf
+Test-Path -Path $settingsPath -PathType Leaf
+</code></pre>
+<p><strong>Tasks:</strong></p>
+<ol>
+<li>Inspect the configuration's <code>Name</code>, <code>DirectoryName</code>, and <code>Length</code>
+with <code>Get-Item -LiteralPath</code> and <code>Select-Object</code>.</li>
+<li>Return to <code>$labRoot</code> and test <code>.\branch-02</code> again.</li>
+</ol>
+<p><strong>Reflect:</strong> what changed when you moved to the root? Why does a literal
+path matter even though the filename is stored in a variable?</p>
+<p><strong>Checkpoint:</strong> the absolute configuration path still works; the relative
+branch path no longer finds a folder at the root.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Path solution:</strong></p>
+<pre><code class="language-powershell">Get-Item -LiteralPath $settingsPath |
+    Select-Object Name, DirectoryName, Length
+Set-Location -LiteralPath $labRoot
+Test-Path -LiteralPath '.\branch-02' -PathType Container
+Test-Path -LiteralPath $settingsPath -PathType Leaf
+</code></pre>
+<p>The supplied checks return <code>True</code>, <code>True</code>, and <code>False</code> in that order.
+With <code>-Path</code>, <code>[lab]</code> is a wildcard character set matching one character;
+it does not mean the literal text <code>[lab]</code>. A variable stores text but does
+not change how a cmdlet interprets it.</p>
+<p>The task checks return <code>False</code> and <code>True</code>. The current directory changed,
+so the relative path now searches below the root. The absolute path still
+identifies <code>source\client[lab].ini</code>. Its length is positive; the exact
+byte count and absolute directory depend on the chosen workspace.</p>
+</details>
+<h3 id="activity-2.2-inspect-items-and-search-text">Activity 2.2 — Inspect items and search text</h3>
+<p><code>Get-Item</code> inspects the named item. <code>Get-ChildItem</code> enumerates its children.
+A directory is an object too, but it is not a text file.</p>
+<p><strong>Predict:</strong> does inspecting <code>$sourceFolder</code> list the three source files?</p>
+<p><strong>Tasks:</strong></p>
+<ol>
+<li>Inspect the source folder itself with <code>Get-Item</code>.</li>
+<li>List only its direct files, displaying <code>Name</code> and <code>Length</code>.</li>
+<li>List only its direct directories.</li>
+<li>Use <code>Select-String -LiteralPath</code> with <code>-SimpleMatch</code> to find
+<code>Server=</code> in the configuration.</li>
+</ol>
+<p><code>-File</code> and <code>-Directory</code> restrict the kind of child returned.
+<code>-SimpleMatch</code> searches for literal text rather than a regex pattern.</p>
+<p><strong>Reflect:</strong> which file is missing from the direct file listing, and why?</p>
+<p><strong>Checkpoint:</strong> two direct files, one direct directory, and one matching
+configuration line.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Inspection and search solution:</strong></p>
+<pre><code class="language-powershell">Get-Item -LiteralPath $sourceFolder
+Get-ChildItem -LiteralPath $sourceFolder -File |
+    Sort-Object Name |
+    Select-Object Name, Length
+Get-ChildItem -LiteralPath $sourceFolder -Directory |
+    Select-Object Name
+Select-String -LiteralPath $settingsPath -Pattern 'Server=' -SimpleMatch
+</code></pre>
+<p><code>Get-Item</code> returns the <code>source</code> directory object, not its contents.
+The direct files are <code>client[lab].ini</code> and <code>handover-notes.txt</code>.
+The directory is <code>branch-02</code>. Its <code>room-b.txt</code> is one level deeper and
+requires recursion to appear in a file search. The matching configuration
+line is line 2: <code>Server=training.example.invalid</code>.</p>
+</details>
+<h2 id="part-3-change-a-working-copy-safely">Part 3 — Change a working copy safely</h2>
+<h3 id="activity-3.1-preview-a-copy-and-edit-only-the-copy">Activity 3.1 — Preview a copy and edit only the copy</h3>
+<p>A file hash is a content fingerprint. Matching SHA256 hashes provide a
+useful check that copying preserved the bytes. Appending text changes them.</p>
+<p><strong>Predict:</strong> will <code>-WhatIf</code> create the destination file?</p>
+<p><strong>Run:</strong></p>
+<pre><code class="language-powershell">$draftConfigPath = Join-Path -Path $draftFolder -ChildPath 'client.ini'
+$sourceSettingsHash = (Get-FileHash -LiteralPath $settingsPath -Algorithm SHA256).Hash
+Copy-Item -LiteralPath $settingsPath -Destination $draftConfigPath -WhatIf
+Test-Path -LiteralPath $draftConfigPath
+</code></pre>
+<p><strong>Tasks:</strong></p>
+<ol>
+<li>Check the preview paths, perform the copy, and verify its hash equals
+<code>$sourceSettingsHash</code>.</li>
+<li>Append <code>ReadyForClass=true</code> to the draft with <code>Add-Content</code>.</li>
+<li>Read both versions. Save the edited draft's hash in <code>$editedSettingsHash</code>.</li>
+<li>Verify that the original's hash still matches <code>$sourceSettingsHash</code>.</li>
+</ol>
+<p><code>.Hash</code> retrieves the hash string from the returned object. <code>-eq</code> compares
+values for equality.</p>
+<p><strong>Reflect:</strong> should the edited hash still equal the source hash?</p>
+<p><strong>Checkpoint:</strong> two original lines, three draft lines, and an unchanged source.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Copy and edit solution:</strong></p>
+<pre><code class="language-powershell">Copy-Item -LiteralPath $settingsPath -Destination $draftConfigPath
+(Get-FileHash -LiteralPath $draftConfigPath -Algorithm SHA256).Hash -eq $sourceSettingsHash
+Add-Content -LiteralPath $draftConfigPath -Value 'ReadyForClass=true'
+Get-Content -LiteralPath $settingsPath
+Get-Content -LiteralPath $draftConfigPath
+$editedSettingsHash = (Get-FileHash -LiteralPath $draftConfigPath -Algorithm SHA256).Hash
+$editedSettingsHash -eq $sourceSettingsHash
+(Get-FileHash -LiteralPath $settingsPath -Algorithm SHA256).Hash -eq $sourceSettingsHash
+</code></pre>
+<p>The supplied <code>Test-Path</code> returns <code>False</code> because a preview changes nothing.
+The first hash comparison is <code>True</code>. After appending, the draft contains
+the two original lines followed by <code>ReadyForClass=true</code>. Its comparison
+with the original hash is <code>False</code>; checking the unchanged source is <code>True</code>.
+Keep both hash variables for the final verification.</p>
+</details>
+<h3 id="activity-3.2-move-and-rename-the-prepared-configuration">Activity 3.2 — Move and rename the prepared configuration</h3>
+<p>Moving relocates a file; renaming changes its name in the same directory.</p>
+<p><strong>Predict:</strong> will moving the edited copy change the original source file?</p>
+<p><strong>Run:</strong></p>
+<pre><code class="language-powershell">$movedConfigPath = Join-Path -Path $handoverFolder -ChildPath 'client-ready.ini'
+$finalConfigPath = Join-Path -Path $handoverFolder -ChildPath 'classroom-client.ini'
+Move-Item -LiteralPath $draftConfigPath -Destination $movedConfigPath -WhatIf
+</code></pre>
+<p><strong>Tasks:</strong></p>
+<ol>
+<li>Check the preview and perform the move.</li>
+<li>Preview a rename to <code>classroom-client.ini</code>, then perform it.
+<code>Rename-Item -NewName</code> takes the new filename here.</li>
+<li>Check both old paths and the final path.</li>
+<li>Verify the final file matches <code>$editedSettingsHash</code>.</li>
+</ol>
+<p><strong>Checkpoint:</strong> both old paths are absent, the final file exists, and its
+content is unchanged by the move and rename.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Move and rename solution:</strong></p>
+<pre><code class="language-powershell">Move-Item -LiteralPath $draftConfigPath -Destination $movedConfigPath
+Rename-Item -LiteralPath $movedConfigPath -NewName 'classroom-client.ini' -WhatIf
+Rename-Item -LiteralPath $movedConfigPath -NewName 'classroom-client.ini'
+Test-Path -LiteralPath $draftConfigPath
+Test-Path -LiteralPath $movedConfigPath
+Test-Path -LiteralPath $finalConfigPath
+(Get-FileHash -LiteralPath $finalConfigPath -Algorithm SHA256).Hash -eq $editedSettingsHash
+</code></pre>
+<p>The results are <code>False</code>, <code>False</code>, <code>True</code>, and <code>True</code>. Both operations
+preserve the file's bytes. The original <code>client[lab].ini</code> remains in
+<code>source</code> because the moved file was a separate copy.</p>
+</details>
+<h3 id="activity-3.3-remove-one-known-temporary-file">Activity 3.3 — Remove one known temporary file</h3>
+<p>Cleanup should identify the exact disposable file, then verify what remains.</p>
+<p><strong>Predict:</strong> after a deletion preview, should the temporary file still exist?</p>
+<p><strong>Tasks:</strong></p>
+<ol>
+<li>Preview removing only <code>$scratchPath</code> with <code>Remove-Item -LiteralPath</code>.</li>
+<li>Verify that it still exists after the preview.</li>
+<li>Remove that exact file without <code>-WhatIf</code>.</li>
+<li>Verify it is absent and that both <code>$settingsPath</code> and <code>$finalConfigPath</code>
+still exist.</li>
+</ol>
+<p><strong>Reflect:</strong> why would a wildcard deletion be unsuitable for this task?</p>
+<p><strong>Checkpoint:</strong> only <code>draft\build-check.tmp</code> has been deleted.
+Do not remove the workspace or any source file.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Cleanup solution:</strong></p>
+<pre><code class="language-powershell">Remove-Item -LiteralPath $scratchPath -WhatIf
+Test-Path -LiteralPath $scratchPath
+Remove-Item -LiteralPath $scratchPath
+Test-Path -LiteralPath $scratchPath
+Test-Path -LiteralPath $settingsPath
+Test-Path -LiteralPath $finalConfigPath
+</code></pre>
+<p>The checks return <code>True</code>, <code>False</code>, <code>True</code>, and <code>True</code>. A preview leaves
+the file intact. The actual command deletes only the known temporary
+file. A wildcard could select other files whose names happen to match;
+the cleanup requirement identifies one exact path.</p>
+</details>
+<h2 id="part-4-advanced-file-selection-and-previews">Part 4 — Advanced file selection and previews</h2>
+<h3 id="activity-4.1-search-recursively-and-filter-typed-metadata">Activity 4.1 — Search recursively and filter typed metadata</h3>
+<p>Advanced file selection combines a starting directory, a filename filter,
+and properties such as <code>LastWriteTime</code> and <code>Length</code>. Complete all advanced
+activities; they are required parts of the topic.</p>
+<p><code>-Recurse</code> includes subdirectories. <code>@(...)</code> collects results into an array
+so <code>.Count</code> works consistently for zero, one, or several results.</p>
+<p><strong>Predict:</strong> how many <code>*.txt</code> files will each search find at this point?</p>
+<p><strong>Run:</strong></p>
+<pre><code class="language-powershell">$directTextFiles = @(Get-ChildItem -LiteralPath $sourceFolder -File -Filter '*.txt')
+$allTextFiles = @(Get-ChildItem -LiteralPath $sourceFolder -File -Filter '*.txt' -Recurse)
+$directTextFiles.Count
+$allTextFiles.Count
+$cutoff = (Get-Item -LiteralPath $readmePath).LastWriteTime
+</code></pre>
+<p><strong>Tasks:</strong></p>
+<ol>
+<li>Display the recursive text files' <code>FullName</code> and <code>Length</code>.</li>
+<li>List all source files recursively with <code>LastWriteTime -ge $cutoff</code>,
+sorted by <code>LastWriteTime</code>. Display <code>Name</code> and <code>LastWriteTime</code>.</li>
+<li>Measure the recursive text files' <code>Length</code> with <code>-Minimum</code>, <code>-Maximum</code>,
+<code>-Average</code>, and <code>-Sum</code>.</li>
+</ol>
+<p><code>-ge</code> means greater than or equal to. The cutoff is a <code>DateTime</code> object,
+so the comparison uses timestamps rather than formatted date strings.</p>
+<p><strong>Reflect:</strong> why use <code>FullName</code> when searching several folders?
+Why can the timestamp-filtered result vary between machines?</p>
+<p><strong>Checkpoint:</strong> one direct text file and two recursive text files.
+The timestamp result includes <code>handover-notes.txt</code>.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Recursive inspection solution:</strong></p>
+<pre><code class="language-powershell">$allTextFiles | Sort-Object FullName | Select-Object FullName, Length
+Get-ChildItem -LiteralPath $sourceFolder -File -Recurse |
+    Where-Object { $_.LastWriteTime -ge $cutoff } |
+    Sort-Object LastWriteTime |
+    Select-Object Name, LastWriteTime
+$allTextFiles |
+    Measure-Object -Property Length -Minimum -Maximum -Average -Sum
+</code></pre>
+<p>The counts are <code>1</code> and <code>2</code>: <code>handover-notes.txt</code> is direct;
+<code>branch-02\room-b.txt</code> is nested. Full paths distinguish files with the
+same name in different directories. <code>$_</code> is the current pipeline object.</p>
+<p>The timestamp query includes the notes file because its timestamp equals
+the cutoff. Other matches depend on actual write times and filesystem
+timestamp precision. Measurement has <code>Count</code> equal to <code>2</code> and positive
+byte statistics. Exact timestamps and byte counts are machine-dependent;
+keep the numeric properties for comparisons and calculations.</p>
+</details>
+<h3 id="activity-4.2-inspect-a-controlled-hidden-file">Activity 4.2 — Inspect a controlled hidden file</h3>
+<p>On Windows, hidden is a file attribute. Default directory listings omit
+hidden files; <code>-Force</code> includes them without removing the attribute.</p>
+<p><strong>Predict:</strong> will a hidden file stop existing when it disappears from a
+normal listing?</p>
+<p><strong>Run once:</strong></p>
+<pre><code class="language-powershell">$markerPath = Join-Path -Path $sourceFolder -ChildPath 'review-marker.txt'
+Set-Content -LiteralPath $markerPath -Value 'Reviewed for the classroom.'
+Set-ItemProperty -LiteralPath $markerPath -Name Attributes -Value Hidden
+</code></pre>
+<p>This setup sets the attribute only on the new marker, inside your workspace.</p>
+<p><strong>Tasks:</strong></p>
+<ol>
+<li>Compare direct file listings with and without <code>-Force</code>.</li>
+<li>Use <code>Get-ChildItem -Hidden -File</code> to show hidden files only.</li>
+<li>Inspect the marker's <code>Attributes</code> with <code>Get-Item -Force -LiteralPath</code>.</li>
+</ol>
+<p><strong>Reflect:</strong> does <code>-Force</code> mean the same thing as administrator access?</p>
+<p><strong>Checkpoint:</strong> two files in the normal direct listing, three with <code>-Force</code>,
+and one hidden marker.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Attribute inspection solution:</strong></p>
+<pre><code class="language-powershell">Get-ChildItem -LiteralPath $sourceFolder -File | Select-Object Name
+Get-ChildItem -LiteralPath $sourceFolder -File -Force | Select-Object Name
+Get-ChildItem -LiteralPath $sourceFolder -File -Hidden | Select-Object Name
+Get-Item -LiteralPath $markerPath -Force | Select-Object Name, Attributes
+</code></pre>
+<p>The normal listing shows the configuration and handover notes. <code>-Force</code>
+adds <code>review-marker.txt</code>. <code>-Hidden</code> shows only that marker, whose
+attributes include <code>Hidden</code>. The file still exists. <code>-Force</code> requests
+provider-specific behaviour; it does not grant administrator rights or
+bypass filesystem permissions.</p>
+</details>
+<h3 id="activity-4.3-preview-folder-copies-and-a-batch-rename">Activity 4.3 — Preview folder copies and a batch rename</h3>
+<p>Copying a directory into an existing destination includes its directory name.
+Copying its children into an existing destination places those children
+directly there. Inspect both layouts before choosing a copy operation.</p>
+<p><strong>Predict:</strong> which preview puts <code>branch-02</code> directly below the destination?</p>
+<p><strong>Run once:</strong></p>
+<pre><code class="language-powershell">$copyPreviewRoot = Join-Path -Path $labRoot -ChildPath 'copy-preview'
+$folderPreview = Join-Path -Path $copyPreviewRoot -ChildPath 'folder-case'
+$contentsPreview = Join-Path -Path $copyPreviewRoot -ChildPath 'contents-case'
+New-Item -Path $copyPreviewRoot -ItemType Directory | Out-Null
+New-Item -Path $folderPreview -ItemType Directory | Out-Null
+New-Item -Path $contentsPreview -ItemType Directory | Out-Null
+$sourceContents = Join-Path -Path $sourceFolder -ChildPath '*'
+</code></pre>
+<p><strong>Tasks:</strong></p>
+<ol>
+<li>Preview copying <code>$sourceFolder</code> into <code>$folderPreview</code> with <code>-Recurse</code>,
+<code>-Force</code>, and <code>-WhatIf</code>.</li>
+<li>Preview copying <code>$sourceContents</code> into <code>$contentsPreview</code> with the same
+switches. Use <code>-Path</code> here because <code>*</code> deliberately selects children.</li>
+<li>Predict the relative destination of <code>branch-02\room-b.txt</code> for both.</li>
+<li>Select the visible recursive <code>*.txt</code> files and preview adding <code>review-</code>
+to each name. Use <code>ForEach-Object</code> with <code>Rename-Item -LiteralPath</code>.</li>
+<li>Verify that the two destination folders remain empty and names are unchanged.</li>
+</ol>
+<p>Inside <code>ForEach-Object { ... }</code>, <code>$_</code> is the current file. The expression
+<code>'review-' + $_.Name</code> builds its proposed new name.</p>
+<p><strong>Checkpoint:</strong> previews only; no source names or contents have changed.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Folder copy previews:</strong></p>
+<pre><code class="language-powershell">Copy-Item -LiteralPath $sourceFolder -Destination $folderPreview -Recurse -Force -WhatIf
+Copy-Item -Path $sourceContents -Destination $contentsPreview -Recurse -Force -WhatIf
+</code></pre>
+<p>The proposed note locations are
+<code>folder-case\source\branch-02\room-b.txt</code> and
+<code>contents-case\branch-02\room-b.txt</code>. The second command copies the
+children directly. <code>-Force</code> includes the controlled hidden source item;
+both commands remain previews.</p>
+<p><strong>Batch rename and verification solution:</strong></p>
+<pre><code class="language-powershell">$textFiles = @(Get-ChildItem -LiteralPath $sourceFolder -File -Filter '*.txt' -Recurse)
+$textFiles | Select-Object FullName
+$textFiles | ForEach-Object {
+    Rename-Item -LiteralPath $_.FullName -NewName ('review-' + $_.Name) -WhatIf
+}
+@(Get-ChildItem -LiteralPath $folderPreview -Force).Count
+@(Get-ChildItem -LiteralPath $contentsPreview -Force).Count
+Get-ChildItem -LiteralPath $sourceFolder -File -Filter '*.txt' -Recurse |
+    Select-Object Name
+</code></pre>
+<p>The two selected files would become <code>review-handover-notes.txt</code> and
+<code>review-room-b.txt</code>. The hidden marker is excluded from this selection.
+Both destination counts remain <code>0</code>. The original names remain
+<code>handover-notes.txt</code> and <code>room-b.txt</code> because <code>-WhatIf</code> performs no rename.
+Inspect destination-name collisions before performing a real batch rename.</p>
+</details>
+<h2 id="part-5-independent-challenge-deliver-the-handover">Part 5 — Independent challenge: deliver the handover</h2>
+<p>Filename: <code>Write-FileHandover.ps1</code></p>
+<p>Save the challenge commands in this file in the lab root, outside the source
+and handover folders. Complete the earlier activities first, then run
+<code>. .\Write-FileHandover.ps1</code> from the lab root in the same session to use their
+paths and hashes. Preview the copies and do not repeat completed file changes.</p>
+<p>Complete the handover for a colleague who must configure the classroom.</p>
+<p><strong>Predict:</strong> how many payload files should the finished handover contain,
+excluding its CSV inventory?</p>
+<p><strong>Requirements:</strong></p>
+<ol>
+<li>Keep <code>classroom-client.ini</code> from Activity 3.2.</li>
+<li>Preview and then copy <code>handover-notes.txt</code> to <code>handover\instructions.txt</code>.</li>
+<li>Preview and then copy the entire <code>branch-02</code> directory into the existing
+handover folder, keeping <code>branch-02\room-b.txt</code> nested.</li>
+<li>Inventory the handover payload recursively. Exclude <code>handover-files.csv</code>
+by name so it cannot inventory itself. Sort by <code>FullName</code>, select
+<code>FullName</code> and <code>Length</code>, and export to that CSV with <code>-NoTypeInformation</code>.</li>
+<li>Import the CSV and verify its row count and properties.</li>
+<li>Verify the original configuration still matches <code>$sourceSettingsHash</code>
+and the delivered configuration matches <code>$editedSettingsHash</code>.</li>
+<li>Verify that the temporary file and both old configuration paths are absent.</li>
+</ol>
+<p>Use <code>Export-Csv -LiteralPath</code> and <code>Import-Csv -LiteralPath</code> from the output
+lesson. <code>-ne</code> means not equal to. Source files must remain unchanged.
+The source's hidden review marker is for inspection and must stay out of
+the handover.</p>
+<p><strong>Success criteria:</strong></p>
+<ul>
+<li>Three payload files and one CSV in the handover, including the nested note.</li>
+<li>Three imported rows, with <code>FullName</code> and <code>Length</code> columns.</li>
+<li>Both hash comparisons are <code>True</code>; all three absence checks are <code>False</code>.</li>
+<li>The source is intact, the draft is empty, and copy-preview folders are empty.</li>
+</ul>
+<p><strong>Explain:</strong> why inventory before formatting? What happens to a numeric
+file length when CSV imports it?</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Handover copy solution:</strong></p>
+<pre><code class="language-powershell">$instructionsPath = Join-Path -Path $handoverFolder -ChildPath 'instructions.txt'
+Copy-Item -LiteralPath $readmePath -Destination $instructionsPath -WhatIf
+Copy-Item -LiteralPath $readmePath -Destination $instructionsPath
+Copy-Item -LiteralPath $branchFolder -Destination $handoverFolder -Recurse -WhatIf
+Copy-Item -LiteralPath $branchFolder -Destination $handoverFolder -Recurse
+</code></pre>
+<p>The handover has three payload files: <code>classroom-client.ini</code>,
+<code>instructions.txt</code>, and <code>branch-02\room-b.txt</code>. Copying preserves the
+source notes and source branch. The hidden marker is not selected.</p>
+<p><strong>Inventory solution:</strong></p>
+<pre><code class="language-powershell">$manifestPath = Join-Path -Path $handoverFolder -ChildPath 'handover-files.csv'
+$payloadFiles = @(Get-ChildItem -LiteralPath $handoverFolder -File -Recurse |
+    Where-Object { $_.Name -ne 'handover-files.csv' } |
+    Sort-Object FullName)
+$payloadFiles |
+    Select-Object FullName, Length |
+    Export-Csv -LiteralPath $manifestPath -NoTypeInformation
+$manifestRows = @(Import-Csv -LiteralPath $manifestPath)
+$manifestRows
+$manifestRows.Count
+$manifestPath
+</code></pre>
+<p>There are <code>3</code> rows, ordered by full path: the nested room note, the client
+configuration, then the instructions. Absolute paths and lengths reflect
+your workspace. Export selected file properties, without <code>Format-Table</code>,
+to preserve the intended columns. CSV imports property values as strings,
+so convert <code>Length</code> to a numeric type before later arithmetic.</p>
+<p><strong>Verification solution:</strong></p>
+<pre><code class="language-powershell">(Get-FileHash -LiteralPath $settingsPath -Algorithm SHA256).Hash -eq $sourceSettingsHash
+(Get-FileHash -LiteralPath $finalConfigPath -Algorithm SHA256).Hash -eq $editedSettingsHash
+Test-Path -LiteralPath $scratchPath
+Test-Path -LiteralPath $draftConfigPath
+Test-Path -LiteralPath $movedConfigPath
+@(Get-ChildItem -LiteralPath $sourceFolder -File -Recurse -Force).Count
+@(Get-ChildItem -LiteralPath $draftFolder -Force).Count
+@(Get-ChildItem -LiteralPath $folderPreview -Force).Count
+@(Get-ChildItem -LiteralPath $contentsPreview -Force).Count
+</code></pre>
+<p>The hash checks return <code>True</code> and <code>True</code>; the path checks return <code>False</code>,
+<code>False</code>, and <code>False</code>. The remaining counts are <code>4</code>, <code>0</code>, <code>0</code>, and <code>0</code>.
+The source count includes its hidden marker and nested room note. Keep all
+remaining files for assessment; cleanup already removed the one temporary file.</p>
+<details>
+<summary>Show solution Optimized</summary>
+<p>This alternative uses splatting for the two copy operations and streams the
+inventory directly into the CSV. Run it in the same prepared lab session and
+only once, as with the solution above.</p>
+<pre><code class="language-powershell">$copies = @(
+    @{ LiteralPath = $readmePath; Destination = (Join-Path $handoverFolder 'instructions.txt') }
+    @{ LiteralPath = $branchFolder; Destination = $handoverFolder; Recurse = $true }
+)
+foreach ($copy in $copies) {
+    Copy-Item @copy -WhatIf
+    Copy-Item @copy
+}
+
+$manifestPath = Join-Path $handoverFolder 'handover-files.csv'
+Get-ChildItem -LiteralPath $handoverFolder -File -Recurse |
+    Where-Object Name -ne 'handover-files.csv' |
+    Sort-Object FullName |
+    Select-Object FullName, Length |
+    Export-Csv -LiteralPath $manifestPath -NoTypeInformation
+
+$manifestRows = @(Import-Csv -LiteralPath $manifestPath)
+$manifestRows
+$manifestRows.Count
+$manifestPath
+
+(Get-FileHash -LiteralPath $settingsPath -Algorithm SHA256).Hash -eq $sourceSettingsHash
+(Get-FileHash -LiteralPath $finalConfigPath -Algorithm SHA256).Hash -eq $editedSettingsHash
+Test-Path -LiteralPath $scratchPath
+Test-Path -LiteralPath $draftConfigPath
+Test-Path -LiteralPath $movedConfigPath
+@(Get-ChildItem -LiteralPath $sourceFolder -File -Recurse -Force).Count
+@(Get-ChildItem -LiteralPath $draftFolder -Force).Count
+@(Get-ChildItem -LiteralPath $folderPreview -Force).Count
+@(Get-ChildItem -LiteralPath $contentsPreview -Force).Count
+</code></pre>
+</details>
+</details>
+<h2 id="practice-and-self-check">Practice and self-check</h2>
+<p>Answer without reopening the solutions:</p>
+<ol>
+<li>Why does <code>Test-Path -Path</code> fail for <code>client[lab].ini</code> in this dataset?</li>
+<li>What changes when you use a relative path after <code>Set-Location</code>?</li>
+<li>How do <code>Get-Item</code> and <code>Get-ChildItem</code> differ?</li>
+<li>Why does the recursive text search find more files?</li>
+<li>What do equal file hashes establish, and what does appending change?</li>
+<li>How do copying, moving, and renaming differ?</li>
+<li>Why compare <code>LastWriteTime</code> with a <code>DateTime</code> value?</li>
+<li>Does <code>-Force</code> change permissions or remove the hidden attribute?</li>
+<li>Where does a folder copy place its root when the destination exists?</li>
+<li>How do you preview cleanup and verify that only its intended file is gone?</li>
+<li>Why exclude the inventory file from its own payload listing?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Self-check answers:</strong></p>
+<ol>
+<li><code>[lab]</code> is interpreted as a wildcard character set by <code>-Path</code>.
+<code>-LiteralPath</code> treats the brackets as part of the filename.</li>
+<li>Relative paths start from the new working location; absolute paths retain
+their original meaning.</li>
+<li><code>Get-Item</code> inspects the named item; <code>Get-ChildItem</code> enumerates its children.</li>
+<li><code>-Recurse</code> includes the nested <code>branch-02\room-b.txt</code>.</li>
+<li>Matching SHA256 hashes provide evidence of identical bytes. Appending the
+readiness line changes the draft's content and hash.</li>
+<li>Copying preserves the source and creates another item. Moving relocates it.
+Renaming changes its name without moving it to another directory here.</li>
+<li>Both sides remain typed timestamps, avoiding culture-dependent text ordering.</li>
+<li>Neither. <code>-Force</code> includes hidden files in this listing and grants no rights.</li>
+<li>Copying <code>source</code> into an existing folder creates a nested <code>source</code> directory;
+copying <code>source\*</code> places its children directly inside the destination.</li>
+<li>Preview <code>Remove-Item -LiteralPath $scratchPath -WhatIf</code>, inspect the exact
+path, perform the deletion, and check that the scratch file is absent
+while the source and delivered configuration remain.</li>
+<li>The CSV describes the three delivered payload files. Including an existing
+inventory would add a fourth, self-referencing record on another run.</li>
+</ol>
+</details>
+<h2 id="submission-checklist">Submission checklist</h2>
+<p>Submit your command transcript or saved commands and a short explanation.
+Do not include private data from outside this workspace.</p>
+<ul>
+<li>Record predictions and reflection answers for each activity.</li>
+<li>Show the literal-path comparison and recursive file counts.</li>
+<li>Include copy, move, rename, delete, folder-copy, and batch-rename previews.</li>
+<li>Explain the timestamp filter and hidden-file listings.</li>
+<li>Include the three-row CSV and the final hash and absence checks.</li>
+<li>Keep source files and the completed handover available for inspection.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>Build exact paths and understand the current directory before acting.
+Inspect objects and content, preserve originals, preview supported changes,
+and verify the resulting state. Advanced selection adds recursion, typed
+metadata, hidden attributes, and batch previews to that same workflow.</p>
+<p>The handover combines these skills with the output lesson's CSV export.
+The temporary build note is removed; all other materials remain for review.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="powershell-basics-06-files-and-directories.html">Files and directories lesson</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/scripting/samples/working-with-files-and-folders">Working with files and folders</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-childitem">Get-ChildItem</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/copy-item">Copy-Item</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash">Get-FileHash</a></li>
+</ul>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

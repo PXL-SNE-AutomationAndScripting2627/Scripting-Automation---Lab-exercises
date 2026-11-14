@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Hands-on — Regular expressions — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">05 - Regular expressions</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="hands-on-04-output-formatting-files-and-directories.html">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a class="sidebar-current" href="hands-on-05-regular-expressions.html" aria-current="page">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; Hands-on</p>
+            <h1 id="page-title">Hands-on — Regular expressions</h1>
+            <p class="hero-description">05 - Regular expressions</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/hands-on/05-regular-expressions/051-regular-expressions">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="goal">Goal</h2>
+<p>Use regular expressions to recognise, extract, search, replace, and split predictable text without changing any important data.</p>
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>By the end of this lab, you can:</p>
+<ul>
+<li>distinguish literal text, wildcard patterns, and regular expressions;</li>
+<li>choose a suitable matching approach for a practical administration task;</li>
+<li>use anchors, character classes, metacharacters, and quantifiers;</li>
+<li>test text with <code>-match</code> and <code>-cmatch</code>;</li>
+<li>extract values with numbered and named capture groups;</li>
+<li>find one or more matches with <code>Select-String</code>;</li>
+<li>replace or split text using a regex pattern; and</li>
+<li>parse structured log lines into PowerShell objects.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Complete <a href="powershell-basics-04-regular-expressions.html">Regular expressions</a>
+before starting this lab.</li>
+</ul>
+<h2 id="why-use-regex-in-this-lab">Why use regex in this lab?</h2>
+<p>In daily administration, wildcards help select names: <code>*.log</code> selects log
+files, and <code>PC-*</code> selects computer names starting with <code>PC-</code>. With <code>-like</code>,
+<code>*</code> means zero or more characters, and the pattern must match the whole string.</p>
+<p>Regex describes text in more detail. You can require a fixed number of digits,
+extract a domain and user into separate values, or mask part of an identifier.
+In this lab, you will compare filename selection with filename validation,
+extract values, and search log contents. These steps help turn text into data
+that a script can use for reports and decisions.</p>
+<p>Use <code>-eq</code> for one exact value, <code>-like</code> for a wildcard pattern, and <code>-match</code>
+for regex. <code>Select-String -Pattern</code> also uses regex. The pattern language is
+chosen by the operator or parameter; a pattern cannot be copied between them
+without checking its meaning.</p>
+<h2 id="how-to-work-in-this-lab">How to work in this lab</h2>
+<p>For every activity, complete the three steps.</p>
+<ol>
+<li><strong>Predict:</strong> write or discuss what you think will happen.</li>
+<li><strong>Run:</strong> enter the command exactly as shown.</li>
+<li><strong>Reflect:</strong> explain the result in your own words.</li>
+</ol>
+<blockquote>
+<p>Regex patterns can match more or less text than intended. Always test representative valid, invalid, and boundary cases before using a pattern in automation.</p>
+</blockquote>
+<p>After attempting each activity, open <strong>Show solution</strong> to check your commands,
+expected results, and explanations. The final exercise and self-check also
+have solutions. Keep the session and setup required by the activity. If you
+already changed a file or variable, compare its result rather than replaying
+the change from the solution.</p>
+<h2 id="files-you-will-create">Files you will create</h2>
+<p>You do not need to download anything. Every file in this lab is created by the PowerShell commands shown below.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Created in</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>network.log</code></td>
+<td>Activity 4.3</td>
+<td>Practice log containing one <code>ERROR</code> line</td>
+</tr>
+<tr>
+<td><code>security.log</code></td>
+<td>Activity 4.3</td>
+<td>Practice log containing one <code>ERROR</code> line</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-0-create-a-safe-workspace">Part 0 — Create a safe workspace</h2>
+<p>Run this once before Part 1. Keep the same PowerShell window open for the whole lab; if you close it, run this block again.</p>
+<pre><code class="language-powershell">$labRoot = Join-Path -Path 'C:\powershell' -ChildPath 'Regex-Lab'
+New-Item -Path $labRoot -ItemType Directory -Force | Out-Null
+Set-Location -Path $labRoot
+Get-Location
+</code></pre>
+<p>The last command should display the <code>Regex-Lab</code> folder. All files in this lab are created in this folder.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Workspace verification answers:</strong></p>
+<p><code>Get-Location</code> should display <code>C:\powershell\Regex-Lab</code>. <code>New-Item</code> creates
+the folder if it is missing, and <code>Set-Location</code> enters it. Keep this session
+open because Activity 4.3 reuses <code>$labRoot</code>. If the session restarts, rerun
+the supplied setup before continuing. Preserve existing files.</p>
+</details>
+<hr />
+<h2 id="part-1-recognise-regex-building-blocks">Part 1 — Recognise regex building blocks</h2>
+<h3 id="activity-1.1-compare-literal-wildcard-and-regex-matching">Activity 1.1 — Compare literal, wildcard, and regex matching</h3>
+<p><strong>Predict</strong></p>
+<p>Which expressions return <code>True</code>?</p>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">'PowerShell' -eq 'PowerShell'
+'PowerShell' -like 'Power*'
+'PowerShell' -match '^Power'
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What does <code>-eq</code> test?</li>
+<li>What does <code>*</code> mean in a wildcard pattern?</li>
+<li>What does <code>^</code> mean in a regex pattern?</li>
+<li>Why are wildcard and regex syntax not interchangeable?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p>All three expressions return <code>True</code>. <code>-eq</code> tests equality, <code>*</code> in a wildcard means zero or more characters, and <code>^</code> in regex anchors the match to the start. Wildcards and regex have different parsers and meanings; for example, regex uses <code>.*</code> rather than wildcard <code>*</code> to mean any sequence of characters.</p>
+</details>
+<h3 id="activity-1.2-match-a-literal-special-character">Activity 1.2 — Match a literal special character</h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">'server01.example.net' -match '.'
+'server01.example.net' -match '\.'
+'server01.example.net' -match '^server\d{2}\.example\.net$'
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What does an unescaped dot mean in regex?</li>
+<li>Why does <code>\.</code> match a literal dot?</li>
+<li>Which parts of the final pattern require exactly two digits?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p>All expressions return <code>True</code>, but for different reasons. An unescaped dot matches almost any single character. <code>\.</code> escapes its special meaning and matches a literal dot. In the final pattern, <code>\d{2}</code> requires exactly two digits, while escaped dots require the literal separators and anchors require the whole string.</p>
+</details>
+<h3 id="activity-1.3-use-character-classes-and-shorthand">Activity 1.3 — Use character classes and shorthand</h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">'PC-407' -match '^PC-[0-9]{3}$'
+'PC-407' -match '^PC-\d{3}$'
+'PC-40A' -match '^PC-\d{3}$'
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What does <code>[0-9]</code> match?</li>
+<li>What does <code>\d</code> match?</li>
+<li>What does <code>{3}</code> require?</li>
+<li>Why does the third expression return <code>False</code>?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p>The first two return <code>True</code>; the third returns <code>False</code>. <code>[0-9]</code> and <code>\d</code> each match one digit in these examples. <code>{3}</code> requires three occurrences. <code>A</code> is not a digit.</p>
+</details>
+<h3 id="activity-1.4-choose-a-pattern-for-support-report-filenames">Activity 1.4 — Choose a pattern for support report filenames</h3>
+<p>A support folder contains dated reports, notes, and backups. One task selects
+all report log files. Another accepts only filenames shaped like
+<code>report-YYYY-MM-DD.log</code>.</p>
+<p>For this activity, <code>-like</code> uses <code>*</code> for any sequence of characters. In regex,
+<code>[0-9]{4}</code> requires four ASCII digits, <code>\.</code> matches a literal dot, and <code>^</code>
+and <code>$</code> mark the start and end. Part 2 explores these building blocks further.</p>
+<p><strong>Predict</strong></p>
+<p>Which filenames will each filter return? Will the two filters return the same
+names?</p>
+<p><strong>Run</strong></p>
+<p>Create the sample names and run the wildcard filter. This creates no files.</p>
+<pre><code class="language-powershell">$reportNames = @(
+    'report-2026-10-16.log'
+    'report-notes.log'
+    'report-2026-1.log'
+    'old-report-2026-10-16.log'
+    'report-2026-10-16.log.bak'
+)
+
+$reportNames | Where-Object { $_ -like 'report-*.log' }
+</code></pre>
+<p>Keep the same session open and run the regex filter on <code>$reportNames</code>.</p>
+<pre><code class="language-powershell">$reportNames | Where-Object {
+    $_ -match '^report-[0-9]{4}-[0-9]{2}-[0-9]{2}\.log$'
+}
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which names does each filter return? Compare with your prediction.</li>
+<li>Why can the wildcard accept a report name that does not contain a date?</li>
+<li>What roles do <code>[0-9]{4}</code>, <code>[0-9]{2}</code>, <code>\.</code>, <code>^</code>, and <code>$</code> play here?</li>
+<li>Which approach fits selecting all report log files? Which fits checking
+the required filename structure? Explain your choices.</li>
+<li>Could <code>report-2026-99-99.log</code> pass the regex? Would that prove its date
+exists? Explain the difference between checking shape and a calendar date.</li>
+<li>Could a wildcard use repeated <code>[0-9]</code> ranges for this format too? Why
+might regex become convenient as a pattern grows or needs captured values?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Record both sets of filenames and justify a pattern choice
+for each support task.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected filter results:</strong></p>
+<p>The wildcard returns <code>report-2026-10-16.log</code>, <code>report-notes.log</code>, and
+<code>report-2026-1.log</code>. The regex returns only <code>report-2026-10-16.log</code>.</p>
+<p><strong>Prediction and reflection answers:</strong></p>
+<ol>
+<li><strong>Which names does each filter return? Compare with your prediction.</strong>
+The wildcard returns the three names shown above; the regex returns only
+<code>report-2026-10-16.log</code>. Both reject the extra prefix and backup suffix.</li>
+<li><strong>Why can the wildcard accept a report name that does not contain a date?</strong>
+Its <code>*</code> accepts any sequence, including <code>notes</code> or <code>2026-1</code>. It places no
+digit or date-format requirements on that part of the name.</li>
+<li><strong>What roles do <code>[0-9]{4}</code>, <code>[0-9]{2}</code>, <code>\.</code>, <code>^</code>, and <code>$</code> play here?</strong>
+The first two require four and two ASCII digits. <code>\.</code> requires a literal
+dot. The anchors require the name to start with <code>report-</code> and end after
+<code>.log</code>, rejecting additional text.</li>
+<li><strong>Which approach fits selecting all report log files? Which fits checking
+the required filename structure? Explain your choices.</strong> The wildcard is
+concise for selecting the report logs regardless of their middle portion.
+The regex explicitly checks the required digit counts and separators.</li>
+<li><strong>Could <code>report-2026-99-99.log</code> pass the regex? Would that prove its date
+exists? Explain the difference between checking shape and a calendar date.</strong>
+Yes, it matches the shape, but month <code>99</code> and day <code>99</code> do not exist. Use
+date parsing as well when the date must be valid.</li>
+<li><strong>Could a wildcard use repeated <code>[0-9]</code> ranges for this format too? Why
+might regex become convenient as a pattern grows or needs captured values?</strong>
+Yes. For example, the four-digit year could use
+<code>[0-9][0-9][0-9][0-9]</code> with <code>-like</code>. Regex expresses repetition compactly
+with <code>{4}</code> and can capture parts for later commands; wildcards do not
+populate <code>$Matches</code> with captured values.</li>
+</ol>
+</details>
+<hr />
+<h2 id="part-2-use-anchors-and-quantifiers">Part 2 — Use anchors and quantifiers</h2>
+<h3 id="activity-2.1-match-the-whole-string">Activity 2.1 — Match the whole string</h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">'SRV-1234' -match 'SRV-\d{4}'
+'Old SRV-1234 record' -match 'SRV-\d{4}'
+'Old SRV-1234 record' -match '^SRV-\d{4}$'
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Why do the first two expressions match?</li>
+<li>What do <code>^</code> and <code>$</code> require together?</li>
+<li>When is whole-string validation preferable to substring searching?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p>The first two return <code>True</code> because the unanchored pattern may occur anywhere in a string. The third returns <code>False</code>: <code>^</code> and <code>$</code> require the complete string to have exactly the required shape. Whole-string validation is suitable for identifiers and other values that must contain nothing extra.</p>
+</details>
+<h3 id="activity-2.2-compare-repetition-operators">Activity 2.2 — Compare repetition operators</h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">'AB' -match '^A.*B$'
+'A12B' -match '^A.*B$'
+'AB' -match '^A.+B$'
+'A7B' -match '^A.?B$'
+'A78B' -match '^A.?B$'
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What is the difference between <code>*</code> and <code>+</code>?</li>
+<li>What does <code>?</code> mean after the dot?</li>
+<li>Which expression fails because two characters occur between <code>A</code> and <code>B</code>?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p>The results are <code>True</code>, <code>True</code>, <code>False</code>, <code>True</code>, and <code>False</code>. <code>*</code> means zero or more, <code>+</code> means one or more, and <code>?</code> means zero or one occurrence of the preceding token. The final expression fails because two characters appear where zero or one is allowed.</p>
+</details>
+<h3 id="activity-2.3-use-alternatives-and-word-boundaries">Activity 2.3 — Use alternatives and word boundaries</h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">'WARN' -match '^(INFO|WARN|ERROR)$'
+'ERROR' -match '^(INFO|WARN|ERROR)$'
+'WARNING' -match '^(INFO|WARN|ERROR)$'
+'the category contains cat' -match '\bcat\b'
+'concatenate values' -match '\bcat\b'
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What does <code>|</code> mean inside the parentheses?</li>
+<li>Why does <code>WARNING</code> not match?</li>
+<li>What problem does <code>\b</code> solve?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p>The results are <code>True</code>, <code>True</code>, <code>False</code>, <code>True</code>, and <code>False</code>. <code>|</code> means “or.” Anchors reject <code>WARNING</code> because it is not exactly one allowed value. <code>\b</code> requires a word boundary, preventing the <code>cat</code> inside <code>concatenate</code> from matching.</p>
+</details>
+<hr />
+<h2 id="part-3-match-and-capture-values">Part 3 — Match and capture values</h2>
+<h3 id="activity-3.1-compare-case-insensitive-and-case-sensitive-matching">Activity 3.1 — Compare case-insensitive and case-sensitive matching</h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">'PowerShell' -match '^powershell$'
+'PowerShell' -cmatch '^powershell$'
+'PowerShell' -cmatch '^PowerShell$'
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Is <code>-match</code> case-sensitive by default in PowerShell?</li>
+<li>What does the <code>c</code> in <code>-cmatch</code> request?</li>
+<li>When might case-sensitive matching matter?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p>The results are <code>True</code>, <code>False</code>, and <code>True</code>. PowerShell's <code>-match</code> is case-insensitive by default. <code>-cmatch</code> requests case-sensitive matching, which matters when the specification treats uppercase and lowercase as different values.</p>
+</details>
+<h3 id="activity-3.2-use-numbered-capture-groups">Activity 3.2 — Use numbered capture groups</h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">'INC-2026-0042' -match '^(INC)-(\d{4})-(\d{4})$'
+$Matches[0]
+$Matches[1]
+$Matches[2]
+$Matches[3]
+$Matches
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What does <code>$Matches[0]</code> contain?</li>
+<li>Which index contains the year?</li>
+<li>Which index contains the sequence number?</li>
+<li>When is <code>$Matches</code> updated?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p><code>$Matches[0]</code> is the complete match <code>INC-2026-0042</code>. Index <code>1</code> is <code>INC</code>, index <code>2</code> is the year <code>2026</code>, and index <code>3</code> is sequence <code>0042</code>. A successful scalar <code>-match</code> populates or replaces <code>$Matches</code>.</p>
+</details>
+<h3 id="activity-3.3-use-named-capture-groups">Activity 3.3 — Use named capture groups</h3>
+<p>Named capture groups let you extract values by a meaningful name. Compare
+matching the same text without capture groups and with named capture groups.</p>
+<p><strong>Predict</strong></p>
+<p>Will both patterns match? What keys do you expect in <code>$Matches</code> after each
+successful match?</p>
+<p><strong>Run</strong></p>
+<p>First, run the pattern without capture groups and inspect the result before
+running the next block.</p>
+<pre><code class="language-powershell">$userRecord = 'Last user: CONTOSO\jsmith'
+$userRecord -match '^Last user: [A-Z]+\\[a-z]+$'
+$Matches
+</code></pre>
+<p>Now add named capture groups using <code>(?&lt;Name&gt;pattern)</code>. Run this complete block
+to compare the results.</p>
+<pre><code class="language-powershell">$userRecord = 'Last user: CONTOSO\jsmith'
+$userRecord -match '^Last user: (?&lt;Domain&gt;[A-Z]+)\\(?&lt;User&gt;[a-z]+)$'
+
+$Matches
+$Matches.Domain
+$Matches.User
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Did both patterns match? Compare this with your prediction.</li>
+<li>Which keys and values appear in <code>$Matches</code> without capture groups?</li>
+<li>Which keys and values appear after adding named capture groups?</li>
+<li>Which syntax gives a capture group a name?</li>
+<li>Why are named groups easier to understand than numeric indexes?</li>
+<li>Why must the backslash between domain and user be escaped in the regex?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Record both results and explain how capture groups change
+the values you can extract from a successful match.</p>
+<blockquote>
+<p><code>$Matches</code> contains information from the most recent successful scalar <code>-match</code> operation. Read or copy the values immediately; a later successful match replaces them, while a failed match can leave older values in the variable.</p>
+</blockquote>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Prediction and reflection answers:</strong></p>
+<ol>
+<li><strong>Did both patterns match? Compare this with your prediction.</strong> Both
+return <code>True</code>: adding capture groups does not change which text these
+patterns accept.</li>
+<li><strong>Which keys and values appear in <code>$Matches</code> without capture groups?</strong>
+Only key <code>0</code>, containing the full match <code>Last user: CONTOSO\jsmith</code>.</li>
+<li><strong>Which keys and values appear after adding named capture groups?</strong>
+Key <code>0</code> still holds the full match. <code>Domain</code> holds <code>CONTOSO</code>, and <code>User</code>
+holds <code>jsmith</code>.</li>
+<li><strong>Which syntax gives a capture group a name?</strong> <code>(?&lt;Name&gt;pattern)</code>;
+here, <code>(?&lt;Domain&gt;[A-Z]+)</code> and <code>(?&lt;User&gt;[a-z]+)</code> name the groups.</li>
+<li><strong>Why are named groups easier to understand than numeric indexes?</strong>
+<code>$Matches.Domain</code> and <code>$Matches.User</code> describe what the values mean
+without requiring the reader to remember their positions in the pattern.</li>
+<li><strong>Why must the backslash between domain and user be escaped in the regex?</strong>
+Backslash introduces regex escapes, so <code>\\</code> matches a literal backslash.</li>
+</ol>
+</details>
+<hr />
+<h2 id="part-4-search-collections-and-files">Part 4 — Search collections and files</h2>
+<h3 id="activity-4.1-search-a-collection-of-strings">Activity 4.1 — Search a collection of strings</h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$messages = @(
+    'INFO Startup complete'
+    'ERROR Database unavailable'
+    'WARN Disk space low'
+    'ERROR Authentication failed'
+)
+
+$messages | Select-String -Pattern '^ERROR\b'
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>How many lines match?</li>
+<li>Why is <code>^</code> useful here?</li>
+<li>What type of object does <code>Select-String</code> return?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p>Two lines match. <code>^</code> requires <code>ERROR</code> at the start rather than elsewhere in the line. <code>Select-String</code> returns <code>Microsoft.PowerShell.Commands.MatchInfo</code> objects.</p>
+</details>
+<h3 id="activity-4.2-find-every-match-on-a-line">Activity 4.2 — Find every match on a line</h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$result = 'Ports 80, 443, and 8080 are documented.' |
+    Select-String -Pattern '\d+' -AllMatches
+
+$result.Matches.Value
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which three values are returned?</li>
+<li>What does <code>+</code> mean after <code>\d</code>?</li>
+<li>Why is <code>-AllMatches</code> necessary?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p>The values are <code>80</code>, <code>443</code>, and <code>8080</code>. <code>\d+</code> means one or more digits. Without <code>-AllMatches</code>, <code>Select-String</code> reports a matching line but its match collection does not contain every non-overlapping occurrence.</p>
+</details>
+<h3 id="activity-4.3-search-inside-practice-files">Activity 4.3 — Search inside practice files</h3>
+<p><strong>Run</strong></p>
+<p>Create two log files in the lab folder from Part 0 and search them:</p>
+<pre><code class="language-powershell">Set-Location -Path $labRoot
+
+@(
+    'INFO|NET100|Connection established'
+    'ERROR|NET503|Gateway unavailable'
+) | Set-Content -Path (Join-Path $labRoot 'network.log')
+
+@(
+    'WARN|SEC210|Password expires soon'
+    'ERROR|SEC401|Authentication failed'
+) | Set-Content -Path (Join-Path $labRoot 'security.log')
+
+Get-ChildItem -Path $labRoot -Filter '*.log' -File |
+    Select-String -Pattern '^ERROR\|' |
+    Select-Object FileName, LineNumber, Line
+</code></pre>
+<p>Here, <code>-Filter '*.log'</code> selects filenames with a wildcard. <code>Select-String -Pattern</code> searches inside those files with regex. Selecting files and searching
+their contents are separate steps in a practical log investigation.</p>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which two files contain an error line?</li>
+<li>Why is the pipe character written as <code>\|</code> in the pattern?</li>
+<li>Does this search modify either file?</li>
+<li>Which command uses a wildcard, and which uses regex? Why are both useful
+in this workflow?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p><code>network.log</code> and <code>security.log</code> each contain one error on line 2. <code>\|</code> matches a literal pipe instead of using <code>|</code> as regex alternation. <code>Get-ChildItem</code> and <code>Select-String</code> only read the files.</p>
+<p><strong>Which command uses a wildcard, and which uses regex? Why are both useful
+in this workflow?</strong> <code>Get-ChildItem -Filter '*.log'</code> selects the log filenames
+with a wildcard. <code>Select-String -Pattern '^ERROR\|'</code> uses regex to find lines
+starting with the <code>ERROR</code> field and its literal pipe separator. The first
+step limits the files searched; the second inspects their contents.</p>
+<p><strong>Checkpoint:</strong> Both matching records are on line <code>2</code> of their respective files.</p>
+</details>
+<hr />
+<h2 id="part-5-replace-and-split-text">Part 5 — Replace and split text</h2>
+<h3 id="activity-5.1-mask-a-sensitive-looking-identifier">Activity 5.1 — Mask a sensitive-looking identifier</h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$record = 'Student identifier: 123-45-6789'
+$record -replace '\d{3}-\d{2}-(\d{4})', '***-**-$1'
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which four digits remain visible?</li>
+<li>What does <code>$1</code> mean in the replacement string?</li>
+<li>Does <code>-replace</code> change <code>$record</code>, or return a new string?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p>The result is <code>Student identifier: ***-**-6789</code>. <code>$1</code> inserts the first captured group, containing the final four digits. <code>-replace</code> returns a new string; <code>$record</code> remains unchanged unless the result is assigned back to it.</p>
+</details>
+<h3 id="activity-5.2-normalise-whitespace">Activity 5.2 — Normalise whitespace</h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$untidy = '    PowerShell     makes   automation repeatable.   '
+$tidy = $untidy -replace '\s+', ' '
+$tidy
+</code></pre>
+<p>The expression does not remove leading or trailing spaces. To remove those as well, use .Trim():</p>
+<pre><code class="language-powershell">$clean = ($untidy -replace '\s+', ' ').Trim()
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What does <code>\s+</code> match?</li>
+<li>Why is this more flexible than replacing exactly two spaces?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p><code>\s+</code> matches one or more whitespace characters. <code>$tidy</code> contains
+<code>PowerShell makes automation repeatable.</code> with exactly one leading and one
+trailing space. The replacement collapses each run; it does not trim it.</p>
+<p><code>$clean</code> contains the same sentence without surrounding spaces because
+<code>.Trim()</code> removes them after replacement. This handles runs of any length and
+whitespace other than ordinary spaces. Both operations return new strings;
+the original <code>$untidy</code> remains unchanged.</p>
+</details>
+<h3 id="activity-5.3-split-on-more-than-one-delimiter">Activity 5.3 — Split on more than one delimiter</h3>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$deviceLine = 'LT-101,Ready;16'
+$parts = $deviceLine -split '[,;]'
+$parts
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which delimiters are accepted by <code>[,;]</code>?</li>
+<li>How many array elements are produced?</li>
+<li>What is stored in <code>$parts[1]</code>?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Expected results and explanation:</strong></p>
+<p>The character class accepts comma or semicolon. It produces three elements: <code>LT-101</code>, <code>Ready</code>, and <code>16</code>. <code>$parts[1]</code> is <code>Ready</code>.</p>
+</details>
+<hr />
+<h2 id="part-6-challenge-parse-structured-log-lines">Part 6 — Challenge: parse structured log lines</h2>
+<p>Filename: <code>Convert-LogLines.ps1</code></p>
+<p>Save the supplied data and your challenge commands in this file. Run
+<code>. .\Convert-LogLines.ps1</code> in your lab session.</p>
+<h3 id="scenario">Scenario</h3>
+<p>An operations team receives log lines in this format:</p>
+<pre><code class="language-text">LEVEL|CODE|MESSAGE
+</code></pre>
+<p>Valid levels are <code>INFO</code>, <code>WARN</code>, and <code>ERROR</code>. A valid code contains exactly three uppercase letters followed by exactly three digits.</p>
+<h3 id="your-task">Your task</h3>
+<p>Use this data:</p>
+<pre><code class="language-powershell">$logLines = @(
+    'INFO|NET100|Connection established'
+    'ERROR|NET503|Gateway unavailable'
+    'WARN|SEC210|Password expires soon'
+    'DEBUG|APP200|Debug details'
+    'ERROR|BAD5|Invalid code format'
+)
+</code></pre>
+<ol>
+<li>Write one anchored regex with named groups <code>Level</code>, <code>Code</code>, and <code>Message</code>.</li>
+<li>Parse only valid lines into objects with those three properties.</li>
+<li>Store the objects in <code>$parsedLogs</code>.</li>
+<li>Display the objects sorted by <code>Level</code> and <code>Code</code>.</li>
+<li>Group the parsed objects by <code>Level</code> and display <code>Name</code> and <code>Count</code>.</li>
+<li>Explain why the <code>DEBUG</code> and <code>BAD5</code> lines are rejected.</li>
+</ol>
+<p><strong>Suggested starting point</strong></p>
+<pre><code class="language-powershell">$pattern = '...'
+
+$parsedLogs = $logLines | ForEach-Object {
+    if ($_ -cmatch $pattern) {
+        [pscustomobject]@{
+            Level   = $Matches.Level
+            Code    = $Matches.Code
+            Message = $Matches.Message
+        }
+    }
+}
+</code></pre>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p>Use the log lines supplied in the challenge. The solution creates
+<code>$parsedLogs</code> from those strings; it does not change the practice log files.</p>
+<p><strong>Log-parsing solution (Beginner):</strong></p>
+<pre><code class="language-powershell">$logLines = @(
+    'INFO|NET100|Connection established'
+    'ERROR|NET503|Gateway unavailable'
+    'WARN|SEC210|Password expires soon'
+    'DEBUG|APP200|Debug details'
+    'ERROR|BAD5|Invalid code format'
+)
+
+$pattern = '^(?&lt;Level&gt;INFO|WARN|ERROR)\|(?&lt;Code&gt;[A-Z]{3}\d{3})\|(?&lt;Message&gt;.+)$'
+
+$parsedLogs = $logLines | ForEach-Object {
+    if ($_ -cmatch $pattern) {
+        [pscustomobject]@{
+            Level   = $Matches.Level
+            Code    = $Matches.Code
+            Message = $Matches.Message
+        }
+    }
+}
+
+$parsedLogs | Sort-Object Level, Code
+$parsedLogs | Group-Object Level | Sort-Object Name | Select-Object Name, Count
+</code></pre>
+<p>Three objects are produced: <code>INFO/NET100</code>, <code>ERROR/NET503</code>, and <code>WARN/SEC210</code>. The grouped result contains one object for each level. <code>DEBUG</code> is rejected because the <code>Level</code> group permits only <code>INFO</code>, <code>WARN</code>, or <code>ERROR</code>; <code>BAD5</code> is rejected because a code must contain three uppercase letters followed by three digits. <code>-cmatch</code> enforces uppercase letters, and the anchors require the entire line to follow the format.</p>
+<details>
+<summary>Show solution Optimized</summary>
+<p>Use the log lines supplied in the challenge.</p>
+<p><strong>Log-parsing solution (Optimized):</strong></p>
+<pre><code class="language-powershell">$logLines = @(
+    'INFO|NET100|Connection established'
+    'ERROR|NET503|Gateway unavailable'
+    'WARN|SEC210|Password expires soon'
+    'DEBUG|APP200|Debug details'
+    'ERROR|BAD5|Invalid code format'
+)
+
+$pattern = '^(?&lt;Level&gt;INFO|WARN|ERROR)\|(?&lt;Code&gt;[A-Z]{3}\d{3})\|(?&lt;Message&gt;.+)$'
+
+$parsedLogs = @($logLines | Where-Object { $_ -cmatch $pattern } | ForEach-Object {
+    [pscustomobject][ordered]@{
+        Level   = $Matches.Level
+        Code    = $Matches.Code
+        Message = $Matches.Message
+    }
+})
+
+$parsedLogs | Sort-Object Level, Code
+$parsedLogs | Group-Object Level | Select-Object -ExpandProperty Name, Count
+</code></pre>
+<p>The optimized version combines filtering and object creation in one pipeline, uses <code>[ordered]</code> to preserve property order in the output, and simplifies the grouping display. Both versions validate the same rules and produce three valid log entries with grouped counts by level.</p>
+</details>
+</details>
+<h2 id="practice-and-self-check">Practice and self-check</h2>
+<ol>
+<li>Which anchor represents the start of a string?</li>
+<li>Which anchor represents the end?</li>
+<li>What do <code>\d</code>, <code>\w</code>, and <code>\s</code> match?</li>
+<li>What is the difference between <code>*</code>, <code>+</code>, and <code>?</code>?</li>
+<li>Which operator performs case-sensitive regex matching?</li>
+<li>What does <code>$Matches[0]</code> contain?</li>
+<li>Why use <code>-AllMatches</code> with <code>Select-String</code>?</li>
+<li>How do you match a literal dot or pipe character?</li>
+<li>When would you choose a wildcard instead of regex? Give one administration
+task where regex is useful for validation or extraction.</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Self-check answers:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Detailed solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Start anchor?</td>
+<td><code>^</code></td>
+</tr>
+<tr>
+<td>End anchor?</td>
+<td><code>$</code></td>
+</tr>
+<tr>
+<td><code>\d</code>, <code>\w</code>, and <code>\s</code>?</td>
+<td>A digit, word character, and whitespace character, respectively.</td>
+</tr>
+<tr>
+<td>Difference between <code>*</code>, <code>+</code>, and <code>?</code>?</td>
+<td>Zero or more, one or more, and zero or one occurrence.</td>
+</tr>
+<tr>
+<td>Case-sensitive match operator?</td>
+<td><code>-cmatch</code></td>
+</tr>
+<tr>
+<td>What is <code>$Matches[0]</code>?</td>
+<td>The complete most recent successful scalar match.</td>
+</tr>
+<tr>
+<td>Why use <code>-AllMatches</code>?</td>
+<td>To collect every non-overlapping match on each matching line.</td>
+</tr>
+<tr>
+<td>Literal dot or pipe?</td>
+<td>Escape it: <code>\.</code> or <code>\|</code>.</td>
+</tr>
+<tr>
+<td>When would you choose a wildcard instead of regex? Give one administration task where regex is useful for validation or extraction.</td>
+<td>Use a wildcard for simple name selection, such as <code>*.log</code>. Use regex to check a filename's digit counts or extract a domain and user from a log line.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h2 id="knowledge-checklist">Knowledge checklist</h2>
+<ul>
+<li>Complete every prediction and reflection question.</li>
+<li>Test valid, invalid, and boundary examples.</li>
+<li>Search the two practice log files without modifying them.</li>
+<li>Complete the parsing challenge and explain both rejected lines.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>Use wildcards for simple name selection and regex for structural checks,
+extraction, and selective replacement. Anchors control position, character
+classes define allowed characters, quantifiers define repetition, and groups
+extract useful parts. PowerShell integrates regex through <code>-match</code>, <code>-replace</code>,
+<code>-split</code>, and <code>Select-String</code>. Test patterns against representative non-matches
+as carefully as successful matches.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_wildcards">About wildcards</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_regular_expressions">About regular expressions</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_comparison_operators">About comparison operators</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/select-string">Select-String</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_split">About split</a></li>
+</ul>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

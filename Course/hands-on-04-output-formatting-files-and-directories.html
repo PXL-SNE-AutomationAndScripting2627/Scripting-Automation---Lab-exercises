@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Hands-on — Output, formatting, files, and directories — Theorie</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-theorie</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html">Theorie</a>
+      </nav>
+    </header>
+
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="index.html">Theorie</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">04 - Output, formatting, files, and directories</span>
+      </div>
+    </div>
+
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Theorie</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <a href="course-roadmap.html">Course Roadmap</a>
+        <p class="sidebar-group-label">PowerShell Basics</p>
+        <a href="powershell-basics-00-introduction.html">00 - Introduction</a>
+        <a href="powershell-basics-01-cmdlets-help-and-commands.html">01 - Cmdlets, help, and commands</a>
+        <a href="powershell-basics-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="powershell-basics-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a href="powershell-basics-04-regular-expressions.html">04 - Regular expressions</a>
+        <a href="powershell-basics-05-output-formatting-and-export.html">05 - Output, formatting, and export</a>
+        <a href="powershell-basics-06-files-and-directories.html">06 - Files and directories</a>
+        <a href="powershell-basics-07-variables-objects-and-data-types.html">07 - Variables, objects, and data types</a>
+        <a href="powershell-basics-08-arithmetic-calculations.html">08 - Arithmetic calculations</a>
+        <a href="powershell-basics-09-parameters.html">09 - Parameters</a>
+        <a href="powershell-basics-10-conditionals.html">10 - Conditionals</a>
+        <a href="powershell-basics-11-loops.html">11 - Loops</a>
+        <a href="powershell-basics-12-exception-handling.html">12 - Exception handling</a>
+        <a href="powershell-basics-13-functions.html">13 - Functions</a>
+        <p class="sidebar-group-label">PowerShell Automation</p>
+        <a href="powershell-automation-01-local-user-accounts.html">01 - Local user accounts</a>
+        <a href="powershell-automation-02-windows-information.html">02 - Windows information</a>
+        <a href="powershell-automation-03-windows-management.html">03 - Windows management</a>
+        <a href="powershell-automation-04-active-directory.html">04 - Active Directory</a>
+        <a href="powershell-automation-05-remote-access.html">05 - Remote access</a>
+        <a href="powershell-automation-06-networking.html">06 - Networking</a>
+        <a href="powershell-automation-07-registry.html">07 - Registry</a>
+        <p class="sidebar-group-label">Hands-on</p>
+        <a href="hands-on-01-intro-cmdlets-help-and-commands.html">01 - Intro, Cmdlets, help, and commands</a>
+        <a href="hands-on-02-objects-pipelines-processes-and-services.html">02 - Objects, pipelines, processes, and services</a>
+        <a href="hands-on-03-piping-filtering-sorting-grouping-and-measuring.html">03 - Piping, filtering, sorting, grouping, and measuring</a>
+        <a class="sidebar-current" href="hands-on-04-output-formatting-files-and-directories.html" aria-current="page">04 - Output, formatting, files, and directories</a>
+        <a href="hands-on-04b-files-and-directories.html">04b - Files and directories</a>
+        <a href="hands-on-05-regular-expressions.html">05 - Regular expressions</a>
+        <a href="hands-on-06-variables-objects-and-data-types.html">06 - Variables, objects, and data types</a>
+        <a href="hands-on-07-arithmetic-calculations.html">07 - Arithmetic calculations</a>
+        <a href="hands-on-08-parameters.html">08 - Parameters</a>
+        <a href="hands-on-09-conditionals.html">09 - Conditionals</a>
+        <a href="hands-on-10-loops.html">10 - Loops</a>
+        <a href="hands-on-11-exception-handling.html">11 - Exception handling</a>
+        <a href="hands-on-12-functions.html">12 - Functions</a>
+        <a href="hands-on-14-local-user-accounts.html">14 - Local user accounts</a>
+        <a href="hands-on-15-windows-information.html">15 - Windows information</a>
+        <a href="hands-on-16-windows-management.html">16 - Windows management</a>
+        <a href="hands-on-20-registry.html">20 - Registry</a>
+        <p class="sidebar-group-label">How-tos</p>
+        <a href="how-tos-01-powershell-setup.html">01 - PowerShell setup</a>
+        <a href="how-tos-02-vs-code-setup.html">02 - VS Code setup</a>
+        <a href="how-tos-02-1-vs-code-admin-setup.html">02.1 - VS Code Admin setup</a>
+        <a href="how-tos-03-windows-terminal-setup.html">03 - Windows Terminal setup</a>
+        <a href="how-tos-04-git-introduction.html">04 - Git Introduction</a>
+        <a href="references.html">References</a>
+      </aside>
+
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL &#183; Theorie &#183; Hands-on</p>
+            <h1 id="page-title">Hands-on — Output, formatting, files, and directories</h1>
+            <p class="hero-description">04 - Output, formatting, files, and directories</p>
+            <a class="primary-link" href="https://pxl-sne-automationandscripting.github.io/sne_scripting_automation_course/#/hands-on/04-output-format-files-directories/041-output-format-files-directories">Originele pagina openen <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="../assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+
+        <article class="docs-article course-article" lang="en">
+<h2 id="goal">Goal</h2>
+<p>Prepare a device-returns handover for a school lending desk: organise input
+records, preserve an evidence copy, and produce reports for people and scripts.</p>
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>After completing all parts, you can:</p>
+<ul>
+<li>choose literal or expandable strings for a task;</li>
+<li>distinguish success-output objects, host messages, and formatting records;</li>
+<li>organise and inspect a dedicated practice workspace;</li>
+<li>select log files and find relevant records without matching unrelated notes;</li>
+<li>preview, copy, move, rename, and verify an evidence file; and</li>
+<li>export and import CSV, JSON, and CLIXML and produce a separate text report.</li>
+</ul>
+<p>Advanced Activities 6.2 and 6.3 compare JSON and CLIXML with CSV.
+All activities are required; advanced identifies greater depth.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>PowerShell 7 on Windows and Visual Studio Code or Windows Terminal.</li>
+<li>Basic pipelines, properties, filtering, and sorting.</li>
+<li>Complete the <a href="powershell-basics-06-files-and-directories.html">Files and directories lesson</a> and the
+<a href="powershell-basics-05-output-formatting-and-export.html">output, formatting, and export lesson</a> before starting this lab.</li>
+</ul>
+<p>Use the lessons for command explanations. This lab applies them to a different
+scenario and dataset. Study both the foundational and advanced lesson sections.</p>
+<h2 id="environment-and-safety-requirements">Environment and safety requirements</h2>
+<p>Work in a new <code>C:\powershell\PowerShell-Device-Returns-Lab</code> folder. Your
+instructor must first prepare <code>C:\powershell</code> with writable access. Routine
+lab commands do not require elevation once that access is ready. Inspect every
+state-changing command's source and destination before running it.</p>
+<p>Preserve the two incoming logs. Do not delete files in this lab. If the
+workspace
+already exists, keep it and choose a new folder name with your instructor.</p>
+<h2 id="files-you-will-create">Files you will create</h2>
+<p>No downloads are required. Create the inputs in Activity 4.1 and keep everything
+below <code>$labRoot</code>.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Created in</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>incoming/returns-morning.log</code></td>
+<td>Activity 4.1</td>
+<td>Original morning return records</td>
+</tr>
+<tr>
+<td><code>incoming/returns-afternoon.log</code></td>
+<td>Activity 4.1</td>
+<td>Original afternoon return records</td>
+</tr>
+<tr>
+<td><code>incoming/desk-notes.txt</code></td>
+<td>Activity 4.1</td>
+<td>Note that must not be counted as a log</td>
+</tr>
+<tr>
+<td><code>reports/return-review.log</code></td>
+<td>Activity 5.2</td>
+<td>Working copy, moved in Activity 5.3</td>
+</tr>
+<tr>
+<td><code>evidence/returns-evidence.log</code></td>
+<td>Activity 5.3</td>
+<td>Preserved and renamed evidence copy</td>
+</tr>
+<tr>
+<td><code>reports/inventory.csv</code></td>
+<td>Activity 6.1</td>
+<td>Reusable tabular export</td>
+</tr>
+<tr>
+<td><code>reports/inventory.json</code></td>
+<td>Activity 6.2, advanced</td>
+<td>JSON comparison</td>
+</tr>
+<tr>
+<td><code>reports/inventory.clixml</code></td>
+<td>Activity 6.3, advanced</td>
+<td>CLIXML comparison</td>
+</tr>
+<tr>
+<td><code>reports/inventory.txt</code></td>
+<td>Activity 6.4</td>
+<td>Display-oriented desk report</td>
+</tr>
+<tr>
+<td><code>reports/ready-devices.csv</code></td>
+<td>Part 7</td>
+<td>Ready-for-lending handover</td>
+</tr>
+<tr>
+<td><code>reports/ready-summary.txt</code></td>
+<td>Part 7</td>
+<td>Calculated handover summary</td>
+</tr>
+</tbody>
+</table>
+<h2 id="how-to-work-in-this-lab">How to work in this lab</h2>
+<p>Follow <strong>predict → run → inspect → explain</strong> in each numbered activity.
+Commands shown under <strong>Run</strong> provide setup or a small starting point.
+Complete the tasks yourself; writing your own command is part of the activity.</p>
+<p>After attempting each activity, open <strong>Show solution</strong> to compare your
+prediction, commands, results, and reflection answers. Where <strong>Run</strong> already
+provides commands, the reveal adds only missing task commands and explanations.
+Use the same session and earlier setup. If you already completed a file change,
+check its result instead of repeating that change from the solution.</p>
+<p>Complete Parts 1 to 7 in order, including every activity. Advanced Activities
+6.2 and 6.3 build on the earlier material and are part of the required learning
+and assessment.</p>
+<p>Keep the same terminal open. Later activities reuse <code>$labRoot</code>, <code>$inventory</code>,
+<code>$errorRecords</code>, and <code>$originalHash</code>. If you close the terminal, preserve your
+previous work, choose a new root-folder name in Activity 1.1, and restart the
+lab. Do not rerun creation or relocation commands against completed work.</p>
+<h2 id="part-1-create-a-safe-workspace">Part 1 — Create a safe workspace</h2>
+<h3 id="activity-1.1-define-and-inspect-the-path">Activity 1.1 — Define and inspect the path</h3>
+<p>The lending desk needs a workspace for returned-device records. Keep it
+separate from the lesson demonstration and from previous lab attempts.</p>
+<p><strong>Predict</strong></p>
+<p>What should the existence check report for a new workspace?</p>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$labRoot = Join-Path -Path 'C:\powershell' -ChildPath 'PowerShell-Device-Returns-Lab'
+$labRoot
+Test-Path -LiteralPath $labRoot
+</code></pre>
+<p><strong>Your tasks</strong></p>
+<ol>
+<li>Inspect the full path. If it already exists, stop and choose a different
+child-folder name with your instructor; preserve the previous work.</li>
+</ol>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What full path is stored in <code>$labRoot</code>?</li>
+<li>Why check the path before creating anything?</li>
+<li>How is this workspace different from the lesson's workspace?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Record your chosen full path and confirm it is available for a
+new attempt.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Prediction answer:</strong> A new workspace returns <code>False</code> from <code>Test-Path</code>.</p>
+<p><strong>Expected result:</strong> On a fresh attempt, Test-Path returns False. Do not
+continue into an existing workspace.</p>
+<p><strong>Reflection answers</strong></p>
+<ol>
+<li><strong>What full path is stored in <code>$labRoot</code>?</strong>
+<code>C:\powershell\PowerShell-Device-Returns-Lab</code>.</li>
+<li><strong>Why check the path before creating anything?</strong> To avoid working in the
+wrong folder or overwriting an earlier attempt.</li>
+<li><strong>How is this workspace different from the lesson's workspace?</strong> It is a
+separate <code>C:\powershell\PowerShell-Device-Returns-Lab</code> folder. The lesson
+uses <code>C:\powershell\PowerShell-Files-Lesson</code>.</li>
+</ol>
+<p>If the path already exists, preserve it. Change the child-folder name in
+Activity 1.1, then repeat the path check before starting Activity 1.2.</p>
+</details>
+<h3 id="activity-1.2-create-the-folder-structure">Activity 1.2 — Create the folder structure</h3>
+<p>Use incoming for source records, evidence for a preserved review copy, and
+reports for exports. The supplied guard stops this activity if the root exists.</p>
+<p><strong>Predict</strong></p>
+<p>Which folder should hold the original records, and which should hold exports?</p>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">if (Test-Path -LiteralPath $labRoot) {
+    throw 'This workspace already exists. Preserve it and choose a new folder.'
+}
+New-Item -Path $labRoot -ItemType Directory | Out-Null
+
+$intakeFolder = Join-Path -Path $labRoot -ChildPath 'incoming'
+$evidenceFolder = Join-Path -Path $labRoot -ChildPath 'evidence'
+$reportFolder = Join-Path -Path $labRoot -ChildPath 'reports'
+
+New-Item -Path $intakeFolder, $evidenceFolder, $reportFolder -ItemType Directory
+Set-Location -LiteralPath $labRoot
+Get-ChildItem -LiteralPath $labRoot -Directory | Select-Object Name
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which three child folders were created?</li>
+<li>What object type does <code>Get-ChildItem -Directory</code> return?</li>
+<li>Why use <code>Join-Path</code> instead of joining path strings manually?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Locate the three folders and keep the same PowerShell session
+open.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Prediction answer:</strong> Keep original records in <code>incoming</code> and exports in
+<code>reports</code>.</p>
+<p><strong>Expected result:</strong> The folder listing contains evidence, incoming, and
+reports. No source files exist yet.</p>
+<p><strong>Reflection answers</strong></p>
+<ol>
+<li><strong>Which three child folders were created?</strong> incoming, evidence, and reports.</li>
+<li><strong>What object type does <code>Get-ChildItem -Directory</code> return?</strong>
+System.IO.DirectoryInfo objects in the FileSystem provider.</li>
+<li><strong>Why use <code>Join-Path</code> instead of joining path strings manually?</strong> It builds
+paths using the appropriate separator and avoids common joining mistakes.</li>
+</ol>
+</details>
+<h2 id="part-2-write-output-and-work-with-strings">Part 2 — Write output and work with strings</h2>
+<h3 id="activity-2.1-compare-single-and-double-quotes">Activity 2.1 — Compare single and double quotes</h3>
+<p>A return batch has a label that should appear in status messages.</p>
+<p><strong>Predict</strong></p>
+<p>Which message will contain the value of the batch label?</p>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$batchLabel = 'RETURN-26'
+'Batch: $batchLabel'
+&quot;Batch: $batchLabel&quot;
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which message displays the variable name literally?</li>
+<li>Which message expands the variable's value?</li>
+<li>When are single quotes useful in a task like this?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Explain which quoting style you would choose for a message
+containing a value.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Prediction answer:</strong> The double-quoted message expands the batch label to
+<code>RETURN-26</code>.</p>
+<p><strong>Expected result:</strong> The two strings are Batch: $batchLabel and Batch:
+RETURN-26.</p>
+<p><strong>Reflection answers</strong></p>
+<ol>
+<li><strong>Which message displays the variable name literally?</strong> The single-quoted
+message displays Batch: $batchLabel.</li>
+<li><strong>Which message expands the variable's value?</strong> The double-quoted message
+displays Batch: RETURN-26.</li>
+<li><strong>When are single quotes useful in a task like this?</strong> When the text must
+remain literal, including any dollar signs or variable names.</li>
+</ol>
+</details>
+<h3 id="activity-2.2-compare-write-output-and-write-host">Activity 2.2 — Compare <code>Write-Output</code> and <code>Write-Host</code></h3>
+<p>A display message and reusable report data serve different purposes.
+Capture the success output of each command; <code>@(...)</code> collects results in an
+array.</p>
+<p><strong>Predict</strong></p>
+<p>Will both variables contain one string that another command can process?</p>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$pipelineMessages = @(Write-Output &quot;Processing $batchLabel&quot;)
+$displayMessages = @(Write-Host &quot;Processing $batchLabel&quot;)
+
+$pipelineMessages.Count
+$displayMessages.Count
+$pipelineMessages | Get-Member
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What object type reaches <code>Get-Member</code>?</li>
+<li>What does <code>$displayMessages.Count</code> show?</li>
+<li>Which command fits data needed by later pipeline commands?</li>
+<li>Give one appropriate use for <code>Write-Host</code>.</li>
+</ol>
+<p><strong>Checkpoint:</strong> Distinguish a visible message from an object available for later
+processing.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Prediction answer:</strong> Only <code>$pipelineMessages</code> captures a string;
+<code>$displayMessages</code> is empty.</p>
+<p><strong>Expected result:</strong> The counts are 1 and 0. The visible Write-Host message is
+not a captured success-output string.</p>
+<p><strong>Reflection answers</strong></p>
+<ol>
+<li><strong>What object type reaches <code>Get-Member</code>?</strong> System.String from Write-Output.</li>
+<li><strong>What does <code>$displayMessages.Count</code> show?</strong> 0: Write-Host does not send the
+message through the success-output stream.</li>
+<li><strong>Which command fits data needed by later pipeline commands?</strong> Write-Output,
+or outputting an expression directly.</li>
+<li><strong>Give one appropriate use for <code>Write-Host</code>.</strong> A progress heading or other
+display-only message for the operator.</li>
+</ol>
+</details>
+<h3 id="activity-2.3-build-a-formatted-string">Activity 2.3 — Build a formatted string</h3>
+<p>Prepare a short batch heading without changing any file.</p>
+<p><strong>Predict</strong></p>
+<p>Which values will replace the numbered placeholders?</p>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$returnedCount = 4
+Write-Output ('Batch {0}: {1} returned devices.' -f $batchLabel, $returnedCount)
+Write-Output &quot;Review date: $((Get-Date).ToString('yyyy-MM-dd')).&quot;
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What do <code>{0}</code> and <code>{1}</code> represent?</li>
+<li>Why use <code>$()</code> inside the second string?</li>
+<li>Which date format is produced?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Identify the fixed text and the substituted values in both
+messages.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Prediction answer:</strong> <code>{0}</code> becomes <code>RETURN-26</code>; <code>{1}</code> becomes <code>4</code>.</p>
+<p><strong>Expected result:</strong> The first message is Batch RETURN-26: 4 returned devices.
+The review-date message varies by run date.</p>
+<p><strong>Reflection answers</strong></p>
+<ol>
+<li><strong>What do <code>{0}</code> and <code>{1}</code> represent?</strong> The batch label RETURN-26 and
+returned-device count 4.</li>
+<li><strong>Why use <code>$()</code> inside the second string?</strong> It evaluates the date-formatting
+expression before inserting its result.</li>
+<li><strong>Which date format is produced?</strong> Year-month-day; the actual date depends on
+when the command runs.</li>
+</ol>
+</details>
+<h2 id="part-3-select-data-before-formatting-it">Part 3 — Select data before formatting it</h2>
+<h3 id="activity-3.1-create-report-objects">Activity 3.1 — Create report objects</h3>
+<p>Use this fictional return register as the input data. <code>[pscustomobject]</code>
+creates one record with named properties; <code>@(...)</code> collects the records.</p>
+<p><strong>Predict</strong></p>
+<p>Which properties will remain after the selection?</p>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$inventory = @(
+    [pscustomobject]@{ Device = 'NB-301'; Type = 'Laptop';      Status = 'Ready';  MemoryGB = 16 }
+    [pscustomobject]@{ Device = 'NB-302'; Type = 'Laptop';      Status = 'Repair'; MemoryGB = 8  }
+    [pscustomobject]@{ Device = 'WS-401'; Type = 'Workstation'; Status = 'Ready';  MemoryGB = 32 }
+    [pscustomobject]@{ Device = 'NB-303'; Type = 'Laptop';      Status = 'Ready';  MemoryGB = 16 }
+)
+
+$inventory | Select-Object Device, Status, MemoryGB
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which properties remain in the selected output?</li>
+<li>Is the selected output still made of objects?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Locate the record that must not appear in a ready-for-lending
+report.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Prediction answer:</strong> <code>Device</code>, <code>Status</code>, and <code>MemoryGB</code> remain in the selected
+output.</p>
+<p><strong>Expected result:</strong> Four records are selected. The Repair record is NB-302; the
+other three are Ready.</p>
+<p><strong>Reflection answers</strong></p>
+<ol>
+<li><strong>Which properties remain in the selected output?</strong> Device, Status, and
+MemoryGB.</li>
+<li><strong>Is the selected output still made of objects?</strong> Yes. Select-Object produces
+objects whose properties can still be filtered, sorted, or exported.</li>
+</ol>
+</details>
+<h3 id="activity-3.2-compare-selecting-and-formatting">Activity 3.2 — Compare selecting and formatting</h3>
+<p>A technician wants a table, but another script needs named properties.
+Compare what each pipeline produces before deciding what to store.</p>
+<p><strong>Predict</strong></p>
+<p>Will both variables still expose Device and MemoryGB as ordinary data
+properties?</p>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$selectedInventory = $inventory | Select-Object Device, Status, MemoryGB
+$formattedInventory = $inventory | Format-Table Device, Status, MemoryGB
+
+$selectedInventory | Get-Member
+$formattedInventory | Get-Member
+</code></pre>
+<p><strong>Your tasks</strong></p>
+<ol>
+<li>Display each variable separately. Explain why similar-looking output does
+not prove that the stored objects have the same purpose.</li>
+</ol>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What type name appears for the selected output?</li>
+<li>What kinds of internal types appear for formatted output?</li>
+<li>Why should formatting normally be the last processing stage?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Choose which variable you would pass to Export-Csv and justify
+the choice.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Prediction answer:</strong> Only <code>$selectedInventory</code> keeps ordinary data properties.
+The formatted variable contains display instructions.</p>
+<p><strong>Display comparison solution:</strong></p>
+<pre><code class="language-powershell">$selectedInventory
+$formattedInventory
+</code></pre>
+<p><strong>Expected result:</strong> Selected objects retain report properties. Formatted output
+contains internal formatting records.</p>
+<p><strong>Reflection answers</strong></p>
+<ol>
+<li><strong>What type name appears for the selected output?</strong>
+Selected.System.Management.Automation.PSCustomObject.</li>
+<li><strong>What kinds of internal types appear for formatted output?</strong> Display types
+such as Microsoft.PowerShell.Commands.Internal.Format.FormatStartData and
+FormatEntryData.</li>
+<li><strong>Why should formatting normally be the last processing stage?</strong> It creates
+display instructions; later data processing should use the original or
+selected records instead.</li>
+</ol>
+</details>
+<h3 id="activity-3.3-format-for-a-person-to-read-some-data-more-easily">Activity 3.3 — Format for a person to read some data more easily</h3>
+<p>Prepare one overview for the desk and one detailed view for a repair technician.</p>
+<p><strong>Predict</strong></p>
+<p>Which view will make a single device's properties easiest to inspect?</p>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$inventory | Sort-Object Device | Format-Table Device, Type, Status, MemoryGB
+$inventory | Where-Object Status -eq 'Repair' | Format-List *
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which view fits comparing several devices?</li>
+<li>Which view fits inspecting all properties of one device?</li>
+<li>Do these pipelines change <code>$inventory</code>?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Keep the original inventory available for the later export
+activities.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Prediction answer:</strong> <code>Format-List</code> makes the properties of the single repair
+device easiest to inspect.</p>
+<p><strong>Expected result:</strong> The table contains four devices. The repair detail view
+contains NB-302.</p>
+<p><strong>Reflection answers</strong></p>
+<ol>
+<li><strong>Which view fits comparing several devices?</strong> The table, because it aligns
+the same properties across rows.</li>
+<li><strong>Which view fits inspecting all properties of one device?</strong> The list for
+NB-302.</li>
+<li><strong>Do these pipelines change <code>$inventory</code>?</strong> No; they produce views without
+replacing the source variable.</li>
+</ol>
+</details>
+<h2 id="part-4-create-and-inspect-text-files">Part 4 — Create and inspect text files</h2>
+<h3 id="activity-4.1-write-and-append-text">Activity 4.1 — Write and append text</h3>
+<p>The desk received two log extracts and a note. Create the supplied inputs
+inside incoming. The arrays below are task data, not a reporting solution.</p>
+<p><strong>Predict</strong></p>
+<p>How would appending the afternoon record differ from replacing the file?</p>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$morningLogPath = Join-Path -Path $intakeFolder -ChildPath 'returns-morning.log'
+$afternoonLogPath = Join-Path -Path $intakeFolder -ChildPath 'returns-afternoon.log'
+$deskNotePath = Join-Path -Path $intakeFolder -ChildPath 'desk-notes.txt'
+
+$morningLines = @(
+    'INFO|NB-301|Returned by student'
+    'ERROR|NB-302|Battery test failed'
+)
+$morningLines | Set-Content -LiteralPath $morningLogPath
+
+$afternoonLines = @(
+    'INFO|NB-303|Returned by student'
+    'ERROR|NB-302|Repair ticket opened'
+)
+$afternoonLines | Set-Content -LiteralPath $afternoonLogPath
+Set-Content -LiteralPath $deskNotePath -Value 'ERROR| is the marker explained in the help sheet.'
+</code></pre>
+<p><strong>Your tasks</strong></p>
+<ol>
+<li>Append <code>INFO|WS-401|Ready for lending</code> to the morning log with
+<code>Add-Content</code>. Do not replace its first two lines.</li>
+<li>Read both logs and the note. Record the number of lines in each log.</li>
+</ol>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What would another <code>Set-Content</code> call do to an existing log?</li>
+<li>What does <code>Add-Content</code> preserve?</li>
+<li>Why keep the desk note separate from the logs?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Verify your inputs against the supplied records before searching
+them.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Prediction answer:</strong> <code>Add-Content</code> keeps existing lines and adds the supplied
+record; <code>Set-Content</code> replaces the file's contents.</p>
+<p><strong>Append and inspection solution:</strong></p>
+<pre><code class="language-powershell">Add-Content -LiteralPath $morningLogPath -Value 'INFO|WS-401|Ready for lending'
+Get-Content -LiteralPath $morningLogPath
+Get-Content -LiteralPath $afternoonLogPath
+Get-Content -LiteralPath $deskNotePath
+</code></pre>
+<p><strong>Expected result:</strong> The morning log has three lines; the afternoon log has two.
+Each log has one ERROR| record on line 2. The note has one line.</p>
+<p><strong>Reflection answers</strong></p>
+<ol>
+<li><strong>What would another <code>Set-Content</code> call do to an existing log?</strong> Replace its
+contents with the supplied new text.</li>
+<li><strong>What does <code>Add-Content</code> preserve?</strong> Existing lines; the new text is
+appended.</li>
+<li><strong>Why keep the desk note separate from the logs?</strong> It is explanatory text,
+not an operational return record, even though it contains the same marker.</li>
+</ol>
+</details>
+<h3 id="activity-4.2-inspect-file-metadata">Activity 4.2 — Inspect file metadata</h3>
+<p>Before collecting evidence, check what each input file is and when it changed.</p>
+<p><strong>Predict</strong></p>
+<p>Which command inspects a single file, and which lists a directory's children?</p>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">Get-ChildItem -LiteralPath $intakeFolder -File
+</code></pre>
+<p><strong>Your tasks</strong></p>
+<ol>
+<li>Build a pipeline that inspects the morning log and shows <code>Name</code>,
+<code>DirectoryName</code>, <code>Length</code>, and <code>LastWriteTime</code>.</li>
+<li>Build a listing containing only the log files. Show each name and size.</li>
+</ol>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which property contains file size in bytes?</li>
+<li>Which property records the latest write?</li>
+<li>Why does the unfiltered listing include a file that the log listing excludes?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Record both log filenames and explain why the note is excluded.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Prediction answer:</strong> <code>Get-Item</code> inspects one file; <code>Get-ChildItem</code> lists
+directory children.</p>
+<p><strong>Metadata and file-selection solution:</strong></p>
+<pre><code class="language-powershell">Get-Item -LiteralPath $morningLogPath |
+    Select-Object Name, DirectoryName, Length, LastWriteTime
+Get-ChildItem -LiteralPath $intakeFolder -File -Filter '*.log' |
+    Select-Object Name, Length
+</code></pre>
+<p><strong>Expected result:</strong> The unfiltered listing has three files; the log-only
+listing has two. Sizes and timestamps are machine-dependent.</p>
+<p><strong>Reflection answers</strong></p>
+<ol>
+<li><strong>Which property contains file size in bytes?</strong> Length.</li>
+<li><strong>Which property records the latest write?</strong> LastWriteTime; its actual value
+depends on execution time.</li>
+<li><strong>Why does the unfiltered listing include a file that the log listing
+excludes?</strong> desk-notes.txt is a text file, not a filename matching *.log.</li>
+</ol>
+</details>
+<h3 id="activity-4.3-search-inside-files">Activity 4.3 — Search inside files</h3>
+<p>The technician needs actual error records, not a mention of the marker in
+a help note. Select relevant filenames before searching their contents.
+<code>-SimpleMatch</code> makes Select-String treat <code>ERROR|</code> as literal text.</p>
+<p><strong>Predict</strong></p>
+<p>What could go wrong if you searched every input file for the marker?</p>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$logFiles = Get-ChildItem -LiteralPath $intakeFolder -File -Filter '*.log'
+</code></pre>
+<p><strong>Your tasks</strong></p>
+<ol>
+<li>Search <code>$logFiles</code> with <code>Select-String -Pattern 'ERROR|' -SimpleMatch</code>.
+Store the returned match objects in <code>$errorRecords</code>.</li>
+<li>Display <code>FileName</code>, <code>LineNumber</code>, and <code>Line</code> for those objects. Then
+inspect <code>$errorRecords.Count</code>. Keep the objects for Part 7.</li>
+</ol>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which files contain matching operational records, and on which lines?</li>
+<li>Why must the desk note be excluded?</li>
+<li>What type of object does <code>Select-String</code> return?</li>
+<li>Which step selects filenames, and which searches contents?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Save the match objects and explain why your selection avoids the
+note.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Prediction answer:</strong> The explanatory note would be counted as an operational
+error even though it is not a log.</p>
+<p><strong>Error-record search solution:</strong></p>
+<pre><code class="language-powershell">$errorRecords = $logFiles | Select-String -Pattern 'ERROR|' -SimpleMatch
+$errorRecords | Select-Object FileName, LineNumber, Line
+$errorRecords.Count
+</code></pre>
+<p><strong>Expected result:</strong> There are two operational error records. Searching all
+three files would also match the desk note.</p>
+<p><strong>Reflection answers</strong></p>
+<ol>
+<li><strong>Which files contain matching operational records, and on which lines?</strong>
+returns-afternoon.log and returns-morning.log, each on line 2.</li>
+<li><strong>Why must the desk note be excluded?</strong> It mentions the marker as
+documentation and would create a false operational match.</li>
+<li><strong>What type of object does <code>Select-String</code> return?</strong>
+Microsoft.PowerShell.Commands.MatchInfo objects.</li>
+<li><strong>Which step selects filenames, and which searches contents?</strong> Get-ChildItem
+-Filter uses a filename wildcard; Select-String examines the selected files'
+text.</li>
+</ol>
+</details>
+<h2 id="part-5-preview-copy-and-move-files">Part 5 — Preview, copy, and move files</h2>
+<h3 id="activity-5.1-preview-a-copy-operation">Activity 5.1 — Preview a copy operation</h3>
+<p>Preserve a review copy of the morning log, which contains the failed battery
+test. Prepare it in reports before handing it to the evidence folder.</p>
+<p><strong>Predict</strong></p>
+<p>Should a preview create the review copy?</p>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$reviewCopyPath = Join-Path -Path $reportFolder -ChildPath 'return-review.log'
+$morningLogPath
+$reviewCopyPath
+</code></pre>
+<p><strong>Your tasks</strong></p>
+<ol>
+<li>Write and run a <code>Copy-Item</code> command with <code>-WhatIf</code> for those paths.</li>
+<li>Check the existence of both the original and the proposed copy.
+Do not perform the copy in this activity.</li>
+</ol>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What action does the preview describe?</li>
+<li>Was a review file created?</li>
+<li>Why inspect both paths before continuing?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Record the preview and the two existence checks.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Prediction answer:</strong> No. <code>-WhatIf</code> describes the copy without creating it.</p>
+<p><strong>Copy preview solution:</strong></p>
+<pre><code class="language-powershell">Copy-Item -LiteralPath $morningLogPath -Destination $reviewCopyPath -WhatIf
+Test-Path -LiteralPath $morningLogPath -PathType Leaf
+Test-Path -LiteralPath $reviewCopyPath -PathType Leaf
+</code></pre>
+<p><strong>Expected result:</strong> The two existence checks are True and False. No file is
+copied yet.</p>
+<p><strong>Reflection answers</strong></p>
+<ol>
+<li><strong>What action does the preview describe?</strong> Copying the morning log into
+reports/return-review.log.</li>
+<li><strong>Was a review file created?</strong> No. The original exists, but the proposed copy
+does not exist in the fresh workspace.</li>
+<li><strong>Why inspect both paths before continuing?</strong> To establish which file will be
+read and which location will receive the copy.</li>
+</ol>
+</details>
+<h3 id="activity-5.2-perform-and-verify-the-copy">Activity 5.2 — Perform and verify the copy</h3>
+<p>The evidence handover requires proof that the original was preserved and
+the working copy contains the same bytes.</p>
+<p><strong>Predict</strong></p>
+<p>What should happen to the original file's hash after a copy?</p>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$originalHash = (Get-FileHash -LiteralPath $morningLogPath).Hash
+</code></pre>
+<p><strong>Your tasks</strong></p>
+<ol>
+<li>Perform the copy you previewed in Activity 5.1.</li>
+<li>Check that both paths exist. Compare the copy's hash with <code>$originalHash</code>,
+and check that the original hash is unchanged.</li>
+</ol>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>What result shows that the copy exists?</li>
+<li>What do equal hashes tell you here?</li>
+<li>Is existence alone enough to verify a copy's contents?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Keep the original hash for the final handover checks.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Prediction answer:</strong> The original file's hash should remain unchanged.</p>
+<p><strong>Copy and hash verification solution:</strong></p>
+<pre><code class="language-powershell">Copy-Item -LiteralPath $morningLogPath -Destination $reviewCopyPath
+Test-Path -LiteralPath $morningLogPath -PathType Leaf
+Test-Path -LiteralPath $reviewCopyPath -PathType Leaf
+(Get-FileHash -LiteralPath $reviewCopyPath).Hash -eq $originalHash
+(Get-FileHash -LiteralPath $morningLogPath).Hash -eq $originalHash
+</code></pre>
+<p><strong>Expected result:</strong> Both files exist, and both hash comparisons return True.</p>
+<p><strong>Reflection answers</strong></p>
+<ol>
+<li><strong>What result shows that the copy exists?</strong> Test-Path for the review-copy
+path returns True.</li>
+<li><strong>What do equal hashes tell you here?</strong> The sample files contain the same
+bytes; comparing the original again also verifies it was not changed by the
+copy.</li>
+<li><strong>Is existence alone enough to verify a copy's contents?</strong> No. An existing
+file might contain different data.</li>
+</ol>
+</details>
+<h3 id="activity-5.3-preview-and-perform-a-move">Activity 5.3 — Preview and perform a move</h3>
+<p>Hand over the review copy to evidence and give it its final name.
+Use a filename, rather than a full destination path, with Rename-Item -NewName.</p>
+<p><strong>Predict</strong></p>
+<p>Which paths should disappear after moving and then renaming the copy?</p>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$movedLogPath = Join-Path -Path $evidenceFolder -ChildPath 'return-review.log'
+$evidencePath = Join-Path -Path $evidenceFolder -ChildPath 'returns-evidence.log'
+</code></pre>
+<p><strong>Your tasks</strong></p>
+<ol>
+<li>Preview and perform the move from <code>$reviewCopyPath</code> to <code>$movedLogPath</code>.
+Verify both paths.</li>
+<li>Preview and perform a rename to <code>returns-evidence.log</code>.</li>
+<li>Verify the final evidence file, the absence of its previous names, and the
+unchanged original log. Do not delete the source.</li>
+</ol>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>How does a move differ from a copy?</li>
+<li>What does <code>-NewName</code> receive?</li>
+<li>Why is the original morning log still available?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Record the evidence path and the checks that preserve its
+connection to the original.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Prediction answer:</strong> <code>$reviewCopyPath</code> disappears after the move;
+<code>$movedLogPath</code> disappears after the rename. The original morning log remains.</p>
+<p><strong>Move, rename, and verification solution:</strong></p>
+<pre><code class="language-powershell">Move-Item -LiteralPath $reviewCopyPath -Destination $movedLogPath -WhatIf
+Move-Item -LiteralPath $reviewCopyPath -Destination $movedLogPath
+Test-Path -LiteralPath $reviewCopyPath
+Test-Path -LiteralPath $movedLogPath -PathType Leaf
+
+Rename-Item -LiteralPath $movedLogPath -NewName 'returns-evidence.log' -WhatIf
+Rename-Item -LiteralPath $movedLogPath -NewName 'returns-evidence.log'
+Test-Path -LiteralPath $movedLogPath
+Test-Path -LiteralPath $evidencePath -PathType Leaf
+(Get-FileHash -LiteralPath $morningLogPath).Hash -eq $originalHash
+(Get-FileHash -LiteralPath $evidencePath).Hash -eq $originalHash
+</code></pre>
+<p><strong>Expected result:</strong> Move checks: False, True. Rename checks: False, True. Both
+final hash comparisons are True.</p>
+<p><strong>Reflection answers</strong></p>
+<ol>
+<li><strong>How does a move differ from a copy?</strong> The moved item is no longer at its
+previous path; copying preserves a source at the old path.</li>
+<li><strong>What does <code>-NewName</code> receive?</strong> The filename returns-evidence.log, not a
+destination directory path.</li>
+<li><strong>Why is the original morning log still available?</strong> Only the working copy
+was moved and renamed.</li>
+</ol>
+</details>
+<h2 id="part-6-export-and-import-structured-data">Part 6 — Export and import structured data</h2>
+<h3 id="activity-6.1-export-and-import-csv">Activity 6.1 — Export and import CSV</h3>
+<p>A lending application needs a table of returned devices. Export ordinary
+inventory objects, then inspect the imported values.</p>
+<p><strong>Predict</strong></p>
+<p>Will the CSV round trip preserve MemoryGB's original numeric type?</p>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$csvPath = Join-Path -Path $reportFolder -ChildPath 'inventory.csv'
+$inventory | Export-Csv -LiteralPath $csvPath -NoTypeInformation
+
+Get-Content -LiteralPath $csvPath
+$importedCsv = Import-Csv -LiteralPath $csvPath
+$importedCsv | Select-Object Device, Status, MemoryGB
+$importedCsv[0].MemoryGB.GetType().Name
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Does the CSV contain rows and named columns?</li>
+<li>What object type does <code>Import-Csv</code> return?</li>
+<li>Are imported MemoryGB values still numbers?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Keep the imported records available and distinguish data values
+from their imported types.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Prediction answer:</strong> No. Imported <code>MemoryGB</code> values are strings.</p>
+<p><strong>Expected result:</strong> Four records round-trip. The displayed type name for
+MemoryGB is String.</p>
+<p><strong>Reflection answers</strong></p>
+<ol>
+<li><strong>Does the CSV contain rows and named columns?</strong> Yes: Device, Type, Status,
+and MemoryGB, with four data rows.</li>
+<li><strong>What object type does <code>Import-Csv</code> return?</strong>
+System.Management.Automation.PSCustomObject values, with the CSV columns as
+properties.</li>
+<li><strong>Are imported MemoryGB values still numbers?</strong> No. The CSV imports these
+values as strings.</li>
+</ol>
+</details>
+<h3 id="activity-6.2-export-and-import-json">Activity 6.2 — Export and import JSON</h3>
+<p><strong>Advanced activity — required.</strong></p>
+<p>Compare CSV with a format that represents numeric values. Complete this
+advanced comparison before continuing to CLIXML in Activity 6.3.</p>
+<p><strong>Predict</strong></p>
+<p>What type will the imported MemoryGB value have?</p>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$jsonPath = Join-Path -Path $reportFolder -ChildPath 'inventory.json'
+$inventory | ConvertTo-Json | Set-Content -LiteralPath $jsonPath
+Get-Content -LiteralPath $jsonPath -Raw
+$importedJson = Get-Content -LiteralPath $jsonPath -Raw | ConvertFrom-Json
+$importedJson | Select-Object Device, Status, MemoryGB
+$importedJson[0].MemoryGB.GetType().Name
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Why use <code>-Raw</code> when reading the JSON?</li>
+<li>Is MemoryGB represented as a number after import?</li>
+<li>When could JSON be preferable to CSV?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Compare the value type with Activity 6.1 and record the difference
+between CSV and JSON.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Prediction answer:</strong> <code>MemoryGB</code> imports as <code>Int64</code> for these whole-number
+values in PowerShell 7.</p>
+<p><strong>Expected result:</strong> Four records round-trip; MemoryGB is numeric (Int64 for
+these examples).</p>
+<p><strong>Reflection answers</strong></p>
+<ol>
+<li><strong>Why use <code>-Raw</code> when reading the JSON?</strong> It supplies the complete JSON
+document as one string.</li>
+<li><strong>Is MemoryGB represented as a number after import?</strong> Yes. These whole-number
+values import as System.Int64 in PowerShell 7.</li>
+<li><strong>When could JSON be preferable to CSV?</strong> For exchanging nested structures or
+numeric and Boolean values with other applications.</li>
+</ol>
+</details>
+<h3 id="activity-6.3-export-and-import-clixml">Activity 6.3 — Export and import CLIXML</h3>
+<p><strong>Advanced activity — required.</strong></p>
+<p>Inspect PowerShell's object-serialization format and compare its restored
+values with the CSV and JSON results from Activities 6.1 and 6.2.</p>
+<p><strong>Predict</strong></p>
+<p>Will the original integer type survive this round trip?</p>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$xmlPath = Join-Path -Path $reportFolder -ChildPath 'inventory.clixml'
+$inventory | Export-Clixml -LiteralPath $xmlPath
+Get-Content -LiteralPath $xmlPath
+$importedXml = Import-Clixml -LiteralPath $xmlPath
+$importedXml | Select-Object Device, Status, MemoryGB
+$importedXml[0].MemoryGB.GetType().Name
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Which format here is PowerShell-specific?</li>
+<li>Does this example preserve the integer type of MemoryGB?</li>
+<li>Does serialization guarantee restoration of every object's live behaviour?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Explain what this example demonstrates about stored values and
+their types.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Prediction answer:</strong> Yes. This example restores <code>MemoryGB</code> as <code>Int32</code>.</p>
+<p><strong>Expected result:</strong> Four records round-trip. MemoryGB is Int32. Do not
+generalise that all object methods survive serialization.</p>
+<p><strong>Reflection answers</strong></p>
+<ol>
+<li><strong>Which format here is PowerShell-specific?</strong> CLIXML.</li>
+<li><strong>Does this example preserve the integer type of MemoryGB?</strong> Yes. The sample
+Int32 values are restored as Int32.</li>
+<li><strong>Does serialization guarantee restoration of every object's live
+behaviour?</strong> No. Many complex objects return as deserialized property
+snapshots rather than live objects with all original methods.</li>
+</ol>
+</details>
+<h3 id="activity-6.4-compare-structured-export-with-out-file">Activity 6.4 — Compare structured export with <code>Out-File</code></h3>
+<p>The desk also wants a report a person can read. After completing the three
+serialization activities, compare their exports with a formatted text report.</p>
+<p><strong>Predict</strong></p>
+<p>Could the formatted text table replace the CSV as reusable structured input?</p>
+<p><strong>Run</strong></p>
+<pre><code class="language-powershell">$textReportPath = Join-Path -Path $reportFolder -ChildPath 'inventory.txt'
+$inventory |
+    Sort-Object Device |
+    Format-Table Device, Type, Status, MemoryGB |
+    Out-File -LiteralPath $textReportPath
+Get-Content -LiteralPath $textReportPath
+</code></pre>
+<p><strong>Reflect</strong></p>
+<ol>
+<li>Is the text report suitable for a person to read?</li>
+<li>Can <code>Import-Csv</code> reliably reconstruct the original objects from it?</li>
+<li>Which format fits another script, and which fits a visual desk report?</li>
+</ol>
+<p><strong>Checkpoint:</strong> Identify the machine-readable and human-readable report files.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Prediction answer:</strong> No. The table is display text rather than a structured
+data export.</p>
+<p><strong>Expected result:</strong> The text file displays all four devices, sorted by Device.
+Display width and spacing can vary.</p>
+<p><strong>Reflection answers</strong></p>
+<ol>
+<li><strong>Is the text report suitable for a person to read?</strong> Yes; the aligned table
+is a display-oriented snapshot.</li>
+<li><strong>Can <code>Import-Csv</code> reliably reconstruct the original objects from it?</strong> No.
+Table spacing and headings are not a CSV serialization.</li>
+<li><strong>Which format fits another script, and which fits a visual desk report?</strong>
+CSV for reusable rows and columns; formatted text for a human-readable
+snapshot.</li>
+</ol>
+</details>
+<h2 id="part-7-challenge-produce-and-verify-a-device-report">Part 7 — Challenge: produce and verify a device report</h2>
+<p>Filename: <code>New-DeviceReport.ps1</code></p>
+<p>Save the challenge commands in this file in the lab root, outside the report
+folder. Complete Parts 1 to 6 first, then run <code>. .\New-DeviceReport.ps1</code> from
+the lab root in the same session to use their variables. Do not repeat the
+earlier file operations.</p>
+<h3 id="scenario">Scenario</h3>
+<p>The lending desk needs a handover listing only devices ready for another
+student. A second script consumes the CSV, while the desk reads a short summary.
+The technician also needs the two error records and a verifiable evidence copy.</p>
+<h3 id="your-task">Your task</h3>
+<ol>
+<li>Filter <code>$inventory</code> to devices whose status is <code>Ready</code>.</li>
+<li>Sort by <code>MemoryGB</code> from highest to lowest, then by <code>Device</code> in ascending
+order.
+Use a calculated sort property when you need different directions per column.</li>
+<li>Export only <code>Device</code>, <code>Type</code>, and <code>MemoryGB</code> to <code>ready-devices.csv</code> in
+reports.</li>
+<li>Import that CSV. Verify its row count, device order, and absence of the
+repair device.</li>
+<li>Use the imported count and <code>$errorRecords.Count</code> to write
+<code>Ready devices: &lt;count&gt;; error records: &lt;count&gt;.</code> to <code>ready-summary.txt</code>.
+Calculate both counts rather than typing their expected values.</li>
+<li>Verify that the evidence file still matches <code>$originalHash</code> and that both
+incoming logs are still present.</li>
+<li>Display both final report paths. Explain why the CSV, text summary, and
+evidence
+log serve different purposes.</li>
+</ol>
+<h3 id="success-criteria">Success criteria</h3>
+<ul>
+<li>The CSV contains three data rows and the three required columns.</li>
+<li>Ordering follows both sort requirements; the repair device is excluded.</li>
+<li>The summary reports three ready devices and two operational error records.</li>
+<li>Both incoming logs remain, and the evidence hash matches the saved original.</li>
+<li>The temporary review-copy paths no longer exist after moving and renaming.</li>
+<li>JSON and CLIXML exports and their type comparisons are included.</li>
+</ul>
+<p>Write your own pipelines. Use the relevant lesson or <code>Get-Help</code> for syntax,
+and show your verification evidence.</p>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p>Use the same session and the completed setup from Parts 1 to 6. In particular,
+keep <code>$inventory</code>, <code>$errorRecords</code>, <code>$originalHash</code>, and the path variables.
+These commands complete the challenge; do not repeat earlier file operations.</p>
+<p><strong>Ready-device report solution (Beginner):</strong></p>
+<pre><code class="language-powershell">$readyCsvPath = Join-Path -Path $reportFolder -ChildPath 'ready-devices.csv'
+$summaryPath = Join-Path -Path $reportFolder -ChildPath 'ready-summary.txt'
+
+$inventory |
+    Where-Object Status -eq 'Ready' |
+    Sort-Object @{ Expression = 'MemoryGB'; Descending = $true }, Device |
+    Select-Object Device, Type, MemoryGB |
+    Export-Csv -LiteralPath $readyCsvPath -NoTypeInformation
+</code></pre>
+<p>The CSV has only <code>Device</code>, <code>Type</code>, and <code>MemoryGB</code>. Its three rows are
+<code>WS-401</code> (32 GB), <code>NB-301</code> (16 GB), and <code>NB-303</code> (16 GB), in that order.
+<code>NB-302</code> is excluded because its status is <code>Repair</code>.</p>
+<p><strong>Import and verification solution (Beginner):</strong></p>
+<pre><code class="language-powershell">$readyDevices = Import-Csv -LiteralPath $readyCsvPath
+$readyDevices.Count
+$readyDevices | Select-Object Device, Type, MemoryGB
+</code></pre>
+<p>The count is <code>3</code>. Inspect the displayed records to verify the order above and
+the absence of <code>NB-302</code>. The imported <code>MemoryGB</code> values are strings, so sort
+the original numeric inventory before exporting.</p>
+<p><strong>Summary solution (Beginner):</strong></p>
+<pre><code class="language-powershell">$summary = 'Ready devices: {0}; error records: {1}.' -f $readyDevices.Count, $errorRecords.Count
+Set-Content -LiteralPath $summaryPath -Value $summary
+Get-Content -LiteralPath $summaryPath
+</code></pre>
+<p>Both counts come from the earlier results. The file contains:</p>
+<pre><code class="language-text">Ready devices: 3; error records: 2.
+</code></pre>
+<p><strong>Evidence and advanced-format verification solution (Beginner):</strong></p>
+<pre><code class="language-powershell">(Get-FileHash -LiteralPath $evidencePath).Hash -eq $originalHash
+(Get-FileHash -LiteralPath $morningLogPath).Hash -eq $originalHash
+Test-Path -LiteralPath $afternoonLogPath -PathType Leaf
+Test-Path -LiteralPath $reviewCopyPath
+Test-Path -LiteralPath $movedLogPath
+
+Test-Path -LiteralPath $jsonPath -PathType Leaf
+Test-Path -LiteralPath $xmlPath -PathType Leaf
+$importedJson[0].MemoryGB.GetType().Name
+$importedXml[0].MemoryGB.GetType().Name
+</code></pre>
+<p>The first three checks return <code>True</code>: both hashes match, and the afternoon
+log remains. The two obsolete copy paths return <code>False</code>. The JSON and CLIXML
+files both exist (<code>True</code>); their imported <code>MemoryGB</code> types are <code>Int64</code> and
+<code>Int32</code>, respectively, for this dataset.</p>
+<p><strong>Final report paths (Beginner):</strong></p>
+<pre><code class="language-powershell">$readyCsvPath
+$summaryPath
+</code></pre>
+<details>
+<summary>Show solution Optimized</summary>
+<p>Use the same session and the completed setup from Parts 1 to 6.</p>
+<p><strong>Optimized report generation:</strong></p>
+<pre><code class="language-powershell">$readyCsvPath = Join-Path -Path $reportFolder -ChildPath 'ready-devices.csv'
+$summaryPath = Join-Path -Path $reportFolder -ChildPath 'ready-summary.txt'
+
+$readyDevices = $inventory |
+    Where-Object Status -eq 'Ready' |
+    Sort-Object @{ Expression = 'MemoryGB'; Descending = $true }, Device |
+    Select-Object Device, Type, MemoryGB |
+    Tee-Object -Variable readyDevices |
+    Export-Csv -LiteralPath $readyCsvPath -NoTypeInformation
+
+$summary = &quot;Ready devices: $($readyDevices.Count); error records: $($errorRecords.Count).&quot;
+Set-Content -LiteralPath $summaryPath -Value $summary
+
+@{
+    csvPath = $readyCsvPath
+    summaryPath = $summaryPath
+    csvCount = $readyDevices.Count
+    verification = @{
+        csvExists = Test-Path -LiteralPath $readyCsvPath -PathType Leaf
+        summaryExists = Test-Path -LiteralPath $summaryPath -PathType Leaf
+        hashMatch = (Get-FileHash -LiteralPath $evidencePath).Hash -eq $originalHash
+    }
+}
+</code></pre>
+<p>The optimized version uses <code>Tee-Object</code> to capture the pipeline results in a variable while simultaneously exporting, reducing the need for re-import. It also collects verification results in a hashtable for easier review. Both approaches produce the same files and satisfy all requirements.</p>
+</details>
+</details>
+<h2 id="practice-and-self-check">Practice and self-check</h2>
+<ol>
+<li>What is the difference between single-quoted and double-quoted strings?</li>
+<li>Why use success-output objects rather than Write-Host messages for report
+data?</li>
+<li>Why should a Format-* cmdlet normally be last?</li>
+<li>Which cmdlet checks whether a path exists?</li>
+<li>Which parameter previews a supported file operation?</li>
+<li>How do Set-Content and Add-Content differ?</li>
+<li>Why select log filenames before searching their contents in this scenario?</li>
+<li>How do you prove the evidence copy matches the preserved original?</li>
+<li>Which format fits rows and columns shared with other tools?</li>
+<li>How do JSON and CLIXML compare with CSV for MemoryGB?</li>
+</ol>
+<p>Try the challenge yourself first. Then use the solution to check your work.</p>
+<details>
+<summary>Show solution</summary>
+<p><strong>Self-check answers:</strong></p>
+<ol>
+<li><strong>What is the difference between single-quoted and double-quoted strings?</strong>
+Single quotes are literal; double quotes expand variables and subexpressions.</li>
+<li><strong>Why use success-output objects rather than Write-Host messages for report
+data?</strong> Later commands can process objects in the success-output stream; host
+display is not that data stream.</li>
+<li><em><em>Why should a Format-</em> cmdlet normally be last?</em>* It produces formatting
+instructions rather than the original data objects.</li>
+<li><strong>Which cmdlet checks whether a path exists?</strong> Test-Path.</li>
+<li><strong>Which parameter previews a supported file operation?</strong> -WhatIf.</li>
+<li><strong>How do Set-Content and Add-Content differ?</strong> Set-Content replaces content;
+Add-Content appends.</li>
+<li><strong>Why select log filenames before searching their contents in this
+scenario?</strong> The note contains the same literal marker but is not an
+operational log.</li>
+<li><strong>How do you prove the evidence copy matches the preserved original?</strong>
+Compare both file hashes with the original hash recorded before copying.</li>
+<li><strong>Which format fits rows and columns shared with other tools?</strong> CSV; its
+imported values are strings in this exercise.</li>
+<li><strong>How do JSON and CLIXML compare with CSV for MemoryGB?</strong> JSON and
+CLIXML retain a numeric value here; JSON uses Int64 and CLIXML restores
+Int32.</li>
+</ol>
+</details>
+<h2 id="submission-checklist">Submission checklist</h2>
+<ul>
+<li>Record the prediction and reflection answers for every activity.</li>
+<li>Show your log selection and the operational matches.</li>
+<li>Show copy, move, and rename previews before their actual operations.</li>
+<li>Verify the original and evidence hashes.</li>
+<li>Keep all created files inside the selected root for instructor review.</li>
+<li>Show the CSV round trip, the text report, and Part 7's checks.</li>
+<li>Include the JSON and CLIXML files and their type comparisons.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>Use a new workspace and preserve source records. Select relevant filenames
+before searching text. Preview supported file changes and verify both paths
+and contents. Keep objects available until exporting reusable data or formatting
+a report for a person.</p>
+<p>CSV, JSON, CLIXML, and formatted text are all required. Explain how their
+consumers and restored value types affect which format you choose.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_quoting_rules">About quoting
+rules</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_format.ps1xml">About formatting
+output</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/scripting/samples/working-with-files-and-folders">Working with files and
+folders</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/export-csv">Export-Csv</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_json">About
+JSON</a></li>
+</ul>
+        </article>
+        <footer class="docs-footer">Theorie <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>
