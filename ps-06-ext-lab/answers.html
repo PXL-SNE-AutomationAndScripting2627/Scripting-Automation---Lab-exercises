@@ -34,7 +34,33 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
+            <b><code>scripts/NumberOfFiles.ps1</code></b><br>
+            <pre><code>&lt;#
+.SYNOPSIS
+    Telt alle bestanden in een map.
+.DESCRIPTION
+    Telt recursief alle bestanden in de opgegeven map en toont het volledige
+    resultaat van Measure-Object.
+.PARAMETER directory
+    Een bestaande map. Eerste positionele argument.
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    ./scripts/NumberOfFiles.ps1 C:\powershell
+#&gt;
+[CmdletBinding()]
+param(
+    [Parameter(Mandatory, Position = 0)]
+    [ValidateScript({ Test-Path -Path $_ -PathType Container }, ErrorMessage = &#39;{0} is geen bestaande map.&#39;)]
+    [string]$directory
+)
 
+Get-ChildItem -Path $directory -Recurse -File | Measure-Object</code></pre>
+            <code>[Parameter(Mandatory, Position = 0)]</code> maakt <code>directory</code> verplicht en het eerste positionele argument. <code>[ValidateScript({ Test-Path -Path $_ -PathType Container })]</code> controleert vóór de rest van het script dat het pad een bestaande map is. <code>Get-ChildItem -Recurse -File</code> geeft alle bestanden, ook in de submappen.<br>
+            <br>
+            <b>Syntax:</b> <code>Get-Command .\scripts\NumberOfFiles.ps1 -Syntax</code> → <code>.\NumberOfFiles.ps1 [-directory] &lt;string&gt; [&lt;CommonParameters&gt;]</code><br>
+            <b>Geldig:</b> <code>./scripts/NumberOfFiles.ps1 C:\powershell</code> → het volledige <code>Measure-Object</code>-resultaat (<code>Count</code>, <code>Average</code>, <code>Sum</code>, ...)<br>
+            <b>Ongeldig:</b> <code>./scripts/NumberOfFiles.ps1 C:\bestaatniet</code> → <code>Cannot validate argument on parameter 'directory'. C:\bestaatniet is geen bestaande map.</code><br>
         </div>
           <h3 id="1-2-numberoffilesv2-ps1">1.2 <code>NumberOfFilesv2.ps1</code></h3>
           <p>Maak <code>scripts/NumberOfFilesv2.ps1</code> met dezelfde parameter en telling, maar toon één leesbare zin met map en aantal.</p>
@@ -42,7 +68,33 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
+            <b><code>scripts/NumberOfFilesv2.ps1</code></b><br>
+            <pre><code>&lt;#
+.SYNOPSIS
+    Telt alle bestanden in een map en toont een leesbare zin.
+.DESCRIPTION
+    Telt recursief alle bestanden in de opgegeven map en toont de map en het
+    aantal bestanden in een zin.
+.PARAMETER directory
+    Een bestaande map. Eerste positionele argument.
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    ./scripts/NumberOfFilesv2.ps1 C:\powershell
+#&gt;
+[CmdletBinding()]
+param(
+    [Parameter(Mandatory, Position = 0)]
+    [ValidateScript({ Test-Path -Path $_ -PathType Container }, ErrorMessage = &#39;{0} is geen bestaande map.&#39;)]
+    [string]$directory
+)
 
+$aantal = (Get-ChildItem -Path $directory -Recurse -File | Measure-Object).Count
+Write-Output &quot;Onder de map $directory bevinden zich $aantal bestanden.&quot;</code></pre>
+            Met <code>(... | Measure-Object).Count</code> nemen we alleen het getal uit het resultaat en zetten we het in een zin.<br>
+            <br>
+            <b>Geldig:</b> <code>./scripts/NumberOfFilesv2.ps1 C:\powershell</code> → <code>Onder de map C:\powershell bevinden zich 16 bestanden.</code><br>
+            <b>Ongeldig:</b> <code>./scripts/NumberOfFilesv2.ps1 C:\bestaatniet</code> → <code>Cannot validate argument on parameter 'directory'. C:\bestaatniet is geen bestaande map.</code><br>
         </div>
           <h2 id="2-vrije-schijfruimte">2. Vrije schijfruimte</h2>
           <p>Gebruik voor de volgende scripts <code>Get-CimInstance -ClassName CIM_LogicalDisk</code> en beperk het resultaat tot lokale schijven met <code>DriveType</code> 3.</p>
@@ -57,7 +109,36 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
+            <b><code>scripts/FreeDiskSpace.ps1</code></b><br>
+            <pre><code>&lt;#
+.SYNOPSIS
+    Toont het CIM-object van een lokale schijf.
+.DESCRIPTION
+    Zoekt met Get-CimInstance de lokale schijf (DriveType 3) met de opgegeven
+    stationsletter en toont het CIM-object.
+.PARAMETER driveLetter
+    Stationsletter zoals C:. Verplicht en positioneel.
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    ./scripts/FreeDiskSpace.ps1 C:
+#&gt;
+[CmdletBinding()]
+param(
+    [Parameter(Mandatory, Position = 0)]
+    [ValidatePattern(&#39;\A[A-Z]:\z&#39;, ErrorMessage = &#39;{0} is geen geldige stationsletter (bv. C:).&#39;)]
+    [string]$driveLetter
+)
 
+Get-CimInstance -ClassName CIM_LogicalDisk |
+    Where-Object DriveType -eq 3 |
+    Where-Object DeviceID -eq $driveLetter</code></pre>
+            <code>[ValidatePattern('\A[A-Z]:\z')]</code> aanvaardt alleen precies één letter gevolgd door <code>:</code>. <code>ValidatePattern</code> is niet hoofdlettergevoelig, dus <code>c:</code> mag ook.<br>
+            <code>Where-Object DriveType -eq 3</code> houdt alleen lokale schijven over, daarna kiezen we de schijf met <code>Where-Object DeviceID -eq $driveLetter</code>.<br>
+            Let op: <code>Get-CimInstance -ClassName CIM_LogicalDisk -Filter 'DriveType = 3'</code> geeft de fout <code>Invalid query</code>, omdat de klasse <code>CIM_LogicalDisk</code> geen <code>DriveType</code> kent in een query. Daarom filteren we met <code>Where-Object</code>.<br>
+            <br>
+            <b>Geldig:</b> <code>./scripts/FreeDiskSpace.ps1 c:</code> → het CIM-object met <code>DeviceID</code>, <code>DriveType</code>, <code>ProviderName</code>, <code>VolumeName</code>, <code>Size</code>, <code>FreeSpace</code><br>
+            <b>Ongeldig:</b> <code>./scripts/FreeDiskSpace.ps1 cc</code> → <code>Cannot validate argument on parameter 'driveLetter'. cc is geen geldige stationsletter (bv. C:).</code><br>
         </div>
           <h3 id="2-2-freediskspacev2-ps1">2.2 <code>FreeDiskSpacev2.ps1</code></h3>
           <p>Maak versie 2. Toon één zin met stationsletter, totale grootte en vrije ruimte in bytes.</p>
@@ -65,7 +146,36 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
+            <b><code>scripts/FreeDiskSpacev2.ps1</code></b><br>
+            <pre><code>&lt;#
+.SYNOPSIS
+    Toont de totale grootte en vrije ruimte van een lokale schijf.
+.DESCRIPTION
+    Zoekt de lokale schijf (DriveType 3) met de opgegeven stationsletter en
+    toont de totale grootte en de vrije ruimte in bytes.
+.PARAMETER driveLetter
+    Stationsletter zoals C:. Verplicht en positioneel.
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    ./scripts/FreeDiskSpacev2.ps1 C:
+#&gt;
+[CmdletBinding()]
+param(
+    [Parameter(Mandatory, Position = 0)]
+    [ValidatePattern(&#39;\A[A-Z]:\z&#39;, ErrorMessage = &#39;{0} is geen geldige stationsletter (bv. C:).&#39;)]
+    [string]$driveLetter
+)
 
+$disk = Get-CimInstance -ClassName CIM_LogicalDisk |
+    Where-Object DriveType -eq 3 |
+    Where-Object DeviceID -eq $driveLetter
+
+Write-Output &quot;$driveLetter totale grootte $($disk.Size), vrije ruimte $($disk.FreeSpace)&quot;</code></pre>
+            We bewaren het CIM-object in <code>$disk</code> en tonen de properties <code>Size</code> en <code>FreeSpace</code> (in bytes) met <code>$( )</code> in de tekst.<br>
+            <br>
+            <b>Geldig:</b> <code>./scripts/FreeDiskSpacev2.ps1 c:</code> → <code>c: totale grootte 1999805366272, vrije ruimte 405082587136</code><br>
+            <b>Ongeldig:</b> <code>./scripts/FreeDiskSpacev2.ps1 c</code> → <code>Cannot validate argument on parameter 'driveLetter'. c is geen geldige stationsletter (bv. C:).</code><br>
         </div>
           <h3 id="2-3-freediskspacev3-ps1">2.3 <code>FreeDiskSpacev3.ps1</code></h3>
           <p>Maak versie 3. Wanneer de gebruiker geen stationsletter meegeeft, gebruikt het script automatisch <code>C:</code>.</p>
@@ -73,7 +183,40 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
+            <b><code>scripts/FreeDiskSpacev3.ps1</code></b><br>
+            <pre><code>&lt;#
+.SYNOPSIS
+    Toont de totale grootte en vrije ruimte van een lokale schijf.
+.DESCRIPTION
+    Zoekt de lokale schijf (DriveType 3) met de opgegeven stationsletter en
+    toont de totale grootte en de vrije ruimte in bytes. Zonder stationsletter
+    wordt C: gebruikt.
+.PARAMETER driveLetter
+    Stationsletter zoals C:. Optioneel, standaard C:.
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    ./scripts/FreeDiskSpacev3.ps1
+.EXAMPLE
+    ./scripts/FreeDiskSpacev3.ps1 D:
+#&gt;
+[CmdletBinding()]
+param(
+    [Parameter(Position = 0)]
+    [ValidatePattern(&#39;\A[A-Z]:\z&#39;, ErrorMessage = &#39;{0} is geen geldige stationsletter (bv. C:).&#39;)]
+    [string]$driveLetter = &#39;C:&#39;
+)
 
+$disk = Get-CimInstance -ClassName CIM_LogicalDisk |
+    Where-Object DriveType -eq 3 |
+    Where-Object DeviceID -eq $driveLetter
+
+Write-Output &quot;$driveLetter totale grootte $($disk.Size), vrije ruimte $($disk.FreeSpace)&quot;</code></pre>
+            <code>= 'C:'</code> is de standaardwaarde. Omdat de parameter niet meer <code>Mandatory</code> is, mag de gebruiker hem weglaten.<br>
+            <br>
+            <b>Syntax:</b> <code>.\FreeDiskSpacev3.ps1 [[-driveLetter] &lt;string&gt;] [&lt;CommonParameters&gt;]</code> (buitenste haken = optioneel)<br>
+            <b>Standaardwaarde:</b> <code>./scripts/FreeDiskSpacev3.ps1</code> → <code>C: totale grootte 1999805366272, vrije ruimte 405065687040</code><br>
+            <b>Zelf gekozen:</b> <code>./scripts/FreeDiskSpacev3.ps1 c:</code> → <code>c: totale grootte ...</code><br>
         </div>
           <h3 id="2-4-freediskspacev4-ps1">2.4 <code>FreeDiskSpacev4.ps1</code></h3>
           <p>Maak versie 4 met:</p>
@@ -89,7 +232,68 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
+            <b><code>scripts/FreeDiskSpacev4.ps1</code></b><br>
+            <pre><code>&lt;#
+.SYNOPSIS
+    Toont de totale grootte en vrije ruimte van een lokale schijf in MB, GB of TB.
+.DESCRIPTION
+    Zoekt de lokale schijf (DriveType 3) met de opgegeven stationsletter en
+    toont de totale grootte en de vrije ruimte, afgerond op twee decimalen,
+    in de gekozen eenheid. Bestaat de schijf niet, dan volgt een foutmelding.
+.PARAMETER driveLetter
+    Stationsletter zoals C:. Optioneel, standaard C:.
+.PARAMETER dataUnit
+    Eenheid: MB, GB of TB. Optioneel, standaard TB.
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    ./scripts/FreeDiskSpacev4.ps1
+.EXAMPLE
+    ./scripts/FreeDiskSpacev4.ps1 -driveLetter D: -dataUnit GB
+#&gt;
+[CmdletBinding()]
+param(
+    [Parameter(Position = 0)]
+    [ValidatePattern(&#39;\A[A-Z]:\z&#39;, ErrorMessage = &#39;{0} is geen geldige stationsletter (bv. C:).&#39;)]
+    [string]$driveLetter = &#39;C:&#39;,
 
+    [Parameter(Position = 1)]
+    [ValidateSet(&#39;MB&#39;, &#39;GB&#39;, &#39;TB&#39;, ErrorMessage = &#39;Enkel MB, GB, TB zijn als dataUnit mogelijk.&#39;)]
+    [string]$dataUnit = &#39;TB&#39;
+)
+
+$disk = Get-CimInstance -ClassName CIM_LogicalDisk |
+    Where-Object DriveType -eq 3 |
+    Where-Object DeviceID -eq $driveLetter
+
+if ($null -eq $disk) {
+    Write-Error &quot;De schijf $driveLetter bestaat niet of is geen lokale schijf.&quot;
+} else {
+    switch ($dataUnit) {
+        &#39;MB&#39; { $deler = 1MB }
+        &#39;GB&#39; { $deler = 1GB }
+        &#39;TB&#39; { $deler = 1TB }
+    }
+
+    $totaal = [math]::Round($disk.Size / $deler, 2)
+    $vrij   = [math]::Round($disk.FreeSpace / $deler, 2)
+
+    $eenheid = $dataUnit.ToUpper()
+
+    Write-Output &quot;$($disk.DeviceID) totale grootte $totaal$eenheid, vrije ruimte $vrij$eenheid&quot;
+}</code></pre>
+            <code>[ValidateSet('MB', 'GB', 'TB')]</code> laat alleen deze drie eenheden toe. De <code>switch</code> kiest de deler: <code>1MB</code>, <code>1GB</code> of <code>1TB</code> is het aantal bytes in die eenheid. Door <code>Size</code> en <code>FreeSpace</code> daardoor te delen, rekenen we om. <code>.ToUpper()</code> toont de eenheid altijd in hoofdletters, ook als de gebruiker <code>gb</code> typt. <code>[math]::Round(..., 2)</code> rondt af op twee decimalen.<br>
+            Vindt <code>Where-Object</code> geen schijf, dan is <code>$disk</code> leeg (<code>$null</code>): het script toont dan in de <code>if</code>-tak een fout met <code>Write-Error</code>. De berekening staat in de <code>else</code>-tak en wordt dus overgeslagen.<br>
+            <br>
+            <b>Tests:</b><br>
+            <code>./scripts/FreeDiskSpacev4.ps1 -driveLetter d: -dataUnit MB</code> → <code>D: totale grootte 1907727MB, vrije ruimte 205957.34MB</code><br>
+            <code>./scripts/FreeDiskSpacev4.ps1 -driveLetter d: -dataUnit GB</code> → <code>D: totale grootte 1863.01GB, vrije ruimte 201.13GB</code><br>
+            <code>./scripts/FreeDiskSpacev4.ps1 -driveLetter d: -dataUnit TB</code> → <code>D: totale grootte 1.82TB, vrije ruimte 0.2TB</code><br>
+            <code>./scripts/FreeDiskSpacev4.ps1 -dataUnit TB</code> → standaardschijf <code>C:</code><br>
+            <code>./scripts/FreeDiskSpacev4.ps1 -driveLetter d:</code> → standaardeenheid <code>TB</code><br>
+            <code>./scripts/FreeDiskSpacev4.ps1</code> → beide standaardwaarden: <code>C:</code> in <code>TB</code><br>
+            <b>Ongeldige eenheid:</b> <code>./scripts/FreeDiskSpacev4.ps1 -driveLetter d: -dataUnit FF</code> → <code>Cannot validate argument on parameter 'dataUnit'. Enkel MB, GB, TB zijn als dataUnit mogelijk.</code><br>
+            <b>Schijf bestaat niet:</b> <code>./scripts/FreeDiskSpacev4.ps1 -driveLetter Q:</code> → <code>De schijf Q: bestaat niet of is geen lokale schijf.</code><br>
         </div>
           <h2 id="3-verplichte-numerieke-parameters">3. Verplichte numerieke parameters</h2>
           <h3 id="3-1-rekenenv2-ps1">3.1 <code>RekenenV2.ps1</code></h3>
@@ -109,7 +313,59 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
+            <b><code>scripts/RekenenV2.ps1</code></b><br>
+            <pre><code>&lt;#
+.SYNOPSIS
+    Een eenvoudige rekenmachine met parameters.
+.DESCRIPTION
+    Ontvangt twee verplichte getallen van het type double en toont de som en
+    het product met twee cijfers na het decimaalteken.
+.PARAMETER my_Getal1
+    Het eerste getal. Verplicht, positie 0.
+.PARAMETER my_Getal2
+    Het tweede getal. Verplicht, positie 1.
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    ./scripts/RekenenV2.ps1 21.75 103.25
+.EXAMPLE
+    ./scripts/RekenenV2.ps1 -my_Getal1 21.75 -my_Getal2 103.25
+#&gt;
+[CmdletBinding()]
+param(
+    [Parameter(Mandatory, Position = 0)]
+    [double]$my_Getal1,
 
+    [Parameter(Mandatory, Position = 1)]
+    [double]$my_Getal2
+)
+
+Write-Host &quot;Mijn rekenmachine&quot; -ForegroundColor Yellow
+Write-Host &quot;-----------------&quot; -ForegroundColor Yellow
+Write-Host &quot;Getal 1: $my_Getal1&quot;
+Write-Host &quot;Getal 2: $my_Getal2&quot;
+
+# Berekenen
+$som     = $my_Getal1 + $my_Getal2
+$product = $my_Getal1 * $my_Getal2
+
+# Twee cijfers na het decimaalteken
+$somTekst     = &#39;{0:N2}&#39; -f $som
+$productTekst = &#39;{0:N2}&#39; -f $product
+
+Write-Host &quot;&quot;
+Write-Host &quot;Rekenkundige bewerkingen:&quot; -ForegroundColor Green
+Write-Host &quot;-------------------------&quot; -ForegroundColor Green
+Write-Host &quot;De som van $my_Getal1 en $my_Getal2 is $somTekst&quot;
+Write-Host &quot;Het product van $my_Getal1 en $my_Getal2 is $productTekst&quot;</code></pre>
+            Beide parameters zijn <code>Mandatory</code> en krijgen een <code>Position</code> (0 en 1), zodat ze positioneel én benoemd werken. Omdat ze van het type <code>[double]</code> zijn, zet PowerShell de invoer zelf om; <code>Read-Host</code> en <code>.Replace(',', '.')</code> zijn niet meer nodig.<br>
+            <br>
+            <b>Syntax:</b> <code>Get-Command .\scripts\RekenenV2.ps1 -Syntax</code> → <code>.\RekenenV2.ps1 [-my_Getal1] &lt;double&gt; [-my_Getal2] &lt;double&gt; [&lt;CommonParameters&gt;]</code><br>
+            <b>Geldig:</b> <code>./scripts/RekenenV2.ps1 21.75 103.25</code> en <code>./scripts/RekenenV2.ps1 -my_Getal1 21.75 -my_Getal2 103.25</code> →<br>
+            <code>De som van 21.75 en 103.25 is 125,00</code><br>
+            <code>Het product van 21.75 en 103.25 is 2.245,69</code><br>
+            <b>Ongeldig:</b> <code>./scripts/RekenenV2.ps1 abc 1</code> → <code>Cannot process argument transformation on parameter 'my_Getal1'. Cannot convert value "abc" to type "System.Double".</code><br>
+            <b>Weggelaten:</b> <code>./scripts/RekenenV2.ps1</code> → PowerShell vraagt zelf om <code>my_Getal1</code> en <code>my_Getal2</code> (verplichte parameters).<br>
         </div>
           <h2 id="4-verplichte-back-upparameters">4. Verplichte back-upparameters</h2>
           <blockquote><p><strong>LET OP:</strong> Dit script leest en comprimeert bestanden. Test alleen met <code>C:\pxl_data</code> en <code>C:\backups</code> op een labsysteem. Controleer de ZIP en verwijder de testdata na beoordeling.</p></blockquote>
@@ -126,7 +382,64 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
+            <b>Voorbereiding:</b><br>
+            <code>New-Item -Path C:\pxl_data -ItemType Directory</code><br>
+            <code>New-Item -Path C:\pxl_data -Name test1.txt -ItemType File</code><br>
+            <code>New-Item -Path C:\backups -ItemType Directory</code><br>
+            <br>            <b><code>scripts/MakeBackupV2.ps1</code></b><br>
+            <pre><code>&lt;#
+.SYNOPSIS
+    Maakt een ZIP-back-up van een map.
+.DESCRIPTION
+    Controleert de bronmap en de doelmap en maakt een ZIP-bestand met de naam
+    yyyyMMddHHmmss_naam.zip in de doelmap.
+.PARAMETER source_Folder
+    De map die geback-upt wordt. Verplicht.
+.PARAMETER destination_Folder
+    De map waarin het ZIP-bestand komt. Verplicht.
+.PARAMETER backup_Name
+    De naam van de back-up. Verplicht.
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    ./scripts/MakeBackupV2.ps1 -source_Folder C:\pxl_data -destination_Folder C:\backups -backup_Name pxldata
+#&gt;
+[CmdletBinding()]
+param(
+    [Parameter(Mandatory)]
+    [ValidateScript({ Test-Path -Path $_ -PathType Container }, ErrorMessage = &#39;{0} is geen bestaande map.&#39;)]
+    [string]$source_Folder,
 
+    [Parameter(Mandatory)]
+    [ValidateScript({ Test-Path -Path $_ -PathType Container }, ErrorMessage = &#39;{0} is geen bestaande map.&#39;)]
+    [string]$destination_Folder,
+
+    [Parameter(Mandatory)]
+    [string]$backup_Name
+)
+
+Write-Host &quot; Backup Tool&quot; -ForegroundColor Blue
+Write-Host &quot;------------&quot; -ForegroundColor Blue
+Write-Host &quot;Check existence of $($source_Folder): $(Test-Path $source_Folder)&quot; -ForegroundColor Green
+Write-Host &quot;Check existence of $($destination_Folder): $(Test-Path $destination_Folder)&quot; -ForegroundColor Green
+
+# Bestandsnaam: yyyyMMddHHmmss_naam.zip
+$datum        = Get-Date -Format &#39;yyyyMMddHHmmss&#39;
+$bestandsnaam = $datum + &#39;_&#39; + $backup_Name + &#39;.zip&#39;
+$zipPad       = Join-Path -Path $destination_Folder -ChildPath $bestandsnaam
+
+# ZIP-bestand maken
+Compress-Archive -Path $source_Folder -DestinationPath $zipPad
+
+Write-Host &quot;Backup Finished - $zipPad&quot; -ForegroundColor Green</code></pre>
+            De drie parameters zijn <code>Mandatory</code>. <code>ValidateScript</code> met <code>Test-Path -PathType Container</code> controleert dat bron- en doelmap bestaande mappen zijn, nog vóór er iets gecomprimeerd wordt.<br>
+            <br>
+            <b>Syntax:</b> <code>.\MakeBackupV2.ps1 [-source_Folder] &lt;string&gt; [-destination_Folder] &lt;string&gt; [-backup_Name] &lt;string&gt; [&lt;CommonParameters&gt;]</code><br>
+            <b>Geldig:</b> <code>./scripts/MakeBackupV2.ps1 -source_Folder C:\pxl_data -destination_Folder C:\backups -backup_Name pxldata</code> → <code>Backup Finished - C:\backups\20261114152116_pxldata.zip</code><br>
+            Controle: <code>Get-ChildItem C:\backups</code> → bv. <code>20261114152116_pxldata.zip</code><br>
+            <b>Ongeldig:</b> <code>./scripts/MakeBackupV2.ps1 -source_Folder C:\bestaatniet -destination_Folder C:\backups -backup_Name pxldata</code> → <code>Cannot validate argument on parameter 'source_Folder'. C:\bestaatniet is geen bestaande map.</code><br>
+            <br>
+            <b>Opruimen:</b> <code>Remove-Item -Path C:\pxl_data, C:\backups -Recurse</code><br>
         </div>
           <h2 id="5-parameters-voor-een-lokale-gebruiker">5. Parameters voor een lokale gebruiker</h2>
           <blockquote><p><strong>LET OP:</strong> Deze extra oefening vereist administratorrechten en maakt een lokale Windows-gebruiker. Gebruik alleen een labsysteem, voeg de gebruiker niet toe aan Administrators, controleer met <code>Get-LocalUser</code> en verwijder de testgebruiker nadien met <code>Remove-LocalUser</code>.</p></blockquote>
@@ -144,7 +457,53 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
+            <b><code>scripts/AddUserParam.ps1</code></b><br>
+            <pre><code>&lt;#
+.SYNOPSIS
+    Maakt een lokale Windows-gebruiker.
+.DESCRIPTION
+    Ontvangt een gebruikersnaam en optioneel een volledige naam als parameter.
+    Het wachtwoord wordt interactief als SecureString gevraagd. Fouten worden
+    opgevangen met try/catch. Uitvoeren als administrator.
+.PARAMETER userName
+    De gebruikersnaam. Verplicht.
+.PARAMETER fullName
+    De volledige naam. Optioneel.
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    ./scripts/AddUserParam.ps1 -userName test -fullName testPxl
+#&gt;
+[CmdletBinding()]
+param(
+    [Parameter(Mandatory)]
+    [string]$userName,
 
+    [string]$fullName
+)
+
+Write-Host &quot;AddUser Tool&quot; -ForegroundColor Blue
+Write-Host &quot;------------&quot; -ForegroundColor Blue
+
+$password = Read-Host &quot;Wachtwoord&quot; -AsSecureString
+
+try {
+    Write-Host &quot;Creating local account $userName on $env:COMPUTERNAME&quot; -ForegroundColor Green
+    New-LocalUser -Name $userName -FullName $fullName -Password $password -ErrorAction Stop
+    Write-Host &quot;local user $userName created&quot; -ForegroundColor Green
+}
+catch {
+    Write-Host &quot;An error occurred: $_&quot; -ForegroundColor Red
+}</code></pre>
+            <code>userName</code> is <code>Mandatory</code>, <code>fullName</code> niet. Het wachtwoord is géén parameter: het wordt met <code>Read-Host -AsSecureString</code> gevraagd, zodat het nergens leesbaar staat. <code>-ErrorAction Stop</code> zorgt dat een fout door <code>catch</code> opgevangen wordt.<br>
+            <br>
+            <b>Syntax:</b> <code>.\AddUserParam.ps1 [-userName] &lt;string&gt; [[-fullName] &lt;string&gt;] [&lt;CommonParameters&gt;]</code><br>
+            <b>Geldig</b> (als administrator): <code>./scripts/AddUserParam.ps1 -userName test -fullName testPxl</code> → <code>Wachtwoord: ***</code>, <code>Creating local account test on ...</code>, <code>local user test created</code><br>
+            <b>Fout:</b> hetzelfde commando nog eens uitvoeren → <code>An error occurred: ...</code> in het rood, want de gebruiker bestaat al.<br>
+            <br>
+            <b>Controleren en opruimen:</b><br>
+            <code>Get-LocalUser -Name test</code><br>
+            <code>Remove-LocalUser -Name test</code><br>
         </div>
           <h2 id="eindcontrole">Eindcontrole</h2>
           <ul>

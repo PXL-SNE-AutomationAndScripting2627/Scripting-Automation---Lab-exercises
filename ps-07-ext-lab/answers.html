@@ -29,7 +29,39 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
+            <b><code>scripts/OefIf1.ps1</code></b><br>
+            <pre><code>&lt;#
+.SYNOPSIS
+    Controleert of een bestand bestaat.
+.DESCRIPTION
+    Ontvangt een bestandspad als eerste argument en meldt of het bestand bestaat.
+    Zonder argument verschijnt &quot;Geen parameter&quot;.
+.PARAMETER filePath
+    Het pad naar een bestand. Eerste positionele argument.
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    ./scripts/OefIf1.ps1 C:\Windows\notepad.exe
+#&gt;
+param(
+    [string]$filePath
+)
 
+if ([string]::IsNullOrWhiteSpace($filePath)) {
+    Write-Output &#39;Geen parameter&#39;
+} elseif (Test-Path -LiteralPath $filePath -PathType Leaf) {
+    Write-Output &quot;De file $filePath bestaat.&quot;
+} else {
+    Write-Output &quot;De file $filePath bestaat niet.&quot;
+}</code></pre>
+            <code>param([string]$filePath)</code> maakt <code>filePath</code> het eerste positionele argument. Wordt het weggelaten, dan is de waarde een lege tekst; <code>[string]::IsNullOrWhiteSpace()</code> vangt dat op.<br>
+            De volgorde telt: eerst controleren of er een parameter is, daarna met <code>elseif</code> of het bestand bestaat, en anders (<code>else</code>) bestaat het niet. <code>Test-Path -PathType Leaf</code> geeft alleen <code>True</code> voor een bestand, niet voor een map.<br>
+            <br>
+            <b>Tests:</b><br>
+            <code>./scripts/OefIf1.ps1</code> → <code>Geen parameter</code><br>
+            <code>./scripts/OefIf1.ps1 C:\Windows\notepad.exe</code> → <code>De file C:\Windows\notepad.exe bestaat.</code><br>
+            <code>./scripts/OefIf1.ps1 C:\Windows\notepad2.exe</code> → <code>De file C:\Windows\notepad2.exe bestaat niet.</code><br>
+            <code>./scripts/OefIf1.ps1 C:\Windows</code> → <code>De file C:\Windows bestaat niet.</code> (een map is geen bestand)<br>
         </div>
           <h2 id="2-status-van-een-service-oefif2-ps1">2. Status van een service — <code>OefIf2.ps1</code></h2>
           <p>Maak een script dat een servicenaam ontvangt en meldt of de service draait of gestopt is. Handel ook een ontbrekende parameter en een onbekende servicenaam af zonder een ongecontroleerde foutmelding.</p>
@@ -37,7 +69,48 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
+            <b><code>scripts/OefIf2.ps1</code></b><br>
+            <pre><code>&lt;#
+.SYNOPSIS
+    Toont of een service draait of gestopt is.
+.DESCRIPTION
+    Ontvangt een servicenaam als eerste argument en meldt de status van de
+    service. Een ontbrekende parameter en een onbekende service geven een
+    duidelijke melding in plaats van een foutmelding.
+.PARAMETER serviceName
+    De naam van de service. Eerste positionele argument.
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    ./scripts/OefIf2.ps1 W32Time
+#&gt;
+param(
+    [string]$serviceName
+)
 
+if ([string]::IsNullOrWhiteSpace($serviceName)) {
+    Write-Output &#39;Geen parameter&#39;
+} else {
+    $service = Get-Service -Name $serviceName -ErrorAction SilentlyContinue
+
+    if ($null -eq $service) {
+        Write-Output &quot;De service $serviceName bestaat niet.&quot;
+    } elseif ($service.Status -eq &#39;Running&#39;) {
+        Write-Output &quot;De service $serviceName runt.&quot;
+    } elseif ($service.Status -eq &#39;Stopped&#39;) {
+        Write-Output &quot;De service $serviceName is gestopt.&quot;
+    } else {
+        Write-Output &quot;De service $serviceName heeft de status $($service.Status).&quot;
+    }
+}</code></pre>
+            <code>-ErrorAction SilentlyContinue</code> onderdrukt de rode foutmelding van <code>Get-Service</code> bij een onbekende naam. <code>$service</code> is dan leeg, wat we testen met <code>$null -eq $service</code> (<code>$null</code> links, zoals in de Course).<br>
+            Daarna vergelijken we de property <code>Status</code> met <code>-eq</code>. De laatste <code>else</code> vangt andere toestanden op, bv. <code>Paused</code>.<br>
+            <br>
+            <b>Tests:</b><br>
+            <code>./scripts/OefIf2.ps1</code> → <code>Geen parameter</code><br>
+            <code>./scripts/OefIf2.ps1 W32Time</code> → <code>De service W32Time is gestopt.</code> (als W32Time gestopt is)<br>
+            <code>./scripts/OefIf2.ps1 WSearch</code> → <code>De service WSearch runt.</code> (als WSearch draait)<br>
+            <code>./scripts/OefIf2.ps1 notexisting</code> → <code>De service notexisting bestaat niet.</code><br>
         </div>
           <h2 id="3-service-voorwaardelijk-starten-startservice-ps1">3. Service voorwaardelijk starten — <code>StartService.ps1</code></h2>
           <p>Maak een geavanceerd script met:</p>
@@ -63,7 +136,92 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
+            <b><code>scripts/StartService.ps1</code></b><br>
+            <pre><code>&lt;#
+.SYNOPSIS
+    Start een service wanneer ze niet draait.
+.DESCRIPTION
+    Controleert of de service bestaat en of ze draait. Een gestopte service
+    wordt gestart: rechtstreeks, of na bevestiging wanneer -AskUser gebruikt
+    wordt. Met -Info worden eerst de parameters getoond.
+    Het starten van een service vereist administratorrechten.
+.PARAMETER ServiceName
+    De naam van de service. Verplicht.
+.PARAMETER AskUser
+    Vraag bevestiging (y/n) voordat de service gestart wordt.
+.PARAMETER Info
+    Toon informatie over de parameters.
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    ./scripts/StartService.ps1 -ServiceName WSearch
+.EXAMPLE
+    ./scripts/StartService.ps1 -ServiceName WSearch -Info -AskUser
+#&gt;
+[CmdletBinding()]
+param(
+    [Parameter(Mandatory)]
+    [string]$ServiceName,
 
+    [switch]$AskUser,
+
+    [switch]$Info
+)
+
+if ($Info) {
+    Write-Host &quot;The selected service parameter `$ServiceName is $ServiceName&quot; -ForegroundColor Green
+    Write-Host &quot;The switch parameter `$AskUser is $($AskUser.IsPresent)&quot; -ForegroundColor Green
+}
+
+$service = Get-Service -Name $ServiceName -ErrorAction SilentlyContinue
+
+if ($null -eq $service) {
+    Write-Host &quot;Service $ServiceName doesn&#39;t exist&quot;
+} elseif ($service.Status -eq &#39;Running&#39;) {
+    Write-Host &quot;Service $ServiceName already running&quot;
+} else {
+    Write-Host &quot;Service $ServiceName stopped&quot;
+
+    if ($AskUser) {
+        $answer = Read-Host &quot;Do you want to start $ServiceName service ? (y/n)&quot;
+
+        switch ($answer) {
+            &#39;y&#39; {
+                Write-Host &quot;starting $ServiceName&quot;
+                Start-Service -Name $ServiceName
+            }
+            &#39;n&#39; {
+                Write-Host &quot;don&#39;t start the service $ServiceName&quot;
+            }
+            default {
+                Write-Host &quot;Invalid answer &#39;$answer&#39;: the service $ServiceName is not started&quot;
+            }
+        }
+    } else {
+        Write-Host &quot;starting $ServiceName&quot;
+        Start-Service -Name $ServiceName
+    }
+}</code></pre>
+            <code>[CmdletBinding()]</code> maakt het een geavanceerd script. <code>ServiceName</code> is <code>Mandatory</code>: zonder waarde vraagt PowerShell er zelf om. <code>AskUser</code> en <code>Info</code> zijn <code>[switch]</code>-parameters: hun naam vermelden zet ze aan.<br>
+            De backtick in <code>`$ServiceName</code> toont de naam letterlijk in plaats van de waarde.<br>
+            <code>if</code> / <code>elseif</code> / <code>else</code> kiest tussen: bestaat niet, draait al (geen actie) of gestopt (starten). Bij <code>-AskUser</code> kiest de <code>switch</code> op het antwoord: <code>'y'</code> start, <code>'n'</code> start niet en <code>default</code> vangt elk ander antwoord op. <code>switch</code> is niet hoofdlettergevoelig, dus <code>Y</code> werkt ook.<br>
+            <br>
+            <b>Syntax:</b> <code>Get-Command .\scripts\StartService.ps1 -Syntax</code> → <code>.\StartService.ps1 [-ServiceName] &lt;string&gt; [-AskUser] [-Info] [&lt;CommonParameters&gt;]</code><br>
+            <br>
+            <b>Tests</b> (als administrator; WSearch is de testservice):<br>
+            Oorspronkelijke status noteren: <code>Get-Service -Name WSearch</code><br>
+            <code>./scripts/StartService.ps1</code> → PowerShell vraagt <code>ServiceName:</code> (verplichte parameter); invullen: <code>WSearch</code> → <code>Service WSearch already running</code><br>
+            <code>./scripts/StartService.ps1 -ServiceName WSearch -Info</code> → <code>The selected service parameter $ServiceName is WSearch</code>, <code>The switch parameter $AskUser is False</code>, <code>Service WSearch already running</code><br>
+            <code>./scripts/StartService.ps1 -ServiceName notexisting -Info</code> → ... <code>Service notexisting doesn't exist</code><br>
+            <code>Stop-Service -Name WSearch</code>, daarna <code>./scripts/StartService.ps1 -ServiceName WSearch</code> → <code>Service WSearch stopped</code>, <code>starting WSearch</code><br>
+            <code>Stop-Service -Name WSearch</code>, daarna <code>./scripts/StartService.ps1 -ServiceName WSearch -AskUser</code>:<br>
+            antwoord <code>n</code> → <code>don't start the service WSearch</code><br>
+            antwoord <code>x</code> → <code>Invalid answer 'x': the service WSearch is not started</code><br>
+            antwoord <code>y</code> → <code>starting WSearch</code><br>
+            <br>
+            <b>Herstellen:</b> controleer met <code>Get-Service -Name WSearch</code> dat de status opnieuw de oorspronkelijke is (draaide de service eerst niet: <code>Stop-Service -Name WSearch</code>).<br>
+            <br>
+            Let op: de syntax-screenshot toont <code>-name</code>, <code>-askUser</code> en <code>-info</code>. De opdracht vraagt <code>ServiceName</code>, <code>AskUser</code> en <code>Info</code>; die namen staan in dit script.<br>
         </div>
           <h2 id="eindcontrole">Eindcontrole</h2>
           <ul>

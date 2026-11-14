@@ -24,7 +24,32 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
+            <b><code>scripts/for_loop_progress.ps1</code></b><br>
+            <pre><code>&lt;#
+.SYNOPSIS
+    Toont een voortgangsbalk van 1 tot en met 100 procent.
+.DESCRIPTION
+    Een for-lus telt van 1 tot en met 100. Bij elke stap toont Write-Progress
+    de voortgang en simuleert Start-Sleep een beetje werk. Na de lus wordt de
+    voortgangsbalk afgesloten.
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    ./scripts/for_loop_progress.ps1
+#&gt;
 
+for ($i = 1; $i -le 100; $i++) {
+    Write-Progress -Activity &#39;Search in Progress&#39; -Status &quot;$i% Complete:&quot; -PercentComplete $i
+    Start-Sleep -Milliseconds 50
+}
+
+# De voortgangsbalk afsluiten
+Write-Progress -Activity &#39;Search in Progress&#39; -Completed</code></pre>
+            De <code>for</code>-lus heeft drie delen: <code>$i = 1</code> (begin), <code>$i -le 100</code> (zolang dit waar is, gaat de lus door) en <code>$i++</code> (na elke ronde 1 optellen).<br>
+            <code>Write-Progress</code> toont de balk: <code>-Activity</code> is de titel, <code>-Status</code> de tekst en <code>-PercentComplete</code> hoe ver de balk gevuld is. <code>Start-Sleep -Milliseconds 50</code> simuleert werk, zodat je de balk ziet bewegen (± 5 seconden in totaal).<br>
+            Na de lus sluit <code>Write-Progress -Completed</code> de balk af.<br>
+            <br>
+            <b>Test:</b> <code>./scripts/for_loop_progress.ps1</code> → bovenaan verschijnt <code>Search in Progress</code> met een balk die van 1% tot 100% loopt en daarna verdwijnt.<br>
         </div>
           <h2 id="2-excel-doorlopen-pxl-view-ps1">2. Excel doorlopen — <code>pxl_view.ps1</code></h2>
           <p>Lees <code>example_files/pxl_data.xlsx</code> met de module <code>ImportExcel</code>.</p>
@@ -39,7 +64,57 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
+            <b>Stap 1:</b><br>
+            Install-Module -Name ImportExcel -Scope AllUsers<br><br>
 
+            <b>Stap 2:<code>scripts/pxl_view.ps1</code></b><br>
+            <pre><code>&lt;#
+.SYNOPSIS
+    Toont de studenten en departementen uit pxl_data.xlsx.
+.DESCRIPTION
+    Leest met de module ImportExcel de werkbladen Studenten en Departementen
+    uit example_files/pxl_data.xlsx. Toont boven elk overzicht het aantal rijen
+    en daarna met een foreach-lus elke rij. Ontbreekt het bestand, dan
+    verschijnt een duidelijke foutmelding.
+    Vereist de module ImportExcel (Install-Module -Name ImportExcel -Scope AllUsers).
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    ./scripts/pxl_view.ps1
+#&gt;
+
+$excelBestand = Join-Path $PSScriptRoot &#39;../example_files/pxl_data.xlsx&#39;
+
+if (-not (Test-Path -LiteralPath $excelBestand -PathType Leaf)) {
+    Write-Error &quot;Het bestand $excelBestand bestaat niet.&quot;
+} else {
+    $studenten     = Import-Excel -Path $excelBestand -WorksheetName &#39;Studenten&#39;
+    $departementen = Import-Excel -Path $excelBestand -WorksheetName &#39;Departementen&#39;
+
+    Write-Host &quot;Overzicht studenten($($studenten.Count)) PXL:&quot; -ForegroundColor Green
+    foreach ($student in $studenten) {
+        Write-Host &quot;Student $($student.Voornaam) $($student.Naam) woonachtig te $($student.Woonplaats)&quot;
+    }
+
+    Write-Host &quot;Overzicht departementen($($departementen.Count)) PXL:&quot; -ForegroundColor Green
+    foreach ($departement in $departementen) {
+        Write-Host &quot;Departement $($departement.Naam) afdeling $($departement.Richting)&quot;
+    }
+}</code></pre>
+            <b>Vereist:</b> de module ImportExcel, eenmalig geïnstalleerd als administrator (zoals in de Course): <code>Install-Module -Name ImportExcel -Scope AllUsers</code><br>
+            <br>
+            <code>$PSScriptRoot</code> is de map waarin het script staat. Met <code>Join-Path $PSScriptRoot '../example_files/pxl_data.xlsx'</code> vindt het script het bestand altijd, ook als je het vanuit een andere map start.<br>
+            Eerst controleren we met <code>if</code> of het bestand bestaat. Pas daarna (<code>else</code>) leest <code>Import-Excel</code> de twee werkbladen. Elke rij wordt een object met de kolomnamen als properties: <code>Naam</code>, <code>Voornaam</code> en <code>Woonplaats</code> (Studenten), <code>Naam</code> en <code>Richting</code> (Departementen).<br>
+            <code>.Count</code> geeft het aantal rijen; <code>foreach</code> toont elke rij.<br>
+            <br>
+            <b>Test:</b> <code>./scripts/pxl_view.ps1</code> →<br>
+            <code>Overzicht studenten(6) PXL:</code><br>
+            <code>Student Dominique Houbrechts woonachtig te Kortessem</code> ...<br>
+            <code>Overzicht departementen(5) PXL:</code><br>
+            <code>Departement Business afdeling Accountancy-fiscaliteit</code> ...<br>
+            In het Excelbestand staan bij Jan Peeters voornaam en naam omgewisseld; daarom toont het script, net als de screenshot, <code>Student Peeters Jan</code>.<br>
+            <br>
+            <b>Bestand ontbreekt:</b> → <code>Het bestand ...\example_files\pxl_data.xlsx bestaat niet.</code><br>
         </div>
           <h2 id="3-mapinformatie-directoriesinfo-ps1">3. Mapinformatie — <code>DirectoriesInfo.ps1</code></h2>
           <p>Doorloop met <code>foreach</code> de mappen <code>C:\Windows</code>, <code>C:\Program Files</code> en <code>C:\powershell</code>. Toon voor iedere bestaande map naam, aanmaakdatum en attributen. Maak de lengte van de onderstreping met een geneste <code>for</code>-lus. Meld ontbrekende mappen zonder te stoppen.</p>
@@ -47,7 +122,55 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
+            <b><code>scripts/DirectoriesInfo.ps1</code></b><br>
+            <pre><code>&lt;#
+.SYNOPSIS
+    Toont informatie over enkele mappen.
+.DESCRIPTION
+    Doorloopt met foreach de mappen C:\Windows, C:\Program Files en
+    C:\powershell. Voor elke bestaande map verschijnen naam, aanmaakdatum en
+    attributen. De onderstreping wordt gemaakt met een geneste for-lus.
+    Een ontbrekende map wordt gemeld, waarna het script verdergaat.
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    ./scripts/DirectoriesInfo.ps1
+#&gt;
 
+$folders = &#39;C:\Windows&#39;, &#39;C:\Program Files&#39;, &#39;C:\powershell&#39;
+
+foreach ($folder in $folders) {
+    if (Test-Path -LiteralPath $folder -PathType Container) {
+        $folderInfo = Get-Item -LiteralPath $folder
+        $titel = &quot;Informatie over de folder: $folder&quot;
+
+        # Onderstreping: evenveel streepjes als tekens in de titel
+        $lijn = &#39;&#39;
+        for ($i = 0; $i -lt $titel.Length; $i++) {
+            $lijn = $lijn + &#39;-&#39;
+        }
+
+        Write-Host $titel -ForegroundColor Green
+        Write-Host $lijn -ForegroundColor Green
+        Write-Host &quot;De folder `&quot;$($folderInfo.Name)`&quot; is aangemaakt op $($folderInfo.CreationTime)&quot;
+        Write-Host &quot;en heeft de volgende attributen: $($folderInfo.Attributes)&quot;
+        Write-Host &#39;&#39;
+    } else {
+        Write-Host &quot;De folder $folder bestaat niet.&quot; -ForegroundColor Red
+        Write-Host &#39;&#39;
+    }
+}</code></pre>
+            De <code>foreach</code>-lus neemt de mappen één voor één. <code>Test-Path -PathType Container</code> controleert of de map bestaat. Bestaat ze niet, dan toont de <code>else</code>-tak een melding en gaat de lus gewoon verder met de volgende map.<br>
+            <code>Get-Item</code> geeft het mapobject met de properties <code>Name</code>, <code>CreationTime</code> en <code>Attributes</code>.<br>
+            De geneste <code>for</code>-lus (een lus binnen de <code>foreach</code>) plakt evenveel <code>-</code> aan elkaar als de titel tekens heeft (<code>$titel.Length</code>). Zo is de streep altijd even lang als de titel.<br>
+            <br>
+            <b>Test:</b> <code>./scripts/DirectoriesInfo.ps1</code> →<br>
+            <code>Informatie over de folder: C:\Windows</code><br>
+            <code>-------------------------------------</code><br>
+            <code>De folder "Windows" is aangemaakt op ...</code><br>
+            <code>en heeft de volgende attributen: Directory, Archive</code><br>
+            (en hetzelfde voor <code>C:\Program Files</code> en <code>C:\powershell</code>)<br>
+            <b>Map ontbreekt:</b> bestaat <code>C:\powershell</code> niet, dan verschijnt <code>De folder C:\powershell bestaat niet.</code> en de andere mappen worden wel getoond.<br>
         </div>
           <h2 id="4-groepen-uit-csv-usergroupinfo-ps1">4. Groepen uit CSV — <code>UserGroupInfo.ps1</code></h2>
           <p>Importeer <code>example_files/usergroup.csv</code> en toon eerst alle gebruikers uit <code>GPA</code>, daarna alle gebruikers uit <code>GPB</code>. Gebruik <code>foreach</code> en <code>if</code>; schrijf geen afzonderlijke vaste gebruikersnamen in je code.</p>
@@ -55,7 +178,49 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
+            <b><code>scripts/UserGroupInfo.ps1</code></b><br>
+            <pre><code>&lt;#
+.SYNOPSIS
+    Toont de gebruikers per groep uit usergroup.csv.
+.DESCRIPTION
+    Importeert example_files/usergroup.csv en toont eerst alle gebruikers uit
+    groep GPA en daarna alle gebruikers uit groep GPB. Ontbreekt het bestand,
+    dan verschijnt een duidelijke foutmelding.
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    ./scripts/UserGroupInfo.ps1
+#&gt;
 
+$csvBestand = Join-Path $PSScriptRoot &#39;../example_files/usergroup.csv&#39;
+
+if (-not (Test-Path -LiteralPath $csvBestand -PathType Leaf)) {
+    Write-Error &quot;Het bestand $csvBestand bestaat niet.&quot;
+} else {
+    $users = Import-Csv -LiteralPath $csvBestand
+
+    Write-Host &#39;Groep A&#39; -ForegroundColor Green
+    foreach ($user in $users) {
+        if ($user.Group.Trim() -eq &#39;GPA&#39;) {
+            Write-Host &quot;`t$($user.Username.Trim())&quot;
+        }
+    }
+
+    Write-Host &#39;Groep B&#39; -ForegroundColor Green
+    foreach ($user in $users) {
+        if ($user.Group.Trim() -eq &#39;GPB&#39;) {
+            Write-Host &quot;`t$($user.Username.Trim())&quot;
+        }
+    }
+}</code></pre>
+            <code>Import-Csv</code> maakt van elke regel een object met de kolomnamen als properties: <code>Naam</code>, <code>Voornaam</code>, <code>Username</code> en <code>Group</code>.<br>
+            De eerste <code>foreach</code> toont alleen de gebruikers waarvoor <code>if</code> vaststelt dat de groep <code>GPA</code> is, de tweede <code>foreach</code> doet hetzelfde voor <code>GPB</code>. Er staan geen gebruikersnamen in de code: die komen uit het bestand.<br>
+            <code>.Trim()</code> is nodig omdat in het CSV-bestand bij sommige regels een spatie na de komma staat (bv. <code>, GPA</code>). Zonder <code>.Trim()</code> is <code>' GPA' -eq 'GPA'</code> onwaar en ontbreekt <code>edebakker</code>. <code>`t</code> is een tab.<br>
+            <br>
+            <b>Test:</b> <code>./scripts/UserGroupInfo.ps1</code> →<br>
+            <code>Groep A</code>: <code>dhoubrechts</code>, <code>egreven</code>, <code>edebakker</code><br>
+            <code>Groep B</code>: <code>jpeters</code>, <code>pquaedpeerdt</code><br>
+            <b>Bestand ontbreekt:</b> → <code>Het bestand ...\example_files\usergroup.csv bestaat niet.</code><br>
         </div>
           <h2 id="eindcontrole">Eindcontrole</h2>
           <ul>

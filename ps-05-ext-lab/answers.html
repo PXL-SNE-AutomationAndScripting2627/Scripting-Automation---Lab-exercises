@@ -53,8 +53,9 @@
             <ol>
               <li><code>$myFirstName.GetType()</code> → Name <code>String</code>, BaseType <code>System.Object</code>. De waarde is dus een object van het type <code>String</code>.<br>
                 Alleen de naam: <code>$myFirstName.GetType().Name</code> → <code>String</code></li>
-              <li><code>$myFirstName | Get-Member -MemberType Properties</code><br>
-                Een string heeft twee properties:<br>
+              <li><code>$myFirstName | Get-Member -MemberType Property, ParameterizedProperty</code><br>
+                Een string heeft twee properties: <code>Chars</code> (MemberType <code>ParameterizedProperty</code>) en <code>Length</code> (MemberType <code>Property</code>).<br>
+                Let op: <code>-MemberType Properties</code> toont alleen <code>Length</code>, omdat <code>Chars</code> een <code>ParameterizedProperty</code> is.<br>
                 <code>Length</code> → <code>$myFirstName.Length</code> → <code>6</code> (aantal tekens)<br>
                 <code>Chars</code> → <code>$myFirstName.Chars(0)</code> → <code>A</code> (het teken op positie 0)</li>
               <li><code>$myFirstName | Get-Member -MemberType Method</code><br>
