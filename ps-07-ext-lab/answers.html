@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="theme-color" content="#0d1117" /><title>Opdrachten — Uitgebreide oefening 07</title><link rel="stylesheet" href="../styles.css" /></head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+    <header class="docs-header"><a class="docs-brand" href="../index.html"><span class="brand-mark" aria-hidden="true">PXL</span><span>PowerShell-oefening</span></a><nav class="docs-global-nav" aria-label="Hoofdnavigatie"><a href="../index.html">Oefeningen</a><a href="index.html">Overzicht</a><a class="answers-nav-link" href="answers.html" aria-current="page">Opdrachten</a><a href="scripts.html">Scripts</a></nav></header>
+    <div class="docs-breadcrumb"><div class="docs-breadcrumb-inner"><a href="../index.html">Start</a><span class="breadcrumb-separator" aria-hidden="true">/</span><a href="index.html">Oefening 07</a><span class="breadcrumb-separator" aria-hidden="true">/</span><span aria-current="page">Opdrachten</span></div></div>
+    <div class="docs-layout"><aside class="docs-sidebar" aria-label="Paginanavigatie"><p class="sidebar-heading">Uitgebreide oefening 07</p><a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <p class="sidebar-group-label">Projectpagina's</p>
+        <a class="sidebar-current" href="answers.html" aria-current="page">Opdrachten</a>
+        <a href="scripts.html">Scripts</a>
+        <p class="sidebar-group-label">Onderdelen</p>
+        <a href="#1-bestaan-van-een-bestand-oefif1-ps1">1. Bestaan van een bestand — <code>OefIf1.ps1</code></a>
+        <a href="#2-status-van-een-service-oefif2-ps1">2. Status van een service — <code>OefIf2.ps1</code></a>
+        <a href="#3-service-voorwaardelijk-starten-startservice-ps1">3. Service voorwaardelijk starten — <code>StartService.ps1</code></a>
+        <a href="#eindcontrole">Eindcontrole</a></aside>
+      <main id="main-content" class="docs-main lab-content"><section class="docs-hero docs-page-hero" aria-labelledby="page-title"><div class="hero-copy"><p class="eyebrow">PXL · Uitgebreide oefening 07</p><h1 id="page-title">Opdrachten</h1><p class="hero-description">Opdrachten en controlepunten voor deze PowerShell-oefening.</p></div><img class="hero-logo" src="assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" /></section>
+        <article class="docs-article"><h2 id="1-bestaan-van-een-bestand-oefif1-ps1">1. Bestaan van een bestand — <code>OefIf1.ps1</code></h2>
+          <p>Maak een script dat een bestandspad als eerste argument ontvangt.</p>
+          <ul>
+          <li>Zonder argument verschijnt <code>Geen parameter</code>.</li>
+          <li>Voor een bestaand bestand verschijnt <code>De file &lt;pad&gt; bestaat.</code>.</li>
+          <li>Anders verschijnt <code>De file &lt;pad&gt; bestaat niet.</code>.</li>
+          <li>Gebruik <code>Test-Path -PathType Leaf</code>.</li>
+          </ul>
+          <p><img class="lab-screenshot" src="assets/oefif1-output.png" alt="Uitvoer bij ontbrekend, bestaand en onbestaand bestand" /></p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+
+        </div>
+          <h2 id="2-status-van-een-service-oefif2-ps1">2. Status van een service — <code>OefIf2.ps1</code></h2>
+          <p>Maak een script dat een servicenaam ontvangt en meldt of de service draait of gestopt is. Handel ook een ontbrekende parameter en een onbekende servicenaam af zonder een ongecontroleerde foutmelding.</p>
+          <p><img class="lab-screenshot" src="assets/oefif2-output.png" alt="Uitvoer voor een gestopte en actieve service" /></p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+
+        </div>
+          <h2 id="3-service-voorwaardelijk-starten-startservice-ps1">3. Service voorwaardelijk starten — <code>StartService.ps1</code></h2>
+          <p>Maak een geavanceerd script met:</p>
+          <ul>
+          <li>verplichte parameter <code>ServiceName</code>;</li>
+          <li>switches <code>AskUser</code> en <code>Info</code>;</li>
+          <li>informatie over de parameters wanneer <code>-Info</code> aanwezig is;</li>
+          <li>een duidelijke melding voor een onbekende service;</li>
+          <li>geen actie wanneer de service al draait;</li>
+          <li>starten van een gestopte service, rechtstreeks of na bevestiging met <code>-AskUser</code>;</li>
+          <li>een <code>switch</code> voor de antwoorden <code>y</code> en <code>n</code>, met een standaardtak voor ongeldige invoer.</li>
+          </ul>
+          <p>Controleer de gegenereerde syntax met <code>Get-Command</code>.</p>
+          <p><img class="lab-screenshot" src="assets/start-service-syntax.png" alt="Syntax van StartService.ps1" /></p>
+          <blockquote><p><strong>LET OP:</strong> Het starten van een service vereist doorgaans administratorrechten. Werk alleen op een labsysteem en kies een onkritieke testservice. Noteer vóór de test de oorspronkelijke status en herstel die nadien met <code>Stop-Service</code> indien nodig.</p></blockquote>
+          <p>Test minstens: draaiend, gestopt, onbekend, <code>-Info</code>, <code>-AskUser</code> met <code>y</code>, <code>n</code> en een ongeldig antwoord.</p>
+          <p><img class="lab-screenshot" src="assets/start-service-mandatory.png" alt="Verplichte parameter en reeds actieve service" /></p>
+          <p><img class="lab-screenshot" src="assets/start-service-info-running.png" alt="Infomodus bij een actieve service" /></p>
+          <p><img class="lab-screenshot" src="assets/start-service-not-found.png" alt="Onbekende service" /></p>
+          <p><img class="lab-screenshot" src="assets/start-service-auto-start.png" alt="Automatisch starten" /></p>
+          <p><img class="lab-screenshot" src="assets/start-service-decline.png" alt="Start weigeren na bevestiging" /></p>
+          <p><img class="lab-screenshot" src="assets/start-service-accept.png" alt="Start toestaan na bevestiging" /></p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+
+        </div>
+          <h2 id="eindcontrole">Eindcontrole</h2>
+          <ul>
+          <li><span aria-hidden="true">&#9744;</span> De drie scripts hebben exact de gevraagde namen.</li>
+          <li><span aria-hidden="true">&#9744;</span> Alle beslissingspaden zijn getest en beschreven in <code>answers.md</code>.</li>
+          <li><span aria-hidden="true">&#9744;</span> Onbekende bestanden en services veroorzaken geen ongecontroleerde fout.</li>
+          <li><span aria-hidden="true">&#9744;</span> De oorspronkelijke servicestatus is hersteld.</li>
+          <li><span aria-hidden="true">&#9744;</span> Alle scripts parsen zonder syntaxfouten.</li>
+          <li><span aria-hidden="true">&#9744;</span> Je hebt je wijzigingen gecommit en gepusht.</li>
+          </ul></article>
+        <footer class="docs-footer">Uitgebreide oefening 07 <span aria-hidden="true">·</span> PowerShell</footer>
+      </main></div>
+    <script src="../assets/docs.js" defer></script>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

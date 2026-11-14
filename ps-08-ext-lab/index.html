@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Uitgebreide oefening 08 — PowerShell-lussen</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-oefening</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html" aria-current="page">Overzicht</a>
+        <a class="answers-nav-link" href="answers.html">Opdrachten</a>
+        <a href="scripts.html">Scripts</a>
+      </nav>
+    </header>
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">Oefening 08</span>
+      </div>
+    </div>
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Uitgebreide oefening 08</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a class="sidebar-current" href="#overview" aria-current="page">Overzicht</a>
+        <p class="sidebar-group-label">In deze oefening</p>
+        <a href="#leerdoelen">Leerdoelen</a>
+        <a href="#vereisten">Vereisten</a>
+        <a href="#inleveren">Inleveren</a>
+        <p class="sidebar-group-label">Projectpagina's</p>
+        <a href="answers.html">Opdrachten</a>
+        <a href="scripts.html">Scripts</a>
+      </aside>
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL · Uitgebreide oefening 08</p>
+            <h1 id="page-title">Lussen</h1>
+            <p class="hero-description">Verwerk reeksen, mappen en gegevensbestanden met <code>for</code> en <code>foreach</code>.</p>
+            <a class="primary-link" href="answers.html">Bekijk de opdrachten <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+        <section class="docs-section" id="leerdoelen">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Wat je leert</p>
+              <h2>Leerdoelen</h2>
+            </div>
+            <span class="section-count">4 doelstellingen</span>
+          </div>
+          <ul class="goal-grid">
+            <li>Een tellende lus schrijven.</li>
+            <li>Voortgang tonen met <code>Write-Progress</code>.</li>
+            <li>Objectcollecties doorlopen met <code>foreach</code>.</li>
+            <li>CSV- en Excelgegevens groeperen.</li>
+          </ul>
+        </section>
+        <section class="docs-section" id="vereisten">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Voor je begint</p>
+              <h2>Vereisten en veiligheid</h2>
+            </div>
+          </div>
+          <ul>
+            <li>Windows PowerShell 5.1 of PowerShell 7 en Visual Studio Code met de PowerShell-extensie.</li>
+            <li>De module <code>ImportExcel</code> voor <code>pxl_view.ps1</code>.</li>
+            <li>De meegeleverde bestanden <a href="example_files/pxl_data.xlsx"><code>example_files/pxl_data.xlsx</code></a> en <a href="example_files/usergroup.csv"><code>example_files/usergroup.csv</code></a>. Laat ze ongewijzigd staan.</li>
+          </ul>
+        </section>
+        <section class="docs-section" id="inleveren">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">GitHub Classroom</p>
+              <h2>Inleveren</h2>
+            </div>
+          </div>
+          <ol class="submission-list">
+            <li>Noteer antwoorden, testcommando&#39;s en resultaten in <code>answers.md</code>.</li>
+            <li>Plaats <code>for_loop_progress.ps1</code>, <code>pxl_view.ps1</code>, <code>DirectoriesInfo.ps1</code> en <code>UserGroupInfo.ps1</code> in <code>scripts/</code>.</li>
+            <li>Lees de gegevens uit <code>example_files/</code>, bv. met <code>Join-Path $PSScriptRoot &#39;../example_files/pxl_data.xlsx&#39;</code>.</li>
+            <li>Commit en push je werk naar GitHub Classroom.</li>
+          </ol>
+          <div class="resource-links" aria-label="Projectbronnen">
+            <a href="answers.html">Bekijk de opdrachten <span aria-hidden="true">→</span></a>
+            <a href="scripts.html">Bekijk scripts <span aria-hidden="true">→</span></a>
+          </div>
+        </section>
+        <footer class="docs-footer">Uitgebreide oefening 08 <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="theme-color" content="#0d1117" /><title>Opdrachten — Uitgebreide oefening 08</title><link rel="stylesheet" href="../styles.css" /></head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+    <header class="docs-header"><a class="docs-brand" href="../index.html"><span class="brand-mark" aria-hidden="true">PXL</span><span>PowerShell-oefening</span></a><nav class="docs-global-nav" aria-label="Hoofdnavigatie"><a href="../index.html">Oefeningen</a><a href="index.html">Overzicht</a><a class="answers-nav-link" href="answers.html" aria-current="page">Opdrachten</a><a href="scripts.html">Scripts</a></nav></header>
+    <div class="docs-breadcrumb"><div class="docs-breadcrumb-inner"><a href="../index.html">Start</a><span class="breadcrumb-separator" aria-hidden="true">/</span><a href="index.html">Oefening 08</a><span class="breadcrumb-separator" aria-hidden="true">/</span><span aria-current="page">Opdrachten</span></div></div>
+    <div class="docs-layout"><aside class="docs-sidebar" aria-label="Paginanavigatie"><p class="sidebar-heading">Uitgebreide oefening 08</p><a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <p class="sidebar-group-label">Projectpagina's</p>
+        <a class="sidebar-current" href="answers.html" aria-current="page">Opdrachten</a>
+        <a href="scripts.html">Scripts</a>
+        <p class="sidebar-group-label">Onderdelen</p>
+        <a href="#1-voortgang-for-loop-progress-ps1">1. Voortgang — <code>for_loop_progress.ps1</code></a>
+        <a href="#2-excel-doorlopen-pxl-view-ps1">2. Excel doorlopen — <code>pxl_view.ps1</code></a>
+        <a href="#3-mapinformatie-directoriesinfo-ps1">3. Mapinformatie — <code>DirectoriesInfo.ps1</code></a>
+        <a href="#4-groepen-uit-csv-usergroupinfo-ps1">4. Groepen uit CSV — <code>UserGroupInfo.ps1</code></a>
+        <a href="#eindcontrole">Eindcontrole</a></aside>
+      <main id="main-content" class="docs-main lab-content"><section class="docs-hero docs-page-hero" aria-labelledby="page-title"><div class="hero-copy"><p class="eyebrow">PXL · Uitgebreide oefening 08</p><h1 id="page-title">Opdrachten</h1><p class="hero-description">Opdrachten en controlepunten voor deze PowerShell-oefening.</p></div><img class="hero-logo" src="assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" /></section>
+        <article class="docs-article"><h2 id="1-voortgang-for-loop-progress-ps1">1. Voortgang — <code>for_loop_progress.ps1</code></h2>
+          <p>Maak met een <code>for</code>-lus een voortgangsbalk van 1 tot en met 100 procent. Gebruik <code>Write-Progress</code>; een korte <code>Start-Sleep</code> mag werk simuleren. Sluit de balk na afloop af.</p>
+          <p><img class="lab-screenshot" src="assets/progress-output.png" alt="Voortgangsbalk" /></p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+
+        </div>
+          <h2 id="2-excel-doorlopen-pxl-view-ps1">2. Excel doorlopen — <code>pxl_view.ps1</code></h2>
+          <p>Lees <code>example_files/pxl_data.xlsx</code> met de module <code>ImportExcel</code>.</p>
+          <ul>
+          <li>Lees werkbladen <code>Studenten</code> en <code>Departementen</code>.</li>
+          <li>Toon boven elk overzicht het aantal rijen.</li>
+          <li>Toon per student voornaam, naam en woonplaats.</li>
+          <li>Toon per departement naam en richting.</li>
+          <li>Geef een bruikbare fout wanneer module of bestand ontbreekt.</li>
+          </ul>
+          <p><img class="lab-screenshot" src="assets/pxl-view-output.png" alt="Overzicht uit het Excelbestand" /></p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+
+        </div>
+          <h2 id="3-mapinformatie-directoriesinfo-ps1">3. Mapinformatie — <code>DirectoriesInfo.ps1</code></h2>
+          <p>Doorloop met <code>foreach</code> de mappen <code>C:\Windows</code>, <code>C:\Program Files</code> en <code>C:\powershell</code>. Toon voor iedere bestaande map naam, aanmaakdatum en attributen. Maak de lengte van de onderstreping met een geneste <code>for</code>-lus. Meld ontbrekende mappen zonder te stoppen.</p>
+          <p><img class="lab-screenshot" src="assets/directories-output.png" alt="Mapinformatie" /></p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+
+        </div>
+          <h2 id="4-groepen-uit-csv-usergroupinfo-ps1">4. Groepen uit CSV — <code>UserGroupInfo.ps1</code></h2>
+          <p>Importeer <code>example_files/usergroup.csv</code> en toon eerst alle gebruikers uit <code>GPA</code>, daarna alle gebruikers uit <code>GPB</code>. Gebruik <code>foreach</code> en <code>if</code>; schrijf geen afzonderlijke vaste gebruikersnamen in je code.</p>
+          <p><img class="lab-screenshot" src="assets/user-group-output.png" alt="Gebruikers per groep" /></p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+
+        </div>
+          <h2 id="eindcontrole">Eindcontrole</h2>
+          <ul>
+          <li><span aria-hidden="true">&#9744;</span> De vier scripts gebruiken de twee meegeleverde bestanden uit <code>example_files/</code>.</li>
+          <li><span aria-hidden="true">&#9744;</span> Lege verzamelingen en ontbrekende bestanden zijn afgehandeld.</li>
+          <li><span aria-hidden="true">&#9744;</span> De resultaten en testcommando&#39;s staan in <code>answers.md</code>.</li>
+          <li><span aria-hidden="true">&#9744;</span> Alle scripts parsen zonder syntaxfouten en wijzigingen zijn gepusht.</li>
+          </ul></article>
+        <footer class="docs-footer">Uitgebreide oefening 08 <span aria-hidden="true">·</span> PowerShell</footer>
+      </main></div>
+    <script src="../assets/docs.js" defer></script>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

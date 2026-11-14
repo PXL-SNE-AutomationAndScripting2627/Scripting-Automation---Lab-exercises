@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="theme-color" content="#0d1117" /><title>Opdrachten — Uitgebreide oefening 06</title><link rel="stylesheet" href="../styles.css" /></head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+    <header class="docs-header"><a class="docs-brand" href="../index.html"><span class="brand-mark" aria-hidden="true">PXL</span><span>PowerShell-oefening</span></a><nav class="docs-global-nav" aria-label="Hoofdnavigatie"><a href="../index.html">Oefeningen</a><a href="index.html">Overzicht</a><a class="answers-nav-link" href="answers.html" aria-current="page">Opdrachten</a><a href="scripts.html">Scripts</a></nav></header>
+    <div class="docs-breadcrumb"><div class="docs-breadcrumb-inner"><a href="../index.html">Start</a><span class="breadcrumb-separator" aria-hidden="true">/</span><a href="index.html">Oefening 06</a><span class="breadcrumb-separator" aria-hidden="true">/</span><span aria-current="page">Opdrachten</span></div></div>
+    <div class="docs-layout"><aside class="docs-sidebar" aria-label="Paginanavigatie"><p class="sidebar-heading">Uitgebreide oefening 06</p><a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a href="index.html">Overzicht</a>
+        <p class="sidebar-group-label">Projectpagina's</p>
+        <a class="sidebar-current" href="answers.html" aria-current="page">Opdrachten</a>
+        <a href="scripts.html">Scripts</a>
+        <p class="sidebar-group-label">Onderdelen</p>
+        <a href="#1-aantal-bestanden">1. Aantal bestanden</a>
+        <a href="#2-vrije-schijfruimte">2. Vrije schijfruimte</a>
+        <a href="#3-verplichte-numerieke-parameters">3. Verplichte numerieke parameters</a>
+        <a href="#4-verplichte-back-upparameters">4. Verplichte back-upparameters</a>
+        <a href="#5-parameters-voor-een-lokale-gebruiker">5. Parameters voor een lokale gebruiker</a>
+        <a href="#eindcontrole">Eindcontrole</a></aside>
+      <main id="main-content" class="docs-main lab-content"><section class="docs-hero docs-page-hero" aria-labelledby="page-title"><div class="hero-copy"><p class="eyebrow">PXL · Uitgebreide oefening 06</p><h1 id="page-title">Opdrachten</h1><p class="hero-description">Opdrachten en controlepunten voor deze PowerShell-oefening.</p></div><img class="hero-logo" src="assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" /></section>
+        <article class="docs-article"><h2 id="1-aantal-bestanden">1. Aantal bestanden</h2>
+          <h3 id="1-1-numberoffiles-ps1">1.1 <code>NumberOfFiles.ps1</code></h3>
+          <p>Maak <code>scripts/NumberOfFiles.ps1</code>. Het script:</p>
+          <ul>
+          <li>ontvangt een directory als eerste positionele argument;</li>
+          <li>controleert dat het pad een bestaande map is;</li>
+          <li>telt recursief alle bestanden;</li>
+          <li>toont het volledige resultaat van <code>Measure-Object</code>.</li>
+          </ul>
+          <p>Voorbeeld:</p>
+          <pre><code>./scripts/NumberOfFiles.ps1 C:\powershell</code></pre>
+          <p><img class="lab-screenshot" src="assets/number-of-files-measure.png" alt="Measure-Object-uitvoer van NumberOfFiles.ps1" /></p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+
+        </div>
+          <h3 id="1-2-numberoffilesv2-ps1">1.2 <code>NumberOfFilesv2.ps1</code></h3>
+          <p>Maak <code>scripts/NumberOfFilesv2.ps1</code> met dezelfde parameter en telling, maar toon één leesbare zin met map en aantal.</p>
+          <p><img class="lab-screenshot" src="assets/number-of-files-message.png" alt="Leesbare uitvoer van NumberOfFilesv2.ps1" /></p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+
+        </div>
+          <h2 id="2-vrije-schijfruimte">2. Vrije schijfruimte</h2>
+          <p>Gebruik voor de volgende scripts <code>Get-CimInstance -ClassName CIM_LogicalDisk</code> en beperk het resultaat tot lokale schijven met <code>DriveType</code> 3.</p>
+          <h3 id="2-1-freediskspace-ps1">2.1 <code>FreeDiskSpace.ps1</code></h3>
+          <p>Maak <code>scripts/FreeDiskSpace.ps1</code>:</p>
+          <ul>
+          <li><code>driveLetter</code> is een verplicht positioneel argument zoals <code>C:</code>;</li>
+          <li>valideer de vorm van de stationsletter;</li>
+          <li>toon het gevonden CIM-object.</li>
+          </ul>
+          <p><img class="lab-screenshot" src="assets/free-disk-space-object.png" alt="CIM-object voor een gekozen schijf" /></p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+
+        </div>
+          <h3 id="2-2-freediskspacev2-ps1">2.2 <code>FreeDiskSpacev2.ps1</code></h3>
+          <p>Maak versie 2. Toon één zin met stationsletter, totale grootte en vrije ruimte in bytes.</p>
+          <p><img class="lab-screenshot" src="assets/free-disk-space-message.png" alt="Schijfruimte als leesbare zin" /></p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+
+        </div>
+          <h3 id="2-3-freediskspacev3-ps1">2.3 <code>FreeDiskSpacev3.ps1</code></h3>
+          <p>Maak versie 3. Wanneer de gebruiker geen stationsletter meegeeft, gebruikt het script automatisch <code>C:</code>.</p>
+          <p><img class="lab-screenshot" src="assets/free-disk-space-default.png" alt="Schijfruimte met standaardstation" /></p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+
+        </div>
+          <h3 id="2-4-freediskspacev4-ps1">2.4 <code>FreeDiskSpacev4.ps1</code></h3>
+          <p>Maak versie 4 met:</p>
+          <ul>
+          <li><code>driveLetter</code>, standaard <code>C:</code>;</li>
+          <li><code>dataUnit</code>, standaard <code>TB</code>;</li>
+          <li>alleen <code>MB</code>, <code>GB</code> en <code>TB</code> als geldige eenheden;</li>
+          <li>totale en vrije ruimte afgerond op twee decimalen;</li>
+          <li>een duidelijke fout wanneer de schijf niet bestaat.</li>
+          </ul>
+          <p>Test alle eenheden, de standaardwaarden en minstens één ongeldige eenheid.</p>
+          <p><img class="lab-screenshot" src="assets/free-disk-space-units-validation.png" alt="Conversies en validatiefout van FreeDiskSpacev4.ps1" /></p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+
+        </div>
+          <h2 id="3-verplichte-numerieke-parameters">3. Verplichte numerieke parameters</h2>
+          <h3 id="3-1-rekenenv2-ps1">3.1 <code>RekenenV2.ps1</code></h3>
+          <p>Pas het script uit lab 05 aan:</p>
+          <ul>
+          <li><code>my_Getal1</code> en <code>my_Getal2</code> zijn verplichte <code>double</code>-parameters;</li>
+          <li>beide kunnen positioneel of benoemd worden gebruikt;</li>
+          <li>toon som en product met twee decimalen;</li>
+          <li>gebruik geen <code>Read-Host</code> meer.</li>
+          </ul>
+          <p>Controleer of de helpsyntax overeenkomt met:</p>
+          <p><img class="lab-screenshot" src="assets/rekenen-syntax.png" alt="Gegenereerde syntax van RekenenV2.ps1" /></p>
+          <p>Test onder andere:</p>
+          <pre><code>./scripts/RekenenV2.ps1 21.75 103.25
+./scripts/RekenenV2.ps1 -my_Getal1 21.75 -my_Getal2 103.25</code></pre>
+          <p><img class="lab-screenshot" src="assets/rekenen-output.png" alt="Voorbeeldoutput van RekenenV2.ps1" /></p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+
+        </div>
+          <h2 id="4-verplichte-back-upparameters">4. Verplichte back-upparameters</h2>
+          <blockquote><p><strong>LET OP:</strong> Dit script leest en comprimeert bestanden. Test alleen met <code>C:\pxl_data</code> en <code>C:\backups</code> op een labsysteem. Controleer de ZIP en verwijder de testdata na beoordeling.</p></blockquote>
+          <h3 id="4-1-makebackupv2-ps1">4.1 <code>MakeBackupV2.ps1</code></h3>
+          <p>Pas <code>MakeBackup.ps1</code> aan zodat deze drie benoemde parameters verplicht zijn:</p>
+          <ul>
+          <li><code>source_Folder</code>;</li>
+          <li><code>destination_Folder</code>;</li>
+          <li><code>backup_Name</code>.</li>
+          </ul>
+          <p>Het script valideert beide mappen, maakt <code>yyyyMMddHHmmss_naam.zip</code> en toont het resultaat. Gebruik geen <code>Read-Host</code>.</p>
+          <p><img class="lab-screenshot" src="assets/backup-syntax.png" alt="Gegenereerde syntax van MakeBackupV2.ps1" /></p>
+          <p><img class="lab-screenshot" src="assets/backup-output.png" alt="Voorbeeldoutput en gemaakt ZIP-bestand" /></p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+
+        </div>
+          <h2 id="5-parameters-voor-een-lokale-gebruiker">5. Parameters voor een lokale gebruiker</h2>
+          <blockquote><p><strong>LET OP:</strong> Deze extra oefening vereist administratorrechten en maakt een lokale Windows-gebruiker. Gebruik alleen een labsysteem, voeg de gebruiker niet toe aan Administrators, controleer met <code>Get-LocalUser</code> en verwijder de testgebruiker nadien met <code>Remove-LocalUser</code>.</p></blockquote>
+          <h3 id="5-1-adduserparam-ps1">5.1 <code>AddUserParam.ps1</code></h3>
+          <p>Pas <code>AddUser.ps1</code> aan:</p>
+          <ul>
+          <li><code>userName</code> is een verplichte tekenreeksparameter;</li>
+          <li><code>fullName</code> is een optionele tekenreeksparameter;</li>
+          <li>het wachtwoord wordt interactief als <code>SecureString</code> gevraagd;</li>
+          <li>fouten worden afgehandeld;</li>
+          <li>er is geen parameter of variabele met een leesbaar wachtwoord.</li>
+          </ul>
+          <p><img class="lab-screenshot" src="assets/add-user-syntax.png" alt="Gegenereerde syntax van AddUserParam.ps1" /></p>
+          <p><img class="lab-screenshot" src="assets/add-user-output.png" alt="Voorbeeldoutput van AddUserParam.ps1" /></p>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Mijn antwoord:</strong><br><br>
+
+        </div>
+          <h2 id="eindcontrole">Eindcontrole</h2>
+          <ul>
+          <li><span aria-hidden="true">&#9744;</span> Alle negen scripts staan onder <code>scripts/</code> met exact de gevraagde namen.</li>
+          <li><span aria-hidden="true">&#9744;</span> Iedere parameter heeft een passend datatype, positie, standaardwaarde en validatie.</li>
+          <li><span aria-hidden="true">&#9744;</span> <code>Get-Help</code> toont bruikbare syntax en voorbeelden.</li>
+          <li><span aria-hidden="true">&#9744;</span> Geldige en ongeldige invoer zijn getest en beschreven in <code>answers.md</code>.</li>
+          <li><span aria-hidden="true">&#9744;</span> De back-up is gecontroleerd en testbestanden zijn opgeruimd.</li>
+          <li><span aria-hidden="true">&#9744;</span> De lokale testgebruiker is na controle verwijderd.</li>
+          <li><span aria-hidden="true">&#9744;</span> Alle scripts parsen zonder syntaxfouten.</li>
+          <li><span aria-hidden="true">&#9744;</span> Je hebt je wijzigingen gecommit en gepusht.</li>
+          </ul></article>
+        <footer class="docs-footer">Uitgebreide oefening 06 <span aria-hidden="true">·</span> PowerShell</footer>
+      </main></div>
+    <script src="../assets/docs.js" defer></script>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>

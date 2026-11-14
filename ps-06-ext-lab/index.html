@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1117" />
+    <title>Uitgebreide oefening 06 — PowerShell-parameters</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
+    <header class="docs-header">
+      <a class="docs-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">PXL</span>
+        <span>PowerShell-oefening</span>
+      </a>
+      <nav class="docs-global-nav" aria-label="Hoofdnavigatie">
+        <a href="../index.html">Oefeningen</a>
+        <a href="index.html" aria-current="page">Overzicht</a>
+        <a class="answers-nav-link" href="answers.html">Opdrachten</a>
+        <a href="scripts.html">Scripts</a>
+      </nav>
+    </header>
+    <div class="docs-breadcrumb">
+      <div class="docs-breadcrumb-inner">
+        <a href="../index.html">Start</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">Oefening 06</span>
+      </div>
+    </div>
+    <div class="docs-layout">
+      <aside class="docs-sidebar" aria-label="Paginanavigatie">
+        <p class="sidebar-heading">Uitgebreide oefening 06</p>
+        <a class="sidebar-welcome" href="../index.html">Welkomspagina</a>
+        <a class="sidebar-course" href="../course.html">Theorie (Course)</a>
+        <a class="sidebar-current" href="#overview" aria-current="page">Overzicht</a>
+        <p class="sidebar-group-label">In deze oefening</p>
+        <a href="#leerdoelen">Leerdoelen</a>
+        <a href="#vereisten">Vereisten</a>
+        <a href="#inleveren">Inleveren</a>
+        <p class="sidebar-group-label">Projectpagina's</p>
+        <a href="answers.html">Opdrachten</a>
+        <a href="scripts.html">Scripts</a>
+      </aside>
+      <main id="main-content" class="docs-main lab-content">
+        <section class="docs-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">PXL · Uitgebreide oefening 06</p>
+            <h1 id="page-title">PowerShell-parameters</h1>
+            <p class="hero-description">Bouw scripts stapsgewijs uit met positionele en benoemde parameters, datatypes, standaardwaarden, verplichte invoer en validatie.</p>
+            <a class="primary-link" href="answers.html">Bekijk de opdrachten <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="hero-logo" src="assets/pxl-hogeschool-logo.png" alt="Hogeschool PXL" />
+        </section>
+        <section class="docs-section" id="leerdoelen">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Wat je leert</p>
+              <h2>Leerdoelen</h2>
+            </div>
+            <span class="section-count">6 doelstellingen</span>
+          </div>
+          <ul class="goal-grid">
+            <li>Positionele en benoemde parameters declareren.</li>
+            <li>Parameters verplicht maken en typeren.</li>
+            <li>Standaardwaarden en <code>ValidateSet</code> gebruiken.</li>
+            <li>Paden en stationsletters valideren.</li>
+            <li>Bestaande interactieve scripts omzetten naar parameterscripts.</li>
+            <li>Met <code>Get-Help</code> de gegenereerde syntax controleren.</li>
+          </ul>
+        </section>
+        <section class="docs-section" id="vereisten">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Voor je begint</p>
+              <h2>Vereisten en veiligheid</h2>
+            </div>
+          </div>
+          <ul>
+            <li>Windows PowerShell 5.1 of PowerShell 7 en Visual Studio Code met de PowerShell-extensie.</li>
+            <li>Gebruik de cursus, je notities en <code>Get-Help</code>. Geef de voorkeur aan PowerShell-cmdlets en valideer invoer voordat een script bestanden of systeemobjecten wijzigt.</li>
+            <li>Test de back-up alleen met <code>C:\pxl_data</code> en <code>C:\backups</code> op een oefensysteem en verwijder de testdata na beoordeling.</li>
+            <li>De extra oefening met een lokale gebruiker vereist beheerdersrechten. Voeg de gebruiker niet toe aan Administrators en verwijder de testgebruiker na controle.</li>
+          </ul>
+        </section>
+        <section class="docs-section" id="inleveren">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">GitHub Classroom</p>
+              <h2>Inleveren</h2>
+            </div>
+          </div>
+          <ol class="submission-list">
+            <li>Noteer antwoorden, testcommando&#39;s en resultaten in <code>answers.md</code>.</li>
+            <li>Plaats de negen scripts in <code>scripts/</code>: <code>NumberOfFiles.ps1</code>, <code>NumberOfFilesv2.ps1</code>, <code>FreeDiskSpace.ps1</code> t.e.m. <code>FreeDiskSpacev4.ps1</code>, <code>RekenenV2.ps1</code>, <code>MakeBackupV2.ps1</code> en <code>AddUserParam.ps1</code>.</li>
+            <li>Voorzie alle scripts van comment-based help en test ze met geldige &#233;n ongeldige invoer.</li>
+            <li>Commit en push je werk naar GitHub Classroom.</li>
+          </ol>
+          <div class="resource-links" aria-label="Projectbronnen">
+            <a href="answers.html">Bekijk de opdrachten <span aria-hidden="true">→</span></a>
+            <a href="scripts.html">Bekijk scripts <span aria-hidden="true">→</span></a>
+          </div>
+        </section>
+        <footer class="docs-footer">Uitgebreide oefening 06 <span aria-hidden="true">·</span> PowerShell</footer>
+      </main>
+    </div>
+    <script src="../assets/search.js" defer></script>
+  </body>
+</html>
