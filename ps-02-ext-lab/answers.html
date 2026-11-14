@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0d1117" />
     <title>Opdrachten — Uitgebreide oefening 02</title>
-    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../styles.css?v=2" />
   </head>
   <body class="docs-page">
     <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
@@ -74,11 +74,26 @@
             Get-Process | Select-Object -First 5
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Geen echt geavanceerd antwoord nodig: <code>Get-Process | Select-Object -First 5</code><br>
+            <br>
+            Optioneel, meteen alleen de nuttige kolommen tonen:<br>
+            <code>Get-Process | Select-Object -First 5 -Property ProcessName, Id, CPU</code>
+        </div>
+
           <h4>1.2 Toon de laatste vijf processen</h4>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             Get-Process | Select-Object -Last 5
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Geen echt geavanceerd antwoord nodig: <code>Get-Process | Select-Object -Last 5</code><br>
+            <br>
+            Optioneel: <code>Get-Process | Select-Object -Last 5 -Property ProcessName, Id</code>
         </div>
 
           <h4>1.3 Toon het tweede proces</h4>
@@ -88,11 +103,27 @@
             Get-Process | Select-Object -Index 1
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>Get-Process | Select-Object -Index 1</code><br>
+            De telling begint bij <b>0</b>: index 0 is het eerste proces, index 1 het tweede.<br>
+            <br>
+            Hetzelfde resultaat met andere parameters:<br>
+            <code>Get-Process | Select-Object -Skip 1 -First 1</code> → sla het eerste over en neem er dan één
+        </div>
+
           <h4>1.4 Toon alle processen vanaf het vijfde proces</h4>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             Get-Process | Select-Object -Skip 4
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Geen echt geavanceerd antwoord nodig: <code>Get-Process | Select-Object -Skip 4</code> (de eerste vier overslaan, dus vanaf het vijfde).<br>
+            <br>
+            Optioneel, met alleen de nuttige kolommen: <code>Get-Process | Select-Object -Skip 4 -Property ProcessName, Id</code>
         </div>
 
           <h4>1.5 Toon de unieke procesnamen</h4>
@@ -106,12 +137,34 @@
             -Unique = om elke procesnaam maar 1-malig weer te geven
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>Get-Process | Select-Object -ExpandProperty Name -Unique</code><br>
+            Met <code>-ExpandProperty</code> krijg je gewone tekst (de namen zelf) in plaats van objecten met een kolom <code>Name</code> (Course, hoofdstuk 03).<br>
+            <br>
+            Gesorteerd en uniek in één stap:<br>
+            <code>Get-Process | Sort-Object Name -Unique | Select-Object Name</code><br>
+            <br>
+            Let op: <code>Select-Object -Unique</code> is hoofdlettergevoelig. Met <code>-CaseInsensitive</code> (zie de syntax van <code>Select-Object</code> in de Course) tellen <i>Notepad</i> en <i>notepad</i> als dezelfde naam.
+        </div>
+
           <h4>1.6 Tel de unieke procesnamen</h4>
           <p>Toon uitsluitend het aantal unieke procesnamen op je systeem.</p>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             Get-Process | Select-Object -Property Name -Unique | Measure-Object | Select-Object count<br>
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>(Get-Process | Select-Object -ExpandProperty Name -Unique).Count</code> → enkel het getal, bv. <code>129</code><br>
+            <br>
+            Met <code>Group-Object</code> (Course, hoofdstuk 03): elke groep is één unieke naam, dus het aantal groepen is het aantal unieke namen:<br>
+            <code>(Get-Process | Group-Object -Property Name).Count</code><br>
+            <br>
+            Of alleen de waarde van <code>Count</code> uit <code>Measure-Object</code>:<br>
+            <code>Get-Process | Select-Object -Property Name -Unique | Measure-Object | Select-Object -ExpandProperty Count</code>
         </div>
 
           <h3>2. Grootste werksets</h3>
@@ -129,6 +182,15 @@
             <strong>Mijn antwoord:</strong><br><br>
             Get-Process | Sort-Object -Descending WS | Select-Object -First 5 @{N='Pid';E={$_.Id}}, ProcessName, @{N='WS(MB)';E={[math]::Round($_.WS / 1MB, 2)}}
         </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Met <code>-Top</code> van <code>Sort-Object</code> (Course, hoofdstuk 03) sorteer en selecteer je in één stap:<br>
+            <code>Get-Process | Sort-Object WS -Descending -Top 5 | Select-Object @{N='Pid';E={$_.Id}}, ProcessName, @{N='WS(MB)';E={'{0:N2}' -f ($_.WS / 1MB)}}</code><br>
+            <br>
+            <code>@{N='...';E={...}}</code> is een berekende property: <code>N</code> (Name) is de kolomnaam, <code>E</code> (Expression) berekent de waarde.<br>
+            <code>$_.WS / 1MB</code> zet bytes om naar megabytes; <code>'{0:N2}' -f</code> toont het getal met twee decimalen (Course, hoofdstuk 03).
+        </div>
           
           <h3>3. Processen filteren</h3>
           <h4>3.1 Procesnaam begint met <code>p</code></h4>
@@ -139,6 +201,15 @@
             - Get-Process p*<br>
             - Get-Process -ProcessName p*<br>
             - Get-Process -Name p*
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Twee extra oplossingen met <code>Where-Object</code>:<br>
+            <code>Get-Process | Where-Object ProcessName -like 'p*'</code> → wildcard: <code>*</code> = eender welke tekens<br>
+            <code>Get-Process | Where-Object ProcessName -match '^p'</code> → reguliere expressie: <code>^</code> = begin van de tekst<br>
+            <br>
+            <code>-like</code> en <code>-match</code> zijn niet hoofdlettergevoelig. Alleen een kleine <code>p</code>: <code>-clike 'p*'</code> of <code>-cmatch '^p'</code>.
         </div>
 
           <h4>3.2 Processen met een grafisch venster</h4>
@@ -165,6 +236,14 @@
             niet overeenkomt met <b>0</b>.</i>
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Beide filters gecombineerd, met alleen de nuttige kolommen:<br>
+            <code>Get-Process | Where-Object MainWindowHandle -ne 0 | Select-Object ProcessName, Id, MainWindowTitle | Sort-Object ProcessName</code><br>
+            <br>
+            <code>MainWindowHandle</code> is het nummer van het hoofdvenster: <code>0</code> betekent "geen venster". Daarom is filteren op de handle betrouwbaarder dan op de titel: een venster kan ook een lege titel hebben.
+        </div>
+
           <h4>3.3 Minstens 30 seconden CPU-tijd</h4>
           <p>Toon alle processen die minstens 30 seconden CPU-tijd hebben gebruikt. Geef minimaal twee werkende oplossingen.</p>
 
@@ -184,6 +263,17 @@
             OF<br>
             Get-Process | Where-Object TotalProcessorTime -ge '00:00:30' | Select-Object ProcessName, TotalProcessorTime
         </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Gesorteerd, zodat de grootste verbruikers bovenaan staan:<br>
+            <code>Get-Process | Where-Object CPU -ge 30 | Sort-Object CPU -Descending | Select-Object ProcessName, Id, CPU</code><br>
+            <br>
+            Met <code>TotalProcessorTime</code> (een tijdsduur) kan je ook het aantal seconden opvragen:<br>
+            <code>Get-Process | Where-Object { $_.TotalProcessorTime.TotalSeconds -ge 30 } | Select-Object ProcessName, TotalProcessorTime</code><br>
+            <br>
+            <code>CPU</code> is het aantal seconden processortijd. Zonder administratorrechten kan PowerShell deze waarde voor sommige systeemprocessen niet lezen; die processen vallen dan weg uit de filter.
+        </div>
         
           <h4>3.4 Sorteren op procesnaam en ID</h4>
           <p>Toon <code>ProcessName</code> en <code>Id</code> van alle processen. Sorteer eerst oplopend op procesnaam en bij gelijke namen aflopend op ID.</p>
@@ -194,6 +284,14 @@
             Get-Process | Sort-Object @{Expression='ProcessName';Ascending=$true}, @{Expression='Id';Descending=$true} | Select-Object ProcessName, Id
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Oplopend is de standaard, dus alleen voor <code>Id</code> is een hashtable nodig:<br>
+            <code>Get-Process | Sort-Object ProcessName, @{Expression='Id';Descending=$true} | Select-Object ProcessName, Id</code><br>
+            <br>
+            Zo staan bv. alle <code>svchost</code>-processen samen, met het hoogste <code>Id</code> eerst.
+        </div>
+
           <h3>4. Services filteren</h3>
           <h4>4.1 Automatisch gestarte services</h4>
           <p>Toon de services waarvan het opstarttype <code>Automatic</code> is.</p>
@@ -201,6 +299,15 @@
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             Get-Service | Where-Object -Property StartType -eq 'Automatic'
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Met de nuttige kolommen en gesorteerd:<br>
+            <code>Get-Service | Where-Object StartType -eq 'Automatic' | Sort-Object Status, Name | Select-Object Name, Status, StartType</code><br>
+            <br>
+            Extra: automatische services die toch gestopt zijn (vaak het eerste wat je controleert bij een probleem):<br>
+            <code>Get-Service | Where-Object { $_.StartType -eq 'Automatic' -and $_.Status -eq 'Stopped' }</code>
         </div>
 
           <h4>4.2 Draaiende services die niet gestopt kunnen worden</h4>
@@ -218,6 +325,14 @@
             Get-Service | Where-Object {$_.Status -eq 'running' -and $_.CanStop -eq $false}
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Derde oplossing met <code>-not</code> (Course, hoofdstuk 03):<br>
+            <code>Get-Service | Where-Object { $_.Status -eq 'Running' -and -not $_.CanStop } | Select-Object Name, Status, CanStop</code><br>
+            <br>
+            Met <code>Select-Object Name, Status, CanStop</code> zie je meteen het bewijs: elke rij toont <code>Running</code> en <code>False</code>.
+        </div>
+
           <h3>5. Bestanden filteren en tellen</h3>
           <p>Gebruik een zelfgekozen testmap met enkele onderliggende mappen. Vermeld het gebruikte pad in <code>answers.md</code>.</p>
 
@@ -226,12 +341,30 @@
             C:\powershell
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Een testmap met submappen en enkele bestanden maken (zoals in hands-on 01):<br>
+            <code>New-Item -Path C:\powershell\testmap\submap1 -ItemType Directory -Force</code><br>
+            <code>New-Item -Path C:\powershell\testmap\submap2 -ItemType Directory -Force</code><br>
+            <code>New-Item -Path C:\powershell\testmap\submap1 -Name 'PathProcessing.txt' -ItemType File</code><br>
+            <br>
+            Controleren: <code>Get-ChildItem -Path C:\powershell -Recurse -Directory</code>
+        </div>
+
           <h4>5.1 Bestanden van minstens drie dagen oud</h4>
           <p>Toon recursief alle bestanden waarvan <code>LastWriteTime</code> minstens drie dagen in het verleden ligt.</p>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            Get-ChildItem -File -Path "C:\Windows\" -Recurse | Where-Object {$_.LastWriteTime -le (Get-Date).AddDays(-3)}
+            Get-ChildItem -File -Path "C:\powershell\" -Recurse | Where-Object {$_.LastWriteTime -le (Get-Date).AddDays(-3)}
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Gesorteerd en met alleen de nodige kolommen:<br>
+            <code>Get-ChildItem -File -Path C:\powershell -Recurse | Where-Object LastWriteTime -le (Get-Date).AddDays(-3) | Sort-Object LastWriteTime | Select-Object FullName, LastWriteTime</code><br>
+            <br>
+            <code>(Get-Date).AddDays(-3)</code> is het moment van precies drie dagen geleden. <code>-le</code> (kleiner of gelijk) betekent: op dat moment of vroeger gewijzigd.
         </div>
           
           <h4>5.2 Oude tekstbestanden</h4>
@@ -239,7 +372,15 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            Get-ChildItem -File -Path "C:\Users\12501999\Documents\" -Recurse | Where-Object {$_.CreationTime -le (Get-Date).AddDays(-3)}
+            Get-ChildItem -File -Filter *.txt -Path "C:\powershell\" -Recurse | Where-Object {$_.LastWriteTime -le (Get-Date).AddDays(-3)}
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>Get-ChildItem -File -Path C:\powershell -Recurse -Filter *.txt | Where-Object LastWriteTime -le (Get-Date).AddDays(-3) | Select-Object FullName, LastWriteTime</code><br>
+            <br>
+            <code>-Filter *.txt</code> filtert al bij het opvragen en is daardoor sneller dan achteraf filteren met <code>Where-Object Extension -eq '.txt'</code>.<br>
+            "Oud" betekent hier hetzelfde als in 5.1: <code>LastWriteTime</code>, het moment van de laatste wijziging.
         </div>
 
           <h4>5.3 Tel oude tekstbestanden</h4>
@@ -247,9 +388,16 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            (Get-ChildItem -Filter *.txt -Path "C:\Users\12501999\Documents\" -Recurse | Where-Object {$_.CreationTime -le (Get-Date).AddDays(-3)}).Count<br>
+            (Get-ChildItem -File -Filter *.txt -Path "C:\powershell\" -Recurse | Where-Object {$_.LastWriteTime -le (Get-Date).AddDays(-3)}).Count<br>
             OR<br>
-            (Get-ChildItem -Filter *.txt -Path "C:\Users\12501999\Documents\" -Recurse | Where-Object {$_.CreationTime -le (Get-Date).AddDays(-3)} | Measure-Object).Count
+            (Get-ChildItem -File -Filter *.txt -Path "C:\powershell\" -Recurse | Where-Object {$_.LastWriteTime -le (Get-Date).AddDays(-3)} | Measure-Object).Count
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>Get-ChildItem -File -Path C:\powershell -Recurse -Filter *.txt | Where-Object LastWriteTime -le (Get-Date).AddDays(-3) | Measure-Object | Select-Object -ExpandProperty Count</code><br>
+            <br>
+            <code>-ExpandProperty Count</code> geeft alleen het getal, zonder kolomtitel.
         </div>
 
           <h4>5.4 Tweede letter is <code>a</code></h4>
@@ -257,11 +405,20 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            (Get-ChildItem -File -Path C:\Users\12501999\ -Recurse -Filter '?a*' | Measure-Object).Count<br>
+            (Get-ChildItem -File -Path C:\powershell\ -Recurse -Filter '?a*' | Measure-Object).Count<br>
             OR<br>
-            (Get-ChildItem -File -Path C:\Users\12501999\ -Recurse | Where-Object {$_.Name -like '?a*'}).Count<br>
+            (Get-ChildItem -File -Path C:\powershell\ -Recurse | Where-Object {$_.Name -like '?a*'}).Count<br>
             OR<br>
-            (Get-ChildItem -File -Path C:\Users\12501999\ -Recurse | Where-Object {$_.Name -match '^.a'}).Count
+            (Get-ChildItem -File -Path C:\powershell\ -Recurse | Where-Object {$_.Name -match '^.a'}).Count
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Hoofdlettergevoelig, alleen een kleine <code>a</code> als tweede letter:<br>
+            <code>(Get-ChildItem -File -Path C:\powershell -Recurse | Where-Object Name -clike '?a*').Count</code><br>
+            <code>(Get-ChildItem -File -Path C:\powershell -Recurse | Where-Object Name -cmatch '^.a').Count</code><br>
+            <br>
+            <code>?</code> (wildcard) en <code>.</code> (regex) betekenen allebei: precies één willekeurig teken. <code>-like</code> en <code>-match</code> tellen ook een hoofdletter <code>A</code> mee.
         </div>
 
           <h3>6. Uitvoerbare bestanden onderzoeken</h3>
@@ -278,12 +435,27 @@
             Get-ChildItem -File *.exe -Path C:\Windows\ -ErrorAction SilentlyContinue | Where-Object {$_.Length -gt 1MB -or $_.Length -eq 28672}
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Met de <code>-Filter</code>-parameter voluit en alleen de nuttige kolommen:<br>
+            <code>Get-ChildItem -Path C:\Windows -File -Filter *.exe -ErrorAction SilentlyContinue | Where-Object { $_.Length -gt 1MB -or $_.Length -eq 28672 } | Select-Object Name, Length</code><br>
+            <br>
+            <code>1MB</code> is 1.048.576 bytes. <code>-or</code> betekent: minstens één van de twee voorwaarden moet waar zijn.
+        </div>
+
           <h4>6.2 Extra: zoek recursief met diepte 2</h4>
           <p>Voer dezelfde filter uit in <code>C:\Windows</code> en de onderliggende mappen, met een maximale recursiediepte van 2.</p>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             Get-ChildItem -Recurse -Depth 2 -File *.exe -Path C:\Windows\ -ErrorAction SilentlyContinue | Where-Object {$_.Length -gt 1MB -or $_.Length -eq 28672}
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>Get-ChildItem -Path C:\Windows -File -Filter *.exe -Depth 2 -ErrorAction SilentlyContinue | Where-Object { $_.Length -gt 1MB -or $_.Length -eq 28672 } | Select-Object FullName, Length</code><br>
+            <br>
+            <code>-Depth 2</code> zoekt in <code>C:\Windows</code> en nog twee niveaus submappen daaronder. <code>-Depth</code> zoekt zelf al in submappen, dus <code>-Recurse</code> mag je weglaten. <code>FullName</code> toont in welke map elk bestand staat.
         </div>
 
           <h4>6.3 Tien grootste bestanden</h4>
@@ -293,7 +465,13 @@
             <strong>Mijn antwoord:</strong><br><br>
             Get-ChildItem -File C:\Windows\System32\ -ErrorAction SilentlyContinue | Sort-Object Length -Descending -Top 10 | Select-Object Name,Length,FullName<br>
             OR<br>
-            Get-ChildItem -File C:\Windows\System32\ -ErrorAction SilentlyContinue | Sort-Object Length -Descending | Select-Object -Top 10 Name,Length,FullName
+            Get-ChildItem -File C:\Windows\System32\ -ErrorAction SilentlyContinue | Sort-Object Length -Descending | Select-Object -First 10 Name,Length,FullName
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Met <code>-Top</code> en de grootte in MB (Course, hoofdstuk 03):<br>
+            <code>Get-ChildItem -Path C:\Windows\System32 -File -ErrorAction SilentlyContinue | Sort-Object Length -Descending -Top 10 | Select-Object Name, Length, @{N='Size(MB)';E={'{0:N2}' -f ($_.Length / 1MB)}}, FullName</code>
         </div>
 
           <h3>7. Procesproperties en meervoudig sorteren</h3>
@@ -312,6 +490,14 @@
             Get-Process | Sort-Object -Property ProcessName -Descending | Select-Object Name,Id,PM,NPM
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Met het geheugen in MB in plaats van bytes:<br>
+            <code>Get-Process | Sort-Object ProcessName -Descending | Select-Object Name, Id, @{N='PM(MB)';E={'{0:N2}' -f ($_.PM / 1MB)}}, @{N='NPM(MB)';E={'{0:N2}' -f ($_.NPM / 1MB)}}</code><br>
+            <br>
+            <code>PM</code> en <code>NPM</code> zijn aliassen (<code>AliasProperty</code>) voor <code>PagedMemorySize64</code> en <code>NonpagedSystemMemorySize64</code>. Controle: <code>Get-Process | Get-Member -MemberType AliasProperty</code>
+        </div>
+
           <h4>7.2 Aflopend sorteren op naam en ID</h4>
           <p>Toon alle processen met één pipeline, eerst aflopend gesorteerd op procesnaam en vervolgens aflopend op proces-ID.</p>
         </section>
@@ -319,6 +505,14 @@
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             Get-Process | Sort-Object -Descending ProcessName, Id
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Geen echt geavanceerd antwoord nodig: <code>-Descending</code> geldt voor beide properties.<br>
+            <br>
+            Optioneel, met hashtables kan je per property een andere richting kiezen (zie 3.4):<br>
+            <code>Get-Process | Sort-Object @{Expression='ProcessName';Descending=$true}, @{Expression='Id';Descending=$true}</code>
         </div>
 
         <section class="docs-section" id="deel-2">
@@ -358,7 +552,7 @@
               #>
               <br><br>
               $path = 'C:\Windows\'<br>
-              $filecount = (Get-ChildItem $path).Count<br>
+              $filecount = (Get-ChildItem $path -File).Count<br>
               $dircount = (Get-ChildItem $path -Directory).Count<br>
               $procount = (Get-Process).Count<br>
               <br>
@@ -366,6 +560,33 @@
               Write-Output "File count: $filecount"<br>
               Write-Output "Directory count: $dircount"<br>
               Write-Output "Amount of processes: $procount"
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <pre><code>&lt;#
+.SYNOPSIS
+    Toont het aantal bestanden en mappen in C:\Windows en het aantal processen.
+.DESCRIPTION
+    Telt de bestanden en de mappen die rechtstreeks in C:\Windows staan
+    en het aantal actieve processen.
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    .\Scripts\HowManyFilesDir.ps1
+#&gt;
+
+$path      = 'C:\Windows\'
+$fileCount = (Get-ChildItem -Path $path -File -ErrorAction SilentlyContinue | Measure-Object).Count
+$dirCount  = (Get-ChildItem -Path $path -Directory -ErrorAction SilentlyContinue | Measure-Object).Count
+$procCount = (Get-Process | Measure-Object).Count
+
+Write-Output "Information of path $path"
+Write-Output "File count: $fileCount"
+Write-Output "Directory count: $dirCount"
+Write-Output "Aantal processen: $procCount"</code></pre>
+            <code>-File</code> en <code>-Directory</code> houden bestanden en mappen apart. Zonder <code>-File</code> telt <code>Get-ChildItem</code> beide samen.<br>
+            Controle: <code>Get-Help .\Scripts\HowManyFilesDir.ps1 -Full</code>
         </div>
 
           <h3>9. Hotfixes</h3>
@@ -378,11 +599,25 @@
             Get-Command -Noun *hotfix*
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Met het helpsysteem zelf, zoals de vraag stelt:<br>
+            <code>Get-Help *hotfix*</code> → <code>Get-HotFix</code><br>
+            <code>Get-Help Get-HotFix -Examples</code> → voorbeelden van het gebruik
+        </div>
+
           <h4>9.2 Toon alle geïnstalleerde hotfixes</h4>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             Get-HotFix
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Geen echt geavanceerd antwoord nodig: <code>Get-HotFix</code><br>
+            <br>
+            Optioneel, alleen het aantal: <code>(Get-HotFix | Measure-Object).Count</code>
         </div>
 
           <h4>9.3 Sorteer op installatiedatum</h4>
@@ -398,6 +633,14 @@
             Get-HotFix | Sort-Object InstalledOn | Select-Object InstalledOn,InstalledBy,HotFixId
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Nieuwste eerst, en zonder hotfixes waarvan de datum ontbreekt:<br>
+            <code>Get-HotFix | Where-Object InstalledOn -ne $null | Sort-Object InstalledOn -Descending | Select-Object InstalledOn, InstalledBy, HotFixId</code><br>
+            <br>
+            Zonder datum komt een hotfix bij oplopend sorteren bovenaan te staan; <code>Where-Object InstalledOn -ne $null</code> laat die weg.
+        </div>
+
           <h4>9.4 Sorteer op beschrijving</h4>
           <p>Sorteer de hotfixes op <code>Description</code> en toon alleen:</p>
           <ul>
@@ -409,6 +652,15 @@
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             Get-HotFix | Sort-Object Description | Select-Object InstalledOn,Description,HotFixId
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Per beschrijving gesorteerd en daarbinnen op datum:<br>
+            <code>Get-HotFix | Sort-Object Description, InstalledOn | Select-Object InstalledOn, Description, HotFixId</code><br>
+            <br>
+            Hoeveel hotfixes per soort? (<code>Group-Object</code>, Course hoofdstuk 03)<br>
+            <code>Get-HotFix | Group-Object -Property Description | Select-Object Name, Count</code> → bv. <code>Security Update 2</code>, <code>Update 4</code>
         </div>
 
           <h3>10. Script <code>MetenIsWeten.ps1</code></h3>
@@ -437,7 +689,7 @@
             Shows the amount of lines, words and characters inside mydata.txt<br>
             #><br>
             <br>
-            $sourcefile = 'C:\Projects\ps-01-ext-lab-AngeloSwitonPXL\ps-02-ext-lab\example_files\mydata.txt'<br>
+            $sourcefile = '.\example_files\mydata.txt'<br>
             $linecount = (Get-Content $sourcefile | Measure-Object -Line).Lines<br>
             $wordcount = (Get-Content $sourcefile | Measure-Object -Word).Words<br>
             $charcount = (Get-Content $sourcefile | Measure-Object -Character).Characters<br>
@@ -446,6 +698,32 @@
             Write-Output "$linecount line(es)"<br>
             Write-Output "$wordcount word(s)"<br>
             Write-Output "$charcount character(s)"<br>
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Eén keer <code>Measure-Object</code> met de drie parameters samen:<br>
+            <pre><code>&lt;#
+.SYNOPSIS
+    Toont het aantal lijnen, woorden en tekens in mydata.txt.
+.DESCRIPTION
+    Leest example_files\mydata.txt in en meet het aantal lijnen, woorden
+    en tekens met Measure-Object.
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    .\Scripts\MetenIsWeten.ps1
+#&gt;
+
+$sourceFile = '.\example_files\mydata.txt'
+$result     = Get-Content -Path $sourceFile | Measure-Object -Line -Word -Character
+
+Write-Output 'Het bestand mydata.txt bevat:'
+Write-Output "- $($result.Lines) lijn(en)"
+Write-Output "- $($result.Words) woord(en)"
+Write-Output "- $($result.Characters) letter(s)"</code></pre>
+            Resultaat: <code>3</code> lijnen, <code>34</code> woorden, <code>207</code> tekens.<br>
+            <code>Get-Content</code> leest het bestand regel per regel. <code>Measure-Object -Character</code> telt de tekens per regel, zonder de regeleinden. Daarom is het resultaat 207 en niet 208.
         </div>
 
         <section class="docs-section" id="deel-3">
@@ -486,13 +764,14 @@
               Write-Output "`nAantal URL's: $($hits.Matches.Count)"<br>
               $hits.Matches.Value<br>
 <br>
-              # Datums: dag/maand met 1-2 cijfers, gescheiden door / of -, jaar met 4 cijfers<br>
-              $hits = $text | Select-String -Pattern '\b\d{1,2}[/-]\d{1,2}[/-]\d{4}\b' -AllMatches<br>
+              # Datums: eerst de telefoonnummers verwijderen, dan dag/maand met 1-2 cijfers, gescheiden door /, - of ., jaar met 4 of 2 cijfers<br>
+              $textWithoutPhones = $text -replace '(\+32 ?\d{3}|0\d{2,3})[ /]\d{2}\.\d{2}\.\d{2}', ''<br>
+              $hits = $textWithoutPhones | Select-String -Pattern '\b\d{1,2}[/.-]\d{1,2}[/.-](\d{4}|\d{2})\b' -AllMatches<br>
               Write-Output "`nAantal datums: $($hits.Matches.Count)"<br>
               $hits.Matches.Value<br>
 <br>
-              # IP-adressen: 4 groepen van 1-3 cijfers met punten, optioneel /prefix<br>
-              $hits = $text | Select-String -Pattern '\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(/\d{1,2})?' -AllMatches<br>
+              # IP-adressen: 4 groepen van 1-3 cijfers met punten, zonder het subnetmasker (/24)<br>
+              $hits = $text | Select-String -Pattern '\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b' -AllMatches<br>
               Write-Output "`nAantal IP-adressen: $($hits.Matches.Count)"<br>
               $hits.Matches.Value<br>
 <br>
@@ -506,6 +785,46 @@
               Write-Output "`nAantal HTML-tags: $($hits.Matches.Count)"<br>
               $hits.Matches.Value<br>
         </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Met <code>[regex]::Matches()</code> (zie de tip bij 11.4): je krijgt meteen alle overeenkomsten, met <code>.Count</code> en <code>.Value</code>.<br>
+            <pre><code>&lt;#
+.SYNOPSIS
+    Zoekt URL's, datums, IPv4-adressen en Belgische telefoonnummers in regdata.txt.
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    .\Scripts\FilterWithRegExp.ps1
+#&gt;
+
+$text = Get-Content .\example_files\regdata.txt -Raw
+
+$phonePattern = '(\+32 ?\d{3}|0\d{2,3})[ /]\d{2}\.\d{2}\.\d{2}'
+
+# URL's
+$hits = [regex]::Matches($text, 'https?://[\w.]+')
+Write-Output "Aantal hits: $($hits.Count)"
+$hits.Value
+
+# Datums (eerst de telefoonnummers weghalen)
+$textWithoutPhones = $text -replace $phonePattern, ''
+$hits = [regex]::Matches($textWithoutPhones, '\b\d{1,2}[/.-]\d{1,2}[/.-](\d{4}|\d{2})\b')
+Write-Output "`nAantal hits: $($hits.Count)"
+$hits.Value
+
+# IPv4-adressen (zonder /24)
+$hits = [regex]::Matches($text, '\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b')
+Write-Output "`nAantal hits: $($hits.Count)"
+$hits.Value
+
+# Belgische telefoonnummers
+$hits = [regex]::Matches($text, $phonePattern)
+Write-Output "`nAantal hits: $($hits.Count)"
+$hits.Value</code></pre>
+            Het telefoonpatroon staat één keer in <code>$phonePattern</code> en wordt twee keer gebruikt: om te zoeken én om de nummers weg te halen vóór het zoeken naar datums.<br>
+            Resultaat: 3 URL's, 4 datums, 3 IP-adressen en 4 telefoonnummers, zoals in de voorbeeldafbeelding.
+        </div>
           
           <h4>11.1 URL's</h4>
           <p>Herken URL's die met <code>http://</code> of <code>https://</code> beginnen.</p>
@@ -515,6 +834,14 @@
           $hits = $text | Select-String -Pattern 'https?://[\w.]+' -AllMatches<br>
           Write-Output "Aantal URL's: $($hits.Matches.Count)"<br>
           $hits.Matches.Value
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Algemener patroon dat ook paden na de domeinnaam meeneemt (bv. <code>https://www.pxl.be/opleidingen</code>):<br>
+            <code>[regex]::Matches($text, 'https?://[^\s"&lt;&gt;,]+').Value</code><br>
+            <br>
+            <code>s?</code> = de <code>s</code> mag er staan of niet. <code>[^\s"&lt;&gt;,]+</code> = één of meer tekens die <b>geen</b> spatie, aanhalingsteken, <code>&lt;</code>, <code>&gt;</code> of komma zijn. Op <code>regdata.txt</code> geeft dit dezelfde 3 URL's.
         </div>
 
           <h4>11.2 Datums</h4>
@@ -530,6 +857,16 @@
             Write-Output "Aantal datums: $($hits.Matches.Count)"<br>
             $hits.Matches.Value<br>
         </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Met <b>benoemde groepen</b> (<i>named capture groups</i>, Course hoofdstuk 04) haal je dag, maand en jaar apart uit elke datum:<br>
+            <pre><code>$textWithoutPhones = $text -replace '(\+32 ?\d{3}|0\d{2,3})[ /]\d{2}\.\d{2}\.\d{2}', ''
+[regex]::Matches($textWithoutPhones, '\b(?&lt;dag&gt;\d{1,2})[/.-](?&lt;maand&gt;\d{1,2})[/.-](?&lt;jaar&gt;\d{4}|\d{2})\b') |
+    Select-Object Value, @{N='Deel1';E={$_.Groups['dag'].Value}}, @{N='Deel2';E={$_.Groups['maand'].Value}}, @{N='Jaar';E={$_.Groups['jaar'].Value}}</code></pre>
+            Waarom eerst de telefoonnummers weghalen? Zonder die stap vindt hetzelfde patroon <b>8</b> "datums": ook <code>34.56.78</code>, <code>12.34.56</code>, <code>23.24.55</code> en <code>20.20.15</code> uit de telefoonnummers.<br>
+            Let op: <code>01/15/2023</code> is maand/dag, <code>30-09-2023</code> is dag-maand. Een regex herkent de vorm, niet de betekenis; daarom heten de kolommen hier <code>Deel1</code> en <code>Deel2</code>.
+        </div>
           
           <h4>11.3 IPv4-adressen</h4>
           <p>Herken IPv4-adressen en toon het subnetmasker, bijvoorbeeld <code>/24</code>, niet als onderdeel van het adres.</p>
@@ -539,6 +876,17 @@
             $hits = $text | Select-String -Pattern '\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b' -AllMatches<br>
             Write-Output "Aantal IP-adressen: $($hits.Matches.Count)"<br>
             $hits.Matches.Value<br>
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Het adres en het subnetmasker <b>apart</b> tonen met benoemde groepen:<br>
+            <pre><code>[regex]::Matches($text, '\b(?&lt;ip&gt;\d{1,3}(\.\d{1,3}){3})(/(?&lt;mask&gt;\d{1,2}))?\b') |
+    Select-Object @{N='IP';E={$_.Groups['ip'].Value}}, @{N='Masker';E={$_.Groups['mask'].Value}}</code></pre>
+            Resultaat: <code>192.168.0.1</code>, <code>10.0.0.1</code> en <code>206.10.254.210</code> met masker <code>24</code>.<br>
+            <br>
+            Strenger patroon dat alleen getallen van 0 tot 255 aanvaardt (<code>999.1.1.1</code> wordt dan niet gevonden):<br>
+            <code>'\b((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\b'</code>
         </div>
 
           <h4>11.4 Belgische telefoonnummers</h4>
@@ -554,6 +902,18 @@
             Write-Output "Aantal hits: $($hits.Matches.Count)"<br>
             $hits.Matches.Value<br>
             Write-Output ""<br>
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Zonenummer en abonneenummer apart met benoemde groepen:<br>
+            <pre><code>[regex]::Matches($text, '(?&lt;zone&gt;\+32 ?\d{3}|0\d{2,3})[ /](?&lt;nummer&gt;\d{2}\.\d{2}\.\d{2})') |
+    Select-Object Value, @{N='Zone';E={$_.Groups['zone'].Value}}, @{N='Nummer';E={$_.Groups['nummer'].Value}}</code></pre>
+            Uitleg van het patroon:<br>
+            <code>\+32 ?\d{3}</code> → internationaal: <code>+32</code>, eventueel een spatie, dan 3 cijfers (bv. <code>+32 476</code>)<br>
+            <code>0\d{2,3}</code> → nationaal: een <code>0</code> en 2 of 3 cijfers (bv. <code>012</code>, <code>0470</code>)<br>
+            <code>[ /]</code> → een spatie of een <code>/</code><br>
+            <code>\d{2}\.\d{2}\.\d{2}</code> → drie keer twee cijfers met een punt ertussen
         </div>
 
         <section class="docs-section" id="eindcontrole">
@@ -577,7 +937,7 @@
         <footer class="docs-footer">Uitgebreide oefening 02 <span aria-hidden="true">·</span> PowerShell</footer>
       </main>
     </div>
-    <script src="../assets/docs.js" defer></script>
+    <script src="../assets/docs.js?v=2" defer></script>
     <script src="../assets/search.js" defer></script>
   </body>
 </html>

@@ -15,7 +15,7 @@
 
 
 $path = 'C:\Windows\'
-$filecount = (Get-ChildItem $path).Count
+$filecount = (Get-ChildItem $path -File).Count
 $dircount = (Get-ChildItem $path -Directory).Count
 $procount = (Get-Process).Count
 

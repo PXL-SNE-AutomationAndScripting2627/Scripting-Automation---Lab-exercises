@@ -21,13 +21,14 @@ $hits = $text | Select-String -Pattern 'https?://[\w.]+' -AllMatches
 Write-Output "`nAantal URL's: $($hits.Matches.Count)"
 $hits.Matches.Value
 
-# Datums: dag/maand met 1-2 cijfers, gescheiden door / of -, jaar met 4 cijfers
-$hits = $text | Select-String -Pattern '\b\d{1,2}[/-]\d{1,2}[/-]\d{4}\b' -AllMatches
+# Datums: eerst de telefoonnummers verwijderen, dan dag/maand met 1-2 cijfers, gescheiden door /, - of ., jaar met 4 of 2 cijfers
+$textWithoutPhones = $text -replace '(\+32 ?\d{3}|0\d{2,3})[ /]\d{2}\.\d{2}\.\d{2}', ''
+$hits = $textWithoutPhones | Select-String -Pattern '\b\d{1,2}[/.-]\d{1,2}[/.-](\d{4}|\d{2})\b' -AllMatches
 Write-Output "`nAantal datums: $($hits.Matches.Count)"
 $hits.Matches.Value
 
-# IP-adressen: 4 groepen van 1-3 cijfers met punten, optioneel /prefix
-$hits = $text | Select-String -Pattern '\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(/\d{1,2})?' -AllMatches
+# IP-adressen: 4 groepen van 1-3 cijfers met punten, zonder het subnetmasker (/24)
+$hits = $text | Select-String -Pattern '\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b' -AllMatches
 Write-Output "`nAantal IP-adressen: $($hits.Matches.Count)"
 $hits.Matches.Value
 

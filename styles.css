@@ -796,6 +796,14 @@ body.docs-page {
   color: #c9d1d9;
 }
 
+/* Text in answer boxes uses the box's own (dark) text colour */
+.docs-article div[style] p,
+.docs-article div[style] li,
+.lab-content div[style] p,
+.lab-content div[style] li {
+  color: inherit;
+}
+
 .docs-article a {
   color: #58a6ff;
 }

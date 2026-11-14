@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="nl">
-  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="theme-color" content="#0d1117" /><title>Opdrachten — Uitgebreide oefening 03</title><link rel="stylesheet" href="../styles.css" /></head>
+  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="theme-color" content="#0d1117" /><title>Opdrachten — Uitgebreide oefening 03</title><link rel="stylesheet" href="../styles.css?v=2" /></head>
   <body class="docs-page">
     <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
     <header class="docs-header"><a class="docs-brand" href="../index.html"><span class="brand-mark" aria-hidden="true">PXL</span><span>PowerShell-oefening</span></a><nav class="docs-global-nav" aria-label="Hoofdnavigatie"><a href="../index.html">Oefeningen</a><a href="index.html">Overzicht</a><a class="answers-nav-link" href="answers.html" aria-current="page">Opdrachten</a><a href="scripts.html">Scripts</a></nav></header>
@@ -30,6 +30,13 @@
             Write-Host "Welkom bij PXL" -BackgroundColor Yellow -ForegroundColor Red
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Geen echt geavanceerd antwoord nodig: <code>Write-Host "Welkom bij PXL" -ForegroundColor Red -BackgroundColor Yellow</code><br>
+            <br>
+            Optioneel, welke kleuren kan je gebruiken? <code>Get-Help Write-Host -Parameter ForegroundColor</code> → o.a. <code>Black</code>, <code>Red</code>, <code>Green</code>, <code>Yellow</code>, <code>Blue</code>, <code>White</code> ...
+        </div>
+
           <h4 id="1-2-statusmeldingen-op-één-regel">1.2 Statusmeldingen op &#233;&#233;n regel</h4>
           <p>Toon achtereenvolgens <code>Success</code>, <code>Warning</code> en <code>Error</code> op dezelfde regel:</p>
           <ul>
@@ -42,7 +49,17 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            Write-Host "Success" -ForegroundColor Green -NoNewline; Write-Host "Warning" -ForegroundColor Yellow -NoNewline; Write-Host "Error" -ForegroundColor Red
+            Write-Host "Success" -ForegroundColor Green -BackgroundColor Black -NoNewline; Write-Host "Warning" -ForegroundColor Yellow -BackgroundColor Black -NoNewline; Write-Host "Error" -ForegroundColor Red -BackgroundColor Black
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>Write-Host 'Success' -ForegroundColor Green -BackgroundColor Black -NoNewline</code><br>
+            <code>Write-Host 'Warning' -ForegroundColor Yellow -BackgroundColor Black -NoNewline</code><br>
+            <code>Write-Host 'Error' -ForegroundColor Red -BackgroundColor Black</code><br>
+            <br>
+            <code>-NoNewline</code> zorgt dat de volgende <code>Write-Host</code> op dezelfde regel verder schrijft. De laatste opdracht heeft geen <code>-NoNewline</code>, zodat de prompt daarna op een nieuwe regel begint.<br>
+            Elke kleur vraagt een aparte <code>Write-Host</code>: één opdracht kan maar één voorgrondkleur hebben.
         </div>
 
           <h4 id="1-3-identieke-tabeluitvoer">1.3 Identieke tabeluitvoer</h4>
@@ -61,6 +78,15 @@
             In het tweede commando word een nieuwe regel aangegeven tussen de aanhalingstekens met <b><i>`n</i></b>
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Met <code>-Separator</code> (Course, hoofdstuk 05) in plaats van <code>`n</code>:<br>
+            <code>Write-Host 'Output', '------' -Separator "`n" -ForegroundColor Green</code><br>
+            <code>Write-Host 'I like PXL'</code><br>
+            <br>
+            <code>Write-Host</code> krijgt twee teksten; <code>-Separator "`n"</code> zet er een nieuwe regel tussen in plaats van een spatie.
+        </div>
+
           <hr />
           <h2 id="deel-2-uitvoer-naar-bestanden">Deel 2 — Uitvoer naar bestanden</h2>
           <h3 id="2-werk-met-windowslist-txt">2. Werk met <code>windowslist.txt</code></h3>
@@ -77,6 +103,14 @@
             Get-ChildItem -Path C:\Windows -File > .\windowslist.txt
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Tonen én bewaren in één stap met <code>Tee-Object</code> (hands-on 04):<br>
+            <code>Get-ChildItem -Path C:\Windows -File | Tee-Object -FilePath .\windowslist.txt</code><br>
+            <br>
+            <code>Tee-Object</code> schrijft de uitvoer naar het bestand en geeft ze ook door aan het scherm. Zo zie je meteen wat er bewaard wordt.
+        </div>
+
           <h4 id="2-2-bewaar-alleen-de-mappen-uit-c-windows">2.2 Bewaar alleen de mappen uit <code>C:\Windows</code></h4>
           <p>Schrijf vervolgens uitsluitend de mappen die rechtstreeks in <code>C:\Windows</code> staan naar hetzelfde bestand <code>windowslist.txt</code>.</p>
 
@@ -89,6 +123,15 @@
             Get-ChildItem -Path C:\Windows -Directory > .\windowslist.txt
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            De opdracht vraagt bewust om te overschrijven (zie 2.3). Wil je de bestanden <b>en</b> de mappen bewaren, voeg dan toe met <code>-Append</code>:<br>
+            <code>Get-ChildItem -Path C:\Windows -Directory | Out-File -FilePath .\windowslist.txt -Append</code><br>
+            of: <code>Get-ChildItem -Path C:\Windows -Directory &gt;&gt; .\windowslist.txt</code><br>
+            <br>
+            Beveiliging tegen per ongeluk overschrijven: <code>Out-File -NoClobber</code> geeft een fout als het bestand al bestaat (Course, hoofdstuk 05).
+        </div>
+
           <h4 id="2-3-wat-gebeurde-er-met-de-eerdere-inhoud">2.3 Wat gebeurde er met de eerdere inhoud?</h4>
           <p>Leg uit waarom de lijst met bestanden niet meer in <code>windowslist.txt</code> staat.</p>
 
@@ -99,13 +142,35 @@
             Bij het tweede voorbeeld van vraag 2.2 typ je twee maal een groter-dan-teken <b>(>>)</b>
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <ul>
+              <li><code>Out-File</code> en <code>&gt;</code> <b>overschrijven</b> standaard: de oude inhoud verdwijnt en alleen de nieuwe uitvoer blijft over.</li>
+              <li><code>Out-File -Append</code> en <code>&gt;&gt;</code> <b>voegen toe</b> achteraan.</li>
+              <li><code>Out-File -NoClobber</code> <b>weigert</b> een bestaand bestand te overschrijven en geeft een fout.</li>
+            </ul>
+            <code>&gt;</code> is een kortere schrijfwijze voor <code>Out-File</code>, en <code>&gt;&gt;</code> voor <code>Out-File -Append</code>.
+        </div>
+
           <h4 id="2-4-toon-de-inhoud-van-windowslist-txt">2.4 Toon de inhoud van <code>windowslist.txt</code></h4>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            <p>Get-Content -Path .\assets\windowslist.txt</p>
+            <p>Get-Content -Path .\windowslist.txt</p>
             <p><a href="assets/windowslist.txt">Open windowslist.txt</a></p>
             <iframe class="text-file-preview" src="assets/windowslist.txt" title="Inhoud van windowslist.txt" loading="lazy"></iframe>
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>Get-Content -Path .\windowslist.txt</code> → de volledige inhoud<br>
+            <br>
+            Extra mogelijkheden met wat je al kent:<br>
+            <code>Get-Content -Path .\windowslist.txt | Select-Object -Last 5</code> → alleen de laatste 5 regels<br>
+            <code>(Get-Content -Path .\windowslist.txt).Count</code> → het aantal regels<br>
+            <code>Get-Content -Path .\windowslist.txt | more</code> → pagina per pagina<br>
+            <br>
+            <code>Get-Content</code> geeft <b>tekstregels</b> terug, geen bestandsobjecten meer: <code>Out-File</code> bewaarde alleen wat op het scherm stond.
         </div>
 
           <h4 id="2-5-voeg-een-afsluitregel-toe">2.5 Voeg een afsluitregel toe</h4>
@@ -113,10 +178,19 @@
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            Add-Content -Path .\assets\windowslist2.txt -Value "Einde opdracht"<br>
-            Get-Content -Path .\assets\windowslist2.txt<br><br>
+            Add-Content -Path .\windowslist.txt -Value "Einde opdracht"<br>
+            Get-Content -Path .\windowslist.txt<br><br>
             <p><a href="assets/windowslist2.txt">Open windowslist.txt</a></p>
             <iframe class="text-file-preview" src="assets/windowslist2.txt" title="Inhoud van windowslist.txt" loading="lazy"></iframe>
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>Add-Content -Path .\windowslist.txt -Value 'Einde opdracht'</code><br>
+            <br>
+            Hetzelfde met <code>Out-File</code>: <code>'Einde opdracht' | Out-File -FilePath .\windowslist.txt -Append</code><br>
+            <br>
+            Controle van alleen de laatste regel: <code>Get-Content -Path .\windowslist.txt | Select-Object -Last 1</code> → <code>Einde opdracht</code>
         </div>
 
           <hr />
@@ -162,6 +236,28 @@
               Get-Content -Path $path</p>
              <b>Stap 3</b><br>
             Get-Help .\scripts\WindowsHostFile.ps1 -Full
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Het pad opbouwen met <code>Join-Path</code> en <code>$env:WINDIR</code> (Course, hoofdstuk 06) in plaats van <code>C:\Windows</code> vast te typen. Zo werkt het script ook als Windows op een andere schijf staat.<br>
+            <pre><code>&lt;#
+.SYNOPSIS
+    Toont de inhoud van het hosts-bestand van Windows.
+.DESCRIPTION
+    Bouwt het pad naar het hosts-bestand op vanuit $env:WINDIR,
+    toont het pad en daarna de inhoud van het bestand.
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    .\scripts\WindowsHostFile.ps1
+#&gt;
+
+$path = Join-Path -Path $env:WINDIR -ChildPath 'System32\drivers\etc\hosts'
+
+Write-Host "Inhoud van de Windows file: $path" -ForegroundColor Yellow
+Get-Content -LiteralPath $path</code></pre>
+            Controle: <code>Get-Help .\scripts\WindowsHostFile.ps1 -Full</code>
         </div>
 
           <h3 id="4-script-windowshostfilev2-ps1">4. Script <code>WindowsHostFilev2.ps1</code></h3>
@@ -219,6 +315,39 @@ else {<br>
             Get-Help .\scripts\WindowsHostFilev2.ps1 -Full
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <pre><code>&lt;#
+.SYNOPSIS
+    Toont een bestand uit de map drivers\etc van Windows.
+.DESCRIPTION
+    Bouwt het pad op vanuit $env:WINDIR en $File_To_Find, controleert of het
+    bestand bestaat en toont dan het pad en de inhoud. Bestaat het bestand
+    niet, dan volgt een foutmelding en de lijst met beschikbare bestanden.
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    .\scripts\WindowsHostFilev2.ps1
+#&gt;
+
+$File_To_Find = 'hosts'   # of 'networks'
+
+$folder = Join-Path -Path $env:WINDIR -ChildPath 'System32\drivers\etc'
+$path   = Join-Path -Path $folder -ChildPath $File_To_Find
+
+if (Test-Path -LiteralPath $path -PathType Leaf) {
+    Write-Host "Inhoud van de Windows file: $path" -ForegroundColor Yellow
+    Get-Content -LiteralPath $path
+}
+else {
+    Write-Error "Het bestand '$File_To_Find' werd niet gevonden in '$folder'."
+    Write-Host 'Beschikbare bestanden:' -ForegroundColor Yellow
+    Get-ChildItem -LiteralPath $folder -File | Select-Object -ExpandProperty Name
+}</code></pre>
+            <code>-PathType Leaf</code> controleert dat het echt een <b>bestand</b> is en geen map met dezelfde naam.<br>
+            Bij een fout toont het script ook welke bestanden er wel zijn (bv. <code>hosts</code>, <code>networks</code>, <code>protocol</code>, <code>services</code>), zodat de gebruiker meteen een juiste naam kan kiezen.
+        </div>
+
           <hr />
           <h2 id="deel-4-bestanden-en-mappen-beheren">Deel 4 — Bestanden en mappen beheren</h2>
           <blockquote><p><strong>LET OP:</strong> De volgende opdrachten maken, kopi&#235;ren, verplaatsen en verwijderen mappen onder <code>C:\</code>. Voer ze alleen uit op het aangewezen oefensysteem. Controleer v&#243;&#243;r iedere verwijder- of verplaatsopdracht met <code>Test-Path</code> dat je exact met <code>C:\pxlData</code>, <code>C:\pxlBackup</code> of <code>C:\pxlData2</code> werkt. Verwijder na controle alle overgebleven testmappen.</p></blockquote>
@@ -234,6 +363,14 @@ else {<br>
               }<br>
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Zonder <code>if</code>, met <code>-Force</code> (hands-on 01):<br>
+            <code>New-Item -Path C:\pxlData -ItemType Directory -Force</code><br>
+            <br>
+            Met <code>-Force</code> geeft <code>New-Item</code> geen fout als de map al bestaat. De bestaande map en haar inhoud blijven gewoon behouden.
+        </div>
+
           <h4 id="5-2-controleer-of-de-map-bestaat">5.2 Controleer of de map bestaat</h4>
           <p>Toon een Booleaanse waarde die aangeeft of <code>C:\pxlData</code> bestaat.</p>
 
@@ -245,12 +382,29 @@ else {<br>
             Optioneel kun je met -PathType Container expliciet controleren dat het een map is en geen bestand met dezelfde naam.
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Geen echt geavanceerd antwoord nodig: <code>Test-Path -Path C:\pxlData -PathType Container</code> → <code>True</code><br>
+            <br>
+            Optioneel met <code>-LiteralPath</code> (Course, hoofdstuk 06): dan worden tekens zoals <code>[</code> en <code>]</code> in een pad niet als wildcard gelezen.<br>
+            <code>Test-Path -LiteralPath C:\pxlData -PathType Container</code>
+        </div>
+
           <h4 id="5-3-maak-pxlinfo-txt">5.3 Maak <code>pxlInfo.txt</code></h4>
           <p>Maak het lege bestand <code>C:\pxlData\pxlInfo.txt</code>.</p>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             New-Item -ItemType File -Path C:\pxlData\pxlInfo.txt
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>New-Item -Path C:\pxlData -Name pxlInfo.txt -ItemType File</code><br>
+            <br>
+            Controle: <code>Test-Path -Path C:\pxlData\pxlInfo.txt -PathType Leaf</code> → <code>True</code><br>
+            <br>
+            Let op: gebruik hier geen <code>-Force</code>. Bij een <b>bestand</b> overschrijft <code>New-Item -Force</code> een bestaand bestand met een leeg bestand. Bij een map gebeurt dat niet.
         </div>
 
           <h4 id="5-4-maak-tien-genummerde-bestanden">5.4 Maak tien genummerde bestanden</h4>
@@ -269,6 +423,14 @@ else {<br>
             <b>Controleren:</b><br>
             Get-ChildItem -Path C:\pxlData
         </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>New-Item</code> aanvaardt meerdere paden tegelijk. De pipeline maakt eerst de tien namen, daarna maakt één <code>New-Item</code> alle bestanden:<br>
+            <code>New-Item -Path (1..10 | ForEach-Object { "C:\pxlData\pxlInfo_$_.txt" }) -ItemType File</code><br>
+            <br>
+            Controle: <code>(Get-ChildItem -Path C:\pxlData -Filter 'pxlInfo_*.txt').Count</code> → <code>10</code>
+        </div>
           
           <h4 id="5-5-maak-een-back-up-van-de-bestanden">5.5 Maak een back-up van de bestanden</h4>
           <p>Maak <code>C:\pxlBackup</code> en kopieer alleen de onderliggende bestanden uit <code>C:\pxlData</code> naar deze map.</p>
@@ -281,6 +443,19 @@ else {<br>
             <br>
             <b>Controleren:</b><br>
             Get-ChildItem -Path C:\pxlBackup
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>New-Item -Path C:\pxlBackup -ItemType Directory -Force</code><br>
+            <code>Get-ChildItem -Path C:\pxlData -File | Copy-Item -Destination C:\pxlBackup -WhatIf</code> → eerst bekijken wat er zou gebeuren<br>
+            <code>Get-ChildItem -Path C:\pxlData -File | Copy-Item -Destination C:\pxlBackup</code><br>
+            <br>
+            <b>Controle:</b> evenveel bestanden in beide mappen?<br>
+            <code>(Get-ChildItem -Path C:\pxlData -File).Count</code><br>
+            <code>(Get-ChildItem -Path C:\pxlBackup -File).Count</code> → allebei <code>11</code><br>
+            <br>
+            <code>Get-ChildItem -File</code> neemt alleen bestanden, geen submappen. Met <code>Copy-Item C:\pxlData\* C:\pxlBackup</code> zou PowerShell ook submappen meekopiëren als die er zijn.
         </div>
 
           <h4 id="5-6-verwijder-c-pxlbackup">5.6 Verwijder <code>C:\pxlBackup</code></h4>
@@ -302,6 +477,15 @@ else {<br>
             Test-Path C:\pxlBackup
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Hetzelfde als hierboven, maar met <code>-LiteralPath</code> zodat het pad exact zo gebruikt wordt als je het typt:<br>
+            <code>Test-Path -LiteralPath C:\pxlBackup -PathType Container</code><br>
+            <code>Remove-Item -LiteralPath C:\pxlBackup -Recurse -WhatIf</code><br>
+            <code>Remove-Item -LiteralPath C:\pxlBackup -Recurse</code><br>
+            <code>Test-Path -LiteralPath C:\pxlBackup</code> → <code>False</code>
+        </div>
+
           <h4 id="5-7-verplaats-c-pxldata-naar-c-pxldata2">5.7 Verplaats <code>C:\pxlData</code> naar <code>C:\pxlData2</code></h4>
           <p>Verplaats de map inclusief inhoud. Controleer daarna dat <code>C:\pxlData</code> niet meer bestaat en <code>C:\pxlData2</code> wel bestaat.</p>
 
@@ -317,6 +501,16 @@ else {<br>
             Get-ChildItem -Path C:\pxlData2
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>Move-Item -Path C:\pxlData -Destination C:\pxlData2 -WhatIf</code> → eerst bekijken<br>
+            <code>Move-Item -Path C:\pxlData -Destination C:\pxlData2</code><br>
+            <br>
+            Beide paden in één opdracht controleren:<br>
+            <code>Test-Path -Path C:\pxlData, C:\pxlData2</code> → <code>False</code>, <code>True</code><br>
+            <code>(Get-ChildItem -Path C:\pxlData2 -File).Count</code> → <code>11</code>: de inhoud is meeverhuisd.
+        </div>
+
           <h4 id="5-8-ruim-de-testomgeving-op">5.8 Ruim de testomgeving op</h4>
           <p>Verwijder <code>C:\pxlData2</code> nadat de docent het resultaat heeft gecontroleerd.</p>
 
@@ -329,6 +523,15 @@ else {<br>
             <br>
             <b>Je kan altijd een <i>-WhatIf</i> uitvoeren om op veilig te spelen.</b><br>
             Remove-Item C:\pxlData2 -Recurse -WhatIf
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>Remove-Item -LiteralPath C:\pxlData2 -Recurse -WhatIf</code><br>
+            <code>Remove-Item -LiteralPath C:\pxlData2 -Recurse</code><br>
+            <br>
+            Eindcontrole van de volledige testomgeving in één opdracht:<br>
+            <code>Test-Path -Path C:\pxlData, C:\pxlBackup, C:\pxlData2</code> → drie keer <code>False</code>
         </div>
 
           <hr />
@@ -355,6 +558,21 @@ else {<br>
                   @{Name='Sum(MB)';             Expression={'{0:N2}' -f ($_.Sum / 1MB)}}<br>
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Met een extra kolom voor het aantal bestanden, als tabel (Course, hoofdstuk 05):<br>
+            <pre><code>Get-ChildItem -Path C:\Windows -File |
+    Measure-Object -Property Length -Maximum -Minimum -Average -Sum |
+    Select-Object @{Name='Aantal';      Expression={$_.Count}},
+                  @{Name='Max(MB)';     Expression={'{0:N2}' -f ($_.Maximum / 1MB)}},
+                  @{Name='Min(MB)';     Expression={'{0:N2}' -f ($_.Minimum / 1MB)}},
+                  @{Name='Average(MB)'; Expression={'{0:N2}' -f ($_.Average / 1MB)}},
+                  @{Name='Sum(MB)';     Expression={'{0:N2}' -f ($_.Sum / 1MB)}} |
+    Format-Table</code></pre>
+            <code>Measure-Object</code> rekent in bytes. Delen door <code>1MB</code> geeft megabytes; <code>'{0:N2}' -f</code> toont precies twee cijfers na de komma.<br>
+            <code>Format-Table</code> staat altijd <b>als laatste</b> in de pipeline: daarna zijn het geen gewone objecten meer maar opmaakregels.
+        </div>
+
           <h3 id="7-zoek-recente-word-bestanden">7. Zoek recente Word-bestanden</h3>
           <p>Zoek recursief onder <code>C:\Users</code> naar bestanden met extensie <code>.doc</code> of <code>.docx</code> die zijn aangemaakt na 1 oktober 2022.</p>
           <blockquote><p><strong>LET OP:</strong> Een recursieve zoekactie onder <code>C:\Users</code> kan traag zijn en toegangswaarschuwingen geven. Wijzig of verwijder geen gevonden bestanden.</p></blockquote>
@@ -372,6 +590,18 @@ else {<br>
             Select-Object Name, CreationTime, FullName
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Gesorteerd, nieuwste eerst, en met het aantal:<br>
+            <pre><code>$wordFiles = Get-ChildItem -Path C:\Users -File -Recurse -Include *.doc, *.docx -ErrorAction SilentlyContinue |
+    Where-Object { $_.CreationTime -gt (Get-Date -Date '2022-10-01') } |
+    Sort-Object CreationTime -Descending
+
+$wordFiles | Select-Object Name, CreationTime, FullName
+Write-Output "Aantal Word-bestanden: $(($wordFiles | Measure-Object).Count)"</code></pre>
+            <code>-Include</code> aanvaardt meerdere patronen; <code>-Filter</code> maar één. <code>-ErrorAction SilentlyContinue</code> onderdrukt alleen de meldingen over mappen waar je geen toegang toe hebt; de zoekactie gaat gewoon verder.
+        </div>
+
           <hr />
           <h3 id="eindcontrole">Eindcontrole</h3>
           <ul>
@@ -385,7 +615,7 @@ else {<br>
           </ul></article>
         <footer class="docs-footer">Uitgebreide oefening 03 <span aria-hidden="true">·</span> PowerShell</footer>
       </main></div>
-    <script src="../assets/docs.js" defer></script>
+    <script src="../assets/docs.js?v=2" defer></script>
     <script src="../assets/search.js" defer></script>
   </body>
 </html>

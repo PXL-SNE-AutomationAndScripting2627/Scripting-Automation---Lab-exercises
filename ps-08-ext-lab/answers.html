@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="nl">
-  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="theme-color" content="#0d1117" /><title>Opdrachten — Uitgebreide oefening 08</title><link rel="stylesheet" href="../styles.css" /></head>
+  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="theme-color" content="#0d1117" /><title>Opdrachten — Uitgebreide oefening 08</title><link rel="stylesheet" href="../styles.css?v=2" /></head>
   <body class="docs-page">
     <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
     <header class="docs-header"><a class="docs-brand" href="../index.html"><span class="brand-mark" aria-hidden="true">PXL</span><span>PowerShell-oefening</span></a><nav class="docs-global-nav" aria-label="Hoofdnavigatie"><a href="../index.html">Oefeningen</a><a href="index.html">Overzicht</a><a class="answers-nav-link" href="answers.html" aria-current="page">Opdrachten</a><a href="scripts.html">Scripts</a></nav></header>
@@ -50,6 +50,25 @@ Write-Progress -Activity &#39;Search in Progress&#39; -Completed</code></pre>
             Na de lus sluit <code>Write-Progress -Completed</code> de balk af.<br>
             <br>
             <b>Test:</b> <code>./scripts/for_loop_progress.ps1</code> → bovenaan verschijnt <code>Search in Progress</code> met een balk die van 1% tot 100% loopt en daarna verdwijnt.<br>
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            De voortgang berekenen voor <b>echt werk</b>: de bestanden van een map één voor één overlopen.<br>
+            <pre><code>$bestanden = Get-ChildItem -Path C:\Windows -File
+$teller    = 0
+
+foreach ($bestand in $bestanden) {
+    $teller++
+    $procent = [math]::Round($teller / $bestanden.Count * 100)
+
+    Write-Progress -Activity 'Bestanden overlopen' -Status "$teller van $($bestanden.Count): $($bestand.Name)" -PercentComplete $procent
+    Start-Sleep -Milliseconds 100
+}
+
+Write-Progress -Activity 'Bestanden overlopen' -Completed</code></pre>
+            <code>$teller / $bestanden.Count * 100</code> rekent het percentage uit (Course, hoofdstuk 08); <code>[math]::Round()</code> maakt er een geheel getal van.<br>
+            <code>-Status</code> toont bij elke stap welk bestand aan de beurt is, bv. <code>3 van 25: notepad.exe</code>.
         </div>
           <h2 id="2-excel-doorlopen-pxl-view-ps1">2. Excel doorlopen — <code>pxl_view.ps1</code></h2>
           <p>Lees <code>example_files/pxl_data.xlsx</code> met de module <code>ImportExcel</code>.</p>
@@ -116,6 +135,31 @@ if (-not (Test-Path -LiteralPath $excelBestand -PathType Leaf)) {
             <br>
             <b>Bestand ontbreekt:</b> → <code>Het bestand ...\example_files\pxl_data.xlsx bestaat niet.</code><br>
         </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Met een volgnummer (zoals het <code>$Teller</code>-voorbeeld in de Course, hoofdstuk 11) en een samenvatting per woonplaats en per departement:<br>
+            <pre><code>$excelBestand  = Join-Path $PSScriptRoot '../example_files/pxl_data.xlsx'
+$studenten     = Import-Excel -Path $excelBestand -WorksheetName 'Studenten'
+$departementen = Import-Excel -Path $excelBestand -WorksheetName 'Departementen'
+
+Write-Host "Overzicht studenten($($studenten.Count)) PXL:" -ForegroundColor Green
+$teller = 1
+foreach ($student in $studenten) {
+    Write-Host "$teller. Student $($student.Voornaam) $($student.Naam) woonachtig te $($student.Woonplaats)"
+    $teller++
+}
+
+Write-Host 'Aantal studenten per woonplaats:' -ForegroundColor Green
+$studenten | Group-Object -Property Woonplaats | Sort-Object Count -Descending | Select-Object Name, Count
+
+Write-Host 'Richtingen per departement:' -ForegroundColor Green
+foreach ($groep in ($departementen | Group-Object -Property Naam)) {
+    Write-Host "$($groep.Name): $($groep.Group.Richting -join ', ')"
+}</code></pre>
+            Resultaat van de samenvattingen: <code>Genk 2</code> en de andere woonplaatsen 1; <code>Business: Accountancy-fiscaliteit, Marketing, Rechspraktijk</code> en <code>Digital: Systemen- en netwerkbeheer, Software Management</code>.<br>
+            <code>Group-Object</code> (Course, hoofdstuk 03) maakt per waarde één groep. <code>$groep.Group</code> bevat de rijen van die groep, en <code>-join ', '</code> plakt hun richtingen aan elkaar.
+        </div>
           <h2 id="3-mapinformatie-directoriesinfo-ps1">3. Mapinformatie — <code>DirectoriesInfo.ps1</code></h2>
           <p>Doorloop met <code>foreach</code> de mappen <code>C:\Windows</code>, <code>C:\Program Files</code> en <code>C:\powershell</code>. Toon voor iedere bestaande map naam, aanmaakdatum en attributen. Maak de lengte van de onderstreping met een geneste <code>for</code>-lus. Meld ontbrekende mappen zonder te stoppen.</p>
           <p><img class="lab-screenshot" src="assets/directories-output.png" alt="Mapinformatie" /></p>
@@ -172,6 +216,36 @@ foreach ($folder in $folders) {
             (en hetzelfde voor <code>C:\Program Files</code> en <code>C:\powershell</code>)<br>
             <b>Map ontbreekt:</b> bestaat <code>C:\powershell</code> niet, dan verschijnt <code>De folder C:\powershell bestaat niet.</code> en de andere mappen worden wel getoond.<br>
         </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Met <code>continue</code> (Course, hoofdstuk 11) en de datum in hetzelfde formaat als de voorbeeldafbeelding:<br>
+            <pre><code>$folders = 'C:\Windows', 'C:\Program Files', 'C:\powershell'
+
+foreach ($folder in $folders) {
+    if (-not (Test-Path -LiteralPath $folder -PathType Container)) {
+        Write-Host "De folder $folder bestaat niet." -ForegroundColor Red
+        continue
+    }
+
+    $folderInfo = Get-Item -LiteralPath $folder
+    $titel      = "Informatie over de folder: $folder"
+
+    $lijn = ''
+    for ($i = 0; $i -lt $titel.Length; $i++) {
+        $lijn += '-'
+    }
+
+    Write-Host $titel -ForegroundColor Green
+    Write-Host $lijn -ForegroundColor Green
+    Write-Host "De folder `"$($folderInfo.Name)`" is aangemaakt op $($folderInfo.CreationTime.ToString('dd/MM/yyyy HH:mm:ss'))"
+    Write-Host "en heeft de volgende attributen: $($folderInfo.Attributes)"
+    Write-Host ''
+}</code></pre>
+            <code>continue</code> slaat de rest van de lus over en gaat meteen naar de volgende map. Zo hoeft het "normale" werk niet in een <code>else</code>-blok te staan.<br>
+            <code>$lijn += '-'</code> is korter voor <code>$lijn = $lijn + '-'</code>.<br>
+            <code>.ToString('dd/MM/yyyy HH:mm:ss')</code> toont de datum als dag/maand/jaar, bv. <code>01/04/2024 09:21:16</code>.
+        </div>
           <h2 id="4-groepen-uit-csv-usergroupinfo-ps1">4. Groepen uit CSV — <code>UserGroupInfo.ps1</code></h2>
           <p>Importeer <code>example_files/usergroup.csv</code> en toon eerst alle gebruikers uit <code>GPA</code>, daarna alle gebruikers uit <code>GPB</code>. Gebruik <code>foreach</code> en <code>if</code>; schrijf geen afzonderlijke vaste gebruikersnamen in je code.</p>
           <p><img class="lab-screenshot" src="assets/user-group-output.png" alt="Gebruikers per groep" /></p>
@@ -222,6 +296,25 @@ if (-not (Test-Path -LiteralPath $csvBestand -PathType Leaf)) {
             <code>Groep B</code>: <code>jpeters</code>, <code>pquaedpeerdt</code><br>
             <b>Bestand ontbreekt:</b> → <code>Het bestand ...\example_files\usergroup.csv bestaat niet.</code><br>
         </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Zonder de groepsnamen vast in de code te zetten: <code>Group-Object</code> maakt de groepen zelf uit de gegevens.<br>
+            <pre><code>$csvBestand = Join-Path $PSScriptRoot '../example_files/usergroup.csv'
+$users      = Import-Csv -LiteralPath $csvBestand
+
+$groepen = $users | Group-Object -Property { $_.Group.Trim() } | Sort-Object Name
+
+foreach ($groep in $groepen) {
+    Write-Host "Groep $($groep.Name)" -ForegroundColor Green
+    foreach ($user in $groep.Group) {
+        Write-Host "`t$($user.Username.Trim())"
+    }
+}</code></pre>
+            Resultaat: <code>Groep GPA</code> met <code>dhoubrechts</code>, <code>egreven</code>, <code>edebakker</code> en <code>Groep GPB</code> met <code>jpeters</code>, <code>pquaedpeerdt</code>.<br>
+            <code>-Property { $_.Group.Trim() }</code> groepeert op de groep <b>zonder spaties</b>. Zonder <code>.Trim()</code> zouden <code>GPA</code> en <code> GPA</code> twee verschillende groepen worden.<br>
+            Komt er later een groep <code>GPC</code> bij, dan toont het script die automatisch, zonder één regel code te wijzigen.
+        </div>
           <h2 id="eindcontrole">Eindcontrole</h2>
           <ul>
           <li><span aria-hidden="true">&#9744;</span> De vier scripts gebruiken de twee meegeleverde bestanden uit <code>example_files/</code>.</li>
@@ -231,7 +324,7 @@ if (-not (Test-Path -LiteralPath $csvBestand -PathType Leaf)) {
           </ul></article>
         <footer class="docs-footer">Uitgebreide oefening 08 <span aria-hidden="true">·</span> PowerShell</footer>
       </main></div>
-    <script src="../assets/docs.js" defer></script>
+    <script src="../assets/docs.js?v=2" defer></script>
     <script src="../assets/search.js" defer></script>
   </body>
 </html>

@@ -1,26 +1,12 @@
-const answers = Array.from(document.querySelectorAll("#main-content div")).filter(
-  (element) =>
+const findBoxes = (label) =>
+  Array.from(document.querySelectorAll("#main-content div")).filter((element) =>
     Array.from(element.children).some(
       (child) =>
         child.tagName === "STRONG" &&
-        child.textContent.trim().toLowerCase() === "mijn antwoord:",
+        child.textContent.trim().toLowerCase() === label,
     ),
-);
+  );
 
-const answerControls = document.createElement("div");
-answerControls.className = "answer-controls";
-
-const allAnswersToggle = document.createElement("button");
-allAnswersToggle.className = "answer-toggle";
-allAnswersToggle.type = "button";
-allAnswersToggle.textContent = "Toon antwoorden";
-
-const answerStatus = document.createElement("span");
-answerStatus.className = "answer-toggle-status";
-answerStatus.setAttribute("role", "status");
-answerStatus.setAttribute("aria-live", "polite");
-
-answerControls.append(allAnswersToggle, answerStatus);
 const answerSectionHeading = Array.from(
   document.querySelectorAll(".docs-sidebar .sidebar-group-label"),
 ).find((heading) =>
@@ -28,62 +14,114 @@ const answerSectionHeading = Array.from(
     heading.textContent.trim().toLowerCase(),
   ),
 );
-answerSectionHeading.after(answerControls);
 
-const updateAnswerControls = () => {
-  const visibleAnswers = answers.filter((answer) => !answer.hidden).length;
-  const allAnswersVisible = visibleAnswers === answers.length;
+let lastControls = answerSectionHeading;
 
-  allAnswersToggle.textContent = allAnswersVisible
-    ? "Verberg antwoorden"
-    : "Toon antwoorden";
+const setupAnswerToggles = ({
+  label,
+  idPrefix,
+  showAll,
+  hideAll,
+  showOne,
+  hideOne,
+  noun,
+}) => {
+  const answers = findBoxes(label);
 
-  if (visibleAnswers === 0) {
-    answerStatus.textContent = "Alle antwoorden zijn verborgen.";
-  } else if (allAnswersVisible) {
-    answerStatus.textContent = "Alle antwoorden zijn zichtbaar.";
-  } else {
-    answerStatus.textContent = `${visibleAnswers} van de ${answers.length} antwoorden zijn zichtbaar.`;
-  }
-};
-
-allAnswersToggle.addEventListener("click", () => {
-  const showAnswers = answers.some((answer) => answer.hidden);
-
-  answers.forEach((answer) => {
-    answer.hidden = !showAnswers;
-  });
-  updateAnswerControls();
-});
-
-answers.forEach((answer, index) => {
-  let answerId = `answer-${index + 1}`;
-  let suffix = 2;
-
-  while (document.getElementById(answerId)) {
-    answerId = `answer-${index + 1}-${suffix}`;
-    suffix += 1;
+  if (answers.length === 0 || !lastControls) {
+    return;
   }
 
-  answer.id = answerId;
-  answer.hidden = true;
+  const answerControls = document.createElement("div");
+  answerControls.className = "answer-controls";
 
-  const button = document.createElement("button");
-  button.className = "answer-toggle";
-  button.type = "button";
-  button.setAttribute("aria-controls", answerId);
-  button.setAttribute("aria-expanded", "false");
-  button.textContent = "Antwoord";
+  const allAnswersToggle = document.createElement("button");
+  allAnswersToggle.className = "answer-toggle";
+  allAnswersToggle.type = "button";
+  allAnswersToggle.textContent = showAll;
 
-  button.addEventListener("click", () => {
-    const expanded = answer.hidden;
-    answer.hidden = !expanded;
-    button.setAttribute("aria-expanded", String(expanded));
-    button.textContent = expanded ? "Verberg antwoord" : "Antwoord";
+  const answerStatus = document.createElement("span");
+  answerStatus.className = "answer-toggle-status";
+  answerStatus.setAttribute("role", "status");
+  answerStatus.setAttribute("aria-live", "polite");
+
+  answerControls.append(allAnswersToggle, answerStatus);
+  lastControls.after(answerControls);
+  lastControls = answerControls;
+
+  const updateAnswerControls = () => {
+    const visibleAnswers = answers.filter((answer) => !answer.hidden).length;
+    const allAnswersVisible = visibleAnswers === answers.length;
+
+    allAnswersToggle.textContent = allAnswersVisible ? hideAll : showAll;
+
+    if (visibleAnswers === 0) {
+      answerStatus.textContent = `Alle ${noun} zijn verborgen.`;
+    } else if (allAnswersVisible) {
+      answerStatus.textContent = `Alle ${noun} zijn zichtbaar.`;
+    } else {
+      answerStatus.textContent = `${visibleAnswers} van de ${answers.length} ${noun} zijn zichtbaar.`;
+    }
+  };
+
+  allAnswersToggle.addEventListener("click", () => {
+    const showAnswers = answers.some((answer) => answer.hidden);
+
+    answers.forEach((answer) => {
+      answer.hidden = !showAnswers;
+    });
     updateAnswerControls();
   });
 
-  answer.before(button);
+  answers.forEach((answer, index) => {
+    let answerId = `${idPrefix}-${index + 1}`;
+    let suffix = 2;
+
+    while (document.getElementById(answerId)) {
+      answerId = `${idPrefix}-${index + 1}-${suffix}`;
+      suffix += 1;
+    }
+
+    answer.id = answerId;
+    answer.hidden = true;
+
+    const button = document.createElement("button");
+    button.className = "answer-toggle";
+    button.type = "button";
+    button.setAttribute("aria-controls", answerId);
+    button.setAttribute("aria-expanded", "false");
+    button.textContent = showOne;
+
+    button.addEventListener("click", () => {
+      const expanded = answer.hidden;
+      answer.hidden = !expanded;
+      button.setAttribute("aria-expanded", String(expanded));
+      button.textContent = expanded ? hideOne : showOne;
+      updateAnswerControls();
+    });
+
+    answer.before(button);
+  });
+
+  updateAnswerControls();
+};
+
+setupAnswerToggles({
+  label: "mijn antwoord:",
+  idPrefix: "answer",
+  showAll: "Toon antwoorden",
+  hideAll: "Verberg antwoorden",
+  showOne: "Antwoord",
+  hideOne: "Verberg antwoord",
+  noun: "antwoorden",
 });
 
-updateAnswerControls();
+setupAnswerToggles({
+  label: "geavanceerd antwoord:",
+  idPrefix: "advanced-answer",
+  showAll: "Toon Geavanceerde Antwoorden",
+  hideAll: "Verberg Geavanceerde Antwoorden",
+  showOne: "Geavanceerd antwoord",
+  hideOne: "Verberg geavanceerd antwoord",
+  noun: "geavanceerde antwoorden",
+});

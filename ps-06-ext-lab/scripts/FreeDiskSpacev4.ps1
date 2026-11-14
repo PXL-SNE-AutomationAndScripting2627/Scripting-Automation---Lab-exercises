@@ -19,6 +19,7 @@
 [CmdletBinding()]
 param(
     [Parameter(Position = 0)]
+    [ValidateScript({ Get-CimInstance -ClassName CIM_LogicalDisk | Where-Object DriveType -eq 3 | Where-Object DeviceID -eq $_ }, ErrorMessage = 'De schijf {0} bestaat niet of is geen lokale schijf.')]
     [ValidatePattern('\A[A-Z]:\z', ErrorMessage = '{0} is geen geldige stationsletter (bv. C:).')]
     [string]$driveLetter = 'C:',
 
@@ -31,19 +32,13 @@ $disk = Get-CimInstance -ClassName CIM_LogicalDisk |
     Where-Object DriveType -eq 3 |
     Where-Object DeviceID -eq $driveLetter
 
-if ($null -eq $disk) {
-    Write-Error "De schijf $driveLetter bestaat niet of is geen lokale schijf."
-} else {
-    switch ($dataUnit) {
-        'MB' { $deler = 1MB }
-        'GB' { $deler = 1GB }
-        'TB' { $deler = 1TB }
-    }
+# Het aantal bytes per eenheid opzoeken in een hashtable
+$delers = @{ MB = 1MB; GB = 1GB; TB = 1TB }
+$deler  = $delers[$dataUnit]
 
-    $totaal = [math]::Round($disk.Size / $deler, 2)
-    $vrij   = [math]::Round($disk.FreeSpace / $deler, 2)
+$totaal = [math]::Round($disk.Size / $deler, 2)
+$vrij   = [math]::Round($disk.FreeSpace / $deler, 2)
 
-    $eenheid = $dataUnit.ToUpper()
+$eenheid = $dataUnit.ToUpper()
 
-    Write-Output "$($disk.DeviceID) totale grootte $totaal$eenheid, vrije ruimte $vrij$eenheid"
-}
+Write-Output "$($disk.DeviceID) totale grootte $totaal$eenheid, vrije ruimte $vrij$eenheid"

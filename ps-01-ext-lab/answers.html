@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0d1117" />
     <title>PowerShell-oefening — Opdrachten van Angelo Switon</title>
-    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../styles.css?v=2" />
   </head>
   <body class="docs-page">
     <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
@@ -66,6 +66,22 @@
             Maar ook het wekelijks of soms dagelijks maken van back-ups kan met een script geautomatiseerd worden.
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Uitgebreider antwoord volgens de Course (<i>Why automation? / Why scripting?</i>):<br>
+            <ul>
+              <li><b>Efficiëntie en snelheid:</b> een script voert een taak sneller uit dan iemand die dezelfde stappen met de hand doet.</li>
+              <li><b>Consistentie en nauwkeurigheid:</b> een getest script doet elke keer exact hetzelfde, dus minder menselijke fouten.</li>
+              <li><b>Schaalbaarheid:</b> hetzelfde script werkt voor 1 of voor 250 computers, zonder veel extra werk.</li>
+              <li><b>24/7 beschikbaar:</b> een script kan op elk moment draaien, bv. 's nachts een back-up maken.</li>
+              <li><b>Risicovermindering:</b> scripts kunnen beveiligingsregels afdwingen en regelmatig back-ups maken.</li>
+              <li><b>Minder herhalend werk:</b> de beheerder houdt tijd over voor belangrijkere taken.</li>
+            </ul>
+            Toepassingsgebieden uit de Course: servers en clients, virtuele machines en containers, netwerken en netwerkapparaten, besturingssystemen en software-installaties.<br>
+            <b>Infrastructure as Code (IaC):</b> je beschrijft en beheert je infrastructuur met code in plaats van met de hand.<br>
+            Let op (hands-on 01): automatiseren is pas zinvol als een taak herhaald wordt, duidelijke regels volgt en veilig te controleren is.
+        </div>
+
         <h3>2. Pakketbeheerders</h3>
 
         <h4>2.1 Wat is een pakketbeheerder?</h4>
@@ -76,6 +92,18 @@
             Het voordeel hieraan is dat je niet op zoek moet gaan op het internet naar de correcte versie van de software en dat je weet dat je altijd een veilige en correcte versie van de software download.
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Een pakketbeheerder (<i>Package Manager</i>) is een tool die software-installaties automatiseert. Volgens de Course kan je ermee:<br>
+            <ul>
+              <li>software <b>installeren</b>;</li>
+              <li>software eenvoudig <b>bijwerken</b> (upgrade);</li>
+              <li>geïnstalleerde software eenvoudig <b>verwijderen</b>;</li>
+              <li>veel <b>configuratiemogelijkheden</b> gebruiken.</li>
+            </ul>
+            Het belangrijkste voordeel voor automatisering: een pakketbeheerder <b>werkt in scripts</b>. Voorbeelden uit de Course: <code>winget</code>, Chocolatey en Scoop.
+        </div>
+
         <h4>2.2 Waarom gebruik je een pakketbeheerder?</h4>
         <p><i>Geef minstens drie voordelen ten opzichte van handmatig software downloaden en installeren.</i></p>
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
@@ -84,6 +112,16 @@
             2. Alle softwarepakketten zijn veilig en je weet dat je het niet download via een onbetrouwbare bron.<br>
             3. De pakketbeheerder zorgt voor automatische updates en beheer van de geïnstalleerde software.<br>
         </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <ol>
+              <li>Handiger dan zelf zoeken, downloaden en doorklikken.</li>
+              <li>Installeren, bijwerken en verwijderen gaan allemaal met één soort commando, bv. <code>winget install</code>, <code>winget upgrade</code> en <code>winget uninstall</code>.</li>
+              <li>Je kan het in een script zetten: zo installeer je dezelfde software automatisch op veel computers.</li>
+              <li>Je zoekt eerst met <code>winget search</code> en installeert dan exact het juiste pakket met <code>--id</code>.</li>
+            </ol>
+        </div>
         
         <h4>2.3 Installeer software met een pakketbeheerder</h4>
         <p><i>Zoek en installeer de volgende software. Noteer voor elk pakket welke pakketbeheerder en welke commando's je gebruikte.</i></p>
@@ -91,27 +129,84 @@
         <h5>2.3.1 PowerShell 7.x</h5>
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            winget install --id Micrososft.Powershell --exact --source winget
+            winget install --id Microsoft.PowerShell --exact --source winget
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Werkwijze uit de Course (How-to: PowerShell setup), in een terminal <b>als administrator</b>:<br>
+            <code>winget search --id Microsoft.PowerShell</code> → zoek de laatste stabiele versie<br>
+            <code>winget install --id Microsoft.PowerShell --source winget --installer-type wix</code><br>
+            <code>--installer-type wix</code> kiest de MSI-versie in plaats van de Store-versie (aanbevolen voor beheerstaken, bv. <code>Set-ExecutionPolicy -Scope LocalMachine</code> werkt niet in de Store-versie).<br>
+            <br>
+            <b>Controle</b> (nieuwe terminal openen): <code>pwsh</code> en daarna <code>$PSVersionTable.PSVersion</code> → versie 7.x<br>
+            <br>
+            Let op: de id moet exact <code>Microsoft.PowerShell</code> zijn. Met een tikfout in de id vindt winget het pakket niet.
         </div>
         <h5>2.3.2 Windows Terminal</h5>
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             winget install --id Microsoft.WindowsTerminal --exact --source winget
         </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>winget search --id Microsoft.WindowsTerminal</code><br>
+            <code>winget install --id Microsoft.WindowsTerminal --exact --source winget</code><br>
+            <br>
+            <b>Controle</b> (How-to: Windows Terminal setup): open Windows Terminal, kies met het pijltje naast de nieuwe-tab-knop het profiel <b>PowerShell</b> (niet <i>Windows PowerShell</i>) en voer <code>$PSVersionTable.PSVersion</code> uit → versie 7.x.
+        </div>
         <h5>2.3.3 Visual Studio Code</h5>
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             winget install --id Microsoft.VisualStudioCode --exact --source winget
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>winget install --id Microsoft.VisualStudioCode --exact --source winget</code><br>
+            <br>
+            <b>Controle</b> (How-to: VS Code setup), na het herstarten van PowerShell:<br>
+            <code>code --version</code> → toont de geïnstalleerde versie van VS Code<br>
+            <br>
+            De PowerShell-extensie kan je meteen mee installeren vanuit PowerShell:<br>
+            <code>code --install-extension ms-vscode.PowerShell</code>
         </div>
         <h5>2.3.4 Een Windows-versie van het Linux-commando <code>grep</code></h5>
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             winget install --id GnuWin32.Grep --exact --source winget
         </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Eerst zoeken, dan pas installeren:<br>
+            <code>winget search grep</code> → in de lijst staat o.a. <code>GnuWin32.Grep</code><br>
+            <code>winget install --id GnuWin32.Grep --exact --source winget</code><br>
+            <br>
+            <b>Controle</b> met <code>Get-Command</code> (Course, hoofdstuk 01): <code>Get-Command grep</code><br>
+            Vindt PowerShell het programma, dan toont <code>Source</code> het pad naar <code>grep.exe</code>. Krijg je een fout, dan staat de map van grep niet in je PATH en moet je het volledige pad gebruiken.<br>
+            <br>
+            Alternatief: BusyBox (2.3.5) bevat ook een <code>grep</code>: <code>busybox grep</code>.
+        </div>
         <h5>2.3.5 BusyBox</h5>
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            winget install --id frippery.busybox --exact --source winget
+            winget install --id frippery.busybox-w32 --exact --source winget
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>winget search busybox</code> → de juiste id is <code>frippery.busybox-w32</code><br>
+            <code>winget install --id frippery.busybox-w32 --exact --source winget</code><br>
+            <br>
+            Let op: <code>frippery.busybox</code> (zonder <code>-w32</code>) bestaat niet in winget. Gebruik dezelfde id ook voor de update in 2.3.6.<br>
+            <br>
+            <b>Alternatief uit de Course</b> (Linux Commands in Windows) met Scoop:<br>
+            <code>scoop search busybox</code><br>
+            <code>scoop install busybox</code><br>
+            <br>
+            <b>Controle:</b> <code>Get-Command busybox</code> → toont waar <code>busybox.exe</code> staat.
         </div>
 
         <h5>2.3.6 Hoe werk je BusyBox bij?</h5>
@@ -120,10 +215,29 @@
             winget upgrade --id frippery.busybox-w32 --source winget
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Eerst bekijken welke updates er zijn:<br>
+            <code>winget upgrade</code> → lijst van alle geïnstalleerde pakketten waarvoor een nieuwere versie bestaat<br>
+            <br>
+            Daarna alleen BusyBox bijwerken:<br>
+            <code>winget upgrade --id frippery.busybox-w32 --source winget</code><br>
+            <br>
+            Dit is dezelfde werkwijze als in de Course voor PowerShell: <code>winget upgrade --id Microsoft.PowerShell</code>.
+        </div>
+
         <h3>3. PowerShell-versie</h3>
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             $PSVersionTable.PSVersion
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>$PSVersionTable.PSVersion</code> → alleen het versienummer<br>
+            <code>$PSVersionTable.PSEdition</code> → <code>Core</code> (PowerShell 7) of <code>Desktop</code> (Windows PowerShell 5.1)<br>
+            <br>
+            <code>$PSVersionTable</code> is een <b>automatische variabele</b>, geen cmdlet (hands-on 01). Met de punt (<code>.PSVersion</code>) vraag je één onderdeel op.
         </div>
 
         <h4>3.1 Toon de PowerShell-versie in je huidige sessie</h4>
@@ -133,12 +247,34 @@
             $PSVersionTable
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>$PSVersionTable</code> → toont o.a. <code>PSVersion</code>, <code>PSEdition</code>, <code>OS</code> en <code>Platform</code>.<br>
+            <br>
+            Dezelfde variabele opvragen met een cmdlet (hands-on 01):<br>
+            <code>Get-Variable -Name PSVersionTable</code><br>
+            <br>
+            Noteer je versie en editie wanneer je hulp vraagt: andere versies kunnen andere cmdlets en parameters hebben.
+        </div>
+
         <h4>3.2 Zoek andere manieren om de versie op te vragen</h4>
         <p><i>Geef minstens twee alternatieven. Vergelijk kort welke informatie ze tonen.</i></p>
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             Get-Host<br>
-            pwsh --version
+            pwsh --version<br>
+            <br>
+            Vergelijking: <code>Get-Host</code> toont informatie over het hostprogramma waarin PowerShell draait (o.a. <code>Name</code> en <code>Version</code>). <code>pwsh --version</code> toont alleen de versie van de geïnstalleerde PowerShell 7, bv. <code>PowerShell 7.6.10</code>. <code>$PSVersionTable</code> toont de meeste informatie (versie, editie, besturingssysteem).
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <b>Vergelijking</b><br>
+            <code>$PSVersionTable.PSVersion</code> → de versie van PowerShell in je <b>huidige</b> sessie.<br>
+            <code>Get-Host</code> → informatie over het <b>hostprogramma</b> waarin PowerShell draait (<code>Name</code>, <code>Version</code>, taal...). In een gewone terminal is dat dezelfde versie, maar in de PowerShell-extensie van VS Code toont <code>Get-Host</code> de versie van die extensie. Alleen het versienummer: <code>(Get-Host).Version</code><br>
+            <code>pwsh --version</code> → start het programma <code>pwsh</code> en toont bv. <code>PowerShell 7.6.10</code>: de geïnstalleerde PowerShell 7, ook als je zelf in Windows PowerShell 5.1 werkt.<br>
+            <br>
+            Conclusie: <code>$PSVersionTable</code> is de betrouwbaarste manier voor je huidige sessie.
         </div>
 
         <h3>4. PowerShell execution policies</h3>
@@ -154,12 +290,34 @@
             Get-ExecutionPolicy
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Geen echt geavanceerd antwoord nodig: <code>Get-ExecutionPolicy</code> toont de <b>geldende</b> policy van je huidige sessie.<br>
+            <br>
+            Optioneel: <code>Get-Help Get-ExecutionPolicy -Examples</code>
+        </div>
+
         <h4>4.2 Toon de execution policies voor alle scopes</h4>
         <p><i>Neem minstens <code>MachinePolicy</code>, <code>UserPolicy</code>, <code>Process</code>, <code>CurrentUser</code> en <code>LocalMachine</code> op in je antwoord.</i></p>
 
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             Get-ExecutionPolicy -List
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>Get-ExecutionPolicy -List</code><br>
+            <br>
+            Betekenis van de scopes (Course):<br>
+            <ul>
+              <li><code>MachinePolicy</code>: ingesteld via Group Policy voor alle gebruikers van de computer.</li>
+              <li><code>UserPolicy</code>: ingesteld via Group Policy voor de huidige gebruiker.</li>
+              <li><code>Process</code>: alleen voor de huidige PowerShell-sessie (verdwijnt als je het venster sluit).</li>
+              <li><code>CurrentUser</code>: alleen voor de huidige gebruiker.</li>
+              <li><code>LocalMachine</code>: standaardscope, voor alle gebruikers van de computer.</li>
+            </ul>
+            <code>Undefined</code> betekent dat er op die scope niets ingesteld is. De bovenste scope met een waarde wint; een school of werkgever kan zo via <code>MachinePolicy</code> of <code>UserPolicy</code> een policy afdwingen.
         </div>
 
         <h4>4.3 Stel de policy voor <code>LocalMachine</code> in</h4>
@@ -173,12 +331,42 @@
             Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope LocalMachine<br>
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <b>Vooraf:</b> noteer de huidige instelling met <code>Get-ExecutionPolicy -List</code>, zodat je ze nadien kan herstellen. Voor <code>LocalMachine</code> moet PowerShell <b>als administrator</b> draaien.<br>
+            <br>
+            <code>Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine</code><br>
+            <code>Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope LocalMachine</code><br>
+            <code>Get-ExecutionPolicy -List</code> → controle<br>
+            <br>
+            <b>Veiliger alternatief uit de Course</b> (How-to: PowerShell setup): alleen voor de huidige sessie, zonder beheerdersrechten:<br>
+            <code>Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned</code><br>
+            Deze instelling verdwijnt zodra je het PowerShell-venster sluit.<br>
+            <br>
+            Een execution policy is geen echte beveiligingsgrens: ze voorkomt vooral dat je per ongeluk een script uitvoert.
+        </div>
+
         <h4>4.4 Zoek help over execution policies</h4>
         <p>Gebruik het PowerShell-helpsysteem om algemene informatie en gedetailleerde cmdlet-informatie te vinden.</p>
 
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            Get-Help Get-Process -Detailed
+            Algemene informatie: Get-Help about_Execution_Policies<br>
+            Gedetailleerde cmdlet-informatie: Get-Help Set-ExecutionPolicy -Detailed
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <b>Algemene informatie</b> (een <i>about</i>-onderwerp):<br>
+            <code>Get-Help about_Execution_Policies</code><br>
+            Of zoeken met een deel van de naam (wildcards, Course): <code>Get-Help execution_pol</code><br>
+            <br>
+            <b>Gedetailleerde informatie over de cmdlets:</b><br>
+            <code>Get-Help Set-ExecutionPolicy -Detailed</code><br>
+            <code>Get-Help Set-ExecutionPolicy -Full</code><br>
+            <code>Get-Help Get-ExecutionPolicy -Examples</code><br>
+            <br>
+            Krijg je weinig tekst te zien, werk dan eerst de help bij (als administrator): <code>Update-Help</code>
         </div>
 
         <h4>4.5 Zoek help over één parameter</h4>
@@ -187,6 +375,15 @@
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             Get-Help Set-ExecutionPolicy -Parameter ExecutionPolicy
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Geen echt geavanceerd antwoord nodig: <code>-Parameter</code> is de juiste parameter.<br>
+            <br>
+            Optioneel, dezelfde werkwijze voor de andere parameter die je in 4.3 gebruikte:<br>
+            <code>Get-Help Set-ExecutionPolicy -Parameter Scope</code><br>
+            In de uitvoer zie je o.a. <code>Required?</code> (verplicht of niet) en <code>Position?</code> (mag je de naam weglaten).
         </div>
 
         <h3>5. PowerShell gebruiken in Visual Studio Code</h3>
@@ -201,8 +398,21 @@
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             Extensie: PowerShell<br>
-            In <i>naam.ps1</i> heb ik <i>$PSVersionTable.PSVersion Write-Host "Succesvol"</i> getypt.<br>
+            In <i>naam.ps1</i> heb ik op twee aparte regels <i>$PSVersionTable.PSVersion</i> en <i>Write-Host "Succesvol"</i> getypt.<br>
             Daarna heb ik op F5 gedrukt en de output van het script was te zien in de Terminal van VS Code.
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <b>Extensie installeren vanuit PowerShell</b> (How-to: VS Code setup):<br>
+            <code>code --install-extension ms-vscode.PowerShell</code><br>
+            <br>
+            <b>Controleren dat VS Code PowerShell 7 gebruikt:</b><br>
+            <code>$PSVersionTable.PSVersion</code> → versie begint met 7<br>
+            <code>$PSVersionTable.PSEdition</code> → <code>Core</code><br>
+            Toont het 5.1 / <code>Desktop</code>, kies dan via <b>Ctrl+Shift+P</b> → <i>PowerShell: Show Session Menu</i> → <i>PowerShell (x64)</i>.<br>
+            <br>
+            <b>Handige sneltoetsen:</b> <b>F5</b> voert het hele script uit, <b>F8</b> voert alleen de selectie uit, <b>Ctrl+`</b> opent of sluit de terminal.
         </div>
 
         <h3>6. Eerste script: <code>Naam.ps1</code></h3>
@@ -221,9 +431,26 @@ Woonplaats: Kortessem</code></pre>
         </ol>
                    <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-            Write-Host<br>
-            "Naam: Angelo Switon<br>
-            Woonplaats: Hasselt"
+            Inhoud van <i>Naam.ps1</i>:<br>
+            Write-Host "Naam: Angelo Switon"<br>
+            Write-Host "Woonplaats: Hasselt"<br>
+            <br>
+            1. In Windows Terminal: &amp; ".\scripts - ps-01-ext-lab\Naam.ps1"<br>
+            2. In Visual Studio Code: het bestand openen en op F5 drukken.
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <b><code>scripts - ps-01-ext-lab/Naam.ps1</code></b><br>
+            <pre><code>Write-Output 'Naam: Angelo Switon'
+Write-Output 'Woonplaats: Hasselt'</code></pre>
+            <b>1. In Windows Terminal</b> (vanuit de map <code>ps-01-ext-lab</code>):<br>
+            <code>&amp; '.\scripts - ps-01-ext-lab\Naam.ps1'</code><br>
+            De mapnaam bevat spaties, daarom staat het pad tussen aanhalingstekens met <code>&amp;</code> ervoor.<br>
+            <br>
+            <b>2. In Visual Studio Code:</b> open het bestand en druk op <b>F5</b> (of de Play-knop). Met <b>F8</b> voer je alleen de geselecteerde regel(s) uit.<br>
+            <br>
+            Let op: zet de tekst op dezelfde regel als <code>Write-Host</code> of <code>Write-Output</code>. Staat <code>Write-Host</code> alleen op een regel, dan toont het een lege regel en wordt de tekst eronder als aparte opdracht getoond.
         </div>
 
         <h4>6.2 Hernoem het script</h4>
@@ -231,9 +458,23 @@ Woonplaats: Kortessem</code></pre>
 
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
-          1. Rename-Item .\Naam.ps1 .\"Angelo Switon.ps1"<br>
-          2. .\"Angelo Switon.ps1"<br>
-          Waarom een andere invoer: Psh ziet dit als een commandlet
+          1. Rename-Item .\Naam.ps1 "Mijn Naam.ps1"<br>
+          2. .\"Mijn Naam.ps1"<br>
+          Waarom een andere invoer: PowerShell gebruikt de spatie om een commando en zijn argumenten te scheiden. Zonder aanhalingstekens ziet PowerShell <i>.\Mijn</i> als het commando en <i>Naam.ps1</i> als argument, en <i>.\Mijn</i> bestaat niet. Met aanhalingstekens wordt de naam één geheel.
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>Rename-Item -Path '.\scripts - ps-01-ext-lab\Naam.ps1' -NewName 'Mijn Naam.ps1'</code><br>
+            <code>&amp; '.\scripts - ps-01-ext-lab\Mijn Naam.ps1'</code><br>
+            <br>
+            <b>Waarom anders invoeren?</b><br>
+            PowerShell gebruikt de <b>spatie</b> om een commando en zijn argumenten te scheiden. Zonder aanhalingstekens leest PowerShell <code>.\Mijn</code> als commando en <code>Naam.ps1</code> als argument, en dat commando bestaat niet.<br>
+            Met aanhalingstekens wordt het pad één geheel, maar dan is het gewoon <b>tekst</b>: PowerShell toont die tekst alleen. De <b>call operator</b> <code>&amp;</code> zegt: "voer dit uit". Zo staat het ook in de Course: <code>&amp; '.\Hello World with spaces.ps1'</code>.<br>
+            <code>.\"Mijn Naam.ps1"</code> werkt ook: omdat de opdracht met <code>.\</code> begint, ziet PowerShell het als een pad om uit te voeren. Alleen <code>"Mijn Naam.ps1"</code> zonder <code>.\</code> of <code>&amp;</code> zou gewoon tekst tonen.<br>
+            In VS Code verandert er niets: <b>F5</b> werkt gewoon.<br>
+            <br>
+            Tip uit de Course: spaties in bestandsnamen zijn bijna altijd een slecht idee.
         </div>
         
         <h3>7. Visual Studio Code starten als administrator</h3>
@@ -253,7 +494,7 @@ Woonplaats: Kortessem</code></pre>
           - Name: VSCode-Admin,<br>
           - Aanvinken: <i>Run with highest privileges</i>,<br>
           <b>Actions tab</b><br>
-          - Browse: C:\Users\12501999\AppData\Local\Programs\Microsoft VS Code\Visual Studio Code<br>
+          - New, Browse: C:\Users\12501999\AppData\Local\Programs\Microsoft VS Code\Code.exe<br>
           <b>Conditions tab</b><br>
           - Uitvinken: <i>Start the task only if the computer is on AC Power</i>,<br>
           - Klik op <b>ok</b>.
@@ -271,6 +512,19 @@ Woonplaats: Kortessem</code></pre>
 
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Werkwijze uit de Course (How-to: VS Code admin setup):<br>
+            <ul>
+              <li>Bij <b>Program/script</b> moet het pad naar <code>Code.exe</code> zelf wijzen. Vind de map met <code>Get-Command code</code>: <code>Source</code> toont <code>...\Microsoft VS Code\bin\code.cmd</code>; <code>Code.exe</code> staat één map hoger, bv. <code>C:\Users\&lt;gebruiker&gt;\AppData\Local\Programs\Microsoft VS Code\Code.exe</code>.</li>
+              <li>De naam na <code>/tn</code> in de snelkoppeling moet exact gelijk zijn aan de naam van de taak: <code>schtasks /run /tn "VSCode-Admin"</code>.</li>
+              <li>Sluit eerst alle open VS Code-vensters: draait VS Code al, dan krijgt het nieuwe venster geen adminrechten.</li>
+            </ul>
+            <b>Testen of VS Code als administrator draait</b> (in de terminal van VS Code):<br>
+            <code>([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)</code><br>
+            <code>True</code> = administrator, <code>False</code> = geen administrator. Test zo beide snelkoppelingen.
+        </div>
+
       </article>
 
       
@@ -286,6 +540,16 @@ Woonplaats: Kortessem</code></pre>
             <strong>Mijn antwoord:</strong><br><br>
            Get-Help process
         </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>Get-Help process</code> zoekt met wildcards: je krijgt een lijst van alle help-onderwerpen waarin <i>process</i> voorkomt.<br>
+            <br>
+            Optioneel, alleen de cmdlets tonen met de parameter <code>-Category</code> (Course):<br>
+            <code>Get-Help process -Category Cmdlet</code><br>
+            <br>
+            Komt er weinig of geen help, werk dan eerst de helpbestanden bij (als administrator): <code>Update-Help</code>
+        </div>
         
         <h4>8.2 Vraag meer gedetailleerde informatie op</h4>
         <p>Toon hoe je gedetailleerde, volledige en online help voor een specifieke process-cmdlet kunt openen.</p>
@@ -297,6 +561,18 @@ Woonplaats: Kortessem</code></pre>
             - Get-Help Get-Process -Online<br>
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>Get-Help Get-Process -Detailed</code> → meer uitleg, met parameters en voorbeelden<br>
+            <code>Get-Help Get-Process -Full</code> → alle technische informatie<br>
+            <code>Get-Help Get-Process -Online</code> → opent de help in je browser<br>
+            <br>
+            Extra mogelijkheden uit de Course:<br>
+            <code>Get-Help Get-Process -Examples</code> → alleen de voorbeelden<br>
+            <code>Get-Help Get-Process -ShowWindow</code> → de help in een apart venster<br>
+            <code>Get-Help Get-Process -Full | more</code> → pagina per pagina lezen
+        </div>
+
         <h3>9. Cmdlets ontdekken met <code>Get-Command</code></h3>
 
         <h4>9.1 Geef een overzicht van alle cmdlets</h4>
@@ -304,6 +580,17 @@ Woonplaats: Kortessem</code></pre>
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             Get-Command -CommandType Cmdlet
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>Get-Command -CommandType Cmdlet</code><br>
+            <br>
+            Hoeveel zijn het? <code>(Get-Command -CommandType Cmdlet).Count</code> → bv. <code>653</code> (hangt af van je computer en modules)<br>
+            <br>
+            Verschil uit de Course:<br>
+            <code>Get-Command</code> → aliassen, functies en cmdlets<br>
+            <code>Get-Command *</code> → ook scripts en programma's (<code>.exe</code>) uit de mappen van <code>$env:PATH</code>
         </div>
 
         <h4>9.2 Leg de volgende opdrachten uit</h4>
@@ -328,6 +615,17 @@ Woonplaats: Kortessem</code></pre>
             Toont de commando's met het werkwoord "Out". Deze Cmdlets bepalen waar de output naartoe gaat.
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Resultaten op een Windows-computer met PowerShell 7:<br>
+            <b>9.2.1</b> <code>Get-Command -Name *process*</code> → alle commando's met <i>process</i> ergens in de naam, ook bv. <code>Get-PSHostProcessInfo</code>.<br>
+            <b>9.2.2</b> <code>Get-Command -Noun Process</code> → alleen commando's met exact het zelfstandig naamwoord <i>Process</i>: <code>Debug-Process</code>, <code>Get-Process</code>, <code>Start-Process</code>, <code>Stop-Process</code>, <code>Wait-Process</code>.<br>
+            <b>9.2.3</b> <code>Get-Command -Verb Get -Noun Process</code> → werkwoord én naamwoord liggen vast, dus alleen <code>Get-Process</code>.<br>
+            <b>9.2.4</b> <code>Get-Command -Verb Out</code> → <code>Out-Default</code>, <code>Out-File</code>, <code>Out-GridView</code>, <code>Out-Host</code>, <code>Out-Null</code>, <code>Out-Printer</code>, <code>Out-String</code>: ze bepalen waar de uitvoer naartoe gaat (scherm, bestand, apart venster, nergens, printer, tekst).<br>
+            <br>
+            Het overzicht van alle toegelaten werkwoorden: <code>Get-Verb</code>
+        </div>
+
         <h3>10. Processen en PowerShell-objecten</h3>
 
         <h4>10.1 Welke twee cmdlets gebruik je om informatie over processen te zoeken?</h4>
@@ -338,11 +636,31 @@ Woonplaats: Kortessem</code></pre>
             Get-Help process: toont hoe je die commando's gebruikt, via de documentatie
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            De werkwijze uit de Course (<i>Command discovery</i>):<br>
+            <ol>
+              <li><code>Get-Command -Noun Process</code> → welke commando's bestaan er?</li>
+              <li><code>Get-Help Get-Process -Examples</code> → hoe gebruik je het?</li>
+              <li><code>Get-Process</code> → een veilige opvraging uitvoeren.</li>
+              <li><code>Get-Process | Get-Member</code> → welke properties en methods hebben de objecten?</li>
+            </ol>
+        </div>
+
         <h4>10.2 Welke cmdlet vraagt alle systeemprocessen op?</h4>
 
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             Get-Process
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>Get-Process</code><br>
+            <br>
+            Optioneel:<br>
+            <code>Get-Process -Name notepad</code> of <code>Get-Process notepad</code> → één proces op naam (<code>-Name</code> is de standaardparameter, dus de naam mag je weglaten)<br>
+            <code>Get-Alias -Definition Get-Process</code> → de aliassen <code>gps</code> en <code>ps</code>
         </div>
 
         <h4>10.3 Hoe open je de online help van deze cmdlet?</h4>
@@ -352,11 +670,31 @@ Woonplaats: Kortessem</code></pre>
             Get-Help Get-Process -Online
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Geen echt geavanceerd antwoord nodig: <code>Get-Help Get-Process -Online</code> opent de help in je browser.<br>
+            <br>
+            Optioneel, zonder browser in een apart venster: <code>Get-Help Get-Process -ShowWindow</code>
+        </div>
+
         <h4>10.4 Hoe toon je alleen de syntaxis van deze cmdlet?</h4>
 
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             Get-Command Get-Process -Syntax
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>Get-Command Get-Process -Syntax</code><br>
+            <br>
+            <b>Zo lees je de syntax:</b><br>
+            <code>[ ]</code> rond een parameter met zijn waarde → de parameter is optioneel.<br>
+            <code>[ ]</code> alleen rond de naam, bv. <code>[-Name]</code> → je mag de naam weglaten (positioneel).<br>
+            <code>&lt;string[]&gt;</code> → het soort waarde; <code>[]</code> betekent dat er meerdere waarden mogen.<br>
+            Meerdere regels = meerdere manieren (parameter sets) om het commando te gebruiken.<br>
+            <br>
+            De syntax staat ook bovenaan in <code>Get-Help Get-Process</code> (deel SYNTAX).
         </div>
 
         <h4>10.5 Hoe toon je help over de parameter <code>Id</code>?</h4>
@@ -366,11 +704,33 @@ Woonplaats: Kortessem</code></pre>
             Get-Help Get-Process -Parameter Id
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Geen echt geavanceerd antwoord nodig: <code>Get-Help Get-Process -Parameter Id</code><br>
+            <br>
+            Optioneel, kijk in de uitvoer naar:<br>
+            <code>Required?</code> → is de parameter verplicht?<br>
+            <code>Position?</code> → <code>named</code> betekent dat je de naam <code>-Id</code> moet typen.<br>
+            <code>Accept pipeline input?</code> → kan de waarde via de pipeline binnenkomen?
+        </div>
+
         <h4>10.6 Hoe toon je alle properties van de uitgevoerde processen?</h4>
 
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             Get-Process | Get-Member -MemberType Properties
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>Get-Process | Get-Member -MemberType Property</code> → alleen de "gewone" properties (zoals in de Course)<br>
+            <code>Get-Process | Get-Member -MemberType Properties</code> → <b>alle</b> soorten properties, ook <code>AliasProperty</code> (bv. <code>Name</code>) en <code>ScriptProperty</code> (bv. <code>CommandLine</code>)<br>
+            Op een testcomputer: 52 met <code>Property</code> tegenover 69 met <code>Properties</code>.<br>
+            <br>
+            Welk soort object is het? (Course)<br>
+            <code>Get-Process | Get-Member | Select-Object -ExpandProperty TypeName -Unique</code> → <code>System.Diagnostics.Process</code><br>
+            <br>
+            Eén property opvragen met de punt-notatie: <code>(Get-Process -Name pwsh).Id</code>
         </div>
 
         <h4>10.7 Hoe toon je alle methods van de uitgevoerde processen?</h4>
@@ -379,6 +739,13 @@ Woonplaats: Kortessem</code></pre>
             <strong>Mijn antwoord:</strong><br><br>
             Get-Process | Get-Member -MemberType Method<br>
             Bijv: (Get-Process -Name notepad).Refresh()
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Geen echt geavanceerd antwoord nodig: <code>Get-Process | Get-Member -MemberType Method</code><br>
+            <br>
+            Optioneel: een method roep je op met de punt-notatie en haakjes, bv. <code>(Get-Process -Name notepad).Kill()</code> → stopt Notepad, net als <code>Stop-Process</code>.
         </div>
 
         <h3>11. Verschil tussen <code>Get-Help</code> en <code>Get-Command</code></h3>
@@ -399,6 +766,17 @@ Woonplaats: Kortessem</code></pre>
             RELATED LINKS: verwante cmdlets
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>Get-Help</code> toont de <b>documentatie</b> van een commando of onderwerp. Volgens de Course komt die uit:<br>
+            <ul>
+              <li><b>MAML-helpbestanden</b> (<i>Microsoft Assistance Markup Language</i>) die bij een module horen, of</li>
+              <li><b>comment-based help</b> die de auteur in een script of functie schreef (zie 16).</li>
+            </ul>
+            Naast cmdlets toont het ook algemene onderwerpen: de <code>about_</code>-onderwerpen, bv. <code>Get-Help about_Execution_Policies</code>.<br>
+            De lokale helpbestanden werk je bij met <code>Update-Help</code> (als administrator). Zonder bijgewerkte help toont <code>Get-Help</code> soms alleen de syntax.
+        </div>
+
         <h4>11.2 <code>Get-Command</code></h4>
         <p>Leg uit welke informatie deze cmdlet gebruikt en toont.</p>
 
@@ -408,6 +786,19 @@ Woonplaats: Kortessem</code></pre>
             - cmdlets en functies uit de geïnstalleerde modules,<br>
             - aliassen,<br>
             - programma's in de mappen van je PATH
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>Get-Command</code> toont welke <b>commando's</b> er op je computer beschikbaar zijn: het type (<code>CommandType</code>), de naam, de versie en de bron (<code>Source</code>). Het leest de commando's zelf, niet hun documentatie.<br>
+            <br>
+            Voorbeelden uit de Course:<br>
+            <code>Get-Command</code> → aliassen, functies en cmdlets<br>
+            <code>Get-Command *</code> → ook programma's en scripts uit <code>$env:PATH</code><br>
+            <code>Get-Command notepad -All</code> → alle commando's met die naam, bv. meerdere <code>notepad.exe</code>-bestanden<br>
+            <code>Get-Command Get-Process -Syntax</code> → de syntax<br>
+            <br>
+            Zonder wildcard moet je de exacte naam geven: <code>Get-Command -Name service</code> geeft een fout, <code>Get-Command -Name *service</code> vindt o.a. <code>Get-Service</code>.
         </div>
 
         <h3>12. Service-informatie als PowerShell-output</h3>
@@ -421,6 +812,13 @@ Woonplaats: Kortessem</code></pre>
           Get-Service -Name Bits | Select-Object ServiceName,DisplayName,Status,BinaryPathName
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Geen echt geavanceerd antwoord nodig: het antwoord hierboven is correct en toont exact de vier gevraagde gegevens.<br>
+            <br>
+            Optioneel: <code>Get-Help Get-Service -Examples</code> om andere manieren te ontdekken om services op te vragen.
+        </div>
+
         <h3>13. Zoek de PowerShell-opdracht achter <code>dir</code></h3>
         <p>Zoek op minstens twee manieren welke PowerShell-opdracht overeenkomt met <code>dir</code> in Windows.</p>
 
@@ -431,12 +829,32 @@ Woonplaats: Kortessem</code></pre>
             - Get-Help dir
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>Get-Alias dir</code> → <code>dir -&gt; Get-ChildItem</code><br>
+            <code>Get-Command dir</code> → <code>CommandType</code> <code>Alias</code>, <code>dir -&gt; Get-ChildItem</code><br>
+            <br>
+            Omgekeerd: alle aliassen van dezelfde cmdlet tonen (Course):<br>
+            <code>Get-Alias -Definition Get-ChildItem</code> → <code>dir</code>, <code>gci</code>, <code>ls</code>
+        </div>
+
         <h3>14. Maak de terminal leeg</h3>
         <p>Gebruik de lokale PowerShell-help, niet het internet, om te vinden hoe je het scherm leegmaakt.</p>
 
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             Get-Help clear
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>Get-Help clear</code> → de help vindt de cmdlet <code>Clear-Host</code>.<br>
+            <br>
+            Of zoeken met <code>Get-Command</code> op het werkwoord <i>Clear</i>:<br>
+            <code>Get-Command -Verb Clear</code> → in de lijst staat <code>Clear-Host</code><br>
+            <code>Get-Help Clear-Host</code> → bevestigt dat het commando het scherm leegmaakt.<br>
+            <br>
+            Daarna: <code>Clear-Host</code>
         </div>
 
         <h4>14.1 Welke aliassen kun je hiervoor gebruiken?</h4>
@@ -449,12 +867,27 @@ Woonplaats: Kortessem</code></pre>
             - clear<br>
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Geen echt geavanceerd antwoord nodig: <code>Get-Alias -Definition Clear-Host</code> → <code>clear</code> en <code>cls</code>.<br>
+            <br>
+            Optioneel, controleren wat een alias is: <code>Get-Alias cls</code> → <code>cls -&gt; Clear-Host</code>
+        </div>
+
         <h3>15. Geef een overzicht van alle aliassen</h3>
         <p>Toon alle aliassen die in je huidige PowerShell-sessie beschikbaar zijn.</p>
 
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             Get-Alias
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Geen echt geavanceerd antwoord nodig: <code>Get-Alias</code><br>
+            <br>
+            Optioneel, de lange lijst pagina per pagina bekijken: <code>Get-Alias | more</code><br>
+            Tip uit de Course: aliassen zijn handig in de terminal, maar gebruik in scripts de volledige cmdlet-namen. Dat is beter leesbaar.
         </div>
 
         <h3>16. Maak een script met comment-based help</h3>
@@ -481,6 +914,38 @@ Get-Help &quot;.\scripts - ps-01-ext-lab\Script_Template_JouwNaam.ps1&quot; -Ful
             Sleutelwoorden: .<b>SYNOPSIS</b>, <b>.DESCRIPTION</b>, <b>.INPUTS</b>, <b>.OUTPUTS</B>, <b>.NOTES</b> en <b>.EXAMPLE</b>
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <b>Script volgens het sjabloon:</b><br>
+            <pre><code>&lt;#
+.SYNOPSIS
+    Het maken van een systeemrapport
+.DESCRIPTION
+    Het script maakt een systeemrapport.
+    Dit rapport bevat de gebruikersnaam, de computernaam, ...
+.INPUTS
+    None
+.OUTPUTS
+    None
+.NOTES
+    Version:    1.0
+    Author:     Angelo Switon (PXL Student)
+    Cursus:     Scripting &amp; Automation
+    Group:      43SNW1020
+    Opdracht:   Opdracht 01
+.EXAMPLE
+    ./Script_Template_AngeloSwiton.ps1
+#&gt;</code></pre>
+            Het blok staat <b>bovenaan</b> het script. Elk sleutelwoord begint met een punt.<br>
+            <br>
+            <b>Controleren:</b><br>
+            <code>Get-Help '.\scripts - ps-01-ext-lab\Script_Template_AngeloSwiton.ps1'</code> → korte help<br>
+            <code>Get-Help '.\scripts - ps-01-ext-lab\Script_Template_AngeloSwiton.ps1' -Full</code> → alles, ook <code>.NOTES</code><br>
+            <code>Get-Help '.\scripts - ps-01-ext-lab\Script_Template_AngeloSwiton.ps1' -Examples</code> → alleen de voorbeelden<br>
+            <br>
+            Alle sleutelwoorden staan in het <i>about</i>-onderwerp uit de Course: <code>Get-Help about_Comment_Based_Help</code>
+        </div>
+
         <h3>17. Tekst naar het scherm sturen</h3>
         <p>Toon de volgende tekst met een PowerShell-cmdlet:</p>
         <pre><code>Welkom bij PXL!!!</code></pre>
@@ -493,6 +958,13 @@ Get-Help &quot;.\scripts - ps-01-ext-lab\Script_Template_JouwNaam.ps1&quot; -Ful
             Write-Output "Welkom bij PXL!!!"<br>
             <br>
             Het verschil: <code>Write-Output</code> stuurt de tekst door in de pipeline, zodat je hem verder kan verwerken. <code>Write-Host</code> toont hem alleen op het scherm. Voor deze oefening werken beide.
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Geen echt geavanceerd antwoord nodig: <code>Write-Output 'Welkom bij PXL!!!'</code> of <code>Write-Host 'Welkom bij PXL!!!'</code>.<br>
+            <br>
+            Optioneel: <code>Get-Help Write-Output -Examples</code>
         </div>
 
         <h4>17.1 Wat is het verschil tussen <code>Write-Output</code> en <code>Write-Host</code>?</h4>
@@ -510,6 +982,13 @@ Get-Help &quot;.\scripts - ps-01-ext-lab\Script_Template_JouwNaam.ps1&quot; -Ful
             Bij <b>$b</b> verschijnt de tekst wél meteen op het scherm, maar <b>$b</b> blijft leeg.<br>
             <br>
             Kort: <code>Write-Output</code> is voor gegevens die verder gebruikt worden, Write-Host is voor meldingen aan de gebruiker.
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Het verschil zichtbaar maken met <code>Get-Member</code> (Course, hoofdstuk 01):<br>
+            <code>Write-Output 'Welkom bij PXL!!!' | Get-Member</code> → <code>TypeName: System.String</code>: er komt een tekst-object door de pipeline.<br>
+            <code>Write-Host 'Welkom bij PXL!!!' | Get-Member</code> → de tekst verschijnt op het scherm, maar daarna de fout <code>You must specify an object for the Get-Member cmdlet.</code>: er gaat <b>niets</b> door de pipeline.
         </div>
 
         <h4>17.2 Zet de tekst om naar hoofdletters</h4>
@@ -564,6 +1043,17 @@ In deze tekst staat geen variabele, dus het resultaat is hetzelfde.
             </pre></p>
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            De method opzoeken: <code>'Welkom bij PXL!!!' | Get-Member -MemberType Method</code> → in de lijst staat <code>ToUpper</code>.<br>
+            <br>
+            Gebruiken met de punt-notatie:<br>
+            <code>'Welkom bij PXL!!!'.ToUpper()</code> → <code>WELKOM BIJ PXL!!!</code><br>
+            <code>Write-Output 'Welkom bij PXL!!!'.ToUpper()</code> → hetzelfde resultaat<br>
+            <br>
+            <code>.ToUpper()</code> geeft een <b>nieuwe</b> tekst terug; de oorspronkelijke tekst verandert niet.
+        </div>
+
         <h3>18. Omgevingsvariabelen</h3>
         <p>Zoek met PowerShell hoe je omgevingsvariabelen gebruikt. Toon vervolgens:</p>
 
@@ -578,11 +1068,30 @@ In deze tekst staat geen variabele, dus het resultaat is hetzelfde.
             <code>Get-ChildItem env:</code>
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>$env:COMPUTERNAME</code><br>
+            <br>
+            Hoe gebruik je omgevingsvariabelen? Zoek het op in de help (Course):<br>
+            <code>Get-Help variables</code> → in de lijst staat <code>about_Environment_Variables</code><br>
+            <code>Get-Help about_Environment_Variables</code><br>
+            <br>
+            Alle omgevingsvariabelen tonen: <code>Get-ChildItem Env:</code><br>
+            Eén variabele met naam én waarde: <code>Get-ChildItem Env:COMPUTERNAME</code>
+        </div>
+
         <h4>18.2 De gebruikersnaam (<code>USERNAME</code>)</h4>
 
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             $env:USERNAME
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Geen echt geavanceerd antwoord nodig: <code>$env:USERNAME</code><br>
+            <br>
+            Optioneel, met naam en waarde: <code>Get-ChildItem Env:USERNAME</code>
         </div>
 
         <h4>18.3 De systeemschijf (<code>SYSTEMDRIVE</code>)</h4>
@@ -592,12 +1101,26 @@ In deze tekst staat geen variabele, dus het resultaat is hetzelfde.
             $env:SystemDrive
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Geen echt geavanceerd antwoord nodig: <code>$env:SYSTEMDRIVE</code> → bv. <code>C:</code><br>
+            <br>
+            Optioneel, met naam en waarde: <code>Get-ChildItem Env:SYSTEMDRIVE</code>
+        </div>
+
         <h4>18.4 Het gebruikersprofiel (<code>USERPROFILE</code>)</h4>
         <p>Voorbeeld: <code>C:\Users\Dominique</code>.</p>
 
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             $env:USERPROFILE
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Geen echt geavanceerd antwoord nodig: <code>$env:USERPROFILE</code> → bv. <code>C:\Users\Dominique</code><br>
+            <br>
+            Optioneel, met naam en waarde: <code>Get-ChildItem Env:USERPROFILE</code>
         </div>
 
         <h4>18.5 Maak <code>ToonEnvInfo.ps1</code></h4>
@@ -616,6 +1139,34 @@ Computernaam:      $env:COMPUTERNAME
 Gebruikersnaam:    $env:USERNAME
 Systeemschijf:     $env:SYSTEMDRIVE
 Gebruikersprofiel: $env:USERPROFILE"</pre></code>
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <b><code>scripts - ps-01-ext-lab/ToonEnvInfo.ps1</code></b> met comment-based help (zie 16):<br>
+            <pre><code>&lt;#
+.SYNOPSIS
+    Toont een systeemrapport.
+.DESCRIPTION
+    Maakt het scherm leeg en toont de computernaam, gebruikersnaam,
+    systeemschijf en het gebruikersprofiel uit de omgevingsvariabelen.
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    &amp; '.\scripts - ps-01-ext-lab\ToonEnvInfo.ps1'
+#&gt;
+
+Clear-Host
+Write-Output 'Systeem Rapport'
+Write-Output '---------------'
+Write-Output "Computernaam:  $env:COMPUTERNAME"
+Write-Output "Gebruikersnaam:  $env:USERNAME"
+Write-Output "Systeemschijf:  $env:SYSTEMDRIVE"
+Write-Output "Gebruikersprofiel:  $env:USERPROFILE"</code></pre>
+            <b>Dubbele</b> aanhalingstekens vullen de waarde van <code>$env:...</code> in; tussen enkele aanhalingstekens zou je letterlijk <code>$env:COMPUTERNAME</code> zien.<br>
+            Controle: <code>Get-Help '.\scripts - ps-01-ext-lab\ToonEnvInfo.ps1'</code><br>
+            <br>
+            Waarom zo? In het antwoord hierboven staat <code>Write-Host</code> alleen op een regel: dat toont eerst een lege regel, de tekst eronder komt pas daarna als aparte opdracht.
         </div>
 
         <h3>19. Processen starten en stoppen</h3>
@@ -639,11 +1190,39 @@ Gebruikersprofiel: $env:USERPROFILE"</pre></code>
             ForEach-Object { ... } voert wat tussen de accolades staat één keer uit per getal, dus 4 keer.<br>
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            De cmdlet is <code>Start-Process</code>. Zoeken (Course): <code>Get-Command -Noun Process</code> en <code>Get-Help Start-Process -Examples</code><br>
+            <br>
+            <b><code>scripts - ps-01-ext-lab/Notepad-Joke.ps1</code></b> met alleen de leerstof van les 01:<br>
+            <pre><code>&lt;#
+.SYNOPSIS
+    Opent vier Notepad-vensters.
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    &amp; '.\scripts - ps-01-ext-lab\Notepad-Joke.ps1'
+#&gt;
+
+Start-Process -FilePath notepad
+Start-Process -FilePath notepad
+Start-Process -FilePath notepad
+Start-Process -FilePath notepad</code></pre>
+            Let op: het antwoord hierboven gebruikt <code>1..4 | ForEach-Object { ... }</code> en <code>-ErrorAction SilentlyContinue</code>. Dat werkt, maar komt pas in latere lessen (pipelines en lussen).
+        </div>
+
         <h4>19.2 Hoe toon je alle actieve Notepad-processen?</h4>
 
          <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             Get-Process -Name notepad
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Geen echt geavanceerd antwoord nodig: <code>Get-Process -Name notepad</code><br>
+            <br>
+            Optioneel, korter: <code>Get-Process notepad</code> (<code>-Name</code> is de standaardparameter) of met de alias <code>ps notepad</code>.
         </div>
 
         <h4>19.3 Toon <code>Id</code>, <code>Name</code> en <code>CommandLine</code></h4>
@@ -656,11 +1235,29 @@ Gebruikersprofiel: $env:USERPROFILE"</pre></code>
             Get-Process -Name notepad | Select-Object Id,Name, CommandLine
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>Get-Process -Name notepad | Select-Object Id, Name, CommandLine</code><br>
+            <br>
+            Hoe vind je de property <code>CommandLine</code>?<br>
+            <code>Get-Process -Name notepad | Get-Member -MemberType Properties</code><br>
+            <code>CommandLine</code> is een <code>ScriptProperty</code>. Met <code>-MemberType Property</code> zie je ze <b>niet</b>; met <code>-MemberType Properties</code> wel (zie 10.6).
+        </div>
+
         <h4>19.4 Hoe sluit je Notepad-processen met een cmdlet?</h4>
 
         <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
             <strong>Mijn antwoord:</strong><br><br>
             Stop-Process -Name notepad
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>Stop-Process -Name notepad</code> → stopt alle Notepad-processen<br>
+            <br>
+            Optioneel:<br>
+            <code>Get-Process -Name notepad | Stop-Process</code> → eerst opvragen, dan via de pipeline stoppen<br>
+            <code>Stop-Process -Id 1234</code> → alleen het proces met dat <code>Id</code> stoppen (het <code>Id</code> zie je bij 19.3)
         </div>
 
         <h4>19.5 Maak <code>Notepad-Joke-Stop.ps1</code></h4>
@@ -671,6 +1268,23 @@ Gebruikersprofiel: $env:USERPROFILE"</pre></code>
             Stop-Process -Name notepad
         </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <b><code>scripts - ps-01-ext-lab/Notepad-Joke-Stop.ps1</code></b> met comment-based help:<br>
+            <pre><code>&lt;#
+.SYNOPSIS
+    Sluit alle Notepad-vensters.
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    &amp; '.\scripts - ps-01-ext-lab\Notepad-Joke-Stop.ps1'
+#&gt;
+
+Stop-Process -Name notepad</code></pre>
+            Controle na het uitvoeren: <code>Get-Process -Name notepad</code> → een fout, want er draait geen Notepad meer.<br>
+            Draait er geen enkele Notepad wanneer je het script start, dan toont <code>Stop-Process</code> een foutmelding. Die opvangen leer je in een latere les.
+        </div>
+
         <h4>19.6 Open de vensters gemaximaliseerd</h4>
         <p>Wijzig <code>Notepad-Joke.ps1</code> zodat de Notepad-vensters gemaximaliseerd openen.</p>
 
@@ -678,6 +1292,17 @@ Gebruikersprofiel: $env:USERPROFILE"</pre></code>
             <strong>Mijn antwoord:</strong><br><br>
             <code><pre>Stop-Process -Name notepad -ErrorAction SilentlyContinue
 1..4 | ForEach-Object { Start-Process notepad -Windowstyle Maximized }</pre></code>
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <code>-WindowStyle</code> opzoeken: <code>Get-Help Start-Process -Parameter WindowStyle</code> → waarden: <code>Normal</code>, <code>Hidden</code>, <code>Minimized</code>, <code>Maximized</code><br>
+            <br>
+            <b><code>Notepad-Joke.ps1</code></b> met alleen de leerstof van les 01:<br>
+            <pre><code>Start-Process -FilePath notepad -WindowStyle Maximized
+Start-Process -FilePath notepad -WindowStyle Maximized
+Start-Process -FilePath notepad -WindowStyle Maximized
+Start-Process -FilePath notepad -WindowStyle Maximized</code></pre>
         </div>
 
         <h4 id="firewall-exercise">20. Firewalloefening — Firefox</h4>
@@ -742,6 +1367,54 @@ Write-Host 'Regel verwijderd'
           </p>
                   </div>
 
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            <b>Cmdlets vinden</b> (tip van de opdracht): <code>Get-Command -Noun NetFirewall*</code> en <code>Get-Help New-NetFirewallRule -Examples</code><br>
+            <br>
+            <b><code>scripts - ps-01-ext-lab/firewall-firefox.ps1</code></b> (als administrator):<br>
+            <pre><code>&lt;#
+.SYNOPSIS
+    Maakt, test en verwijdert een firewallregel die Firefox blokkeert.
+.NOTES
+    Author: Angelo Switon (PXL Student)
+.EXAMPLE
+    &amp; '.\scripts - ps-01-ext-lab\firewall-firefox.ps1'
+#&gt;
+
+$firefox  = 'C:\Program Files\Mozilla Firefox\firefox.exe'
+$ruleName = 'PXL - Blokkeer Firefox'
+
+# 1. Het pad controleren (True = Firefox staat hier)
+Test-Path -Path $firefox
+
+# 2. Uitgaande regel maken die Firefox blokkeert
+New-NetFirewallRule -DisplayName $ruleName -Direction Outbound -Program $firefox -Action Block
+
+# 3. De regel opvragen en controleren
+Get-NetFirewallRule -DisplayName $ruleName | Select-Object DisplayName, Enabled, Direction, Action
+Get-NetFirewallRule -DisplayName $ruleName | Get-NetFirewallApplicationFilter
+Pause
+
+# 4. Uitschakelen en opnieuw inschakelen
+Disable-NetFirewallRule -DisplayName $ruleName
+Get-NetFirewallRule -DisplayName $ruleName | Select-Object DisplayName, Enabled
+Pause
+Enable-NetFirewallRule -DisplayName $ruleName
+Get-NetFirewallRule -DisplayName $ruleName | Select-Object DisplayName, Enabled
+Pause
+
+# 5. De regel verwijderen
+Remove-NetFirewallRule -DisplayName $ruleName</code></pre>
+            <b>Wat is er geavanceerder?</b><br>
+            <ul>
+              <li>De naam van de regel staat één keer in <code>$ruleName</code>: geen tikfouten tussen de stappen.</li>
+              <li><code>Test-Path</code> (hands-on 01) controleert het pad. Geeft het <code>False</code>, test dan <code>C:\Program Files (x86)\Mozilla Firefox\firefox.exe</code>.</li>
+              <li><code>Get-NetFirewallApplicationFilter</code> toont bij <code>Program</code> voor welk programma de regel geldt.</li>
+              <li>Na elke wijziging toont <code>Select-Object</code> de waarde van <code>Enabled</code> (<code>True</code> of <code>False</code>).</li>
+            </ul>
+            Test tijdens een <code>Pause</code> in Firefox: met de regel aan laadt een website niet. Na het verwijderen geeft <code>Get-NetFirewallRule -DisplayName 'PXL - Blokkeer Firefox'</code> een fout: de regel bestaat niet meer. Controle kan ook grafisch met <code>wf.msc</code>.
+        </div>
+
       </article>
 
         <footer class="docs-footer">Uitgebreide oefening 01 <span aria-hidden="true">·</span> PowerShell</footer>
@@ -779,7 +1452,7 @@ Write-Host 'Regel verwijderd'
         answerSections.append(link);
       });
     </script>
-    <script src="../assets/docs.js" defer></script>
+    <script src="../assets/docs.js?v=2" defer></script>
     <script src="../assets/search.js" defer></script>
   </body>
 </html>

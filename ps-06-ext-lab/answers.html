@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="nl">
-  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="theme-color" content="#0d1117" /><title>Opdrachten — Uitgebreide oefening 06</title><link rel="stylesheet" href="../styles.css" /></head>
+  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="theme-color" content="#0d1117" /><title>Opdrachten — Uitgebreide oefening 06</title><link rel="stylesheet" href="../styles.css?v=2" /></head>
   <body class="docs-page">
     <a class="skip-link" href="#main-content">Ga naar de inhoud</a>
     <header class="docs-header"><a class="docs-brand" href="../index.html"><span class="brand-mark" aria-hidden="true">PXL</span><span>PowerShell-oefening</span></a><nav class="docs-global-nav" aria-label="Hoofdnavigatie"><a href="../index.html">Oefeningen</a><a href="index.html">Overzicht</a><a class="answers-nav-link" href="answers.html" aria-current="page">Opdrachten</a><a href="scripts.html">Scripts</a></nav></header>
@@ -62,6 +62,23 @@ Get-ChildItem -Path $directory -Recurse -File | Measure-Object</code></pre>
             <b>Geldig:</b> <code>./scripts/NumberOfFiles.ps1 C:\powershell</code> → het volledige <code>Measure-Object</code>-resultaat (<code>Count</code>, <code>Average</code>, <code>Sum</code>, ...)<br>
             <b>Ongeldig:</b> <code>./scripts/NumberOfFiles.ps1 C:\bestaatniet</code> → <code>Cannot validate argument on parameter 'directory'. C:\bestaatniet is geen bestaande map.</code><br>
         </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Met diagnostische uitvoer via <code>Write-Verbose</code> en de totale grootte erbij (Course, hoofdstuk 09):<br>
+            <pre><code>[CmdletBinding()]
+param(
+    [Parameter(Mandatory, Position = 0)]
+    [ValidateScript({ Test-Path -Path $_ -PathType Container }, ErrorMessage = '{0} is geen bestaande map.')]
+    [string]$directory
+)
+
+Write-Verbose "Bestanden tellen in: $directory"
+Get-ChildItem -Path $directory -Recurse -File -ErrorAction SilentlyContinue |
+    Measure-Object -Property Length -Sum</code></pre>
+            <code>./scripts/NumberOfFiles.ps1 C:\powershell -Verbose</code> → eerst de melding <code>VERBOSE: Bestanden tellen in: C:\powershell</code>, daarna het resultaat met <code>Count</code> en <code>Sum</code> (de totale grootte in bytes).<br>
+            <code>[CmdletBinding()]</code> maakt <code>-Verbose</code> mogelijk. Zonder <code>-Verbose</code> blijft de melding verborgen.
+        </div>
           <h3 id="1-2-numberoffilesv2-ps1">1.2 <code>NumberOfFilesv2.ps1</code></h3>
           <p>Maak <code>scripts/NumberOfFilesv2.ps1</code> met dezelfde parameter en telling, maar toon één leesbare zin met map en aantal.</p>
           <p><img class="lab-screenshot" src="assets/number-of-files-message.png" alt="Leesbare uitvoer van NumberOfFilesv2.ps1" /></p>
@@ -95,6 +112,17 @@ Write-Output &quot;Onder de map $directory bevinden zich $aantal bestanden.&quot
             <br>
             <b>Geldig:</b> <code>./scripts/NumberOfFilesv2.ps1 C:\powershell</code> → <code>Onder de map C:\powershell bevinden zich 16 bestanden.</code><br>
             <b>Ongeldig:</b> <code>./scripts/NumberOfFilesv2.ps1 C:\bestaatniet</code> → <code>Cannot validate argument on parameter 'directory'. C:\bestaatniet is geen bestaande map.</code><br>
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Met de totale grootte in MB en de <code>-f</code>-operator:<br>
+            <pre><code>$meting = Get-ChildItem -Path $directory -Recurse -File -ErrorAction SilentlyContinue |
+    Measure-Object -Property Length -Sum
+
+'Onder de map {0} bevinden zich {1} bestanden ({2:N2} MB).' -f $directory, $meting.Count, ($meting.Sum / 1MB)</code></pre>
+            → bv. <code>Onder de map C:\powershell bevinden zich 16 bestanden (0,94 MB).</code><br>
+            <code>{0}</code>, <code>{1}</code> en <code>{2:N2}</code> worden ingevuld met de waarden na <code>-f</code>, in die volgorde.
         </div>
           <h2 id="2-vrije-schijfruimte">2. Vrije schijfruimte</h2>
           <p>Gebruik voor de volgende scripts <code>Get-CimInstance -ClassName CIM_LogicalDisk</code> en beperk het resultaat tot lokale schijven met <code>DriveType</code> 3.</p>
@@ -140,6 +168,14 @@ Get-CimInstance -ClassName CIM_LogicalDisk |
             <b>Geldig:</b> <code>./scripts/FreeDiskSpace.ps1 c:</code> → het CIM-object met <code>DeviceID</code>, <code>DriveType</code>, <code>ProviderName</code>, <code>VolumeName</code>, <code>Size</code>, <code>FreeSpace</code><br>
             <b>Ongeldig:</b> <code>./scripts/FreeDiskSpace.ps1 cc</code> → <code>Cannot validate argument on parameter 'driveLetter'. cc is geen geldige stationsletter (bv. C:).</code><br>
         </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Alleen de nuttige properties tonen:<br>
+            <code>Get-CimInstance -ClassName CIM_LogicalDisk | Where-Object DriveType -eq 3 | Where-Object DeviceID -eq $driveLetter | Select-Object DeviceID, VolumeName, Size, FreeSpace</code><br>
+            <br>
+            Het patroon <code>\A[A-Z]:\z</code> uitgelegd: <code>\A</code> = begin, <code>[A-Z]</code> = één letter, <code>:</code> = een dubbelpunt, <code>\z</code> = einde. <code>ValidatePattern</code> is niet hoofdlettergevoelig, dus <code>c:</code> mag ook.
+        </div>
           <h3 id="2-2-freediskspacev2-ps1">2.2 <code>FreeDiskSpacev2.ps1</code></h3>
           <p>Maak versie 2. Toon één zin met stationsletter, totale grootte en vrije ruimte in bytes.</p>
           <p><img class="lab-screenshot" src="assets/free-disk-space-message.png" alt="Schijfruimte als leesbare zin" /></p>
@@ -176,6 +212,17 @@ Write-Output &quot;$driveLetter totale grootte $($disk.Size), vrije ruimte $($di
             <br>
             <b>Geldig:</b> <code>./scripts/FreeDiskSpacev2.ps1 c:</code> → <code>c: totale grootte 1999805366272, vrije ruimte 405082587136</code><br>
             <b>Ongeldig:</b> <code>./scripts/FreeDiskSpacev2.ps1 c</code> → <code>Cannot validate argument on parameter 'driveLetter'. c is geen geldige stationsletter (bv. C:).</code><br>
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Ook het percentage vrije ruimte tonen (Course, hoofdstuk 08):<br>
+            <pre><code>$procent = [math]::Round($disk.FreeSpace / $disk.Size * 100, 1)
+Write-Output "$driveLetter totale grootte $($disk.Size), vrije ruimte $($disk.FreeSpace) ($procent% vrij)"</code></pre>
+            → bv. <code>c: totale grootte 1023027441664, vrije ruimte 605271633920 (59.2% vrij)</code><br>
+            In een tekst tussen dubbele aanhalingstekens toont PowerShell een getal altijd met een punt.<br>
+            <br>
+            Met scheidingstekens per duizendtal, leesbaarder: <code>'{0:N0}' -f $disk.Size</code> → <code>1.023.027.441.664</code>
         </div>
           <h3 id="2-3-freediskspacev3-ps1">2.3 <code>FreeDiskSpacev3.ps1</code></h3>
           <p>Maak versie 3. Wanneer de gebruiker geen stationsletter meegeeft, gebruikt het script automatisch <code>C:</code>.</p>
@@ -218,6 +265,16 @@ Write-Output &quot;$driveLetter totale grootte $($disk.Size), vrije ruimte $($di
             <b>Standaardwaarde:</b> <code>./scripts/FreeDiskSpacev3.ps1</code> → <code>C: totale grootte 1999805366272, vrije ruimte 405065687040</code><br>
             <b>Zelf gekozen:</b> <code>./scripts/FreeDiskSpacev3.ps1 c:</code> → <code>c: totale grootte ...</code><br>
         </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Tonen of de gebruiker zelf een stationsletter gaf, of dat de standaardwaarde gebruikt werd (Course, hoofdstuk 09):<br>
+            <pre><code>Write-Verbose "Stationsletter meegegeven: $($PSBoundParameters.ContainsKey('driveLetter'))"</code></pre>
+            <code>./scripts/FreeDiskSpacev3.ps1 -Verbose</code> → <code>VERBOSE: Stationsletter meegegeven: False</code> (standaard <code>C:</code>)<br>
+            <code>./scripts/FreeDiskSpacev3.ps1 C: -Verbose</code> → <code>VERBOSE: Stationsletter meegegeven: True</code><br>
+            <br>
+            <code>$PSBoundParameters</code> bevat alleen de parameters die de gebruiker echt meegaf, niet de standaardwaarden.
+        </div>
           <h3 id="2-4-freediskspacev4-ps1">2.4 <code>FreeDiskSpacev4.ps1</code></h3>
           <p>Maak versie 4 met:</p>
           <ul>
@@ -254,6 +311,7 @@ Write-Output &quot;$driveLetter totale grootte $($disk.Size), vrije ruimte $($di
 [CmdletBinding()]
 param(
     [Parameter(Position = 0)]
+    [ValidateScript({ Get-CimInstance -ClassName CIM_LogicalDisk | Where-Object DriveType -eq 3 | Where-Object DeviceID -eq $_ }, ErrorMessage = &#39;De schijf {0} bestaat niet of is geen lokale schijf.&#39;)]
     [ValidatePattern(&#39;\A[A-Z]:\z&#39;, ErrorMessage = &#39;{0} is geen geldige stationsletter (bv. C:).&#39;)]
     [string]$driveLetter = &#39;C:&#39;,
 
@@ -266,24 +324,18 @@ $disk = Get-CimInstance -ClassName CIM_LogicalDisk |
     Where-Object DriveType -eq 3 |
     Where-Object DeviceID -eq $driveLetter
 
-if ($null -eq $disk) {
-    Write-Error &quot;De schijf $driveLetter bestaat niet of is geen lokale schijf.&quot;
-} else {
-    switch ($dataUnit) {
-        &#39;MB&#39; { $deler = 1MB }
-        &#39;GB&#39; { $deler = 1GB }
-        &#39;TB&#39; { $deler = 1TB }
-    }
+# Het aantal bytes per eenheid opzoeken in een hashtable
+$delers = @{ MB = 1MB; GB = 1GB; TB = 1TB }
+$deler  = $delers[$dataUnit]
 
-    $totaal = [math]::Round($disk.Size / $deler, 2)
-    $vrij   = [math]::Round($disk.FreeSpace / $deler, 2)
+$totaal = [math]::Round($disk.Size / $deler, 2)
+$vrij   = [math]::Round($disk.FreeSpace / $deler, 2)
 
-    $eenheid = $dataUnit.ToUpper()
+$eenheid = $dataUnit.ToUpper()
 
-    Write-Output &quot;$($disk.DeviceID) totale grootte $totaal$eenheid, vrije ruimte $vrij$eenheid&quot;
-}</code></pre>
-            <code>[ValidateSet('MB', 'GB', 'TB')]</code> laat alleen deze drie eenheden toe. De <code>switch</code> kiest de deler: <code>1MB</code>, <code>1GB</code> of <code>1TB</code> is het aantal bytes in die eenheid. Door <code>Size</code> en <code>FreeSpace</code> daardoor te delen, rekenen we om. <code>.ToUpper()</code> toont de eenheid altijd in hoofdletters, ook als de gebruiker <code>gb</code> typt. <code>[math]::Round(..., 2)</code> rondt af op twee decimalen.<br>
-            Vindt <code>Where-Object</code> geen schijf, dan is <code>$disk</code> leeg (<code>$null</code>): het script toont dan in de <code>if</code>-tak een fout met <code>Write-Error</code>. De berekening staat in de <code>else</code>-tak en wordt dus overgeslagen.<br>
+Write-Output &quot;$($disk.DeviceID) totale grootte $totaal$eenheid, vrije ruimte $vrij$eenheid&quot;</code></pre>
+            <code>[ValidateSet('MB', 'GB', 'TB')]</code> laat alleen deze drie eenheden toe. De hashtable <code>$delers</code> (Course, hoofdstuk 07) zoekt de deler op bij de gekozen eenheid: <code>1MB</code>, <code>1GB</code> of <code>1TB</code> is het aantal bytes in die eenheid. Door <code>Size</code> en <code>FreeSpace</code> daardoor te delen, rekenen we om. <code>.ToUpper()</code> toont de eenheid altijd in hoofdletters, ook als de gebruiker <code>gb</code> typt. <code>[math]::Round(..., 2)</code> rondt af op twee decimalen.<br>
+            Of de schijf bestaat, controleert <code>[ValidateScript()]</code> al vóór het script start: vindt <code>Where-Object</code> geen lokale schijf, dan is het resultaat leeg en geeft PowerShell de <code>ErrorMessage</code> als fout. PowerShell voert de validaties van onder naar boven uit: eerst de vorm (<code>ValidatePattern</code>), daarna het bestaan (<code>ValidateScript</code>). Zo krijgt <code>cc</code> de melding over de vorm en <code>Q:</code> de melding dat de schijf niet bestaat.<br>
             <br>
             <b>Tests:</b><br>
             <code>./scripts/FreeDiskSpacev4.ps1 -driveLetter d: -dataUnit MB</code> → <code>D: totale grootte 1907727MB, vrije ruimte 205957.34MB</code><br>
@@ -293,7 +345,18 @@ if ($null -eq $disk) {
             <code>./scripts/FreeDiskSpacev4.ps1 -driveLetter d:</code> → standaardeenheid <code>TB</code><br>
             <code>./scripts/FreeDiskSpacev4.ps1</code> → beide standaardwaarden: <code>C:</code> in <code>TB</code><br>
             <b>Ongeldige eenheid:</b> <code>./scripts/FreeDiskSpacev4.ps1 -driveLetter d: -dataUnit FF</code> → <code>Cannot validate argument on parameter 'dataUnit'. Enkel MB, GB, TB zijn als dataUnit mogelijk.</code><br>
-            <b>Schijf bestaat niet:</b> <code>./scripts/FreeDiskSpacev4.ps1 -driveLetter Q:</code> → <code>De schijf Q: bestaat niet of is geen lokale schijf.</code><br>
+            <b>Schijf bestaat niet:</b> <code>./scripts/FreeDiskSpacev4.ps1 -driveLetter Q:</code> → <code>Cannot validate argument on parameter 'driveLetter'. De schijf Q: bestaat niet of is geen lokale schijf.</code><br>
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            De eenheid ook in de help tonen, met voorbeelden voor elke test:<br>
+            <code>Get-Help ./scripts/FreeDiskSpacev4.ps1 -Examples</code><br>
+            <code>Get-Command ./scripts/FreeDiskSpacev4.ps1 -Syntax</code> → <code>[[-driveLetter] &lt;string&gt;] [[-dataUnit] &lt;string&gt;]</code>: beide optioneel én positioneel.<br>
+            <br>
+            Dankzij de posities kan het korter: <code>./scripts/FreeDiskSpacev4.ps1 D: GB</code><br>
+            <br>
+            Tab-completion: <code>ValidateSet</code> laat PowerShell de waarden kennen. Typ <code>-dataUnit </code> en druk op <b>Tab</b>: PowerShell toont <code>GB</code>, <code>MB</code> en <code>TB</code>.
         </div>
           <h2 id="3-verplichte-numerieke-parameters">3. Verplichte numerieke parameters</h2>
           <h3 id="3-1-rekenenv2-ps1">3.1 <code>RekenenV2.ps1</code></h3>
@@ -366,6 +429,26 @@ Write-Host &quot;Het product van $my_Getal1 en $my_Getal2 is $productTekst&quot;
             <code>Het product van 21.75 en 103.25 is 2.245,69</code><br>
             <b>Ongeldig:</b> <code>./scripts/RekenenV2.ps1 abc 1</code> → <code>Cannot process argument transformation on parameter 'my_Getal1'. Cannot convert value "abc" to type "System.Double".</code><br>
             <b>Weggelaten:</b> <code>./scripts/RekenenV2.ps1</code> → PowerShell vraagt zelf om <code>my_Getal1</code> en <code>my_Getal2</code> (verplichte parameters).<br>
+        </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Met een extra deling, waarbij <code>ValidateScript</code> een deling door 0 voorkomt (Course, hoofdstuk 09):<br>
+            <pre><code>[CmdletBinding()]
+param(
+    [Parameter(Mandatory, Position = 0)]
+    [double]$my_Getal1,
+
+    [Parameter(Mandatory, Position = 1)]
+    [ValidateScript({ $_ -ne 0 }, ErrorMessage = 'Het tweede getal mag geen 0 zijn (deling).')]
+    [double]$my_Getal2
+)
+
+Write-Host ('De som van {0} en {1} is {2:N2}'      -f $my_Getal1, $my_Getal2, ($my_Getal1 + $my_Getal2))
+Write-Host ('Het product van {0} en {1} is {2:N2}' -f $my_Getal1, $my_Getal2, ($my_Getal1 * $my_Getal2))
+Write-Host ('Het quotiënt van {0} en {1} is {2:N2}' -f $my_Getal1, $my_Getal2, ($my_Getal1 / $my_Getal2))</code></pre>
+            <code>./scripts/RekenenV2.ps1 21.75 0</code> → <code>Cannot validate argument on parameter 'my_Getal2'. Het tweede getal mag geen 0 zijn (deling).</code><br>
+            Het type <code>[double]</code> zet <code>21.75</code> zelf om. Een getal met een komma (<code>21,75</code>) ziet PowerShell als een lijst van twee getallen en geeft een fout.
         </div>
           <h2 id="4-verplichte-back-upparameters">4. Verplichte back-upparameters</h2>
           <blockquote><p><strong>LET OP:</strong> Dit script leest en comprimeert bestanden. Test alleen met <code>C:\pxl_data</code> en <code>C:\backups</code> op een labsysteem. Controleer de ZIP en verwijder de testdata na beoordeling.</p></blockquote>
@@ -441,6 +524,35 @@ Write-Host &quot;Backup Finished - $zipPad&quot; -ForegroundColor Green</code></
             <br>
             <b>Opruimen:</b> <code>Remove-Item -Path C:\pxl_data, C:\backups -Recurse</code><br>
         </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Met <code>-WhatIf</code>-ondersteuning en een controle op de back-upnaam (Course, hoofdstuk 09):<br>
+            <pre><code>[CmdletBinding(SupportsShouldProcess = $true)]
+param(
+    [Parameter(Mandatory)]
+    [ValidateScript({ Test-Path -Path $_ -PathType Container }, ErrorMessage = '{0} is geen bestaande map.')]
+    [string]$source_Folder,
+
+    [Parameter(Mandatory)]
+    [ValidateScript({ Test-Path -Path $_ -PathType Container }, ErrorMessage = '{0} is geen bestaande map.')]
+    [string]$destination_Folder,
+
+    [Parameter(Mandatory)]
+    [ValidatePattern('\A[A-Za-z0-9_-]+\z', ErrorMessage = '{0} mag alleen letters, cijfers, _ en - bevatten.')]
+    [string]$backup_Name
+)
+
+$zipPad = Join-Path -Path $destination_Folder -ChildPath ('{0}_{1}.zip' -f (Get-Date -Format 'yyyyMMddHHmmss'), $backup_Name)
+
+if ($PSCmdlet.ShouldProcess($zipPad, 'Back-up maken')) {
+    Compress-Archive -Path $source_Folder -DestinationPath $zipPad
+    Write-Host "Backup Finished - $zipPad" -ForegroundColor Green
+}</code></pre>
+            <code>./scripts/MakeBackupV2.ps1 -source_Folder C:\pxl_data -destination_Folder C:\backups -backup_Name pxldata -WhatIf</code><br>
+            → <code>What if: Performing the operation "Back-up maken" on target "C:\backups\..._pxldata.zip".</code> Er wordt niets gemaakt.<br>
+            De <code>ValidatePattern</code> weigert een naam met tekens die niet in een bestandsnaam passen, bv. <code>my/data</code>.
+        </div>
           <h2 id="5-parameters-voor-een-lokale-gebruiker">5. Parameters voor een lokale gebruiker</h2>
           <blockquote><p><strong>LET OP:</strong> Deze extra oefening vereist administratorrechten en maakt een lokale Windows-gebruiker. Gebruik alleen een labsysteem, voeg de gebruiker niet toe aan Administrators, controleer met <code>Get-LocalUser</code> en verwijder de testgebruiker nadien met <code>Remove-LocalUser</code>.</p></blockquote>
           <h3 id="5-1-adduserparam-ps1">5.1 <code>AddUserParam.ps1</code></h3>
@@ -505,6 +617,26 @@ catch {
             <code>Get-LocalUser -Name test</code><br>
             <code>Remove-LocalUser -Name test</code><br>
         </div>
+
+        <div style="background:#eef7ff; border-left:5px solid #2d7ff9; border-radius:10px; padding:1rem 1.25rem; margin:0.75rem 0 1rem; color:#173a5c; box-shadow:0 4px 12px rgba(45,127,249,0.12);">
+            <strong>Geavanceerd Antwoord:</strong><br><br>
+            Strengere controle van de gebruikersnaam en <code>-WhatIf</code>-ondersteuning (Course, hoofdstuk 09):<br>
+            <pre><code>[CmdletBinding(SupportsShouldProcess = $true)]
+param(
+    [Parameter(Mandatory)]
+    [ValidatePattern('\A[A-Za-z0-9._-]{1,20}\z', ErrorMessage = '{0}: gebruik 1 tot 20 letters, cijfers, punt, _ of -.')]
+    [string]$userName,
+
+    [ValidateNotNullOrEmpty()]
+    [string]$fullName = $userName
+)</code></pre>
+            <code>{1,20}</code>: een lokale Windows-gebruikersnaam is maximaal 20 tekens lang.<br>
+            <code>$fullName = $userName</code>: zonder volledige naam wordt de gebruikersnaam gebruikt.<br>
+            <br>
+            Met <code>SupportsShouldProcess</code> werkt <code>-WhatIf</code> ook voor <code>New-LocalUser</code> in het script:<br>
+            <code>./scripts/AddUserParam.ps1 -userName test -WhatIf</code> → <code>What if: Performing the operation "Create new local user" on target "test".</code> Er wordt geen gebruiker gemaakt.<br>
+            Let op: de melding <code>local user test created</code> verschijnt toch, want <code>Write-Host</code> houdt geen rekening met <code>-WhatIf</code>. Controleer daarom met <code>Get-LocalUser -Name test</code>: die geeft een fout, want de gebruiker bestaat niet.
+        </div>
           <h2 id="eindcontrole">Eindcontrole</h2>
           <ul>
           <li><span aria-hidden="true">&#9744;</span> Alle negen scripts staan onder <code>scripts/</code> met exact de gevraagde namen.</li>
@@ -518,7 +650,7 @@ catch {
           </ul></article>
         <footer class="docs-footer">Uitgebreide oefening 06 <span aria-hidden="true">·</span> PowerShell</footer>
       </main></div>
-    <script src="../assets/docs.js" defer></script>
+    <script src="../assets/docs.js?v=2" defer></script>
     <script src="../assets/search.js" defer></script>
   </body>
 </html>
